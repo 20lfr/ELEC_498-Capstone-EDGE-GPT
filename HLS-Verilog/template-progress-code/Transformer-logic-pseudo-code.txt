@@ -1,0 +1,97 @@
+# Buffers (conceptual)
+#   BRAM: X, Q_h, K_h, V_h, Scores S_h, Probs P_h, O_h, O_concat, temp LN
+#   URAM: tiles of Wq_h/Wk_h/Wv_h, Wo, W1/W2, KV cache slices (K_past_h, V_past_h) via ping/pong
+#   DDR : full model weights, full KV cache per (layer, head), logits (optional)
+
+for layer in 0 .. N_layers-1:                                     # —— PER LAYER ——
+    # (PS already streamed X for first layer; otherwise X is BRAM output of previous layer)
+
+    for head in 0 .. N_heads-1:                                   # —— PER HEAD ——
+        # -------- QKV PROJECTION (per-tile over weights) --------
+        for tile in 0 .. N_tiles_qkv-1:                           # —— PER TILE ——
+            DMA_RD( DDR.Wq[layer][head][tile]  → URAM.Wq_tile[pong] )
+            DMA_RD( DDR.Wk[layer][head][tile]  → URAM.Wk_tile[pong] )
+            DMA_RD( DDR.Wv[layer][head][tile]  → URAM.Wv_tile[pong] )
+            wait_ready(URAM.Wq_tile, URAM.Wk_tile, URAM.Wv_tile)
+
+            # X is resident in BRAM; feed MAC with BRAM←→URAM tiles
+            MAC_GEMM( BRAM.X, URAM.Wq_tile[pong] → BRAM.Q_h, accum=int16 )
+            MAC_GEMM( BRAM.X, URAM.Wk_tile[pong] → BRAM.K_h, accum=int16 )
+            MAC_GEMM( BRAM.X, URAM.Wv_tile[pong] → BRAM.V_h, accum=int16 )
+            REQUANT( BRAM.Q_h/K_h/V_h int16 → INT8 in-place )
+            swap(ping,pong)
+
+        # ========== ATTENTION STAGE (separated) ==========
+        # A) Scores: S_h = Q_h · K_h^T   (stream past K from DDR)
+        BRAM.S_h ← 0
+        for ctx_tile in 0 .. N_ctx_tiles-1:
+            DMA_RD( DDR.K_cache[layer][head][ctx_tile] → URAM.K_tile[pong] )
+            wait_ready(URAM.K_tile[pong])
+            MAC_GEMM( BRAM.Q_h, URAM.K_tile[pong]^T → BRAM.S_h[ctx_tile], accum=int16 )
+            SCALE_CLAMP( BRAM.S_h[ctx_tile], factor = 1/sqrt(d_head) )  # fixed-point
+            swap(ping,pong)
+
+        # B) Softmax over S_h (on-chip only)
+        BRAM.P_h ← SOFTMAX_FIXEDPOINT( BRAM.S_h )  # max-sub, exp-LUT/PWL, sum, reciprocal
+
+        # C) Value aggregation: O_h = P_h · V_h   (stream past V from DDR)
+        BRAM.O_h ← 0
+        for ctx_tile in 0 .. N_ctx_tiles-1:
+            DMA_RD( DDR.V_cache[layer][head][ctx_tile] → URAM.V_tile[pong] )
+            wait_ready(URAM.V_tile[pong])
+            MAC_GEMM( BRAM.P_h[ctx_tile], URAM.V_tile[pong] → BRAM.O_h, accum=int16 )
+            swap(ping,pong)
+        
+
+        REQUANT( BRAM.O_h int16 → INT8 in-place )
+
+        # D) KV write-back for this token (append current K_h, V_h)
+        DMA_WR( BRAM.K_h → DDR.K_cache[layer][head].append(token_idx) )
+        DMA_WR( BRAM.V_h → DDR.V_cache[layer][head].append(token_idx) )
+
+    # -------- Head concatenation + Output projection (Wo) --------
+    BRAM.O_concat ← CONCAT_HEADS( BRAM.O_h[0..N_heads-1] )         # on-chip pack/reformat
+    for tile in 0 .. N_tiles_wo-1:
+        DMA_RD( DDR.Wo[layer][tile] → URAM.Wo_tile[pong] )
+        wait_ready(URAM.Wo_tile[pong])
+        MAC_GEMM( BRAM.O_concat, URAM.Wo_tile[pong] → BRAM.Oprime, accum=int16 )
+        swap(ping,pong)
+    REQUANT( BRAM.Oprime int16 → INT8 in-place )
+
+    # -------- Residual + LayerNorm + Requant (post-attn boundary) --------
+    BRAM.Y1    ← RESID_ADD( BRAM.X, BRAM.Oprime )                   # elementwise in BRAM
+    BRAM.Y1_ln ← LAYERNORM_FIXED( BRAM.Y1, BRAM.gamma, BRAM.beta )  # int16 internal
+    BRAM.X_att ← REQUANT( BRAM.Y1_ln int16 → INT8 )                 # becomes FFN input
+
+    # ================== FEED-FORWARD (W1, W2) ==================
+    for tile in 0 .. N_tiles_w1-1:
+        DMA_RD( DDR.W1[layer][tile] → URAM.W1_tile[pong] )
+        wait_ready(URAM.W1_tile[pong])
+        MAC_GEMM( BRAM.X_att, URAM.W1_tile[pong] → BRAM.U, accum=int16 )
+        swap(ping,pong)
+    BRAM.U_act ← ACT_LUT_PWL( BRAM.U )                              # GELU/RELU approx
+
+    for tile in 0 .. N_tiles_w2-1:
+        DMA_RD( DDR.W2[layer][tile] → URAM.W2_tile[pong] )
+        wait_ready(URAM.W2_tile[pong])
+        MAC_GEMM( BRAM.U_act, URAM.W2_tile[pong] → BRAM.F, accum=int16 )
+        swap(ping,pong)
+
+    # -------- Residual + LayerNorm + Requant (post-FFN boundary) --------
+    BRAM.Y2    ← RESID_ADD( BRAM.X_att, BRAM.F )
+    BRAM.Y2_ln ← LAYERNORM_FIXED( BRAM.Y2, BRAM.gamma2, BRAM.beta2 )
+    BRAM.X     ← REQUANT( BRAM.Y2_ln int16 → INT8 )                 # next layer's X
+
+# (Optional) At final layer, instead of setting X for next layer:
+#   project logits and DMA/stream them out to PS over AXIS, or emit token + telemetry.
+
+
+
+DEQUANT(BRAM.X_final INT8 → int16/acc_width)             # if MAC expects wider input
+for tile in 0 .. N_tiles_logits-1:
+    DMA_RD( DDR.W_logit[tile] → URAM.Wlogit_tile[pong] )
+    wait_ready(URAM.Wlogit_tile[pong])
+    MAC_GEMM( BRAM.X_final_wide, URAM.Wlogit_tile[pong] → BRAM.logits_tile, accum=int16 )
+    swap(ping,pong)
+AXIS_STREAM_OUT( BRAM.logits_tiles → PS )
+IRQ.raise(done_token)
