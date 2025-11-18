@@ -35,10 +35,11 @@ enum SchedState {
 
 enum class HeadPhase : uint8_t {
     QKV = 0,
+    REQUANT1,
     ATT_SCORES,
     ATT_SOFTMAX,
     ATT_VALUE,
-    REQUANT,
+    REQUANT2,
     KV_STORE,
     DONE
 };
@@ -159,26 +160,56 @@ static bool start_head_compute(
 // Scheduler FSM
 // ------------------------------------------------------------
 void scheduler_hls(
-    bool start,
-    bool axis_in_valid,
-    bool axis_in_last,
-    bool wl_ready,
-    bool dma_done,
-    bool compute_ready,
-    bool compute_done,
-    bool stream_ready,
-    bool stream_done,
-    bool &axis_in_ready,
-    bool &wl_start,
-    int  &wl_addr_sel,
-    int  &wl_layer,
-    int  &wl_head,
-    int  &wl_tile,
-    bool &compute_start,
-    int  &compute_op,
-    bool &stream_start,
-    bool &done
+
+    // ------------------------------------------------------------
+    // AXI4-Lite CONTROL INTERFACE (PS → PL)
+    // ------------------------------------------------------------
+    bool start,              // [INPUT]  From AXI-Lite: "start inference" bit
+
+
+    // ------------------------------------------------------------
+    // AXI4-STREAM INPUT (INGRESS: PS → PL)
+    // ------------------------------------------------------------
+    bool axis_in_valid,      // [INPUT]  s_axis_in_tvalid
+    bool axis_in_last,       // [INPUT]  s_axis_in_tlast
+    bool &axis_in_ready,     // [OUTPUT] s_axis_in_tready
+
+
+    // ------------------------------------------------------------
+    // WEIGHT LOADER (AXI4-FULL MASTER via DMA)
+    // ------------------------------------------------------------
+    bool wl_ready,           // [INPUT]  Weight loader ready for a new request
+    bool &wl_start,          // [OUTPUT] Start weight load DMA
+    int  &wl_addr_sel,       // [OUTPUT] Select which matrix/tile (QKV, K, V, WO, W1...)
+    int  &wl_layer,          // [OUTPUT] Layer index for DMA
+    int  &wl_head,           // [OUTPUT] Head index for DMA (or -1 for non-head ops)
+    int  &wl_tile,           // [OUTPUT] Tile index for large matrices
+    bool dma_done,           // [INPUT]  DMA transfer completed (single-cycle pulse)
+
+
+    // ------------------------------------------------------------
+    // COMPUTE CORE (MAC ARRAY + PIPELINE)
+    // ------------------------------------------------------------
+    bool compute_ready,      // [INPUT]  Compute engine idle / ready for next op
+    bool compute_done,       // [INPUT]  Compute operation finished (one-shot)
+    bool &compute_start,     // [OUTPUT] Trigger compute engine
+    int  &compute_op,        // [OUTPUT] What operation to run (QKV, AttnScore, Softmax...)
+
+
+    // ------------------------------------------------------------
+    // AXI4-STREAM OUTPUT (EGRESS: PL → PS)
+    // ------------------------------------------------------------
+    bool stream_ready,       // [INPUT]  Stream-out engine is idle & ready to start
+    bool &stream_start,      // [OUTPUT] Tell stream-out module to begin streaming
+    bool stream_done,        // [INPUT]  Stream-out finished entire sequence
+
+
+    // ------------------------------------------------------------
+    // GLOBAL COMPLETION FLAG
+    // ------------------------------------------------------------
+    bool &done               // [OUTPUT] Inference pipeline fully complete
 ) {
+
 #pragma HLS PIPELINE II=1
     static SchedState st         = S_IDLE;
     static int        layer_idx  = 0;
@@ -230,6 +261,7 @@ void scheduler_hls(
 
     switch (st) {
         case S_IDLE:
+            // If in IDLING STATE, and start signal comes from AXI-lite (ie shared control mem address), then start inference
             if (start) {
                 st          = S_START;
                 layer_idx   = 0;
@@ -503,9 +535,9 @@ static bool run_head_group(
     int  &compute_op
 ) {
 #pragma HLS INLINE
-    static HeadResources res;
+    static HeadResources res; // Manage resources for entire Head Group
     if (reset_resources) {
-        res = HeadResources{};
+        res = HeadResources{}; // Re-init res if reset is asserted
     }
 
     if (dma_done && res.dma_busy) {
@@ -585,6 +617,7 @@ static void drive_head_phase(
 #pragma HLS INLINE
     switch (ctx.phase) {
         case HeadPhase::QKV:
+            //FETCH DATA part
             if (!ctx.wait_dma) {
                 if (start_head_dma(res, head_idx, layer_idx, DMASEL_QKV,
                                    wl_ready, wl_start, wl_addr_sel,
@@ -595,6 +628,8 @@ static void drive_head_phase(
                 ctx.dma_done_flag = false;
                 ctx.wait_comp     = true;
             }
+
+            //COMPUTE part
             if (ctx.wait_comp && !ctx.comp_done_flag) {
                 if (start_head_compute(res, head_idx, CMP_QKV,
                                        compute_ready, compute_start, compute_op)) {
@@ -639,6 +674,18 @@ static void drive_head_phase(
             } else if (ctx.comp_done_flag) {
                 ctx.comp_done_flag = false;
                 ctx.wait_comp      = false;
+                ctx.phase          = HeadPhase::REQUANT1;
+            }
+            break;
+        case HeadPhase::REQUANT1:
+            if (!ctx.wait_comp) {
+                if (start_head_compute(res, head_idx, CMP_HEAD_REQUANT,
+                                       compute_ready, compute_start, compute_op)) {
+                    ctx.wait_comp = true;
+                }
+            } else if (ctx.comp_done_flag) {
+                ctx.comp_done_flag = false;
+                ctx.wait_comp      = false;
                 ctx.phase          = HeadPhase::ATT_VALUE;
             }
             break;
@@ -662,11 +709,11 @@ static void drive_head_phase(
             } else if (ctx.comp_done_flag) {
                 ctx.comp_done_flag = false;
                 ctx.wait_comp      = false;
-                ctx.phase          = HeadPhase::REQUANT;
+                ctx.phase          = HeadPhase::REQUANT2;
             }
             break;
 
-        case HeadPhase::REQUANT:
+        case HeadPhase::REQUANT2:
             if (!ctx.wait_comp) {
                 if (start_head_compute(res, head_idx, CMP_HEAD_REQUANT,
                                        compute_ready, compute_start, compute_op)) {
@@ -725,7 +772,7 @@ static bool start_head_dma(
 ) {
 #pragma HLS INLINE
     if (res.dma_busy || !wl_ready || wl_start)
-        return false;
+        return false; // need to keep waiting
     wl_start    = 1;
     wl_addr_sel = sel;
     wl_layer    = layer_idx;
