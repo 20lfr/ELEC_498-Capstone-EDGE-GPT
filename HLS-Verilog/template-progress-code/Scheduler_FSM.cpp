@@ -55,7 +55,6 @@ void scheduler_hls(
     // ------------------------------------------------------------
     bool &done               // [OUTPUT] Inference pipeline fully complete
 ) {
-
 #pragma HLS PIPELINE II=1
     static SchedState st         = S_IDLE;
     static int        layer_idx  = 0;
@@ -135,6 +134,7 @@ void scheduler_hls(
             break;
 
         case S_ATTENTION_HEADS:
+            // By running "run_head_group" we are initializing each head group, until i*head_group == NUM_HEADS
             if (run_head_group(
                     layer_idx,
                     head_group,
@@ -381,7 +381,7 @@ bool run_head_group(
     int  &compute_op
 ) {
 #pragma HLS INLINE
-    static HeadResources res; // Manage resources for entire Head Group
+    static HeadResources res; // Manage resources for entire Head Group (managing shared resource signals)
     if (reset_resources) {
         res = HeadResources{}; // Re-init res if reset is asserted
     }
@@ -399,10 +399,10 @@ bool run_head_group(
         res.comp_busy      = false;
     }
 
-    const int head_base = group_idx * HEADS_PARALLEL;
-    bool group_finished = true;
+    const int head_base = group_idx * HEADS_PARALLEL;   // Calculate the Head "Group" we are currently in
+    bool group_finished = true;                         // init the 
 
-    for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
+    for (int lane = 0; lane < HEADS_PARALLEL; ++lane) { // This will create HEADS_PARALLEL number of seperate headed computation runs
 #pragma HLS UNROLL
         const int head_idx = head_base + lane;
         if (head_idx >= NUM_HEADS)
@@ -446,19 +446,19 @@ void init_head_ctx(HeadCtx &ctx, int layer_idx) {
 }
 
 void drive_head_phase(
-    HeadCtx &ctx,
-    int       head_idx,
-    int       layer_idx,
-    bool      wl_ready,
-    bool      compute_ready,
-    HeadResources &res,
-    bool &wl_start,
-    int  &wl_addr_sel,
-    int  &wl_layer,
-    int  &wl_head,
-    int  &wl_tile,
-    bool &compute_start,
-    int  &compute_op
+    HeadCtx         &ctx,
+    int             head_idx,
+    int             layer_idx,
+    bool            wl_ready,
+    bool            compute_ready,
+    HeadResources   &res,
+    bool            &wl_start,
+    int             &wl_addr_sel,
+    int             &wl_layer,
+    int             &wl_head,
+    int             &wl_tile,
+    bool            &compute_start,
+    int             &compute_op
 ) {
 #pragma HLS INLINE
     switch (ctx.phase) {
@@ -604,6 +604,9 @@ void drive_head_phase(
     }
 }
 
+
+
+
 bool start_head_dma(
     HeadResources &res,
     int   head_idx,
@@ -629,6 +632,9 @@ bool start_head_dma(
     res.dma_tag   = sel;
     return true;
 }
+
+
+
 
 bool start_head_compute(
     HeadResources &res,
