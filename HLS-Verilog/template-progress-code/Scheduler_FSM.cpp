@@ -12,7 +12,7 @@ void scheduler_hls(
     // ------------------------------------------------------------
     bool cntrl_start,               // [INPUT]  From AXI-Lite: "start inference" bit
     bool cntrl_reset_n,             // [INPUT]  Active-low synchronous reset
-    uint32_t  &cntrl_layer_idx,          // [OUTPUT] Current layer index mirrored into control mem
+    uint32_t  &cntrl_layer_idx,     // [OUTPUT] Current layer index mirrored into control mem
 
     // ------------------------------------------------------------
     // AXI4-STREAM INPUT (INGRESS: PS → PL)

@@ -28,35 +28,32 @@ enum class ControlReg : uint32_t {
     SCALE_V        = 0x4C,
     ZERO_POINT_V   = 0x50,
     CONTROL        = 0x54,
-    STATUS         = 0x58,
-    IRQ_ENABLE     = 0x5C,
-    IRQ_STATUS     = 0x60,
-    LAYER_INDEX    = 0x64
+    IRQ_ENABLE     = 0x58,
+    IRQ_STATUS     = 0x5C,
+    LAYER_INDEX    = 0x60
 };
 
 // CONTROL register bit definitions
 constexpr uint32_t CTRL_START_BIT   = 1u << 0;
 constexpr uint32_t CTRL_RESETN_BIT  = 1u << 1;
 
-// STATUS register bit definitions
-constexpr uint32_t STATUS_DONE_BIT  = 1u << 0;
-constexpr uint32_t STATUS_ERROR_BIT = 1u << 1;
-
-// IRQ register bit definitions (shared between ENABLE/STATUS)
-constexpr uint32_t IRQ_INFER_DONE_BIT   = 1u << 0;
-constexpr uint32_t IRQ_DMA_DONE_BIT     = 1u << 1;
-constexpr uint32_t IRQ_ERROR_BIT        = 1u << 2;
-constexpr uint32_t IRQ_CLEAR_BIT        = 1u << 3;
+// IRQ register bit definitions (dma_done | inference_done | error | clear)
+constexpr uint32_t IRQ_DMA_DONE_BIT   = 1u << 3;
+constexpr uint32_t IRQ_INFER_DONE_BIT = 1u << 2;
+constexpr uint32_t IRQ_ERROR_BIT      = 1u << 1;
+constexpr uint32_t IRQ_CLEAR_BIT      = 1u << 0;
 
 // Structure that mirrors the AXI-lite accessible registers.
 struct ControlMemSpace {
-    uint32_t dma_len_tile   = 0;
+    uint32_t dma_len_tile   = 0; // NOTE: assumes all tiles are the same dimensions
     uint32_t num_layers     = 0;
     uint32_t num_heads      = 0;
-    uint32_t tile_size      = 0;
+    uint32_t tile_size      = 0; // NOTE: assumes all tiles are the same dimensions
+
     uint32_t layer_stride   = 0;
     uint32_t head_stride    = 0;
     uint32_t tile_stride    = 0;
+
     uint32_t wq_base_addr   = 0;
     uint32_t wk_base_addr   = 0;
     uint32_t wv_base_addr   = 0;
@@ -65,17 +62,18 @@ struct ControlMemSpace {
     uint32_t w2_base_addr   = 0;
     uint32_t k_cache_addr   = 0;
     uint32_t v_cache_addr   = 0;
+
     uint32_t scale_q        = 0;
     uint32_t zero_point_q   = 0;
     uint32_t scale_k        = 0;
     uint32_t zero_point_k   = 0;
     uint32_t scale_v        = 0;
     uint32_t zero_point_v   = 0;
-    uint32_t control        = CTRL_RESETN_BIT; // default reset released
-    uint32_t status         = 0;
-    uint32_t irq_enable     = 0;
-    uint32_t irq_status     = 0;
+                                                // LSB is furthest to the right
+    uint32_t control        = CTRL_RESETN_BIT;  // cntrl_reset | cntrl_start 
     uint32_t layer_index    = 0;
+    uint32_t irq_enable     = 14;               // dma_done | inference_done  | error | clear <-- bit mask default is: 14 == 1110
+    uint32_t irq_status     = 0;                // dma_done | inference_done  | error | clear
 };
 
 // ------------------------------------------------------------
@@ -90,11 +88,6 @@ inline bool ctrl_start(const ControlMemSpace &mem) {
 inline bool ctrl_reset_n(const ControlMemSpace &mem) {
     return (mem.control & CTRL_RESETN_BIT) != 0;
 }
-
 inline void ctrl_set_layer_index(ControlMemSpace &mem, uint32_t idx) {
     mem.layer_index = idx;
 }
-
-void ctrl_set_status(ControlMemSpace &mem, uint32_t status_mask, bool value);
-void ctrl_raise_irq(ControlMemSpace &mem, uint32_t irq_mask);
-void ctrl_clear_irq(ControlMemSpace &mem, uint32_t irq_mask);

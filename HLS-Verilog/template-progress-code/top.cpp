@@ -1,33 +1,39 @@
 #include "Scheduler_FSM.hpp"
 #include "ControlMemInterface.hpp"
+#include "IRQ_wizard.hpp"
 
 // Temporary top-level wrapper that calls only the mem interface and scheduler (so no inputs rn)
 void transformer_top() {
 #pragma HLS INLINE off
-    static ControlMemSpace ctrl_mem; // define Memory Space
+
+    // Control Memory Address Space~~~~~~~~
+    static ControlMemSpace ctrl_mem; 
 
     // Placeholder wires for scheduler inputs/outputs.
-    bool axis_in_valid  = false;
-    bool axis_in_last   = false;
-    bool axis_in_ready  = false;
-    bool wl_ready       = false;
-    bool wl_start       = false;
-    int  wl_addr_sel    = 0;
-    int  wl_layer       = 0;
-    int  wl_head        = 0;
-    int  wl_tile        = 0;
-    bool dma_done       = false;
-    bool compute_ready  = false;
-    bool compute_done   = false;
-    bool compute_start  = false;
-    int  compute_op     = CMP_NONE;
-    bool stream_ready   = false;
-    bool stream_start   = false;
-    bool stream_done    = false;
-    bool done           = false;
+    bool axis_in_valid  = false;    // AXI-Stream ingress: TVALID
+    bool axis_in_last   = false;    // AXI-Stream ingress: TLAST
+    bool axis_in_ready  = false;    // AXI-Stream ingress: TREADY
+    bool wl_ready       = false;    // Weight loader ready flag
+    bool wl_start       = false;    // Scheduler-driven DMA start
+    int  wl_addr_sel    = 0;        // Matrix selector for DMA
+    int  wl_layer       = 0;        // Layer index for DMA
+    int  wl_head        = 0;        // Head index for DMA (-1 for shared ops)
+    int  wl_tile        = 0;        // Tile index for DMA
+    bool dma_done       = false;    // AXI-FULL interface completion pulse
+    bool compute_ready  = false;    // Compute core idle indicator
+    bool compute_done   = false;    // Compute completion pulse
+    bool compute_start  = false;    // Scheduler trigger for compute core
+    int  compute_op     = CMP_NONE; // Which compute op to run
+    bool stream_ready   = false;    // AXI-Stream egress ready flag
+    bool stream_start   = false;    // Scheduler trigger for stream-out
+    bool stream_done    = false;    // AXI-Stream egress completion pulse
+    bool done           = false;    // Scheduler completion output
+    bool error          = false;    // Scheduler error flag
 
-    // Invoke the scheduler with the control register bits. All other signals are
-    // currently stubbed and will be replaced with real interfaces in top.cpp later.
+    
+
+
+    // SCHEDULER FSM~~~~~~~~~~~~~~~~~~~~~~~
     scheduler_hls(
         ctrl_start(ctrl_mem),
         ctrl_reset_n(ctrl_mem),
@@ -41,7 +47,7 @@ void transformer_top() {
         wl_layer,
         wl_head,
         wl_tile,
-        dma_done,
+        dma_done, // <-- needs to come from the AXI-full interface
         compute_ready,
         compute_done,
         compute_start,
@@ -50,6 +56,10 @@ void transformer_top() {
         stream_start,
         stream_done,
         done);
+    
 
-    ctrl_set_status(ctrl_mem, STATUS_DONE_BIT, done);
+    
+    // IRQ WIZARD~~~~~~~~~~~~~~~~~~~~~~~~~~
+    bool irq_ps = false;
+    irq_wizard(ctrl_mem, dma_done, done, error, irq_ps);
 }
