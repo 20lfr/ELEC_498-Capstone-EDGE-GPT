@@ -1,4 +1,4 @@
-#include "scheduler_fsm.hpp"
+#include "Scheduler_FSM.hpp"
 
 HeadCtx g_head_ctx[NUM_HEADS];
 
@@ -6,6 +6,11 @@ HeadCtx g_head_ctx[NUM_HEADS];
 // Scheduler FSM
 // ------------------------------------------------------------
 void scheduler_hls(
+
+    // ------------------------------------------------------------
+    // GLOBAL RESET
+    // ------------------------------------------------------------
+    bool reset_n,            // [INPUT]  Active-low synchronous reset
 
     // ------------------------------------------------------------
     // AXI4-Lite CONTROL INTERFACE (PS → PL)
@@ -56,41 +61,81 @@ void scheduler_hls(
     bool &done               // [OUTPUT] Inference pipeline fully complete
 ) {
 #pragma HLS PIPELINE II=1
-    static SchedState st         = S_IDLE;
-    static int        layer_idx  = 0;
-    static int        head_group = 0;
-    static bool       head_reset = true;
-    static bool       embed_wait = false;
+    static SchedState st;
+    static int        layer_idx;
+    static int        head_group;
+    static bool       head_reset;
+    static bool       embed_wait;
 
     // Output projection context
-    static int  wo_tile      = 0;
-    static bool wo_dma_busy  = false;
-    static bool wo_comp_busy = false;
+    static int  wo_tile;
+    static bool wo_dma_busy;
+    static bool wo_comp_busy;
 
     // Residual/LN waits
-    static bool resid0_wait = false;
-    static bool ln0_wait    = false;
-    static bool resid1_wait = false;
-    static bool ln1_wait    = false;
+    static bool resid0_wait;
+    static bool ln0_wait;
+    static bool resid1_wait;
+    static bool ln1_wait;
 
     // FFN context
     enum class FfnPhase : uint8_t { W1 = 0, ACT, W2, DONE };
-    static FfnPhase ffn_phase = FfnPhase::W1;
-    static int      ffn_tile  = 0;
-    static bool     ffn_dma_busy  = false;
-    static bool     ffn_comp_busy = false;
-    static bool     ffn_act_busy  = false;
+    static FfnPhase ffn_phase;
+    static int      ffn_tile;
+    static bool     ffn_dma_busy;
+    static bool     ffn_comp_busy;
+    static bool     ffn_act_busy;
 
     // Stream context
     enum class StreamPhase : uint8_t { DEQUANT = 0, LOGITS, STREAM, COMPLETE };
-    static StreamPhase stream_phase = StreamPhase::DEQUANT;
-    static int         logit_tile   = 0;
-    static bool        logit_dma_busy  = false;
-    static bool        logit_comp_busy = false;
-    static bool        dequant_busy    = false;
-    static bool        axis_stream_busy= false;
+    static StreamPhase stream_phase;
+    static int         logit_tile;
+    static bool        logit_dma_busy;
+    static bool        logit_comp_busy;
+    static bool        dequant_busy;
+    static bool        axis_stream_busy;
 
-    static bool concat_busy = false;
+    static bool concat_busy;
+
+    const bool reset = !reset_n;
+
+    if (reset) {
+        st         = S_IDLE;
+        layer_idx  = 0;
+        head_group = 0;
+        head_reset = true;
+        embed_wait = false;
+
+        wo_tile      = 0;
+        wo_dma_busy  = false;
+        wo_comp_busy = false;
+
+        resid0_wait = false;
+        ln0_wait    = false;
+        resid1_wait = false;
+        ln1_wait    = false;
+
+        ffn_phase     = FfnPhase::W1;
+        ffn_tile      = 0;
+        ffn_dma_busy  = false;
+        ffn_comp_busy = false;
+        ffn_act_busy  = false;
+
+        stream_phase     = StreamPhase::DEQUANT;
+        logit_tile       = 0;
+        logit_dma_busy   = false;
+        logit_comp_busy  = false;
+        dequant_busy     = false;
+        axis_stream_busy = false;
+
+        concat_busy = false;
+
+    
+        for (int i = 0; i < NUM_HEADS; ++i) {
+    #pragma HLS UNROLL
+            init_head_ctx(g_head_ctx[i], -1);
+        }
+    }
 
     // Default outputs
     axis_in_ready = 0;
@@ -103,6 +148,9 @@ void scheduler_hls(
     compute_op    = CMP_NONE;
     stream_start  = 0;
     done          = 0;
+
+    if (reset)
+        return;
 
     switch (st) {
         case S_IDLE:
@@ -229,17 +277,21 @@ void scheduler_hls(
                 break;
             }
             if (ffn_phase == FfnPhase::W1) {
+                if (ffn_dma_busy && dma_done) {
+                    ffn_dma_busy  = false;
+                    ffn_comp_busy = true;
+                }
                 if (ffn_tile >= NUM_W1_TILES) {
-                    ffn_phase = FfnPhase::ACT;
+                    if (!ffn_dma_busy && !ffn_comp_busy) {
+                        ffn_phase    = FfnPhase::ACT;
+                        ffn_act_busy = false;
+                    }
                 } else if (!ffn_dma_busy && wl_ready) {
                     wl_start     = 1;
                     wl_addr_sel  = DMASEL_W1;
                     wl_head      = -1;
                     wl_tile      = ffn_tile;
                     ffn_dma_busy = true;
-                } else if (ffn_dma_busy && dma_done) {
-                    ffn_dma_busy  = false;
-                    ffn_comp_busy = true;
                 }
                 if (ffn_comp_busy && compute_ready) {
                     compute_start  = 1;
@@ -258,17 +310,20 @@ void scheduler_hls(
                     ffn_tile     = 0;
                 }
             } else if (ffn_phase == FfnPhase::W2) {
+                if (ffn_dma_busy && dma_done) {
+                    ffn_dma_busy  = false;
+                    ffn_comp_busy = true;
+                }
                 if (ffn_tile >= NUM_W2_TILES) {
-                    ffn_phase = FfnPhase::DONE;
+                    if (!ffn_dma_busy && !ffn_comp_busy) {
+                        ffn_phase = FfnPhase::DONE;
+                    }
                 } else if (!ffn_dma_busy && wl_ready) {
                     wl_start     = 1;
                     wl_addr_sel  = DMASEL_W2;
                     wl_head      = -1;
                     wl_tile      = ffn_tile;
                     ffn_dma_busy = true;
-                } else if (ffn_dma_busy && dma_done) {
-                    ffn_dma_busy  = false;
-                    ffn_comp_busy = true;
                 }
                 if (ffn_comp_busy && compute_ready) {
                     compute_start  = 1;
@@ -359,6 +414,7 @@ void scheduler_hls(
             }
             break;
     }
+
 }
 
 // ------------------------------------------------------------
@@ -389,13 +445,11 @@ bool run_head_group(
     if (dma_done && res.dma_busy) {
         HeadCtx &ctx = g_head_ctx[res.dma_owner];
         ctx.dma_done_flag = true;
-        ctx.wait_dma      = false;
         res.dma_busy      = false;
     }
     if (compute_done && res.comp_busy) {
         HeadCtx &ctx = g_head_ctx[res.comp_owner];
         ctx.comp_done_flag = true;
-        ctx.wait_comp      = false;
         res.comp_busy      = false;
     }
 
@@ -472,6 +526,7 @@ void drive_head_phase(
                 }
             } else if (ctx.dma_done_flag) {
                 ctx.dma_done_flag = false;
+                ctx.wait_dma      = false;
                 ctx.wait_comp     = true;
             }
 
@@ -497,6 +552,7 @@ void drive_head_phase(
                 }
             } else if (ctx.dma_done_flag) {
                 ctx.dma_done_flag = false;
+                ctx.wait_dma      = false;
                 ctx.wait_comp     = true;
             }
             if (ctx.wait_comp && !ctx.comp_done_flag) {
@@ -545,6 +601,7 @@ void drive_head_phase(
                 }
             } else if (ctx.dma_done_flag) {
                 ctx.dma_done_flag = false;
+                ctx.wait_dma      = false;
                 ctx.wait_comp     = true;
             }
             if (ctx.wait_comp && !ctx.comp_done_flag) {
