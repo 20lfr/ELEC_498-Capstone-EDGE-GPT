@@ -1,4 +1,5 @@
 #include "Scheduler_FSM.hpp"
+#include <cstdint>
 
 HeadCtx g_head_ctx[NUM_HEADS];
 
@@ -6,17 +7,12 @@ HeadCtx g_head_ctx[NUM_HEADS];
 // Scheduler FSM
 // ------------------------------------------------------------
 void scheduler_hls(
-
     // ------------------------------------------------------------
-    // GLOBAL RESET
+    // AXI4-Lite CONTROL INTERFACE (PS → PL) - IE the Control Memory Address Interface
     // ------------------------------------------------------------
-    bool reset_n,            // [INPUT]  Active-low synchronous reset
-
-    // ------------------------------------------------------------
-    // AXI4-Lite CONTROL INTERFACE (PS → PL)
-    // ------------------------------------------------------------
-    bool start,              // [INPUT]  From AXI-Lite: "start inference" bit
-
+    bool cntrl_start,               // [INPUT]  From AXI-Lite: "start inference" bit
+    bool cntrl_reset_n,             // [INPUT]  Active-low synchronous reset
+    uint32_t  &cntrl_layer_idx,          // [OUTPUT] Current layer index mirrored into control mem
 
     // ------------------------------------------------------------
     // AXI4-STREAM INPUT (INGRESS: PS → PL)
@@ -24,7 +20,6 @@ void scheduler_hls(
     bool axis_in_valid,      // [INPUT]  s_axis_in_tvalid
     bool axis_in_last,       // [INPUT]  s_axis_in_tlast
     bool &axis_in_ready,     // [OUTPUT] s_axis_in_tready
-
 
     // ------------------------------------------------------------
     // WEIGHT LOADER (AXI4-FULL MASTER via DMA)
@@ -37,7 +32,6 @@ void scheduler_hls(
     int  &wl_tile,           // [OUTPUT] Tile index for large matrices
     bool dma_done,           // [INPUT]  DMA transfer completed (single-cycle pulse)
 
-
     // ------------------------------------------------------------
     // COMPUTE CORE (MAC ARRAY + PIPELINE)
     // ------------------------------------------------------------
@@ -46,7 +40,6 @@ void scheduler_hls(
     bool &compute_start,     // [OUTPUT] Trigger compute engine
     int  &compute_op,        // [OUTPUT] What operation to run (QKV, AttnScore, Softmax...)
 
-
     // ------------------------------------------------------------
     // AXI4-STREAM OUTPUT (EGRESS: PL → PS)
     // ------------------------------------------------------------
@@ -54,15 +47,14 @@ void scheduler_hls(
     bool &stream_start,      // [OUTPUT] Tell stream-out module to begin streaming
     bool stream_done,        // [INPUT]  Stream-out finished entire sequence
 
-
     // ------------------------------------------------------------
     // GLOBAL COMPLETION FLAG
     // ------------------------------------------------------------
     bool &done               // [OUTPUT] Inference pipeline fully complete
 ) {
-#pragma HLS PIPELINE II=1
+#pragma HLS PIPELINE II=1       // Tells HLS compiler to make this function-module run every [1] clock cycle
     static SchedState st;
-    static int        layer_idx;
+    static int        layer_idx; cntrl_layer_idx = layer_idx;
     static int        head_group;
     static bool       head_reset;
     static bool       embed_wait;
@@ -79,7 +71,7 @@ void scheduler_hls(
     static bool ln1_wait;
 
     // FFN context
-    enum class FfnPhase : uint8_t { W1 = 0, ACT, W2, DONE };
+    enum class FfnPhase : uint8_t { W1 = 0, ACT, W2, DONE }; // Internal Steps for FFN
     static FfnPhase ffn_phase;
     static int      ffn_tile;
     static bool     ffn_dma_busy;
@@ -87,7 +79,7 @@ void scheduler_hls(
     static bool     ffn_act_busy;
 
     // Stream context
-    enum class StreamPhase : uint8_t { DEQUANT = 0, LOGITS, STREAM, COMPLETE };
+    enum class StreamPhase : uint8_t { DEQUANT = 0, LOGITS, STREAM, COMPLETE }; // Internal state for OUTPUT AXI stream steps
     static StreamPhase stream_phase;
     static int         logit_tile;
     static bool        logit_dma_busy;
@@ -97,7 +89,7 @@ void scheduler_hls(
 
     static bool concat_busy;
 
-    const bool reset = !reset_n;
+    const bool reset = !cntrl_reset_n;
 
     if (reset) {
         st         = S_IDLE;
@@ -155,7 +147,7 @@ void scheduler_hls(
     switch (st) {
         case S_IDLE:
             // If in IDLING STATE, and start signal comes from AXI-lite (ie shared control mem address), then start inference
-            if (start) {
+            if (cntrl_start) {
                 st          = S_START;
                 layer_idx   = 0;
                 head_group  = 0;
@@ -167,7 +159,7 @@ void scheduler_hls(
 
         case S_START:
             axis_in_ready = 1;
-            if (start)
+            if (cntrl_start)
                 embed_wait = true;
             if (embed_wait && axis_in_valid && axis_in_last) {
                 embed_wait = false;
@@ -409,7 +401,7 @@ void scheduler_hls(
                 }
             } else {
                 done = 1;
-                if (!start)
+                if (!cntrl_start)
                     st = S_IDLE;
             }
             break;

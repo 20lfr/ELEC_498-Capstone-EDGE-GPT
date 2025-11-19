@@ -37,7 +37,8 @@ int main() {
     constexpr bool kVerbose = false;
 
     // DUT inputs (initialised to safe defaults)
-    bool start          = false;
+    bool cntrl_start    = false;
+    int  cntrl_layer_idx = 0;
     bool axis_in_valid  = false;
     bool axis_in_last   = false;
     bool axis_in_ready  = false;
@@ -67,7 +68,7 @@ int main() {
     for (int cycle = 0; cycle < kMaxCycles; ++cycle) {
         bool reset_active = (cycle < 2);
         bool reset_n      = !reset_active;
-        start         = (reset_n && cycle < 4); // raise start for two cycles after reset
+        cntrl_start   = (reset_n && cycle < 4); // raise start for two cycles after reset
         axis_in_valid = (reset_n && cycle >= 2 && cycle <= 9);
         axis_in_last  = (reset_n && cycle == 9);
 
@@ -87,8 +88,9 @@ int main() {
             inflight_compute_op = -1;
         }
 
-        scheduler_hls(reset_n,
-                      start,
+        scheduler_hls(cntrl_start,
+                      reset_n,
+                      cntrl_layer_idx,
                       axis_in_valid,
                       axis_in_last,
                       axis_in_ready,

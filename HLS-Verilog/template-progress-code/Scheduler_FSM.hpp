@@ -163,8 +163,9 @@ bool start_head_compute(
 // Scheduler FSM top-level
 // ------------------------------------------------------------
 void scheduler_hls(
-    bool reset_n,
-    bool start,
+    bool cntrl_start,
+    bool cntrl_reset_n,
+    int  &cntrl_layer_idx,
     bool axis_in_valid,
     bool axis_in_last,
     bool &axis_in_ready,
