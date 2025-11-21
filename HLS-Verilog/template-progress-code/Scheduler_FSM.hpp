@@ -5,6 +5,19 @@
 // ------------------------------------------------------------
 // Tunable architecture parameters
 // ------------------------------------------------------------
+
+/*
+d_model  = 2048 params 
+Total Parameters: 1.1 billion
+Hidden Size ($d_{model}$): 2048
+Number of Layers: 22
+Number of Attention Heads: 32
+Intermediate Size: 5504 
+(This is the size of the hidden layer in the Feed-Forward Network).
+
+residual size is 2048 times int8 (8 bits) 
+matrics is 4bits
+*/
 constexpr int NUM_LAYERS       = 2;
 constexpr int NUM_HEADS        = 8;
 constexpr int HEADS_PARALLEL   = 2;
@@ -36,18 +49,26 @@ enum SchedState {
 };
 
 enum class HeadPhase : uint8_t {
-    QKV = 0,
-    REQUANT1,
+    Q = 0,
+    K,
+    K_REQUANT,
+    K_WRITEBACK,
+    V,
+    V_REQUANT,
+    V_WRITEBACK,
+    REQUANT_QKV,
     ATT_SCORES,
+    VALUE_SCALE_CLAMP,
     ATT_SOFTMAX,
     ATT_VALUE,
     REQUANT2,
-    KV_STORE,
     DONE
 };
 
 enum DmaSel : uint8_t {
-    DMASEL_QKV = 0,
+    DMASEL_WQ = 0,
+    DMASEL_WK,
+    DMASEL_WV,
     DMASEL_CTX_K,
     DMASEL_CTX_V,
     DMASEL_K_WRITE,
@@ -60,8 +81,11 @@ enum DmaSel : uint8_t {
 
 enum ComputeOp : uint8_t {
     CMP_NONE = 0,
-    CMP_QKV,
+    CMP_Q,
+    CMP_K,
+    CMP_V,
     CMP_ATT_SCORES,
+    CMP_VALUE_SCALE,
     CMP_SOFTMAX,
     CMP_ATT_VALUE,
     CMP_HEAD_REQUANT,
@@ -80,7 +104,7 @@ enum ComputeOp : uint8_t {
 
 struct HeadCtx {
     int       layer_stamp   = -1;
-    HeadPhase phase         = HeadPhase::QKV;
+    HeadPhase phase         = HeadPhase::Q;
     bool      wait_dma      = false;
     bool      wait_comp     = false;
     bool      dma_done_flag = false;
@@ -90,7 +114,7 @@ struct HeadCtx {
 struct HeadResources {
     bool   dma_busy  = false;
     int    dma_owner = -1;
-    DmaSel dma_tag   = DMASEL_QKV;
+    DmaSel dma_tag   = DMASEL_WQ;
 
     bool       comp_busy  = false;
     int        comp_owner = -1;

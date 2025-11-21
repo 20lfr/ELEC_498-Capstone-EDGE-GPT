@@ -3,6 +3,40 @@
 
 HeadCtx g_head_ctx[NUM_HEADS];
 
+static int8_t requantize_int32_to_int8(int32_t value) {
+#pragma HLS INLINE
+    if (value > 127)
+        value = 127;
+    else if (value < -128)
+        value = -128;
+    return static_cast<int8_t>(value);
+}
+
+static bool run_head_requantization(
+    HeadCtx &ctx,
+    HeadResources &res,
+    int head_idx,
+    bool compute_ready,
+    bool &compute_start,
+    int  &compute_op
+) {
+#pragma HLS INLINE
+    const int32_t accum_sample = 0;
+    (void)requantize_int32_to_int8(accum_sample);
+
+    if (!ctx.wait_comp) {
+        if (start_head_compute(res, head_idx, CMP_HEAD_REQUANT,
+                               compute_ready, compute_start, compute_op)) {
+            ctx.wait_comp = true;
+        }
+    } else if (ctx.comp_done_flag) {
+        ctx.comp_done_flag = false;
+        ctx.wait_comp      = false;
+        return true;
+    }
+    return false;
+}
+
 // ------------------------------------------------------------
 // Scheduler FSM
 // ------------------------------------------------------------
@@ -13,7 +47,7 @@ void scheduler_hls(
     bool cntrl_start,               // [INPUT]  From AXI-Lite: "start inference" bit
     bool cntrl_reset_n,             // [INPUT]  Active-low synchronous reset
     uint32_t  &cntrl_layer_idx,     // [OUTPUT] Current layer index mirrored into control mem
-
+    
     // ------------------------------------------------------------
     // AXI4-STREAM INPUT (INGRESS: PS → PL)
     // ------------------------------------------------------------
@@ -50,7 +84,7 @@ void scheduler_hls(
     // ------------------------------------------------------------
     // GLOBAL COMPLETION FLAG
     // ------------------------------------------------------------
-    bool &done               // [OUTPUT] Inference pipeline fully complete
+    bool &done              // [OUTPUT] Inference pipeline fully complete
 ) {
 #pragma HLS PIPELINE II=1       // Tells HLS compiler to make this function-module run every [1] clock cycle
     static SchedState st;
@@ -413,20 +447,20 @@ void scheduler_hls(
 // Head processing helpers
 // ------------------------------------------------------------
 bool run_head_group(
-    int   layer_idx,
-    int   group_idx,
-    bool  reset_resources,
-    bool  wl_ready,
-    bool  dma_done,
-    bool  compute_ready,
-    bool  compute_done,
-    bool &wl_start,
-    int  &wl_addr_sel,
-    int  &wl_layer,
-    int  &wl_head,
-    int  &wl_tile,
-    bool &compute_start,
-    int  &compute_op
+    int   layer_idx,      // [INPUT] Layer index that every head context should be aligned to
+    int   group_idx,      // [INPUT] Which head group (batch of parallel heads) to service
+    bool  reset_resources, // [INPUT] Request to clear shared resource tracking before use
+    bool  wl_ready,       // [INPUT] Weight loader readiness to accept a new DMA command
+    bool  dma_done,       // [INPUT] Global DMA completion pulse for whichever head owns it
+    bool  compute_ready,  // [INPUT] Compute pipeline idle indicator
+    bool  compute_done,   // [INPUT] Compute pipeline completion pulse
+    bool &wl_start,       // [OUTPUT] Start signal sent to the DMA controller
+    int  &wl_addr_sel,    // [OUTPUT] Encoded DMA selector describing which buffer to load/store
+    int  &wl_layer,       // [OUTPUT] Layer index tagged onto DMA requests
+    int  &wl_head,        // [OUTPUT] Head index associated with the DMA launch
+    int  &wl_tile,        // [OUTPUT] Tile identifier for tiled DMA requests
+    bool &compute_start,  // [OUTPUT] Kick-off bit for the compute engine
+    int  &compute_op      // [OUTPUT] Encoded operation describing what the compute engine should do
 ) {
 #pragma HLS INLINE
     static HeadResources res; // Manage resources for entire Head Group (managing shared resource signals)
@@ -481,10 +515,13 @@ bool run_head_group(
     return group_finished && !res.dma_busy && !res.comp_busy;
 }
 
-void init_head_ctx(HeadCtx &ctx, int layer_idx) {
+void init_head_ctx(
+    HeadCtx &ctx, // [OUTPUT] Head context object that needs to be reinitialized
+    int layer_idx // [INPUT] Layer index that seeds the context's stamp
+) {
 #pragma HLS INLINE
     ctx.layer_stamp    = layer_idx;
-    ctx.phase          = HeadPhase::QKV;
+    ctx.phase          = HeadPhase::Q;
     ctx.wait_dma       = false;
     ctx.wait_comp      = false;
     ctx.dma_done_flag  = false;
@@ -492,26 +529,25 @@ void init_head_ctx(HeadCtx &ctx, int layer_idx) {
 }
 
 void drive_head_phase(
-    HeadCtx         &ctx,
-    int             head_idx,
-    int             layer_idx,
-    bool            wl_ready,
-    bool            compute_ready,
-    HeadResources   &res,
-    bool            &wl_start,
-    int             &wl_addr_sel,
-    int             &wl_layer,
-    int             &wl_head,
-    int             &wl_tile,
-    bool            &compute_start,
-    int             &compute_op
+    HeadCtx         &ctx,           // [BOTH] Per-head FSM state that gets read/updated
+    int             head_idx,       // [INPUT] Absolute head index being serviced
+    int             layer_idx,      // [INPUT] Layer discriminator forwarded to DMA requests
+    bool            wl_ready,       // [INPUT] Weight loader ready flag for DMA
+    bool            compute_ready,  // [INPUT] Compute pipeline idle flag
+    HeadResources   &res,           // [BOTH] Shared resource bookkeeping for this head group
+    bool            &wl_start,      // [OUTPUT] DMA start pulse driven toward the weight loader
+    int             &wl_addr_sel,   // [OUTPUT] Selects which tensor the DMA should service
+    int             &wl_layer,      // [OUTPUT] Exposes layer index to the DMA
+    int             &wl_head,       // [OUTPUT] Provides the head index to the DMA
+    int             &wl_tile,       // [OUTPUT] Encodes tile index for multi-tile transfers
+    bool            &compute_start, // [OUTPUT] Compute start handshake toward MAC array
+    int             &compute_op     // [OUTPUT] Operation ID for the compute engine
 ) {
 #pragma HLS INLINE
     switch (ctx.phase) {
-        case HeadPhase::QKV:
-            //FETCH DATA part
+        case HeadPhase::Q:
             if (!ctx.wait_dma) {
-                if (start_head_dma(res, head_idx, layer_idx, DMASEL_QKV,
+                if (start_head_dma(res, head_idx, layer_idx, DMASEL_WQ,
                                    wl_ready, wl_start, wl_addr_sel,
                                    wl_layer, wl_head, wl_tile)) {
                     ctx.wait_dma = true;
@@ -521,17 +557,112 @@ void drive_head_phase(
                 ctx.wait_dma      = false;
                 ctx.wait_comp     = true;
             }
-
-            //COMPUTE part
             if (ctx.wait_comp && !ctx.comp_done_flag) {
-                if (start_head_compute(res, head_idx, CMP_QKV,
+                if (start_head_compute(res, head_idx, CMP_Q,
                                        compute_ready, compute_start, compute_op)) {
-                    // wait for completion
+                    // wait
                 }
             } else if (ctx.comp_done_flag) {
                 ctx.comp_done_flag = false;
                 ctx.wait_comp      = false;
-                ctx.phase          = HeadPhase::ATT_SCORES;
+                ctx.phase          = HeadPhase::K;
+            }
+            break;
+
+        case HeadPhase::K:
+            if (!ctx.wait_dma) {
+                if (start_head_dma(res, head_idx, layer_idx, DMASEL_WK,
+                                   wl_ready, wl_start, wl_addr_sel,
+                                   wl_layer, wl_head, wl_tile)) {
+                    ctx.wait_dma = true;
+                }
+            } else if (ctx.dma_done_flag) {
+                ctx.dma_done_flag = false;
+                ctx.wait_dma      = false;
+                ctx.wait_comp     = true;
+            }
+            if (ctx.wait_comp && !ctx.comp_done_flag) {
+                if (start_head_compute(res, head_idx, CMP_K,
+                                       compute_ready, compute_start, compute_op)) {
+                    // wait
+                }
+            } else if (ctx.comp_done_flag) {
+                ctx.comp_done_flag = false;
+                ctx.wait_comp      = false;
+                ctx.phase          = HeadPhase::K_REQUANT;
+            }
+            break;
+
+        case HeadPhase::K_REQUANT:
+            if (run_head_requantization(ctx, res, head_idx,
+                                        compute_ready, compute_start, compute_op)) {
+                ctx.phase = HeadPhase::K_WRITEBACK;
+            }
+            break;
+
+        case HeadPhase::K_WRITEBACK:
+            if (!ctx.wait_dma) {
+                if (start_head_dma(res, head_idx, layer_idx, DMASEL_K_WRITE,
+                                   wl_ready, wl_start, wl_addr_sel,
+                                   wl_layer, wl_head, wl_tile)) {
+                    ctx.wait_dma = true;
+                }
+            } else if (ctx.dma_done_flag) {
+                ctx.dma_done_flag = false;
+                ctx.wait_dma      = false;
+                ctx.phase         = HeadPhase::V;
+            }
+            break;
+
+        case HeadPhase::V:
+            if (!ctx.wait_dma) {
+                if (start_head_dma(res, head_idx, layer_idx, DMASEL_WV,
+                                   wl_ready, wl_start, wl_addr_sel,
+                                   wl_layer, wl_head, wl_tile)) {
+                    ctx.wait_dma = true;
+                }
+            } else if (ctx.dma_done_flag) {
+                ctx.dma_done_flag = false;
+                ctx.wait_dma      = false;
+                ctx.wait_comp     = true;
+            }
+            if (ctx.wait_comp && !ctx.comp_done_flag) {
+                if (start_head_compute(res, head_idx, CMP_V,
+                                       compute_ready, compute_start, compute_op)) {
+                    // wait
+                }
+            } else if (ctx.comp_done_flag) {
+                ctx.comp_done_flag = false;
+                ctx.wait_comp      = false;
+                ctx.phase          = HeadPhase::V_REQUANT;
+            }
+            break;
+
+        case HeadPhase::V_REQUANT:
+            if (run_head_requantization(ctx, res, head_idx,
+                                        compute_ready, compute_start, compute_op)) {
+                ctx.phase = HeadPhase::V_WRITEBACK;
+            }
+            break;
+
+        case HeadPhase::V_WRITEBACK:
+            if (!ctx.wait_dma) {
+                if (start_head_dma(res, head_idx, layer_idx, DMASEL_V_WRITE,
+                                   wl_ready, wl_start, wl_addr_sel,
+                                   wl_layer, wl_head, wl_tile)) {
+                    ctx.wait_dma = true;
+                }
+            } else if (ctx.dma_done_flag) {
+                ctx.dma_done_flag = false;
+                ctx.wait_dma      = false;
+                ctx.phase         = HeadPhase::REQUANT_QKV;
+            }
+            break;
+
+        case HeadPhase::REQUANT_QKV:
+            if (run_head_requantization(ctx, res, head_idx,
+                                        compute_ready, compute_start, compute_op)) {
+                ctx.phase = HeadPhase::ATT_SCORES;
             }
             break;
 
@@ -555,6 +686,20 @@ void drive_head_phase(
             } else if (ctx.comp_done_flag) {
                 ctx.comp_done_flag = false;
                 ctx.wait_comp      = false;
+                ctx.phase          = HeadPhase::VALUE_SCALE_CLAMP;
+            }
+            break;
+
+        case HeadPhase::VALUE_SCALE_CLAMP:
+            // Use QK quant scale (g_ctrl_regs.scale_q) to scale + clamp raw attention scores.
+            if (!ctx.wait_comp) {
+                if (start_head_compute(res, head_idx, CMP_VALUE_SCALE,
+                                       compute_ready, compute_start, compute_op)) {
+                    ctx.wait_comp = true;
+                }
+            } else if (ctx.comp_done_flag) {
+                ctx.comp_done_flag = false;
+                ctx.wait_comp      = false;
                 ctx.phase          = HeadPhase::ATT_SOFTMAX;
             }
             break;
@@ -562,18 +707,6 @@ void drive_head_phase(
         case HeadPhase::ATT_SOFTMAX:
             if (!ctx.wait_comp) {
                 if (start_head_compute(res, head_idx, CMP_SOFTMAX,
-                                       compute_ready, compute_start, compute_op)) {
-                    ctx.wait_comp = true;
-                }
-            } else if (ctx.comp_done_flag) {
-                ctx.comp_done_flag = false;
-                ctx.wait_comp      = false;
-                ctx.phase          = HeadPhase::REQUANT1;
-            }
-            break;
-        case HeadPhase::REQUANT1:
-            if (!ctx.wait_comp) {
-                if (start_head_compute(res, head_idx, CMP_HEAD_REQUANT,
                                        compute_ready, compute_start, compute_op)) {
                     ctx.wait_comp = true;
                 }
@@ -609,41 +742,9 @@ void drive_head_phase(
             break;
 
         case HeadPhase::REQUANT2:
-            if (!ctx.wait_comp) {
-                if (start_head_compute(res, head_idx, CMP_HEAD_REQUANT,
-                                       compute_ready, compute_start, compute_op)) {
-                    ctx.wait_comp = true;
-                }
-            } else if (ctx.comp_done_flag) {
-                ctx.comp_done_flag = false;
-                ctx.wait_comp      = false;
-                ctx.phase          = HeadPhase::KV_STORE;
-            }
-            break;
-
-        case HeadPhase::KV_STORE:
-            if (!ctx.wait_dma && !ctx.wait_comp) {
-                if (start_head_dma(res, head_idx, layer_idx, DMASEL_K_WRITE,
-                                   wl_ready, wl_start, wl_addr_sel,
-                                   wl_layer, wl_head, wl_tile)) {
-                    ctx.wait_dma = true;
-                }
-            } else if (ctx.wait_dma && ctx.dma_done_flag) {
-                ctx.dma_done_flag = false;
-                ctx.wait_dma      = false;
-                if (!ctx.wait_comp) {
-                    ctx.wait_comp = true;   // request V write next
-                } else {
-                    ctx.wait_comp = false;
-                    ctx.phase     = HeadPhase::DONE;
-                }
-            }
-            if (ctx.wait_comp && !ctx.wait_dma) {
-                if (start_head_dma(res, head_idx, layer_idx, DMASEL_V_WRITE,
-                                   wl_ready, wl_start, wl_addr_sel,
-                                   wl_layer, wl_head, wl_tile)) {
-                    ctx.wait_dma = true;
-                }
+            if (run_head_requantization(ctx, res, head_idx,
+                                        compute_ready, compute_start, compute_op)) {
+                ctx.phase = HeadPhase::DONE;
             }
             break;
 
@@ -657,22 +758,22 @@ void drive_head_phase(
 
 
 bool start_head_dma(
-    HeadResources &res,
-    int   head_idx,
-    int   layer_idx,
-    DmaSel sel,
-    bool  wl_ready,
-    bool &wl_start,
-    int  &wl_addr_sel,
-    int  &wl_layer,
-    int  &wl_head,
-    int  &wl_tile
+    HeadResources &res, // [BOTH] Shared DMA bookkeeping tracking ownership/busy flags
+    int   head_idx,     // [INPUT] Head issuing the DMA request
+    int   layer_idx,    // [INPUT] Layer index paired with the DMA request
+    DmaSel sel,         // [INPUT] Enumerated selection of which buffer/tensor to access
+    bool  wl_ready,     // [INPUT] Weight loader DMA interface readiness
+    bool &wl_start,     // [OUTPUT] Pulse that actually fires the DMA engine
+    int  &wl_addr_sel,  // [OUTPUT] Encoded DMA selector forwarded to hardware
+    int  &wl_layer,     // [OUTPUT] Layer index accompanying the transfer
+    int  &wl_head,      // [OUTPUT] Head index driving the request
+    int  &wl_tile       // [OUTPUT] Tile identifier (0 for untiled transfers)
 ) {
 #pragma HLS INLINE
     if (res.dma_busy || !wl_ready || wl_start)
         return false; // need to keep waiting
     wl_start    = 1;
-    wl_addr_sel = sel;
+    wl_addr_sel = static_cast<int>(sel);
     wl_layer    = layer_idx;
     wl_head     = head_idx;
     wl_tile     = 0;
@@ -686,12 +787,12 @@ bool start_head_dma(
 
 
 bool start_head_compute(
-    HeadResources &res,
-    int   head_idx,
-    ComputeOp op,
-    bool  compute_ready,
-    bool &compute_start,
-    int  &compute_op
+    HeadResources &res,     // [BOTH] Shared compute resource ownership/busy tracker
+    int   head_idx,         // [INPUT] Head requesting compute time
+    ComputeOp op,           // [INPUT] Operation identifier the compute core must execute
+    bool  compute_ready,    // [INPUT] Compute engine idle status
+    bool &compute_start,    // [OUTPUT] Pulse that triggers compute launch
+    int  &compute_op        // [OUTPUT] Encoded opcode driven into the compute core
 ) {
 #pragma HLS INLINE
     if (res.comp_busy || !compute_ready || compute_start)
