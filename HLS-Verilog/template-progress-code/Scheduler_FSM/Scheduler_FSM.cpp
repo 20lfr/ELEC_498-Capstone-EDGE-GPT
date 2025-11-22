@@ -1,7 +1,6 @@
 #include "Scheduler_FSM.hpp"
 #include <cstdint>
 
-#include <iostream>
 
 // ------------------------------------------------------------
 // Scheduler FSM
@@ -263,6 +262,7 @@ void scheduler_hls(
 
         case S_OUT_PROJECTION:
             if (wo_tile >= NUM_WO_TILES) {
+                resid0_wait = false; // entering residual stage with clean wait flag
                 st = S_RES_ADD_1;
                 break;
             }
@@ -291,6 +291,7 @@ void scheduler_hls(
                 resid0_wait   = true;
             } else if (resid0_wait && compute_done) {
                 resid0_wait = false;
+                ln0_wait    = false; // ensure LN state always starts idle
                 st          = S_LAYER_NORM_1;
             }
             break;
@@ -313,6 +314,7 @@ void scheduler_hls(
 
         case S_FFN:
             if (ffn_phase == FfnPhase::DONE) {
+                resid1_wait = false; // prep residual block handshake
                 st = S_RES_ADD_2;
                 break;
             }
@@ -321,12 +323,8 @@ void scheduler_hls(
                     ffn_dma_busy  = false;
                     ffn_comp_busy = true;
                 }
-                if (ffn_tile >= NUM_W1_TILES) {
-                    if (!ffn_dma_busy && !ffn_comp_busy) {
-                        ffn_phase    = FfnPhase::ACT;
-                        ffn_act_busy = false;
-                    }
-                } else if (!ffn_dma_busy && wl_ready) {
+                const bool w1_tiles_remaining = (ffn_tile < NUM_W1_TILES);
+                if (w1_tiles_remaining && !ffn_dma_busy && wl_ready) {
                     wl_start     = 1;
                     wl_addr_sel  = DMASEL_W1;
                     wl_head      = -1;
@@ -339,6 +337,11 @@ void scheduler_hls(
                     ffn_comp_busy  = false;
                     ffn_tile++;
                 }
+                const bool w1_complete = (ffn_tile >= NUM_W1_TILES) && !ffn_dma_busy && !ffn_comp_busy;
+                if (w1_complete) {
+                    ffn_phase    = FfnPhase::ACT;
+                    ffn_act_busy = false;
+                } // else: waiting for this phase to complete (loop warning - may loop forever if w1_complete is not implemented properly)
             } else if (ffn_phase == FfnPhase::ACT) {
                 if (!ffn_act_busy && compute_ready) {
                     compute_start = 1;
@@ -354,11 +357,8 @@ void scheduler_hls(
                     ffn_dma_busy  = false;
                     ffn_comp_busy = true;
                 }
-                if (ffn_tile >= NUM_W2_TILES) {
-                    if (!ffn_dma_busy && !ffn_comp_busy) {
-                        ffn_phase = FfnPhase::DONE;
-                    }
-                } else if (!ffn_dma_busy && wl_ready) {
+                const bool w2_tiles_remaining = (ffn_tile < NUM_W2_TILES);
+                if (w2_tiles_remaining && !ffn_dma_busy && wl_ready) {
                     wl_start     = 1;
                     wl_addr_sel  = DMASEL_W2;
                     wl_head      = -1;
@@ -371,6 +371,10 @@ void scheduler_hls(
                     ffn_comp_busy  = false;
                     ffn_tile++;
                 }
+                const bool w2_complete = (ffn_tile >= NUM_W2_TILES) && !ffn_dma_busy && !ffn_comp_busy;
+                if (w2_complete) {
+                    ffn_phase = FfnPhase::DONE;
+                }
             }
             break;
         case S_RES_ADD_2:
@@ -380,6 +384,7 @@ void scheduler_hls(
                 resid1_wait   = true;
             } else if (resid1_wait && compute_done) {
                 resid1_wait = false;
+                ln1_wait    = false; // next LN stage should see idle wait flag
                 st          = S_LAYER_NORM_2;
             }
             break;
@@ -390,8 +395,11 @@ void scheduler_hls(
                 compute_op    = CMP_LN1;
                 ln1_wait      = true;
             } else if (ln1_wait && compute_done) {
-                ln1_wait = false;
-                st       = S_LOOP_CHECK;
+                ln1_wait   = false;
+                resid0_wait = false;
+                ln0_wait    = false;
+                resid1_wait = false;
+                st         = S_LOOP_CHECK;
             }
             break;
 
@@ -464,24 +472,24 @@ void scheduler_hls(
 bool run_head_group(
     HeadCtx (&head_ctx_ref)[NUM_HEADS],
     HeadResources &res,
-    int   layer_idx,      // [INPUT] Layer index that every head context should be aligned to
-    int   group_idx,      // [INPUT] Which head group (batch of parallel heads) to service
+    int   layer_idx,       // [INPUT] Layer index that every head context should be aligned to
+    int   group_idx,       // [INPUT] Which head group (batch of parallel heads) to service
     bool  reset_resources, // [INPUT] Request to clear shared resource tracking before use
-    bool  wl_ready,       // [INPUT] Weight loader readiness to accept a new DMA command
-    bool  dma_done,       // [INPUT] Global DMA completion pulse for whichever head owns it
-    bool  compute_ready,  // [INPUT] Compute pipeline idle indicator
-    bool  compute_done,   // [INPUT] Compute pipeline completion pulse
-    bool  requant_ready,  // [INPUT] Requant pipeline ready indicator
-    bool  requant_done,   // [INPUT] Requant completion pulse
-    bool &wl_start,       // [OUTPUT] Start signal sent to the DMA controller
-    int  &wl_addr_sel,    // [OUTPUT] Encoded DMA selector describing which buffer to load/store
-    int  &wl_layer,       // [OUTPUT] Layer index tagged onto DMA requests
-    int  &wl_head,        // [OUTPUT] Head index associated with the DMA launch
-    int  &wl_tile,        // [OUTPUT] Tile identifier for tiled DMA requests
-    bool &compute_start,  // [OUTPUT] Kick-off bit for the compute engine
-    int  &compute_op,     // [OUTPUT] Encoded operation describing what the compute engine should do
-    bool &requant_start,  // [OUTPUT] Kick-off bit for the requant engine
-    int  &requant_op      // [OUTPUT] Encoded operation describing what the requant engine should do
+    bool  wl_ready,        // [INPUT] Weight loader readiness to accept a new DMA command
+    bool  dma_done,        // [INPUT] Global DMA completion pulse for whichever head owns it
+    bool  compute_ready,   // [INPUT] Compute pipeline idle indicator
+    bool  compute_done,    // [INPUT] Compute pipeline completion pulse
+    bool  requant_ready,   // [INPUT] Requant pipeline ready indicator
+    bool  requant_done,    // [INPUT] Requant completion pulse
+    bool &wl_start,        // [OUTPUT] Start signal sent to the DMA controller
+    int  &wl_addr_sel,     // [OUTPUT] Encoded DMA selector describing which buffer to load/store
+    int  &wl_layer,        // [OUTPUT] Layer index tagged onto DMA requests
+    int  &wl_head,         // [OUTPUT] Head index associated with the DMA launch
+    int  &wl_tile,         // [OUTPUT] Tile identifier for tiled DMA requests
+    bool &compute_start,   // [OUTPUT] Kick-off bit for the compute engine
+    int  &compute_op,      // [OUTPUT] Encoded operation describing what the compute engine should do
+    bool &requant_start,   // [OUTPUT] Kick-off bit for the requant engine
+    int  &requant_op       // [OUTPUT] Encoded operation describing what the requant engine should do
 ) {
 #pragma HLS INLINE off
     if (reset_resources) {
@@ -505,7 +513,10 @@ bool run_head_group(
     }
 
     const int head_base = group_idx * HEADS_PARALLEL;   // Calculate the Head "Group" we are currently in
-    bool group_finished = true;                         // init the 
+
+    // This is the the return conditional later to make vitis Synthesize into RTL easier
+    bool group_finished = true; // init the group finished variable
+    bool resources_idle = (!res.dma_busy && !res.comp_busy && !res.requant_busy);
 
     for (int lane = 0; lane < HEADS_PARALLEL; ++lane) { // This will create HEADS_PARALLEL number of seperate headed computation runs
 #pragma HLS UNROLL
@@ -540,7 +551,8 @@ bool run_head_group(
         }
     }
 
-    return group_finished && !res.dma_busy && !res.comp_busy && !res.requant_busy;
+    if (!group_finished) return false;
+    return group_finished && resources_idle;
 }
 
 void init_head_ctx(
