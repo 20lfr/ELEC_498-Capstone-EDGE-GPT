@@ -1,0 +1,3 @@
+g++ -std=c++17 -Wall ../Scheduler_FSM.cpp Scheduler_tb.cpp Scheduler_tb_dma_gt_compute.cpp -o sim_outputs/scheduler_tb_dma_gt_compute
+g++ -std=c++17 -Wall ../Scheduler_FSM.cpp Scheduler_tb.cpp Scheduler_tb_dma_lt_compute.cpp -o sim_outputs/scheduler_tb_dma_lt_compute
+g++ -std=c++17 -Wall ../Scheduler_FSM.cpp Scheduler_tb.cpp Scheduler_tb_dma_eq_compute.cpp -o sim_outputs/scheduler_tb_dma_eq_compute

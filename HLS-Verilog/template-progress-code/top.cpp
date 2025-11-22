@@ -24,11 +24,16 @@ void transformer_top() {
     bool compute_done   = false;    // Compute completion pulse
     bool compute_start  = false;    // Scheduler trigger for compute core
     int  compute_op     = CMP_NONE; // Which compute op to run
+    bool requant_ready  = false;    // Requant engine idle indicator
+    bool requant_done   = false;    // Requant engine completion pulse
+    bool requant_start  = false;    // Scheduler trigger for requant engine
+    int  requant_op     = RQ_NONE;  // Which requant op to run
     bool stream_ready   = false;    // AXI-Stream egress ready flag
     bool stream_start   = false;    // Scheduler trigger for stream-out
     bool stream_done    = false;    // AXI-Stream egress completion pulse
     bool done           = false;    // Scheduler completion output
     bool error          = false;    // Scheduler error flag
+    SchedState dbg_state = S_IDLE;
 
     
 
@@ -50,12 +55,19 @@ void transformer_top() {
         dma_done, // <-- needs to come from the AXI-full interface
         compute_ready,
         compute_done,
+        requant_ready,
+        requant_done,
         compute_start,
         compute_op,
+        requant_start,
+        requant_op,
         stream_ready,
         stream_start,
         stream_done,
-        done);
+        done,
+        dbg_state);
+
+    (void)dbg_state;
     
 
     

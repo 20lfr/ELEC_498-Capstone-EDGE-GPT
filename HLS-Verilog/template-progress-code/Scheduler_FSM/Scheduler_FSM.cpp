@@ -3,48 +3,6 @@
 
 #include <iostream>
 
-HeadCtx g_head_ctx[NUM_HEADS];
-
-static int8_t requantize_int32_to_int8(int32_t value) {
-#pragma HLS INLINE
-    if (value > 127)
-        value = 127;
-    else if (value < -128)
-        value = -128;
-    return static_cast<int8_t>(value);
-}
-
-static bool run_head_requantization(
-    HeadCtx &ctx,
-    HeadResources &res,
-    int head_idx,
-    bool compute_ready,
-    bool &compute_start,
-    int  &compute_op
-) {
-#pragma HLS INLINE
-
-    // Temporary~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    return true;
-
-
-
-    const int32_t accum_sample = 0;
-    (void)requantize_int32_to_int8(accum_sample);
-
-    if (!ctx.wait_comp) {
-        if (start_head_compute(res, head_idx, CMP_HEAD_REQUANT,
-                               compute_ready, compute_start, compute_op)) {
-            ctx.wait_comp = true;
-        }
-    } else if (ctx.comp_done_flag) {
-        ctx.comp_done_flag = false;
-        ctx.wait_comp      = false;
-        return true;
-    }
-    return false;
-}
-
 // ------------------------------------------------------------
 // Scheduler FSM
 // ------------------------------------------------------------
@@ -79,8 +37,12 @@ void scheduler_hls(
     // ------------------------------------------------------------
     bool compute_ready,      // [INPUT]  Compute engine idle / ready for next op
     bool compute_done,       // [INPUT]  Compute operation finished (one-shot)
+    bool requant_ready,      // [INPUT]  Requant engine ready
+    bool requant_done,       // [INPUT]  Requant engine operation done
     bool &compute_start,     // [OUTPUT] Trigger compute engine
     int  &compute_op,        // [OUTPUT] What operation to run (QKV, AttnScore, Softmax...)
+    bool &requant_start,     // [OUTPUT] Trigger requant engine
+    int  &requant_op,        // [OUTPUT] Requant operation to run
 
     // ------------------------------------------------------------
     // AXI4-STREAM OUTPUT (EGRESS: PL → PS)
@@ -99,45 +61,73 @@ void scheduler_hls(
     // ------------------------------------------------------------
     SchedState &STATE
 ) {
-#pragma HLS PIPELINE II=1       // Tells HLS compiler to make this function-module run every [1] clock cycle
+    // Removed pipelining while debugging static-state timing; revisit once functionality is verified.
     static SchedState st;
+#pragma HLS reset variable=st
     static int        layer_idx; cntrl_layer_idx = layer_idx;
+#pragma HLS reset variable=layer_idx
     static int        head_group;
+#pragma HLS reset variable=head_group
     static bool       head_reset;
+#pragma HLS reset variable=head_reset
     static bool       embed_wait;
+#pragma HLS reset variable=embed_wait
 
     // Output projection context
     static int  wo_tile;
+#pragma HLS reset variable=wo_tile
     static bool wo_dma_busy;
+#pragma HLS reset variable=wo_dma_busy
     static bool wo_comp_busy;
+#pragma HLS reset variable=wo_comp_busy
 
     // Residual/LN waits
     static bool resid0_wait;
+#pragma HLS reset variable=resid0_wait
     static bool ln0_wait;
+#pragma HLS reset variable=ln0_wait
     static bool resid1_wait;
+#pragma HLS reset variable=resid1_wait
     static bool ln1_wait;
+#pragma HLS reset variable=ln1_wait
 
     // FFN context
     enum class FfnPhase : uint8_t { W1 = 0, ACT, W2, DONE }; // Internal Steps for FFN
     static FfnPhase ffn_phase;
+#pragma HLS reset variable=ffn_phase
     static int      ffn_tile;
+#pragma HLS reset variable=ffn_tile
     static bool     ffn_dma_busy;
+#pragma HLS reset variable=ffn_dma_busy
     static bool     ffn_comp_busy;
+#pragma HLS reset variable=ffn_comp_busy
     static bool     ffn_act_busy;
+#pragma HLS reset variable=ffn_act_busy
 
     // Stream context
     enum class StreamPhase : uint8_t { DEQUANT = 0, LOGITS, STREAM, COMPLETE }; // Internal state for OUTPUT AXI stream steps
     static StreamPhase stream_phase;
+#pragma HLS reset variable=stream_phase
     static int         logit_tile;
+#pragma HLS reset variable=logit_tile
     static bool        logit_dma_busy;
+#pragma HLS reset variable=logit_dma_busy
     static bool        logit_comp_busy;
+#pragma HLS reset variable=logit_comp_busy
     static bool        dequant_busy;
+#pragma HLS reset variable=dequant_busy
     static bool        axis_stream_busy;
+#pragma HLS reset variable=axis_stream_busy
 
     static bool concat_busy;
+#pragma HLS reset variable=concat_busy
+
+    static HeadCtx head_ctx[NUM_HEADS];
+#pragma HLS reset variable=head_ctx
+    static HeadResources head_res;      //Manages Resources across multiple parellel heads
+#pragma HLS reset variable=head_res
 
     const bool reset = !cntrl_reset_n;
-
     if (reset) {
         st         = S_IDLE;
         layer_idx  = 0;
@@ -171,8 +161,9 @@ void scheduler_hls(
 
         for (int i = 0; i < NUM_HEADS; ++i) {
 #pragma HLS UNROLL
-            init_head_ctx(g_head_ctx[i], -1);
+            init_head_ctx(head_ctx[i], -1);
         }
+        head_res = HeadResources{};
     }
 
     // Default outputs
@@ -184,6 +175,8 @@ void scheduler_hls(
     wl_tile       = 0;
     compute_start = 0;
     compute_op    = CMP_NONE;
+    requant_start = 0;
+    requant_op    = RQ_NONE;
     stream_start  = 0;
     done          = 0;
 
@@ -218,12 +211,15 @@ void scheduler_hls(
         case S_LAYER_COUNT:
             head_group = 0;
             head_reset = true;
+            head_res   = HeadResources{};
             st         = S_ATTENTION_HEADS;
             break;
 
         case S_ATTENTION_HEADS:
             // By running "run_head_group" we are initializing each head group, until i*head_group == NUM_HEADS
             if (run_head_group(
+                    head_ctx,
+                    head_res,
                     layer_idx,
                     head_group,
                     head_reset,
@@ -231,13 +227,17 @@ void scheduler_hls(
                     dma_done,
                     compute_ready,
                     compute_done,
+                    requant_ready,
+                    requant_done,
                     wl_start,
                     wl_addr_sel,
                     wl_layer,
                     wl_head,
                     wl_tile,
                     compute_start,
-                    compute_op)) {
+                    compute_op,
+                    requant_start,
+                    requant_op)) {
                 head_group++;
                 head_reset = true;
                 if (head_group >= NUM_HEAD_GROUPS)
@@ -462,6 +462,8 @@ void scheduler_hls(
 // Head processing helpers
 // ------------------------------------------------------------
 bool run_head_group(
+    HeadCtx (&head_ctx_ref)[NUM_HEADS],
+    HeadResources &res,
     int   layer_idx,      // [INPUT] Layer index that every head context should be aligned to
     int   group_idx,      // [INPUT] Which head group (batch of parallel heads) to service
     bool  reset_resources, // [INPUT] Request to clear shared resource tracking before use
@@ -469,29 +471,37 @@ bool run_head_group(
     bool  dma_done,       // [INPUT] Global DMA completion pulse for whichever head owns it
     bool  compute_ready,  // [INPUT] Compute pipeline idle indicator
     bool  compute_done,   // [INPUT] Compute pipeline completion pulse
+    bool  requant_ready,  // [INPUT] Requant pipeline ready indicator
+    bool  requant_done,   // [INPUT] Requant completion pulse
     bool &wl_start,       // [OUTPUT] Start signal sent to the DMA controller
     int  &wl_addr_sel,    // [OUTPUT] Encoded DMA selector describing which buffer to load/store
     int  &wl_layer,       // [OUTPUT] Layer index tagged onto DMA requests
     int  &wl_head,        // [OUTPUT] Head index associated with the DMA launch
     int  &wl_tile,        // [OUTPUT] Tile identifier for tiled DMA requests
     bool &compute_start,  // [OUTPUT] Kick-off bit for the compute engine
-    int  &compute_op      // [OUTPUT] Encoded operation describing what the compute engine should do
+    int  &compute_op,     // [OUTPUT] Encoded operation describing what the compute engine should do
+    bool &requant_start,  // [OUTPUT] Kick-off bit for the requant engine
+    int  &requant_op      // [OUTPUT] Encoded operation describing what the requant engine should do
 ) {
-#pragma HLS INLINE
-    static HeadResources res; // Manage resources for entire Head Group (managing shared resource signals)
+#pragma HLS INLINE off
     if (reset_resources) {
         res = HeadResources{}; // Re-init res if reset is asserted
     }
 
     if (dma_done && res.dma_busy) {
-        HeadCtx &ctx = g_head_ctx[res.dma_owner];
+        HeadCtx &ctx = head_ctx_ref[res.dma_owner];
         ctx.dma_done_flag = true;
         res.dma_busy      = false;
     }
     if (compute_done && res.comp_busy) {
-        HeadCtx &ctx = g_head_ctx[res.comp_owner];
+        HeadCtx &ctx = head_ctx_ref[res.comp_owner];
         ctx.comp_done_flag = true;
         res.comp_busy      = false;
+    }
+    if (requant_done && res.requant_busy) {
+        HeadCtx &ctx = head_ctx_ref[res.requant_owner];
+        ctx.requant_done_flag = true;
+        res.requant_busy      = false;
     }
 
     const int head_base = group_idx * HEADS_PARALLEL;   // Calculate the Head "Group" we are currently in
@@ -503,7 +513,7 @@ bool run_head_group(
         if (head_idx >= NUM_HEADS)
             continue;
 
-        HeadCtx &ctx = g_head_ctx[head_idx];
+        HeadCtx &ctx = head_ctx_ref[head_idx];
         if (ctx.layer_stamp != layer_idx) {
             init_head_ctx(ctx, layer_idx);
         }
@@ -516,6 +526,7 @@ bool run_head_group(
                 layer_idx,
                 wl_ready,
                 compute_ready,
+                requant_ready,
                 res,
                 wl_start,
                 wl_addr_sel,
@@ -523,11 +534,13 @@ bool run_head_group(
                 wl_head,
                 wl_tile,
                 compute_start,
-                compute_op);
+                compute_op,
+                requant_start,
+                requant_op);
         }
     }
 
-    return group_finished && !res.dma_busy && !res.comp_busy;
+    return group_finished && !res.dma_busy && !res.comp_busy && !res.requant_busy;
 }
 
 void init_head_ctx(
@@ -539,8 +552,10 @@ void init_head_ctx(
     ctx.phase          = HeadPhase::Q;
     ctx.wait_dma       = false;
     ctx.wait_comp      = false;
+    ctx.wait_requant   = false;
     ctx.dma_done_flag  = false;
     ctx.comp_done_flag = false;
+    ctx.requant_done_flag = false;
 }
 
 void drive_head_phase(
@@ -549,6 +564,7 @@ void drive_head_phase(
     int             layer_idx,      // [INPUT] Layer discriminator forwarded to DMA requests
     bool            wl_ready,       // [INPUT] Weight loader ready flag for DMA
     bool            compute_ready,  // [INPUT] Compute pipeline idle flag
+    bool            requant_ready,  // [INPUT] Requant pipeline ready flag
     HeadResources   &res,           // [BOTH] Shared resource bookkeeping for this head group
     bool            &wl_start,      // [OUTPUT] DMA start pulse driven toward the weight loader
     int             &wl_addr_sel,   // [OUTPUT] Selects which tensor the DMA should service
@@ -556,12 +572,14 @@ void drive_head_phase(
     int             &wl_head,       // [OUTPUT] Provides the head index to the DMA
     int             &wl_tile,       // [OUTPUT] Encodes tile index for multi-tile transfers
     bool            &compute_start, // [OUTPUT] Compute start handshake toward MAC array
-    int             &compute_op     // [OUTPUT] Operation ID for the compute engine
+    int             &compute_op,    // [OUTPUT] Operation ID for the compute engine
+    bool            &requant_start, // [OUTPUT] Requant start handshake
+    int             &requant_op     // [OUTPUT] Operation ID for the requant engine
 ) {
 #pragma HLS INLINE
     switch (ctx.phase) {
         case HeadPhase::Q:
-            if (!ctx.wait_dma) {
+            if (!ctx.wait_dma && !ctx.wait_comp) {
                 if (start_head_dma(res, head_idx, layer_idx, DMASEL_WQ,
                                    wl_ready, wl_start, wl_addr_sel,
                                    wl_layer, wl_head, wl_tile)) {
@@ -585,7 +603,7 @@ void drive_head_phase(
             break;
 
         case HeadPhase::K:
-            if (!ctx.wait_dma) {
+            if (!ctx.wait_dma && !ctx.wait_comp) {
                 if (start_head_dma(res, head_idx, layer_idx, DMASEL_WK,
                                    wl_ready, wl_start, wl_addr_sel,
                                    wl_layer, wl_head, wl_tile)) {
@@ -609,9 +627,15 @@ void drive_head_phase(
             break;
 
         case HeadPhase::K_REQUANT:
-            if (run_head_requantization(ctx, res, head_idx,
-                                        compute_ready, compute_start, compute_op)) {
-                ctx.phase = HeadPhase::K_WRITEBACK;
+            if (!ctx.wait_requant) {
+                if (start_head_requant(res, head_idx, RQ_K,
+                                       requant_ready, requant_start, requant_op)) {
+                    ctx.wait_requant = true;
+                }
+            } else if (ctx.requant_done_flag) {
+                ctx.requant_done_flag = false;
+                ctx.wait_requant     = false;
+                ctx.phase            = HeadPhase::K_WRITEBACK;
             }
             break;
 
@@ -630,7 +654,7 @@ void drive_head_phase(
             break;
 
         case HeadPhase::V:
-            if (!ctx.wait_dma) {
+            if (!ctx.wait_dma && !ctx.wait_comp) {
                 if (start_head_dma(res, head_idx, layer_idx, DMASEL_WV,
                                    wl_ready, wl_start, wl_addr_sel,
                                    wl_layer, wl_head, wl_tile)) {
@@ -654,9 +678,15 @@ void drive_head_phase(
             break;
 
         case HeadPhase::V_REQUANT:
-            if (run_head_requantization(ctx, res, head_idx,
-                                        compute_ready, compute_start, compute_op)) {
-                ctx.phase = HeadPhase::V_WRITEBACK;
+            if (!ctx.wait_requant) {
+                if (start_head_requant(res, head_idx, RQ_V,
+                                       requant_ready, requant_start, requant_op)) {
+                    ctx.wait_requant = true;
+                }
+            } else if (ctx.requant_done_flag) {
+                ctx.requant_done_flag = false;
+                ctx.wait_requant     = false;
+                ctx.phase            = HeadPhase::V_WRITEBACK;
             }
             break;
 
@@ -670,19 +700,25 @@ void drive_head_phase(
             } else if (ctx.dma_done_flag) {
                 ctx.dma_done_flag = false;
                 ctx.wait_dma      = false;
-                ctx.phase         = HeadPhase::REQUANT_QKV;
+                ctx.phase         = HeadPhase::REQUANT_Q;
             }
             break;
 
-        case HeadPhase::REQUANT_QKV:
-            if (run_head_requantization(ctx, res, head_idx,
-                                        compute_ready, compute_start, compute_op)) {
-                ctx.phase = HeadPhase::ATT_SCORES;
+        case HeadPhase::REQUANT_Q:
+            if (!ctx.wait_requant) {
+                if (start_head_requant(res, head_idx, RQ_Q,
+                                       requant_ready, requant_start, requant_op)) {
+                    ctx.wait_requant = true;
+                }
+            } else if (ctx.requant_done_flag) {
+                ctx.requant_done_flag = false;
+                ctx.wait_requant     = false;
+                ctx.phase            = HeadPhase::ATT_SCORES;
             }
             break;
 
         case HeadPhase::ATT_SCORES:
-            if (!ctx.wait_dma) {
+            if (!ctx.wait_dma && !ctx.wait_comp) {
                 if (start_head_dma(res, head_idx, layer_idx, DMASEL_CTX_K,
                                    wl_ready, wl_start, wl_addr_sel,
                                    wl_layer, wl_head, wl_tile)) {
@@ -733,7 +769,7 @@ void drive_head_phase(
             break;
 
         case HeadPhase::ATT_VALUE:
-            if (!ctx.wait_dma) {
+            if (!ctx.wait_dma && !ctx.wait_comp) {
                 if (start_head_dma(res, head_idx, layer_idx, DMASEL_CTX_V,
                                    wl_ready, wl_start, wl_addr_sel,
                                    wl_layer, wl_head, wl_tile)) {
@@ -757,9 +793,15 @@ void drive_head_phase(
             break;
 
         case HeadPhase::REQUANT2:
-            if (run_head_requantization(ctx, res, head_idx,
-                                        compute_ready, compute_start, compute_op)) {
-                ctx.phase = HeadPhase::DONE;
+            if (!ctx.wait_requant) {
+                if (start_head_requant(res, head_idx, RQ_FINAL,
+                                       requant_ready, requant_start, requant_op)) {
+                    ctx.wait_requant = true;
+                }
+            } else if (ctx.requant_done_flag) {
+                ctx.requant_done_flag = false;
+                ctx.wait_requant     = false;
+                ctx.phase            = HeadPhase::DONE;
             }
             break;
 
@@ -817,5 +859,24 @@ bool start_head_compute(
     res.comp_busy  = true;
     res.comp_owner = head_idx;
     res.comp_tag   = op;
+    return true;
+}
+
+bool start_head_requant(
+    HeadResources &res,     // [BOTH] Requant resource tracker
+    int   head_idx,         // [INPUT] Head requesting requant operation
+    RequantOp op,           // [INPUT] Requant operation identifier
+    bool  requant_ready,    // [INPUT] Requant engine idle status
+    bool &requant_start,    // [OUTPUT] Pulse that triggers requant launch
+    int  &requant_op        // [OUTPUT] Encoded opcode driven into the requant engine
+) {
+#pragma HLS INLINE
+    if (res.requant_busy || !requant_ready || requant_start)
+        return false;
+    requant_start   = 1;
+    requant_op      = op;
+    res.requant_busy  = true;
+    res.requant_owner = head_idx;
+    res.requant_tag   = op;
     return true;
 }

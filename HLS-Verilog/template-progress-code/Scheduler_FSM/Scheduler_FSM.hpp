@@ -56,7 +56,7 @@ enum class HeadPhase : uint8_t {
     V,
     V_REQUANT,
     V_WRITEBACK,
-    REQUANT_QKV,
+    REQUANT_Q,
     ATT_SCORES,
     VALUE_SCALE_CLAMP,
     ATT_SOFTMAX,
@@ -102,13 +102,23 @@ enum ComputeOp : uint8_t {
     CMP_LOGITS
 };
 
+enum RequantOp : uint8_t {
+    RQ_NONE = 0,
+    RQ_K,
+    RQ_V,
+    RQ_Q,
+    RQ_FINAL
+};
+
 struct HeadCtx {
     int       layer_stamp   = -1;
     HeadPhase phase         = HeadPhase::Q;
     bool      wait_dma      = false;
     bool      wait_comp     = false;
+    bool      wait_requant  = false;
     bool      dma_done_flag = false;
     bool      comp_done_flag= false;
+    bool      requant_done_flag = false;
 };
 
 struct HeadResources {
@@ -119,14 +129,18 @@ struct HeadResources {
     bool       comp_busy  = false;
     int        comp_owner = -1;
     ComputeOp  comp_tag   = CMP_NONE;
-};
 
-extern HeadCtx g_head_ctx[NUM_HEADS];
+    bool       requant_busy  = false;
+    int        requant_owner = -1;
+    RequantOp  requant_tag   = RQ_NONE;
+};
 
 // ------------------------------------------------------------
 // Helper declarations
 // ------------------------------------------------------------
 bool run_head_group(
+    HeadCtx (&head_ctx_ref)[NUM_HEADS],
+    HeadResources &res,
     int   layer_idx,
     int   group_idx,
     bool  reset_resources,
@@ -134,13 +148,17 @@ bool run_head_group(
     bool  dma_done,
     bool  compute_ready,
     bool  compute_done,
+    bool  requant_ready,
+    bool  requant_done,
     bool &wl_start,
     int  &wl_addr_sel,
     int  &wl_layer,
     int  &wl_head,
     int  &wl_tile,
     bool &compute_start,
-    int  &compute_op
+    int  &compute_op,
+    bool &requant_start,
+    int  &requant_op
 );
 
 void init_head_ctx(HeadCtx &ctx, int layer_idx);
@@ -151,6 +169,7 @@ void drive_head_phase(
     int       layer_idx,
     bool      wl_ready,
     bool      compute_ready,
+    bool      requant_ready,
     HeadResources &res,
     bool &wl_start,
     int  &wl_addr_sel,
@@ -158,7 +177,9 @@ void drive_head_phase(
     int  &wl_head,
     int  &wl_tile,
     bool &compute_start,
-    int  &compute_op
+    int  &compute_op,
+    bool &requant_start,
+    int  &requant_op
 );
 
 bool start_head_dma(
@@ -183,6 +204,15 @@ bool start_head_compute(
     int  &compute_op
 );
 
+bool start_head_requant(
+    HeadResources &res,
+    int   head_idx,
+    RequantOp op,
+    bool  requant_ready,
+    bool &requant_start,
+    int  &requant_op
+);
+
 // ------------------------------------------------------------
 // Scheduler FSM top-level
 // ------------------------------------------------------------
@@ -202,8 +232,12 @@ void scheduler_hls(
     bool dma_done,
     bool compute_ready,
     bool compute_done,
+    bool requant_ready,
+    bool requant_done,
     bool &compute_start,
     int  &compute_op,
+    bool &requant_start,
+    int  &requant_op,
     bool stream_ready,
     bool &stream_start,
     bool stream_done,
