@@ -72,6 +72,12 @@ void scheduler_hls(
     // One-shot guards for start pulses in each state
     static bool attn_started;
 #pragma HLS reset variable=attn_started
+    static bool attn_done;
+#pragma HLS reset variable=attn_done
+    static bool attn_group_done;
+#pragma HLS reset variable=attn_group_done
+
+
     static bool concat_started;
 #pragma HLS reset variable=concat_started
     static bool outproj_started;
@@ -92,11 +98,23 @@ void scheduler_hls(
     static bool stream_started;
 #pragma HLS reset variable=stream_started
 
+/*Headed Attention Parameters*/
+    static HeadCtx head_ctx[NUM_HEADS];
+#pragma HLS reset variable=head_ctx
+    static HeadResources head_res;      //Manages Resources across multiple parellel heads
+#pragma HLS reset variable=head_res
+    static int        head_group;       // Tracks current headgroup
+#pragma HLS reset variable=head_group
+    static bool       head_reset;       // resets head completion
+#pragma HLS reset variable=head_reset
+
     const bool reset = !cntrl_reset_n;
     if (reset) {
         st               = S_IDLE;
         layer_idx        = 0;
         attn_started     = false;
+        attn_done        = false;
+        attn_group_done  = false;
         concat_started   = false;
         outproj_started  = false;
         resid0_started   = false;
@@ -106,6 +124,14 @@ void scheduler_hls(
         resid1_started   = false;
         ln1_started      = false;
         stream_started   = false;
+
+        head_group       = 0;
+        head_reset       = true;
+        for (int i = 0; i < NUM_HEADS; ++i) {
+#pragma HLS UNROLL
+            init_head_ctx(head_ctx[i], -1);
+        }
+        head_res = HeadResources{};
     }
 
     // Default outputs
@@ -136,6 +162,8 @@ void scheduler_hls(
         if (cntrl_start) {
             st               = S_STREAM_IN;
             attn_started     = false;
+            attn_done        = false;
+            attn_group_done  = false;
             concat_started   = false;
             outproj_started  = false;
             resid0_started   = false;
@@ -144,6 +172,9 @@ void scheduler_hls(
             resid1_started   = false;
             ln1_started      = false;
             stream_started   = false;
+
+            head_group  = 0;
+            head_reset  = true;
         }
         break;
 
@@ -158,6 +189,8 @@ void scheduler_hls(
     case S_LAYER_COUNT:
         // Reset per-layer guards
         attn_started    = false;
+        attn_done       = false;
+        attn_group_done = false;
         concat_started  = false;
         outproj_started = false;
         resid0_started  = false;
@@ -167,15 +200,47 @@ void scheduler_hls(
         resid1_started  = false;
         ln1_started     = false;
         st              = S_ATTENTION_HEADS;
+
+        head_group  = 0;
+        head_reset  = true;
         break;
 
     case S_ATTENTION_HEADS:
-        // Single, serialized attention placeholder
-        if (!attn_started && compute_ready) {
-            compute_start = 1;
-            compute_op    = CMP_ATT_SCORES;
+        // Multiple, parallel attention
+        attn_group_done = run_head_group(
+                        head_ctx,
+                        head_res,
+                        layer_idx,
+                        head_group,
+                        head_reset,
+                        wl_ready,
+                        dma_done,
+                        compute_ready,
+                        compute_done,
+                        requant_ready,
+                        requant_done,
+                        wl_start,
+                        wl_addr_sel,
+                        wl_layer,
+                        wl_head,
+                        wl_tile,
+                        compute_start,
+                        compute_op,
+                        requant_start,
+                        requant_op);
+            
+        if (!attn_started && !attn_done) {
             attn_started  = true;
-        } else if (attn_started && compute_done) {
+            head_group = 0;
+            head_reset = false;
+        } else if(attn_started && !attn_done && !attn_group_done){
+            head_reset = false;
+        } else if(attn_started && !attn_done && attn_group_done){
+            head_group++;
+            head_reset = true;
+        } else if (attn_started && !attn_done && attn_group_done && head_group >= NUM_HEAD_GROUPS){
+            attn_done = true;
+        } else if (attn_started && attn_done) {
             attn_started = false;
             st           = S_HEAD_CONCAT;
         }
