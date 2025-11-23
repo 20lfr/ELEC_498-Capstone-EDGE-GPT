@@ -1,0 +1,83 @@
+# ----------------------------------------------------------------------
+# 1. Vivado Build & Generated Artifacts
+# ----------------------------------------------------------------------
+
+# Major Generated Directories (Always ignore these)
+**/*.runs/
+**/*.cache/
+**/*.hw/
+**/*.sim/
+**/*.gen/
+**/*.ip_user_files/
+
+# Logs, Journals, and Temporary Files
+**/*.jou
+**/*.log
+**/*.str
+**/*.wdb
+**/*.db
+.Xil/
+*.ide/
+*.remote/
+*/.metadata
+
+# Important Compiled Files (Generated binaries and checkpoints)
+**/*.dcp         # Design Checkpoint files
+**/*.bit         # Bitstream
+**/*.bin         # Binary file
+**/*.xsa         # Hardware Hand-off file (generated from the build)
+**/*.vds         # Synthesis Log
+**/*.rpt         # Report files
+**/*.rpx         # Report files (XML)
+
+# Generated Handoff Files (even if they appear in source paths)
+**/hw_handoff/*.hwh
+**/hdl/*.v
+**/system.bda
+**/system.bxml
+**/*.xsa
+**/*.bit
+**/*.bin
+
+# HLS Specifics
+**/solution*/
+
+# ----------------------------------------------------------------------
+# 2. Vitis/SDK/Software Build Artifacts
+# ----------------------------------------------------------------------
+# Build Output Directories (Default Vitis configurations)
+**/Debug/
+**/Release/
+**/bin/
+**/obj/
+
+# Common Compiled File Types
+**/*.o           # Object files
+**/*.elf         # Executables
+**/*.so          # Shared libraries
+**/*.a           # Static libraries
+**/*.lib
+**/*.exe
+**/*.out
+
+# Vitis/Eclipse IDE files
+**/compile_commands.json
+**/.settings/
+**/_ide/
+**/*.idx
+**/*.wpc
+**/*.wdf
+**/*.wpx
+
+# --- Vitis/Zynq Platform Handoff Files to Ignore ---
+**/psu_init.c
+**/psu_init.h
+**/psu_init.tcl
+**/psu_init.html
+**/psu_init_gpl.c
+**/psu_init_gpl.h
+**/pmufw.elf           # Compiled Firmware
+
+# Device Tree Overlay Gen Ignores
+**/device-tree-xlnx/
+**/dts_output/

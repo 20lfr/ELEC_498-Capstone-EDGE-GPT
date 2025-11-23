@@ -1,0 +1,57 @@
+{
+   "ActiveEmotionalView":"No Loops",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-227,-81",
+   "ExpandedHierarchyInLayout":"",
+   "No Loops_ExpandedHierarchyInLayout":"",
+   "No Loops_Layout":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0 TLS
+#  -string -flagsOSRD
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 1 -x 240 -y 50 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 82 84 80 83 85 81} -defaultsOSRD -pinDir M_AXI_HPM0_LPD right -pinY M_AXI_HPM0_LPD 20R -pinDir S_AXI_HP0_FPD right -pinY S_AXI_HP0_FPD 40R -pinDir maxihpm0_lpd_aclk right -pinY maxihpm0_lpd_aclk 100R -pinDir saxihp0_fpd_aclk right -pinY saxihp0_fpd_aclk 120R -pinBusDir pl_ps_irq0 right -pinBusY pl_ps_irq0 60R -pinDir pl_resetn0 left -pinY pl_resetn0 20L -pinDir pl_clk0 right -pinY pl_clk0 140R -pinDir pl_clk1 right -pinY pl_clk1 80R
+preplace inst axi_dma_0 -pg 1 -lvl 3 -x 1170 -y 90 -swap {61 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 0 48 49 50 51 52 53 54 55 56 57 58 59 60 47 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 84 79 80 81 82 83 96 85 86 87 88 89 90 91 92 93 94 95 78 97 98 99 100 101 103 104 105 106 102 109 110 111 112 107 108} -defaultsOSRD -pinDir S_AXI_LITE left -pinY S_AXI_LITE 60L -pinDir M_AXI_SG right -pinY M_AXI_SG 20R -pinDir M_AXI_MM2S left -pinY M_AXI_MM2S 20L -pinDir M_AXI_S2MM left -pinY M_AXI_S2MM 40L -pinDir M_AXIS_MM2S left -pinY M_AXIS_MM2S 100L -pinDir S_AXIS_S2MM left -pinY S_AXIS_S2MM 120L -pinDir M_AXIS_CNTRL right -pinY M_AXIS_CNTRL 40R -pinDir S_AXIS_STS left -pinY S_AXIS_STS 80L -pinDir s_axi_lite_aclk left -pinY s_axi_lite_aclk 160L -pinDir m_axi_sg_aclk left -pinY m_axi_sg_aclk 180L -pinDir m_axi_mm2s_aclk left -pinY m_axi_mm2s_aclk 200L -pinDir m_axi_s2mm_aclk left -pinY m_axi_s2mm_aclk 220L -pinDir axi_resetn left -pinY axi_resetn 140L -pinDir mm2s_prmry_reset_out_n right -pinY mm2s_prmry_reset_out_n 100R -pinDir mm2s_cntrl_reset_out_n right -pinY mm2s_cntrl_reset_out_n 120R -pinDir s2mm_prmry_reset_out_n right -pinY s2mm_prmry_reset_out_n 140R -pinDir s2mm_sts_reset_out_n right -pinY s2mm_sts_reset_out_n 160R -pinDir mm2s_introut right -pinY mm2s_introut 60R -pinDir s2mm_introut right -pinY s2mm_introut 80R
+preplace inst axi_smc -pg 1 -lvl 2 -x 720 -y -40 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222 223 224 225 226 227 228 229 231 230} -defaultsOSRD -pinDir S00_AXI left -pinY S00_AXI 0L -pinDir S01_AXI right -pinY S01_AXI 40R -pinDir S02_AXI right -pinY S02_AXI 60R -pinDir M00_AXI right -pinY M00_AXI 80R -pinDir M01_AXI left -pinY M01_AXI 20L -pinDir aclk left -pinY aclk 80L -pinDir aresetn left -pinY aresetn 60L
+preplace inst rst_ps8_0_99M -pg 1 -lvl 1 -x 240 -y 270 -swap {0 1 2 3 4 6 7 8 9 5} -defaultsOSRD -pinDir slowest_sync_clk right -pinY slowest_sync_clk 20R -pinDir ext_reset_in left -pinY ext_reset_in 20L -pinDir aux_reset_in left -pinY aux_reset_in 40L -pinDir mb_debug_sys_rst left -pinY mb_debug_sys_rst 60L -pinDir dcm_locked left -pinY dcm_locked 80L -pinDir mb_reset right -pinY mb_reset 60R -pinBusDir bus_struct_reset right -pinBusY bus_struct_reset 80R -pinBusDir peripheral_reset right -pinBusY peripheral_reset 100R -pinBusDir interconnect_aresetn right -pinBusY interconnect_aresetn 120R -pinBusDir peripheral_aresetn right -pinBusY peripheral_aresetn 40R
+preplace inst axi_stream_loopback_0 -pg 1 -lvl 2 -x 720 -y 180 -swap {5 1 2 3 4 0 6 7 8 9 10 11} -defaultsOSRD -pinDir M_AXIS right -pinY M_AXIS 40R -pinDir S_AXIS right -pinY S_AXIS 20R -pinDir ACLK left -pinY ACLK 20L -pinDir ARESETn left -pinY ARESETn 40L
+preplace inst xlconcat_0 -pg 1 -lvl 3 -x 1170 -y -40 -swap {1 0 2} -defaultsOSRD -pinBusDir In0 right -pinBusY In0 40R -pinBusDir In1 right -pinBusY In1 20R -pinBusDir dout left -pinBusY dout 20L
+preplace netloc rst_ps8_0_99M_peripheral_aresetn 1 1 2 550 100 920J
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 1 2 570 140 860
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 1 -30 70n
+preplace netloc axi_dma_0_mm2s_introut 1 3 1 1340 0n
+preplace netloc axi_dma_0_s2mm_introut 1 3 1 1360 -20n
+preplace netloc xlconcat_0_dout 1 1 2 510J 120 940J
+preplace netloc axi_dma_0_M_AXIS_MM2S 1 2 1 880 190n
+preplace netloc axi_dma_0_M_AXI_MM2S 1 2 1 1000J 0n
+preplace netloc axi_dma_0_M_AXI_S2MM 1 2 1 980J 20n
+preplace netloc axi_smc_M00_AXI 1 2 1 960 40n
+preplace netloc axi_smc_M01_AXI 1 1 1 530 -20n
+preplace netloc axi_stream_loopback_0_M_AXIS 1 2 1 900 210n
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 1 1 510 -40n
+levelinfo -pg 1 -60 240 720 1170 1480
+pagesize -pg 1 -db -bbox -sgen -60 -110 1570 490
+",
+   "No Loops_ScaleFactor":"1.41421",
+   "No Loops_TopLeft":"-354,-510",
+   "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0 TLS
+#  -string -flagsOSRD
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 1 -x 330 -y 100 -defaultsOSRD
+preplace inst axi_dma_0 -pg 1 -lvl 3 -x 1180 -y 370 -defaultsOSRD
+preplace inst axi_smc -pg 1 -lvl 2 -x 810 -y 110 -defaultsOSRD
+preplace inst rst_ps8_0_99M -pg 1 -lvl 1 -x 330 -y 320 -defaultsOSRD
+preplace inst axi_stream_loopback_0 -pg 1 -lvl 2 -x 810 -y 570 -defaultsOSRD
+preplace netloc rst_ps8_0_99M_peripheral_aresetn 1 1 2 650 440 NJ
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 3 30 200 660 360 990
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 2 20 10 630
+preplace netloc axi_dma_0_M_AXIS_MM2S 1 1 3 680 240 970 200 1350
+preplace netloc axi_dma_0_M_AXI_MM2S 1 1 3 670 220 950J 190 1360
+preplace netloc axi_dma_0_M_AXI_S2MM 1 1 3 680 210 NJ 210 1340
+preplace netloc axi_smc_M00_AXI 1 2 1 960 100n
+preplace netloc axi_smc_M01_AXI 1 0 3 40 220 620J 230 940
+preplace netloc axi_stream_loopback_0_M_AXIS 1 2 1 1020 320n
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 1 1 N 70
+levelinfo -pg 1 -10 330 810 1180 1560
+pagesize -pg 1 -db -bbox -sgen -10 0 1700 700
+"
+}
+{
+   "da_axi4_cnt":"4",
+   "da_zynq_ultra_ps_e_cnt":"1"
+}

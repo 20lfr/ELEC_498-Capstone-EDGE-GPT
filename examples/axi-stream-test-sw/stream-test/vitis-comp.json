@@ -1,0 +1,33 @@
+{
+  "name": "stream-test",
+  "type": "HOST",
+  "platform": "kria",
+  "domain": "linux_psu_cortexa53",
+  "cpuInstance": "cortex-a53",
+  "cpuType": "cortex-a53",
+  "os": "linux",
+  "sysroot": "/home/tristan/development/edge_gpt/ELEC_498-Capstone-EDGE-GPT/ubuntu22_sysroot/sysroot/aarch64-xilinx-linux",
+  "configuration": {
+    "componentType": "HOST",
+    "hostToolchainConfigurations": [
+      {
+        "compilerSymbols": [],
+        "compilerIncludes": [],
+        "compilerOptions": [],
+        "linkerLibraries": [],
+        "linkerLibraryPaths": [],
+        "linkerOptions": [],
+        "x86CompilerSymbols": [],
+        "x86CompilerIncludes": [],
+        "x86CompilerOptions": [],
+        "x86LinkerLibraries": [],
+        "x86LinkerLibraryPaths": [],
+        "x86LinkerOptions": []
+      }
+    ]
+  },
+  "domainRealName": "linux_psu_cortexa53",
+  "useSysrootToolchain": true,
+  "sysrootToolchain": "/usr/bin",
+  "applicationFlow": "EMBEDDED"
+}
