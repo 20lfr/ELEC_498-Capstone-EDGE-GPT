@@ -208,26 +208,26 @@ void scheduler_hls(
     case S_ATTENTION_HEADS:
         // Multiple, parallel attention
         attn_group_done = run_head_group(
-                        head_ctx,
-                        head_res,
-                        layer_idx,
-                        head_group,
-                        head_reset,
-                        wl_ready,
-                        dma_done,
-                        compute_ready,
-                        compute_done,
-                        requant_ready,
-                        requant_done,
-                        wl_start,
-                        wl_addr_sel,
-                        wl_layer,
-                        wl_head,
-                        wl_tile,
-                        compute_start,
-                        compute_op,
-                        requant_start,
-                        requant_op);
+                            head_ctx,
+                            head_res,
+                            layer_idx,
+                            head_group,
+                            head_reset,
+                            wl_ready,
+                            dma_done,
+                            compute_ready,
+                            compute_done,
+                            requant_ready,
+                            requant_done,
+                            wl_start,
+                            wl_addr_sel,
+                            wl_layer,
+                            wl_head,
+                            wl_tile,
+                            compute_start,
+                            compute_op,
+                            requant_start,
+                            requant_op);
             
         if (!attn_started && !attn_done) {
             attn_started  = true;

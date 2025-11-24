@@ -115,7 +115,7 @@ Stored: final_out = [2048] int8
 
 constexpr int NUM_LAYERS       = 2;
 constexpr int NUM_HEADS        = 8;
-constexpr int HEADS_PARALLEL   = 2;
+constexpr int HEADS_PARALLEL   = 1;
 constexpr int NUM_WO_TILES     = 4;
 constexpr int NUM_W1_TILES     = 4;
 constexpr int NUM_W2_TILES     = 4;
