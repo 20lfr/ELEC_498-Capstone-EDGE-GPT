@@ -33,7 +33,11 @@ void transformer_top() {
     bool stream_done    = false;    // AXI-Stream egress completion pulse
     bool done           = false;    // Scheduler completion output
     bool error          = false;    // Scheduler error flag
+    bool cntrl_busy     = false;
+    bool cntrl_start_out= false;
     SchedState dbg_state = S_IDLE;
+    HeadCtx dbg_head_ctx[NUM_HEADS];
+    HeadResources dbg_head_res{};
 
     
 
@@ -43,6 +47,8 @@ void transformer_top() {
         ctrl_start(ctrl_mem),
         ctrl_reset_n(ctrl_mem),
         ctrl_mem.layer_index,
+        cntrl_busy,
+        cntrl_start_out,
         axis_in_valid,
         axis_in_last,
         axis_in_ready,
@@ -65,9 +71,13 @@ void transformer_top() {
         stream_start,
         stream_done,
         done,
-        dbg_state);
+        dbg_state,
+        dbg_head_res,
+        dbg_head_ctx);
 
     (void)dbg_state;
+    (void)dbg_head_res;
+    (void)dbg_head_ctx;
     
 
     
