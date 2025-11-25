@@ -201,3 +201,7 @@ $finish called at time : 500 ns : File "/home/luka/Scripting/ELEC_498-Capstone-L
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'run_head_group_tb_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
 launch_simulation: Time (s): cpu = 00:00:15 ; elapsed = 00:00:09 . Memory (MB): peak = 10820.492 ; gain = 126.277 ; free physical = 49009 ; free virtual = 64119
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Nov 25 00:23:42 2025...

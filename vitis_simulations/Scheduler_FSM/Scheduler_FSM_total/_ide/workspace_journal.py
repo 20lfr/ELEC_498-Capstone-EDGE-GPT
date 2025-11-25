@@ -9,3 +9,5 @@ comp = client.create_hls_component(name = "Scheduler_FSM",cfg_file = ["hls_confi
 comp = client.get_component(name="Scheduler_FSM")
 comp.run(operation="C_SIMULATION")
 
+vitis.dispose()
+
