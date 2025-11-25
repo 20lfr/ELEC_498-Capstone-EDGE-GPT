@@ -1,0 +1,73 @@
+{
+  "0": {
+    "basicblocks": 59,
+    "calls": "2 1",
+    "control_depth": 6,
+    "def_use_depth": 4,
+    "file": "Scheduler_head_helpers.cpp",
+    "fileloc": 10,
+    "instructions": 189,
+    "loads": {
+      "L": 1,
+      "T": 10
+    },
+    "memory_accesses": 10,
+    "name": "run_head_group",
+    "stores": {
+      "L": 12,
+      "T": 15
+    },
+    "total_instructions": 664
+  },
+  "1": {
+    "basicblocks": 66,
+    "calls": "3 3 3 3 3 3 3",
+    "control_depth": 0,
+    "def_use_depth": 2,
+    "file": "Scheduler_head_helpers.cpp",
+    "fileloc": 141,
+    "instructions": 178,
+    "loads": {
+      "L": 15
+    },
+    "memory_accesses": 0,
+    "name": "drive_head_phase",
+    "stores": {
+      "L": 41
+    },
+    "total_instructions": 458
+  },
+  "2": {
+    "basicblocks": 1,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "Scheduler_head_helpers.cpp",
+    "fileloc": 126,
+    "instructions": 17,
+    "memory_accesses": 0,
+    "name": "init_head_ctx",
+    "stores": {
+      "L": 8
+    },
+    "total_instructions": 17
+  },
+  "3": {
+    "basicblocks": 11,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 2,
+    "file": "Scheduler_head_helpers.cpp",
+    "fileloc": 316,
+    "instructions": 40,
+    "loads": {
+      "L": 4
+    },
+    "memory_accesses": 0,
+    "name": "start_head_compute",
+    "stores": {
+      "L": 7
+    },
+    "total_instructions": 40
+  }
+}

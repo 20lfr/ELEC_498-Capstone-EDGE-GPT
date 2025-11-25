@@ -1,0 +1,35 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Wed May 21 22:58:25 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Mon Nov 24 22:57:44 2025
+# Process ID         : 32451
+# Current directory  : /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total
+# Command line       : vivado
+# Log file           : /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/vivado.log
+# Journal file       : /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/vivado.jou
+# Running On         : luka-B550-UD-AC-Y1
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.3 LTS
+# Processor Detail   : AMD Ryzen 7 5700X3D 8-Core Processor
+# CPU Frequency      : 1750.000 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 67341 MB
+# Swap memory        : 8589 MB
+# Total Virtual      : 75931 MB
+# Available Virtual  : 68904 MB
+#-----------------------------------------------------------
+start_gui
+create_project Head_helpers /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vivado_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_helpers -part xck26-sfvc784-2LV-c
+set_property board_part xilinx.com:kv260_som:part0:1.4 [current_project]
+add_files -norecurse {/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/run_head_group/hls/impl/verilog/run_head_group.v /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/run_head_group/hls/impl/verilog/run_head_group_sparsemux_7_2_1_1_1.v}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse /home/luka/Scripting/ELEC_498-Capstone-LiteLM/SV_testbenches/run_head_group_tb.sv
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+launch_simulation
+source run_head_group_tb.tcl

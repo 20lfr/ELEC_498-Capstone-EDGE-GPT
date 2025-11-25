@@ -1,0 +1,148 @@
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp, 
+                   Line: 172, Column: 21 }
+Function:        _Z16drive_head_phaseR7HeadCtxiibbbR13HeadResourcesRbRiS4_S4_S4_S3_S4_S3_S4_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'start_head_compute(HeadResources&, int, ComputeOp, bool, bool&, int&)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp, 
+                       Line: 323, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'drive_head_phase(HeadCtx&, int, int, bool, bool, bool, HeadResources&, bool&, int&, int&, int&, int&, bool&, int&, bool&, int&)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp, 
+                       Line: 158, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp, 
+                   Line: 97, Column: 13 }
+Function:        _Z14run_head_groupRA8_7HeadCtxR13HeadResourcesiibbbbbbbRbRiS5_S5_S5_S4_S5_S4_S5_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'init_head_ctx(HeadCtx&, int)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp, 
+                       Line: 129, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'run_head_group(HeadCtx (&) [8], HeadResources&, int, int, bool, bool, bool, bool, bool, bool, bool, bool&, int&, int&, int&, int&, bool&, int&, bool&, int&)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp, 
+                       Line: 31, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp, 
+                   Line: 102, Column: 13 }
+Function:        _Z14run_head_groupRA8_7HeadCtxR13HeadResourcesiibbbbbbbRbRiS5_S5_S5_S4_S5_S4_S5_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'drive_head_phase(HeadCtx&, int, int, bool, bool, bool, HeadResources&, bool&, int&, int&, int&, int&, bool&, int&, bool&, int&)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp, 
+                       Line: 158, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'run_head_group(HeadCtx (&) [8], HeadResources&, int, int, bool, bool, bool, bool, bool, bool, bool, bool&, int&, int&, int&, int&, bool&, int&, bool&, int&)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp, 
+                       Line: 31, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp, 
+                   Line: 31, Column: 0 }
+Function:        _Z14run_head_groupRA8_7HeadCtxR13HeadResourcesiibbbbbbbRbRiS5_S5_S5_S4_S5_S4_S5_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_89_3
+  - String:          ''' ('
+  - LoopLoc:         '/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp:89:22'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          run_head_group
+  - String:          ''' completely with a factor of '
+  - Factor:          '2'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp, 
+                   Line: 31, Column: 0 }
+Function:        _Z14run_head_groupRA8_7HeadCtxR13HeadResourcesiibbbbbbbRbRiS5_S5_S5_S4_S5_S4_S5_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_71_2
+  - String:          ''' ('
+  - LoopLoc:         '/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp:71:22'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          run_head_group
+  - String:          ''' completely with a factor of '
+  - Factor:          '2'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp, 
+                   Line: 31, Column: 0 }
+Function:        _Z14run_head_groupRA8_7HeadCtxR13HeadResourcesiibbbbbbbRbRiS5_S5_S5_S4_S5_S4_S5_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_60_1
+  - String:          ''' ('
+  - LoopLoc:         '/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp:60:22'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          run_head_group
+  - String:          ''' completely with a factor of '
+  - Factor:          '2'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        apatb_run_head_group_ir
+Args:            
+  - Callee:          'run_head_group(HeadCtx (&) [8], HeadResources&, int, int, bool, bool, bool, bool, bool, bool, bool, bool&, int&, int&, int&, int&, bool&, int&, bool&, int&)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp, 
+                       Line: 31, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          apatb_run_head_group_ir
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp, 
+                   Line: 31, Column: 0 }
+Function:        _Z14run_head_groupRA8_7HeadCtxR13HeadResourcesiibbbbbbbRbRiS5_S5_S5_S4_S5_S4_S5_
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            res
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '140'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp, 
+                   Line: 31, Column: 0 }
+Function:        _Z14run_head_groupRA8_7HeadCtxR13HeadResourcesiibbbbbbbRbRiS5_S5_S5_S4_S5_S4_S5_
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        bram
+  - String:          ' variable '''
+  - Name:            head_ctx_ref
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '46'
+  - String:          '-bits'
+...

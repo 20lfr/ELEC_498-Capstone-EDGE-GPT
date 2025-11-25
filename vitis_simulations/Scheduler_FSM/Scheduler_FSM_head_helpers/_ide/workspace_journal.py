@@ -9,3 +9,5 @@ comp = client.create_hls_component(name = "Head_Helpers",cfg_file = ["hls_config
 comp = client.get_component(name="Head_Helpers")
 comp.run(operation="C_SIMULATION")
 
+comp.run(operation="SYNTHESIS")
+
