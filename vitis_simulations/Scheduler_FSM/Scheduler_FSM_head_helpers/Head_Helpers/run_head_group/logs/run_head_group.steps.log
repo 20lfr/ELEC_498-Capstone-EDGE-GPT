@@ -37,7 +37,7 @@ DESKTOP_SESSION=ubuntu
 GTK_MODULES=gail:atk-bridge
 XIL_NO_OVERRIDE=0
 RDI_LIBDIR=/tools/Xilinx/2025.1/Vitis/lib/lnx64.o/Ubuntu/24:/tools/Xilinx/2025.1/Vitis/lib/lnx64.o/Ubuntu:/tools/Xilinx/2025.1/Vitis/lib/lnx64.o
-PWD=/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_helpers
+PWD=/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers
 LOGNAME=luka
 XDG_SESSION_DESKTOP=ubuntu
 THEIA_ELECTRON_VERSION=30.1.2
@@ -64,7 +64,7 @@ RDI_BUILD=yes
 GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/fba8077e_80f3_4a8d_ad3e_7962bde5eddd
 XILINXD_LICENSE_FILE=/home/luka/.Xilinx/Xilinx.lic
 RDI_PROG=/tools/Xilinx/2025.1/Vitis/bin/unwrapped/lnx64.o/vitis-run
-RDI_SESSION_INFO=/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM:luka-B550-UD-AC-Y1_1764040871_21559
+RDI_SESSION_INFO=/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM:luka-B550-UD-AC-Y1_1764042570_29522
 CHROME_DESKTOP=Vitis Unified IDE.desktop
 RT_TCL_PATH=/tools/Xilinx/2025.1/Vitis/scripts/rt/base_tcl/tcl
 XILINX_SDK=/tools/Xilinx/2025.1/Vitis
@@ -90,7 +90,7 @@ RDI_TPS_ROOT=/tools/Xilinx/2025.1/Vivado/tps/lnx64
 RDI_JAVA_VERSION=11.0.16_1
 IDE_SKIP_SERVER_LICENSE=1
 RDI_DATADIR=/tools/Xilinx/2025.1/SharedData/data:/tools/Xilinx/2025.1/Vitis/data
-THEIA_ELECTRON_TOKEN={"value":"f9ed1c11-e0a6-4994-981e-07237e9a659e"}
+THEIA_ELECTRON_TOKEN={"value":"84f150cf-4bd9-40fc-943a-027e48a2863a"}
 DISPLAY=:1
 SHLVL=4
 GSM_SKIP_SSH_AGENT_WORKAROUND=true
@@ -123,25 +123,24 @@ XILINX_VITIS=/tools/Xilinx/2025.1/Vitis
 OLDPWD=/tools/Xilinx/2025.1/SharedData/data
 XILINX_VCXX=/tools/Xilinx/2025.1/Vitis/lnx64/tools/vcxx
 _=/tools/Xilinx/2025.1/Vitis/bin/unwrapped/lnx64.o/vitis-run
-XILINX_CD_CONNECT_ID=33809
-XILINX_CD_SESSION=6da17c79-e36d-4435-9a8f-162ba051578d
+XILINX_CD_CONNECT_ID=33655
+XILINX_CD_SESSION=9b6d1bad-de1e-4bea-88c5-86c3722b2a5b
 
 
 VITIS-RUN command line:
 ------------------------------------------
-/tools/Xilinx/2025.1/Vitis/bin/unwrapped/lnx64.o/vitis-run --mode hls --csim --config /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_helpers/hls_config.cfg --work_dir run_head_group 
+/tools/Xilinx/2025.1/Vitis/bin/unwrapped/lnx64.o/vitis-run --mode hls --csim --config /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/hls_config.cfg --work_dir run_head_group 
 
 FINAL PROGRAM OPTIONS
---config /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_helpers/hls_config.cfg
+--config /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/hls_config.cfg
 --csim
 --hls.clock 10ns
 --hls.flow_target vivado
 --hls.package.output.format ip_catalog
 --hls.package.output.syn false
---hls.syn.file /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/template-progress-code/Scheduler_FSM/Scheduler_head_helpers.cpp
---hls.syn.file /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/template-progress-code/Scheduler_FSM/Scheduler_FSM.hpp
+--hls.syn.file /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp
 --hls.syn.top run_head_group
---hls.tb.file /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/template-progress-code/Scheduler_FSM/C_testbenches/Scheduler_head_helpers_tb.cpp
+--hls.tb.file /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/C_testbenches/Scheduler_head_helpers_tb.cpp
 --mode hls
 --part xck26-sfvc784-2LV-c
 --work_dir run_head_group
@@ -149,22 +148,21 @@ FINAL PROGRAM OPTIONS
 PARSED COMMAND LINE OPTIONS
 --mode hls 
 --csim 
---config /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_helpers/hls_config.cfg 
+--config /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/hls_config.cfg 
 --work_dir run_head_group 
 
 PARSED CONFIG FILE (1) OPTIONS
-file: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_helpers/hls_config.cfg
+file: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/hls_config.cfg
 part xck26-sfvc784-2LV-c 
 hls.flow_target vivado 
 hls.package.output.format ip_catalog 
 hls.package.output.syn false 
 hls.syn.top run_head_group 
-hls.syn.file /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/template-progress-code/Scheduler_FSM/Scheduler_head_helpers.cpp 
-hls.syn.file /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/template-progress-code/Scheduler_FSM/Scheduler_FSM.hpp 
-hls.tb.file /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/template-progress-code/Scheduler_FSM/C_testbenches/Scheduler_head_helpers_tb.cpp 
+hls.syn.file /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp 
+hls.tb.file /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/C_testbenches/Scheduler_head_helpers_tb.cpp 
 hls.clock 10ns 
 
 
 ==========================================
 new:  steps log generated by v++ for new launch 
-timestamp: 24 Nov 2025 22:23:34
+timestamp: 24 Nov 2025 22:53:41

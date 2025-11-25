@@ -23,7 +23,7 @@ __USE_VCXX_CLANG__ = 1
 
 ObjDir = obj
 
-HLS_SOURCES = ../../../../../../../../HLS-Verilog/template-progress-code/Scheduler_FSM/C_testbenches/Scheduler_head_helpers_tb.cpp ../../../../../../../../HLS-Verilog/template-progress-code/Scheduler_FSM/Scheduler_head_helpers.cpp
+HLS_SOURCES = ../../../../../../../../HLS-Verilog/Scheduler_FSM/C_testbenches/Scheduler_head_helpers_tb.cpp ../../../../../../../../HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp
 
 override TARGET := csim.exe
 
@@ -83,14 +83,14 @@ all: $(TARGET)
 
 
 
-$(ObjDir)/Scheduler_head_helpers_tb.o: ../../../../../../../../HLS-Verilog/template-progress-code/Scheduler_FSM/C_testbenches/Scheduler_head_helpers_tb.cpp $(ObjDir)/.dir csim.mk
-	$(Echo) "   Compiling ../../../../../../../../HLS-Verilog/template-progress-code/Scheduler_FSM/C_testbenches/Scheduler_head_helpers_tb.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+$(ObjDir)/Scheduler_head_helpers_tb.o: ../../../../../../../../HLS-Verilog/Scheduler_FSM/C_testbenches/Scheduler_head_helpers_tb.cpp $(ObjDir)/.dir csim.mk
+	$(Echo) "   Compiling ../../../../../../../../HLS-Verilog/Scheduler_FSM/C_testbenches/Scheduler_head_helpers_tb.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
 	$(Verb)  $(CXX) -std=gnu++14 ${CCFLAG} -c -MMD -Wno-unknown-pragmas -Wno-unknown-pragmas  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
 -include $(ObjDir)/Scheduler_head_helpers_tb.d
 
-$(ObjDir)/Scheduler_head_helpers.o: ../../../../../../../../HLS-Verilog/template-progress-code/Scheduler_FSM/Scheduler_head_helpers.cpp $(ObjDir)/.dir csim.mk
-	$(Echo) "   Compiling ../../../../../../../../HLS-Verilog/template-progress-code/Scheduler_FSM/Scheduler_head_helpers.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+$(ObjDir)/Scheduler_head_helpers.o: ../../../../../../../../HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp $(ObjDir)/.dir csim.mk
+	$(Echo) "   Compiling ../../../../../../../../HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
 	$(Verb)  $(CXX) -std=gnu++14 ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
 -include $(ObjDir)/Scheduler_head_helpers.d

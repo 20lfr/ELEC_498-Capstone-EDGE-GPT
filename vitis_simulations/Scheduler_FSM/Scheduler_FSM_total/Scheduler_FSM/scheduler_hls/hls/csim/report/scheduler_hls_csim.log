@@ -1,6 +1,8 @@
 INFO: [SIM 2] *************** CSIM start ***************
 INFO: [SIM 4] CSIM will launch CLANG as the compiler.
-   Compiling ../../../../../../../../HLS-Verilog/template-progress-code/Scheduler_FSM/Scheduler_FSM.cpp in debug mode
+   Compiling ../../../../../../../../HLS-Verilog/Scheduler_FSM/C_testbenches/Scheduler_tb_minimal.cpp in debug mode
+   Compiling ../../../../../../../../HLS-Verilog/Scheduler_FSM/Scheduler_FSM.cpp in debug mode
+   Compiling ../../../../../../../../HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp in debug mode
    Generating csim.exe
 Cycle    Start  Reset  Busy     | State            AXIS_v     AXIS_r     AXIS_last  CmpStart   CmpReady   CmpDone    CmpOp        ResBusy    Req                      Grant                   Granting        HeadPhases
 0        0      0      -        | S_IDLE           -          -          -          -          1          -          -            -          [-, -, -, -, -, -, -, -] [-, -, -, -, -, -, -, -] -            [Q, Q, Q, Q, Q, Q, Q, Q]

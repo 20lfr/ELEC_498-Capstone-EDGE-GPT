@@ -1,0 +1,79 @@
+Execute       source -notrace -encoding utf-8 /tools/Xilinx/2025.1/Vitis/tps/tcl/tcl8.6/clock.tcl 
+Execute         source -encoding utf-8 /tools/Xilinx/2025.1/tps/tcl/tcl8/8.5/msgcat-1.6.1.tm 
+INFO-FLOW: Workspace /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/run_head_group/hls opened at Mon Nov 24 22:53:44 EST 2025
+Execute       send_msg_by_id INFO @200-1505@%s%s default  vivado 
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Execute       send_msg_by_id INFO @200-2174@%s%s component /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/hls_config.cfg 
+INFO: [HLS 200-2174] Applying component config ini file /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/hls_config.cfg
+Execute       apply_ini /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/hls_config.cfg 
+Execute         send_msg_by_id INFO @200-1465@%s 'syn.file=/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp' from /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/hls_config.cfg(8) 
+INFO: [HLS 200-1465] Applying config ini 'syn.file=/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp' from /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/hls_config.cfg(8)
+Execute         add_files /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp 
+INFO: [HLS 200-10] Adding design file '/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp' to the project
+Execute         send_msg_by_id INFO @200-1465@%s 'tb.file=/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/C_testbenches/Scheduler_head_helpers_tb.cpp' from /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/hls_config.cfg(9) 
+INFO: [HLS 200-1465] Applying config ini 'tb.file=/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/C_testbenches/Scheduler_head_helpers_tb.cpp' from /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/hls_config.cfg(9)
+Execute         add_files -tb /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/C_testbenches/Scheduler_head_helpers_tb.cpp 
+INFO: [HLS 200-10] Adding test bench file '/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/C_testbenches/Scheduler_head_helpers_tb.cpp' to the project
+Execute         send_msg_by_id INFO @200-1465@%s 'syn.top=run_head_group' from /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/hls_config.cfg(7) 
+INFO: [HLS 200-1465] Applying config ini 'syn.top=run_head_group' from /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/hls_config.cfg(7)
+Execute         set_top run_head_group 
+Execute         send_msg_by_id INFO @200-1465@%s 'flow_target=vivado' from /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/hls_config.cfg(4) 
+INFO: [HLS 200-1465] Applying config ini 'flow_target=vivado' from /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/hls_config.cfg(4)
+Execute         send_msg_by_id INFO @200-1505@%s%s  vivado 
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Execute         send_msg_by_id INFO @200-1465@%s 'part=xck26-sfvc784-2LV-c' from /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/hls_config.cfg(1) 
+INFO: [HLS 200-1465] Applying config ini 'part=xck26-sfvc784-2LV-c' from /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/hls_config.cfg(1)
+Execute         set_part xck26-sfvc784-2LV-c 
+Execute           create_platform xck26-sfvc784-2LV-c -board  
+DBG:HLSDevice: Trying to load device library: /tools/Xilinx/2025.1/Vitis/lib/lnx64.o/libxv_hlsvwrap.so
+DBG:HLSDevice: first parts/arch.xml in RDI_DATADIR: /tools/Xilinx/2025.1/Vivado/data/parts/arch.xml
+DBG:HLSDevice: init success
+INFO: [HLS 200-1611] Setting target device to 'xck26-sfvc784-2LV-c'
+Command           create_platform done; 1.4 sec.
+Execute           source /tools/Xilinx/2025.1/Vitis/common/technology/xilinx/common/xilinx.gen 
+Execute             source /tools/Xilinx/2025.1/Vitis/common/technology/xilinx/interface/plb46.gen 
+Execute             source /tools/Xilinx/2025.1/Vitis/common/technology/xilinx/interface/axi4.gen 
+Execute             source /tools/Xilinx/2025.1/Vitis/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute               source /tools/Xilinx/2025.1/Vitis/common/technology/xilinx/interface/saxilite.gen 
+Execute             source /tools/Xilinx/2025.1/Vitis/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute             source /tools/Xilinx/2025.1/Vitis/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute             source /tools/Xilinx/2025.1/Vitis/common/technology/xilinx/ip/xfir.gen 
+Execute             source /tools/Xilinx/2025.1/Vitis/common/technology/xilinx/ip/dds_compiler.gen 
+Execute             source /tools/Xilinx/2025.1/Vitis/common/technology/xilinx/ip/xfft.gen 
+Execute             source /tools/Xilinx/2025.1/Vitis/common/technology/xilinx/ip/util.gen 
+Execute             source /tools/Xilinx/2025.1/Vitis/common/technology/xilinx/DSP48/dsp48.gen 
+Execute           ap_part_info -name xck26-sfvc784-2LV-c -data info 
+Execute           config_compile -quiet -complex-mul-dsp=0 
+Command         set_part done; 1.48 sec.
+Execute         send_msg_by_id INFO @200-1465@%s 'clock=10ns' from /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/hls_config.cfg(10) 
+INFO: [HLS 200-1465] Applying config ini 'clock=10ns' from /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/hls_config.cfg(10)
+Execute         create_clock -period 10ns 
+Execute           ap_set_clock -name default -period 10 -unit ns -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+Execute         send_msg_by_id INFO @200-1465@%s 'package.output.format=ip_catalog' from /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/hls_config.cfg(5) 
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/hls_config.cfg(5)
+Execute         config_export -format=ip_catalog 
+Command       apply_ini done; 1.49 sec.
+Execute       write_component -config /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/hls_config.cfg 
+Execute         send_msg_by_id INFO @200-2176@%s /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/run_head_group/vitis-comp.json 
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/run_head_group/vitis-comp.json
+Command     open_solution done; 1.53 sec.
+Command   open_component done; 1.53 sec.
+Execute   apply_ini /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers/run_head_group/hls/config.cmdline -iscmdline 
+Execute   ::AP::init_summary_file csim 
+Execute     AP::app_get_file_relativeroot [AP::app_get_root] {}
+Execute   csim_design 
+INFO-FLOW: Running SLX 'csim' proc: ::SLX::run_csim
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+Execute     send_msg_by_id INFO @200-2036@%s debug 
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+Execute     ap_part_info -name xck26-sfvc784-2LV-c -data info 
+Execute     source run_sim.tcl 
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+Command   csim_design done; 0.91 sec.
+Execute   close_project 
+Execute     close_solution 
+Execute       cleanup_all 
+Execute       cleanup_all 
