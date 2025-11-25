@@ -1,0 +1,13 @@
+{
+  "name": "Scheduler_FSM_simplified",
+  "type": "HLS",
+  "configuration": {
+    "componentType": "HLS",
+    "configFiles": [
+      "hls_config.cfg"
+    ],
+    "work_dir": "scheduler_hls"
+  },
+  "useSysrootToolchain": false,
+  "template": "empty_hls_component"
+}

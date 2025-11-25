@@ -5,58 +5,80 @@
 module run_head_group_tb;
   localparam int CLK_PERIOD = 10;  // ns
 
+`ifdef DUMP_MIN_WAVES
+  // Limit waveform dump to only a handful of top-level signals so unused DUT internals stay hidden.
+  initial begin
+    $dumpfile("run_head_group_tb.vcd");
+    $dumpvars(0,
+      run_head_group_tb.ap_clk,
+      run_head_group_tb.ap_rst,
+      run_head_group_tb.ap_start,
+      run_head_group_tb.ap_done,
+      run_head_group_tb.ap_idle,
+      run_head_group_tb.ap_ready,
+      run_head_group_tb.res_i,
+      run_head_group_tb.res_o,
+      run_head_group_tb.res_o_ap_vld,
+      run_head_group_tb.head_ctx_ref_address0,
+      run_head_group_tb.head_ctx_ref_q0,
+      run_head_group_tb.head_ctx_ref_address1,
+      run_head_group_tb.head_ctx_ref_q1
+    );
+  end
+`endif
+
   // Clock/reset
   logic ap_clk = 1'b0;
   logic ap_rst = 1'b1;
 
   // DUT inputs
-  logic ap_start;
-  logic [45:0] head_ctx_ref_q0;
-  logic [45:0] head_ctx_ref_q1;
-  logic [139:0] res_i;
-  logic [31:0] layer_idx;
-  logic [31:0] group_idx;
-  logic reset_resources;
-  logic wl_ready;
-  logic dma_done;
-  logic compute_ready;
-  logic compute_done;
-  logic requant_ready;
-  logic requant_done;
+  logic ap_start;          // HLS Block Start
+  logic [45:0] head_ctx_ref_q0; // C++: HeadCtx (&head_ctx_ref)[NUM_HEADS] (RAM Read Data Port 0)
+  logic [45:0] head_ctx_ref_q1; // C++: HeadCtx (&head_ctx_ref)[NUM_HEADS] (RAM Read Data Port 1)
+  logic [139:0] res_i;     // C++: HeadResources &res (Input)
+  logic [31:0] layer_idx;  // C++: int layer_idx
+  logic [31:0] group_idx;  // C++: int group_idx
+  logic reset_resources;   // C++: bool reset_resources
+  logic wl_ready;          // C++: bool wl_ready
+  logic dma_done;          // C++: bool dma_done
+  logic compute_ready;     // C++: bool compute_ready
+  logic compute_done;      // C++: bool compute_done
+  logic requant_ready;     // C++: bool requant_ready
+  logic requant_done;      // C++: bool requant_done
 
   // DUT outputs
-  logic ap_done;
-  logic ap_idle;
-  logic ap_ready;
-  logic [2:0] head_ctx_ref_address0;
-  logic head_ctx_ref_ce0;
-  logic head_ctx_ref_we0;
-  logic [45:0] head_ctx_ref_d0;
-  logic [2:0] head_ctx_ref_address1;
-  logic head_ctx_ref_ce1;
-  logic head_ctx_ref_we1;
-  logic [45:0] head_ctx_ref_d1;
-  logic [139:0] res_o;
-  logic res_o_ap_vld;
-  logic wl_start;
-  logic wl_start_ap_vld;
-  logic [31:0] wl_addr_sel;
-  logic wl_addr_sel_ap_vld;
-  logic [31:0] wl_layer;
-  logic wl_layer_ap_vld;
-  logic [31:0] wl_head;
-  logic wl_head_ap_vld;
-  logic [31:0] wl_tile;
-  logic wl_tile_ap_vld;
-  logic compute_start;
-  logic compute_start_ap_vld;
-  logic [31:0] compute_op;
-  logic compute_op_ap_vld;
-  logic requant_start;
-  logic requant_start_ap_vld;
-  logic [31:0] requant_op;
-  logic requant_op_ap_vld;
-  logic ap_return;
+  logic ap_done;           // HLS Block Done
+  logic ap_idle;           // HLS Block Idle
+  logic ap_ready;          // HLS Block Ready
+  logic [2:0] head_ctx_ref_address0; // C++: HeadCtx (&head_ctx_ref)[NUM_HEADS] (RAM Addr Port 0)
+  logic head_ctx_ref_ce0;  // RAM CE Port 0
+  logic head_ctx_ref_we0;  // RAM WE Port 0
+  logic [45:0] head_ctx_ref_d0; // RAM Write Data Port 0
+  logic [2:0] head_ctx_ref_address1; // C++: HeadCtx (&head_ctx_ref)[NUM_HEADS] (RAM Addr Port 1)
+  logic head_ctx_ref_ce1;  // RAM CE Port 1
+  logic head_ctx_ref_we1;  // RAM WE Port 1
+  logic [45:0] head_ctx_ref_d1; // RAM Write Data Port 1
+  logic [139:0] res_o;     // C++: HeadResources &res (Output)
+  logic res_o_ap_vld;      // Valid signal for res_o
+  logic wl_start;          // C++: bool &wl_start
+  logic wl_start_ap_vld;   // Valid signal for wl_start
+  logic [31:0] wl_addr_sel;// C++: int &wl_addr_sel
+  logic wl_addr_sel_ap_vld;// Valid signal for wl_addr_sel
+  logic [31:0] wl_layer;   // C++: int &wl_layer
+  logic wl_layer_ap_vld;   // Valid signal for wl_layer
+  logic [31:0] wl_head;    // C++: int &wl_head
+  logic wl_head_ap_vld;    // Valid signal for wl_head
+  logic [31:0] wl_tile;    // C++: int &wl_tile
+  logic wl_tile_ap_vld;    // Valid signal for wl_tile
+  logic compute_start;     // C++: bool &compute_start
+  logic compute_start_ap_vld; // Valid signal for compute_start
+  logic [31:0] compute_op; // C++: int &compute_op
+  logic compute_op_ap_vld; // Valid signal for compute_op
+  logic requant_start;     // C++: bool &requant_start
+  logic requant_start_ap_vld; // Valid signal for requant_start
+  logic [31:0] requant_op; // C++: int &requant_op
+  logic requant_op_ap_vld; // Valid signal for requant_op
+  logic ap_return;         // C++: return bool (group_finished)
 
   // Clock generation
   always #(CLK_PERIOD/2) ap_clk = ~ap_clk;
@@ -197,8 +219,8 @@ module run_head_group_tb;
         // Wait a bit before next call (optional, but good for waveforms)
         @(posedge ap_clk);
         
-        if (cycle_count > 1000) begin
-            $display("Error: Timeout waiting for group completion.");
+        if (cycle_count > 100000) begin
+            $display("Error: Timeout waiting for group completion (hit 100k cycles).");
             break;
         end
     end

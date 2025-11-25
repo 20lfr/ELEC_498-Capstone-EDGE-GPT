@@ -1,0 +1,7 @@
+Running: xsim.dir/scheduler_hls_tb_behav/xsimk -simmode gui -wdb scheduler_hls_tb_behav.wdb -simrunnum 0 -socket 43815
+Design successfully loaded
+Design Loading Memory Usage: 179228 KB (Peak: 179228 KB)
+Design Loading CPU Usage: 820 ms
+Simulation completed
+Simulation Memory Usage: 269676 KB (Peak: 318496 KB)
+Simulation CPU Usage: 860 ms

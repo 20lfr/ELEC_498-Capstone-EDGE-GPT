@@ -1,0 +1,21 @@
+{
+  "0": {
+    "basicblocks": 62,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 2,
+    "file": "Simple_Scheduler_FSM.cpp",
+    "fileloc": 9,
+    "instructions": 308,
+    "loads": {
+      "G": 14
+    },
+    "memory_accesses": 0,
+    "name": "scheduler_hls",
+    "stores": {
+      "G": 71,
+      "T": 39
+    },
+    "total_instructions": 308
+  }
+}

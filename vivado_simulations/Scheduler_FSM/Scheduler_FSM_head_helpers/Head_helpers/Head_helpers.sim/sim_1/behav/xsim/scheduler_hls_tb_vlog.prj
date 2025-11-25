@@ -1,0 +1,12 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../../../../../../../../../tools/Xilinx/2025.1/data/rsb/busdef" \
+"../../../../../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_parallel_headed/Verilog/scheduler_hls.v" \
+
+sv xil_defaultlib  --include "../../../../../../../../../../../../tools/Xilinx/2025.1/data/rsb/busdef" \
+"../../../../../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_parallel_headed/Verilog/scheduler_hls_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
