@@ -34,20 +34,53 @@ bool run_head_group(
     wl_start      = 0;
     compute_start = 0;
     requant_start = 0;
+    compute_op    = static_cast<int>(CMP_NONE);
+    requant_op    = static_cast<int>(RQ_NONE);
 
     if (reset_resources) {
         res = HeadResources{}; // Re-init res if reset is asserted
     }
 
+
+    // MAY CONFLICT WITH ARBITER BELOW
     if (compute_done && res.comp_busy) {
         HeadCtx &ctx = head_ctx_ref[res.comp_owner];
         ctx.comp_done_flag = true;
         res.comp_busy      = false;
+        res.grant_compute[res.comp_owner] = false;
+        res.currently_granting            = false;
         res.comp_owner     = -1;
         res.comp_tag       = CMP_NONE;
     }
 
     const int head_base = group_idx * HEADS_PARALLEL;   // Calculate the Head "Group" we are currently in
+
+    // Single-grant arbitration for compute
+    const bool clear_grants = !res.currently_granting;
+    for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
+#pragma HLS UNROLL
+        const int head_idx = head_base + lane;
+        if (head_idx >= NUM_HEADS)
+            continue;
+        if (!clear_grants)
+            continue;
+        res.grant_compute[head_idx] = false; // clear stale grants when idle
+    }
+
+    bool can_grant = (!res.comp_busy && !res.currently_granting && compute_ready);
+    for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
+#pragma HLS UNROLL
+        const int head_idx = head_base + lane;
+        if (head_idx >= NUM_HEADS)
+            continue;
+        if (!can_grant)
+            continue;
+        if (res.request_compute[head_idx]) {
+            res.grant_compute[head_idx] = true;
+            res.currently_granting      = true;
+            can_grant                   = false; // prevent additional grants in this cycle
+        }
+    }
 
     // This is the the return conditional later to make vitis Synthesize into RTL easier
     bool group_finished = true; // init the group finished variable
@@ -124,16 +157,19 @@ void drive_head_phase(
     int             &requant_op     // [OUTPUT] Operation ID for the requant engine
 ) {
 #pragma HLS INLINE
-    // Silence unused params for this simplified, compute-only flow
-    (void)layer_idx; (void)wl_ready; (void)requant_ready;
-    (void)wl_start; (void)wl_addr_sel; (void)wl_layer;
-    (void)wl_head; (void)wl_tile; (void)requant_start; (void)requant_op;
+    // Default unused outputs for this simplified, compute-only flow
+    wl_start      = 0;
+    wl_addr_sel   = 0;
+    wl_layer      = layer_idx;
+    wl_head       = head_idx;
+    wl_tile       = 0;
+    requant_start = 0;
+    requant_op    = static_cast<int>(RQ_NONE);
 
     switch (ctx.phase) {
         case HeadPhase::Q:
             if (!ctx.wait_comp) {
-                if (start_head_compute(res, head_idx, CMP_Q,
-                                       compute_ready, compute_start, compute_op)) {
+                if (start_head_compute(res, head_idx, CMP_Q, compute_ready, compute_start, compute_op)) {
                     ctx.wait_comp = true;
                 }
             } else if (ctx.comp_done_flag) {
@@ -286,13 +322,24 @@ bool start_head_compute(
     int   &compute_op     // [OUTPUT] Encoded opcode forwarded to hardware
 ) {
 #pragma HLS INLINE
-    if (res.comp_busy || !compute_ready || compute_start)
-        return false;
+    // Make sure a request is registered
+    if (!res.request_compute[head_idx]) {
+        res.request_compute[head_idx] = true;
+    }
+    if (res.comp_busy || compute_start)
+        return false; // compute block already taken this cycle
+    if (!res.grant_compute[head_idx])
+        return false; // no grant yet for this head
+    if (!compute_ready)
+        return false; // compute pipeline not ready to launch
+
+    // Consume the grant and launch compute
     compute_start = 1;
     compute_op    = static_cast<int>(op);
     res.comp_busy  = true;
     res.comp_owner = head_idx;
     res.comp_tag   = op;
+    res.request_compute[head_idx] = false;
     return true;
 }
 

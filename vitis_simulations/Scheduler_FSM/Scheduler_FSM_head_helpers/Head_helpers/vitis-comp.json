@@ -1,0 +1,13 @@
+{
+  "name": "Head_helpers",
+  "type": "HLS",
+  "configuration": {
+    "componentType": "HLS",
+    "configFiles": [
+      "hls_config.cfg"
+    ],
+    "work_dir": "run_head_group"
+  },
+  "useSysrootToolchain": false,
+  "template": "empty_hls_component"
+}

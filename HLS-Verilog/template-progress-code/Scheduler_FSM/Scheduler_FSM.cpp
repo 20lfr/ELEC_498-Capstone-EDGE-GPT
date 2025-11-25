@@ -61,7 +61,9 @@ void scheduler_hls(
     // ------------------------------------------------------------
     // DEBUG STATE OUTPUT
     // ------------------------------------------------------------
-    SchedState &STATE        // [OUTPUT] Current scheduler state
+    SchedState &STATE,                  // [OUTPUT] Current scheduler state
+    HeadResources &DBG_head_res,        // [OUTPUT] Current head resource object
+    HeadCtx (&DBG_head_ctx)[NUM_HEADS]  // [OUTPUT] Each heads object, tracking head state, completion and time busy
 ) {
     // Core FSM state
     static SchedState st;
@@ -228,19 +230,23 @@ void scheduler_hls(
                             compute_op,
                             requant_start,
                             requant_op);
-            
-        if (!attn_started && !attn_done) {
-            attn_started  = true;
-            head_group = 0;
+
+        if (!attn_started) {
+            attn_started = true;
+            head_group   = 0;
+            head_reset   = true;
+        } else if (attn_group_done) {
+            if (head_group + 1 >= NUM_HEAD_GROUPS) {
+                attn_done = true;
+            } else {
+                head_group++;
+                head_reset = true;
+            }
+        } else {
             head_reset = false;
-        } else if(attn_started && !attn_done && !attn_group_done){
-            head_reset = false;
-        } else if(attn_started && !attn_done && attn_group_done){
-            head_group++;
-            head_reset = true;
-        } else if (attn_started && !attn_done && attn_group_done && head_group >= NUM_HEAD_GROUPS){
-            attn_done = true;
-        } else if (attn_started && attn_done) {
+        }
+
+        if (attn_started && attn_done) {
             attn_started = false;
             st           = S_HEAD_CONCAT;
         }
@@ -374,4 +380,9 @@ void scheduler_hls(
     }
 
     STATE = st;
+    DBG_head_res = head_res;
+    for (int i = 0; i < NUM_HEADS; ++i) {
+#pragma HLS UNROLL
+        DBG_head_ctx[i] = head_ctx[i];
+    }
 }
