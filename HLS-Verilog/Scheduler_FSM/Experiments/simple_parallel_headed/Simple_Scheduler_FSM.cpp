@@ -108,6 +108,18 @@ void scheduler_hls(
 #pragma HLS reset variable = wo_dma_busy
   static bool wo_comp_busy;
 #pragma HLS reset variable = wo_comp_busy
+  static int w1_tile;
+#pragma HLS reset variable = w1_tile
+  static bool w1_dma_busy;
+#pragma HLS reset variable = w1_dma_busy
+  static bool w1_comp_busy;
+#pragma HLS reset variable = w1_comp_busy
+  static int w2_tile;
+#pragma HLS reset variable = w2_tile
+  static bool w2_dma_busy;
+#pragma HLS reset variable = w2_dma_busy
+  static bool w2_comp_busy;
+#pragma HLS reset variable = w2_comp_busy
 
   const bool reset = !cntrl_reset_n;
   if (reset) {
@@ -128,6 +140,12 @@ void scheduler_hls(
     wo_tile = 0;
     wo_dma_busy = false;
     wo_comp_busy = false;
+    w1_tile = 0;
+    w1_dma_busy = false;
+    w1_comp_busy = false;
+    w2_tile = 0;
+    w2_dma_busy = false;
+    w2_comp_busy = false;
   }
 
   // Default outputs
@@ -171,6 +189,12 @@ void scheduler_hls(
       wo_tile = 0;
       wo_dma_busy = false;
       wo_comp_busy = false;
+      w1_tile = 0;
+      w1_dma_busy = false;
+      w1_comp_busy = false;
+      w2_tile = 0;
+      w2_dma_busy = false;
+      w2_comp_busy = false;
     }
     break;
 
@@ -198,6 +222,12 @@ void scheduler_hls(
     wo_tile = 0;
     wo_dma_busy = false;
     wo_comp_busy = false;
+    w1_tile = 0;
+    w1_dma_busy = false;
+    w1_comp_busy = false;
+    w2_tile = 0;
+    w2_dma_busy = false;
+    w2_comp_busy = false;
     st = S_ATTENTION_HEADS;
 
     break;
@@ -279,13 +309,29 @@ void scheduler_hls(
     // Serialize W1 -> ACT -> W2
     switch (ffn_stage) {
     case FfnStage::W1:
-      if (!ffn_started && compute_ready) {
-        compute_start = 1;
-        compute_op = CMP_FFN_W1;
-        ffn_started = true;
-      } else if (ffn_started && compute_done) {
+      if (w1_tile >= NUM_W1_TILES) {
         ffn_started = false;
         ffn_stage = FfnStage::ACT;
+        break;
+      }
+
+      if (!ffn_started && wl_ready) {
+        wl_start = 1;
+        wl_addr_sel = DMASEL_W1;
+        wl_head = -1;
+        wl_tile = w1_tile;
+        w1_dma_busy = true;
+        ffn_started = true;
+      } else if (ffn_started && w1_dma_busy && dma_done) {
+        w1_dma_busy = false;
+        w1_comp_busy = true;
+      } else if (ffn_started && w1_comp_busy && compute_ready) {
+        compute_start = 1;
+        compute_op = CMP_FFN_W1;
+        w1_comp_busy = false;
+      } else if (ffn_started && !w1_dma_busy && !w1_comp_busy && compute_done) {
+        ffn_started = false;
+        w1_tile++;
       }
       break;
     case FfnStage::ACT:
@@ -299,14 +345,30 @@ void scheduler_hls(
       }
       break;
     case FfnStage::W2:
-      if (!ffn_started && compute_ready) {
-        compute_start = 1;
-        compute_op = CMP_FFN_W2;
-        ffn_started = true;
-      } else if (ffn_started && compute_done) {
+      if (w2_tile >= NUM_W2_TILES) {
         ffn_started = false;
         ffn_stage = FfnStage::W1;
         st = S_RES_ADD_2;
+        break;
+      }
+
+      if (!ffn_started && wl_ready) {
+        wl_start = 1;
+        wl_addr_sel = DMASEL_W2;
+        wl_head = -1;
+        wl_tile = w2_tile;
+        w2_dma_busy = true;
+        ffn_started = true;
+      } else if (ffn_started && w2_dma_busy && dma_done) {
+        w2_dma_busy = false;
+        w2_comp_busy = true;
+      } else if (ffn_started && w2_comp_busy && compute_ready) {
+        compute_start = 1;
+        compute_op = CMP_FFN_W2;
+        w2_comp_busy = false;
+      } else if (ffn_started && !w2_dma_busy && !w2_comp_busy && compute_done) {
+        ffn_started = false;
+        w2_tile++;
       }
       break;
     }

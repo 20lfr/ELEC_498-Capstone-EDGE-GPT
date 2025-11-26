@@ -521,7 +521,8 @@ enum class HeadPhase : uint8_t {
 };
 
 enum DmaSel : uint8_t {
-    DMASEL_WQ = 0,
+    DMASEL_NONE = 0,
+    DMASEL_WQ,
     DMASEL_WK,
     DMASEL_WV,
     DMASEL_CTX_K,
@@ -687,46 +688,43 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
  static bool attn_group_done;
 #pragma HLS reset variable = attn_group_done
 
-
  static bool concat_started;
 #pragma HLS reset variable = concat_started
-
-
  static bool outproj_started;
 #pragma HLS reset variable = outproj_started
+ static bool resid0_started;
+#pragma HLS reset variable = resid0_started
+ static bool ln0_started;
+#pragma HLS reset variable = ln0_started
+ enum class FfnStage : uint8_t { W1 = 0, ACT, W2 };
+  static FfnStage ffn_stage;
+#pragma HLS reset variable = ffn_stage
+ static bool ffn_started;
+#pragma HLS reset variable = ffn_started
+ static bool resid1_started;
+#pragma HLS reset variable = resid1_started
+ static bool ln1_started;
+#pragma HLS reset variable = ln1_started
+ static bool stream_started;
+#pragma HLS reset variable = stream_started
  static int wo_tile;
 #pragma HLS reset variable = wo_tile
  static bool wo_dma_busy;
 #pragma HLS reset variable = wo_dma_busy
  static bool wo_comp_busy;
 #pragma HLS reset variable = wo_comp_busy
-
-
- static bool resid0_started;
-#pragma HLS reset variable = resid0_started
-
-
- static bool ln0_started;
-#pragma HLS reset variable = ln0_started
-
-
- enum class FfnStage : uint8_t { W1 = 0, ACT, W2 };
-  static FfnStage ffn_stage;
-#pragma HLS reset variable = ffn_stage
- static bool ffn_started;
-#pragma HLS reset variable = ffn_started
-
-
- static bool resid1_started;
-#pragma HLS reset variable = resid1_started
-
-
- static bool ln1_started;
-#pragma HLS reset variable = ln1_started
-
-
- static bool stream_started;
-#pragma HLS reset variable = stream_started
+ static int w1_tile;
+#pragma HLS reset variable = w1_tile
+ static bool w1_dma_busy;
+#pragma HLS reset variable = w1_dma_busy
+ static bool w1_comp_busy;
+#pragma HLS reset variable = w1_comp_busy
+ static int w2_tile;
+#pragma HLS reset variable = w2_tile
+ static bool w2_dma_busy;
+#pragma HLS reset variable = w2_dma_busy
+ static bool w2_comp_busy;
+#pragma HLS reset variable = w2_comp_busy
 
  const bool reset = !cntrl_reset_n;
   if (reset) {
@@ -737,9 +735,6 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
     attn_group_done = false;
     concat_started = false;
     outproj_started = false;
-    wo_tile = 0;
-    wo_dma_busy = false;
-    wo_comp_busy = false;
     resid0_started = false;
     ln0_started = false;
     ffn_stage = FfnStage::W1;
@@ -747,6 +742,15 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
     resid1_started = false;
     ln1_started = false;
     stream_started = false;
+    wo_tile = 0;
+    wo_dma_busy = false;
+    wo_comp_busy = false;
+    w1_tile = 0;
+    w1_dma_busy = false;
+    w1_comp_busy = false;
+    w2_tile = 0;
+    w2_dma_busy = false;
+    w2_comp_busy = false;
   }
 
 
@@ -787,6 +791,15 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
       resid1_started = false;
       ln1_started = false;
       stream_started = false;
+      wo_tile = 0;
+      wo_dma_busy = false;
+      wo_comp_busy = false;
+      w1_tile = 0;
+      w1_dma_busy = false;
+      w1_comp_busy = false;
+      w2_tile = 0;
+      w2_dma_busy = false;
+      w2_comp_busy = false;
     }
     break;
 
@@ -805,15 +818,21 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
     attn_group_done = false;
     concat_started = false;
     outproj_started = false;
-    wo_tile = 0;
-    wo_dma_busy = false;
-    wo_comp_busy = false;
     resid0_started = false;
     ln0_started = false;
     ffn_stage = FfnStage::W1;
     ffn_started = false;
     resid1_started = false;
     ln1_started = false;
+    wo_tile = 0;
+    wo_dma_busy = false;
+    wo_comp_busy = false;
+    w1_tile = 0;
+    w1_dma_busy = false;
+    w1_comp_busy = false;
+    w2_tile = 0;
+    w2_dma_busy = false;
+    w2_comp_busy = false;
     st = S_ATTENTION_HEADS;
 
     break;
@@ -848,7 +867,6 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
       break;
     }
 
-
     if (!outproj_started && wl_ready) {
       wl_start = 1;
       wl_addr_sel = DMASEL_WO;
@@ -856,20 +874,15 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
       wl_tile = wo_tile;
       wo_dma_busy = true;
       outproj_started = true;
-    }
-
-    else if (outproj_started && wo_dma_busy && dma_done) {
+    } else if (outproj_started && wo_dma_busy && dma_done) {
       wo_dma_busy = false;
       wo_comp_busy = true;
-    }
-
-    else if (outproj_started && wo_comp_busy && compute_ready) {
+    } else if (outproj_started && wo_comp_busy && compute_ready) {
       compute_start = 1;
       compute_op = CMP_OUT_PROJ;
       wo_comp_busy = false;
-    }
-
-    else if (outproj_started && !wo_dma_busy && !wo_comp_busy && compute_done) {
+    } else if (outproj_started && !wo_dma_busy && !wo_comp_busy &&
+               compute_done) {
       outproj_started = false;
       wo_tile++;
     }
@@ -901,13 +914,29 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
 
     switch (ffn_stage) {
     case FfnStage::W1:
-      if (!ffn_started && compute_ready) {
-        compute_start = 1;
-        compute_op = CMP_FFN_W1;
-        ffn_started = true;
-      } else if (ffn_started && compute_done) {
+      if (w1_tile >= NUM_W1_TILES) {
         ffn_started = false;
         ffn_stage = FfnStage::ACT;
+        break;
+      }
+
+      if (!ffn_started && wl_ready) {
+        wl_start = 1;
+        wl_addr_sel = DMASEL_W1;
+        wl_head = -1;
+        wl_tile = w1_tile;
+        w1_dma_busy = true;
+        ffn_started = true;
+      } else if (ffn_started && w1_dma_busy && dma_done) {
+        w1_dma_busy = false;
+        w1_comp_busy = true;
+      } else if (ffn_started && w1_comp_busy && compute_ready) {
+        compute_start = 1;
+        compute_op = CMP_FFN_W1;
+        w1_comp_busy = false;
+      } else if (ffn_started && !w1_dma_busy && !w1_comp_busy && compute_done) {
+        ffn_started = false;
+        w1_tile++;
       }
       break;
     case FfnStage::ACT:
@@ -921,14 +950,30 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
       }
       break;
     case FfnStage::W2:
-      if (!ffn_started && compute_ready) {
-        compute_start = 1;
-        compute_op = CMP_FFN_W2;
-        ffn_started = true;
-      } else if (ffn_started && compute_done) {
+      if (w2_tile >= NUM_W2_TILES) {
         ffn_started = false;
         ffn_stage = FfnStage::W1;
         st = S_RES_ADD_2;
+        break;
+      }
+
+      if (!ffn_started && wl_ready) {
+        wl_start = 1;
+        wl_addr_sel = DMASEL_W2;
+        wl_head = -1;
+        wl_tile = w2_tile;
+        w2_dma_busy = true;
+        ffn_started = true;
+      } else if (ffn_started && w2_dma_busy && dma_done) {
+        w2_dma_busy = false;
+        w2_comp_busy = true;
+      } else if (ffn_started && w2_comp_busy && compute_ready) {
+        compute_start = 1;
+        compute_op = CMP_FFN_W2;
+        w2_comp_busy = false;
+      } else if (ffn_started && !w2_dma_busy && !w2_comp_busy && compute_done) {
+        ffn_started = false;
+        w2_tile++;
       }
       break;
     }

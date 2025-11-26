@@ -1,3 +1,3 @@
 relativeroot=/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Scheduler_FSM_simplified
-original_argv=--mode hls --csim --config /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Scheduler_FSM_simplified/hls_config.cfg --work_dir scheduler_hls 
+original_argv=-c --mode hls --config /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Scheduler_FSM_simplified/hls_config.cfg --work_dir scheduler_hls 
 

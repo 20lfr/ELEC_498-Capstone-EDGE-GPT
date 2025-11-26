@@ -105,7 +105,7 @@
       <key>filename</key>
       <string>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_parallel_headed/Simple_Scheduler_FSM.cpp</string>
       <key>line</key>
-      <integer>88</integer>
+      <integer>87</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -121,7 +121,7 @@
       <key>filename</key>
       <string>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_parallel_headed/Simple_Scheduler_FSM.cpp</string>
       <key>line</key>
-      <integer>92</integer>
+      <integer>89</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -137,55 +137,7 @@
       <key>filename</key>
       <string>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_parallel_headed/Simple_Scheduler_FSM.cpp</string>
       <key>line</key>
-      <integer>94</integer>
-      <key>column</key>
-      <integer>9</integer>
-      <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=reset_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=scheduler_hls_XLX_SEP_ PragmaOptions=variable = wo_tile_XLX_SEP_</string>
-      <key>ID</key>
-      <integer>5471</integer>
-      <key>WarningOption</key>
-      <string>dump-hls-pragmas</string>
-    </dict>
-    <dict>
-      <key>level</key>
-      <string>warning</string>
-      <key>filename</key>
-      <string>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_parallel_headed/Simple_Scheduler_FSM.cpp</string>
-      <key>line</key>
-      <integer>96</integer>
-      <key>column</key>
-      <integer>9</integer>
-      <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=reset_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=scheduler_hls_XLX_SEP_ PragmaOptions=variable = wo_dma_busy_XLX_SEP_</string>
-      <key>ID</key>
-      <integer>5471</integer>
-      <key>WarningOption</key>
-      <string>dump-hls-pragmas</string>
-    </dict>
-    <dict>
-      <key>level</key>
-      <string>warning</string>
-      <key>filename</key>
-      <string>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_parallel_headed/Simple_Scheduler_FSM.cpp</string>
-      <key>line</key>
-      <integer>98</integer>
-      <key>column</key>
-      <integer>9</integer>
-      <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=reset_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=scheduler_hls_XLX_SEP_ PragmaOptions=variable = wo_comp_busy_XLX_SEP_</string>
-      <key>ID</key>
-      <integer>5471</integer>
-      <key>WarningOption</key>
-      <string>dump-hls-pragmas</string>
-    </dict>
-    <dict>
-      <key>level</key>
-      <string>warning</string>
-      <key>filename</key>
-      <string>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_parallel_headed/Simple_Scheduler_FSM.cpp</string>
-      <key>line</key>
-      <integer>102</integer>
+      <integer>91</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -201,7 +153,7 @@
       <key>filename</key>
       <string>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_parallel_headed/Simple_Scheduler_FSM.cpp</string>
       <key>line</key>
-      <integer>106</integer>
+      <integer>93</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -217,7 +169,7 @@
       <key>filename</key>
       <string>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_parallel_headed/Simple_Scheduler_FSM.cpp</string>
       <key>line</key>
-      <integer>111</integer>
+      <integer>96</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -233,7 +185,7 @@
       <key>filename</key>
       <string>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_parallel_headed/Simple_Scheduler_FSM.cpp</string>
       <key>line</key>
-      <integer>113</integer>
+      <integer>98</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -249,7 +201,7 @@
       <key>filename</key>
       <string>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_parallel_headed/Simple_Scheduler_FSM.cpp</string>
       <key>line</key>
-      <integer>117</integer>
+      <integer>100</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -265,7 +217,7 @@
       <key>filename</key>
       <string>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_parallel_headed/Simple_Scheduler_FSM.cpp</string>
       <key>line</key>
-      <integer>121</integer>
+      <integer>102</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -281,11 +233,155 @@
       <key>filename</key>
       <string>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_parallel_headed/Simple_Scheduler_FSM.cpp</string>
       <key>line</key>
-      <integer>125</integer>
+      <integer>104</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
       <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=reset_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=scheduler_hls_XLX_SEP_ PragmaOptions=variable = stream_started_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_parallel_headed/Simple_Scheduler_FSM.cpp</string>
+      <key>line</key>
+      <integer>106</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=reset_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=scheduler_hls_XLX_SEP_ PragmaOptions=variable = wo_tile_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_parallel_headed/Simple_Scheduler_FSM.cpp</string>
+      <key>line</key>
+      <integer>108</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=reset_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=scheduler_hls_XLX_SEP_ PragmaOptions=variable = wo_dma_busy_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_parallel_headed/Simple_Scheduler_FSM.cpp</string>
+      <key>line</key>
+      <integer>110</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=reset_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=scheduler_hls_XLX_SEP_ PragmaOptions=variable = wo_comp_busy_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_parallel_headed/Simple_Scheduler_FSM.cpp</string>
+      <key>line</key>
+      <integer>112</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=reset_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=scheduler_hls_XLX_SEP_ PragmaOptions=variable = w1_tile_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_parallel_headed/Simple_Scheduler_FSM.cpp</string>
+      <key>line</key>
+      <integer>114</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=reset_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=scheduler_hls_XLX_SEP_ PragmaOptions=variable = w1_dma_busy_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_parallel_headed/Simple_Scheduler_FSM.cpp</string>
+      <key>line</key>
+      <integer>116</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=reset_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=scheduler_hls_XLX_SEP_ PragmaOptions=variable = w1_comp_busy_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_parallel_headed/Simple_Scheduler_FSM.cpp</string>
+      <key>line</key>
+      <integer>118</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=reset_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=scheduler_hls_XLX_SEP_ PragmaOptions=variable = w2_tile_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_parallel_headed/Simple_Scheduler_FSM.cpp</string>
+      <key>line</key>
+      <integer>120</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=reset_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=scheduler_hls_XLX_SEP_ PragmaOptions=variable = w2_dma_busy_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_parallel_headed/Simple_Scheduler_FSM.cpp</string>
+      <key>line</key>
+      <integer>122</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=reset_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=scheduler_hls_XLX_SEP_ PragmaOptions=variable = w2_comp_busy_XLX_SEP_</string>
       <key>ID</key>
       <integer>5471</integer>
       <key>WarningOption</key>

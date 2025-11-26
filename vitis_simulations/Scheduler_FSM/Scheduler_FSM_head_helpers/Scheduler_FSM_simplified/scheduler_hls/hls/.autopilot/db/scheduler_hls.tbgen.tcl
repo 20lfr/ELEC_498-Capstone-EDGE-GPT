@@ -222,15 +222,21 @@ set ArgLastReadFirstWriteLatency {
 		attn_started {Type IO LastRead -1 FirstWrite -1}
 		concat_started {Type IO LastRead -1 FirstWrite -1}
 		outproj_started {Type IO LastRead -1 FirstWrite -1}
-		wo_tile {Type IO LastRead -1 FirstWrite -1}
-		wo_dma_busy {Type IO LastRead -1 FirstWrite -1}
-		wo_comp_busy {Type IO LastRead -1 FirstWrite -1}
 		resid0_started {Type IO LastRead -1 FirstWrite -1}
 		ln0_started {Type IO LastRead -1 FirstWrite -1}
 		ffn_stage {Type IO LastRead -1 FirstWrite -1}
 		resid1_started {Type IO LastRead -1 FirstWrite -1}
 		ln1_started {Type IO LastRead -1 FirstWrite -1}
-		stream_started {Type IO LastRead -1 FirstWrite -1}}}
+		stream_started {Type IO LastRead -1 FirstWrite -1}
+		wo_tile {Type IO LastRead -1 FirstWrite -1}
+		wo_dma_busy {Type IO LastRead -1 FirstWrite -1}
+		wo_comp_busy {Type IO LastRead -1 FirstWrite -1}
+		w1_tile {Type IO LastRead -1 FirstWrite -1}
+		w1_dma_busy {Type IO LastRead -1 FirstWrite -1}
+		w1_comp_busy {Type IO LastRead -1 FirstWrite -1}
+		w2_tile {Type IO LastRead -1 FirstWrite -1}
+		w2_dma_busy {Type IO LastRead -1 FirstWrite -1}
+		w2_comp_busy {Type IO LastRead -1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 

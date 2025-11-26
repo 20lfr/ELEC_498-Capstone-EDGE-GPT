@@ -34,10 +34,10 @@
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<FF>82</FF>
+<FF>150</FF>
 <AVAIL_FF>234240</AVAIL_FF>
 <UTIL_FF>~0</UTIL_FF>
-<LUT>675</LUT>
+<LUT>929</LUT>
 <AVAIL_LUT>117120</AVAIL_LUT>
 <UTIL_LUT>~0</UTIL_LUT>
 <BRAM_18K>0</BRAM_18K>
