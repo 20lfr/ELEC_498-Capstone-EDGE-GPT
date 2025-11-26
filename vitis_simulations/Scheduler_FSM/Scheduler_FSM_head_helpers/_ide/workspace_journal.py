@@ -35,3 +35,14 @@ comp.run(operation="C_SIMULATION")
 
 comp.run(operation="SYNTHESIS")
 
+client.delete_component(name="Head_helpers_simplified")
+
+comp = client.create_hls_component(name = "Head_Helpers_simplified",cfg_file = ["hls_config.cfg"],template = "empty_hls_component")
+
+comp = client.get_component(name="Head_Helpers_simplified")
+comp.run(operation="C_SIMULATION")
+
+comp.run(operation="C_SIMULATION")
+
+comp.run(operation="C_SIMULATION")
+
