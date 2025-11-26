@@ -2,19 +2,19 @@
     "0": {
         "name": "scheduler_hls",
         "file": "Simple_Scheduler_FSM.cpp",
-        "fileloc": "9",
-        "instructions": "284",
-        "total_instructions": "284",
+        "fileloc": "10",
+        "instructions": "322",
+        "total_instructions": "322",
         "calls": "",
-        "basicblocks": "60",
+        "basicblocks": "67",
         "memory_accesses": "0",
         "control_depth": "0",
         "def_use_depth": "3",
         "loads": {
-            "G": "12"
+            "G": "15"
         },
         "stores": {
-            "G": "71"
+            "G": "83"
         }
     }
 }

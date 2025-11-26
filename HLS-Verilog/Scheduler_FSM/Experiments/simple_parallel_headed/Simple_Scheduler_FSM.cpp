@@ -102,6 +102,12 @@ void scheduler_hls(
 #pragma HLS reset variable = ln1_started
   static bool stream_started;
 #pragma HLS reset variable = stream_started
+  static int wo_tile;
+#pragma HLS reset variable = wo_tile
+  static bool wo_dma_busy;
+#pragma HLS reset variable = wo_dma_busy
+  static bool wo_comp_busy;
+#pragma HLS reset variable = wo_comp_busy
 
   const bool reset = !cntrl_reset_n;
   if (reset) {
@@ -119,6 +125,9 @@ void scheduler_hls(
     resid1_started = false;
     ln1_started = false;
     stream_started = false;
+    wo_tile = 0;
+    wo_dma_busy = false;
+    wo_comp_busy = false;
   }
 
   // Default outputs
@@ -159,6 +168,9 @@ void scheduler_hls(
       resid1_started = false;
       ln1_started = false;
       stream_started = false;
+      wo_tile = 0;
+      wo_dma_busy = false;
+      wo_comp_busy = false;
     }
     break;
 
@@ -183,6 +195,9 @@ void scheduler_hls(
     ffn_started = false;
     resid1_started = false;
     ln1_started = false;
+    wo_tile = 0;
+    wo_dma_busy = false;
+    wo_comp_busy = false;
     st = S_ATTENTION_HEADS;
 
     break;
@@ -211,13 +226,30 @@ void scheduler_hls(
     break;
 
   case S_OUT_PROJECTION:
-    if (!outproj_started && compute_ready) {
+    if (wo_tile >= NUM_WO_TILES) {
+      resid0_started = false;
+      st = S_RES_ADD_1;
+      break;
+    }
+
+    if (!outproj_started && wl_ready) {
+      wl_start = 1;
+      wl_addr_sel = DMASEL_WO;
+      wl_head = -1;
+      wl_tile = wo_tile;
+      wo_dma_busy = true;
+      outproj_started = true;
+    } else if (outproj_started && wo_dma_busy && dma_done) {
+      wo_dma_busy = false;
+      wo_comp_busy = true;
+    } else if (outproj_started && wo_comp_busy && compute_ready) {
       compute_start = 1;
       compute_op = CMP_OUT_PROJ;
-      outproj_started = true;
-    } else if (outproj_started && compute_done) {
+      wo_comp_busy = false;
+    } else if (outproj_started && !wo_dma_busy && !wo_comp_busy &&
+               compute_done) {
       outproj_started = false;
-      st = S_RES_ADD_1;
+      wo_tile++;
     }
     break;
 

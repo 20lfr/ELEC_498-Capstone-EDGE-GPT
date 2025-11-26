@@ -49,9 +49,29 @@ static const char *op_name(int op_raw) {
     }
 }
 
+static const char *dma_name(int sel_raw) {
+    const DmaSel sel = static_cast<DmaSel>(sel_raw);
+    switch (sel) {
+    case DMASEL_NONE:   return "-";
+    case DMASEL_WQ:     return "WQ";
+    case DMASEL_WK:     return "WK";
+    case DMASEL_WV:     return "WV";
+    case DMASEL_CTX_K:  return "CTX_K";
+    case DMASEL_CTX_V:  return "CTX_V";
+    case DMASEL_K_WRITE:return "K_WR";
+    case DMASEL_V_WRITE:return "V_WR";
+    case DMASEL_WO:     return "WO";
+    case DMASEL_W1:     return "W1";
+    case DMASEL_W2:     return "W2";
+    case DMASEL_WLOGIT: return "WLOGIT";
+    default:            return "UNK";
+    }
+}
+
 int main() {
     const int MAX_CYCLES = 600;
     const int COMP_LAT   = 3;
+    const int DMA_LAT    = 3;
     const int AXIS_BEATS = 3;
 
     bool cntrl_start     = false;
@@ -94,6 +114,8 @@ int main() {
 
     bool comp_busy       = false;
     int  comp_timer      = 0;
+    bool dma_busy        = false;
+    int  dma_timer       = 0;
     bool stream_busy     = false;
     bool start_pulsed    = false;
     bool seen_done       = false;
@@ -102,9 +124,10 @@ int main() {
     bool seen_attn       = false;
     bool seen_concat     = false;
 
-    std::printf("%-8s %-6s %-6s %-8s | %-16s %-10s %-10s %-10s %-10s %-10s %-10s %-s\n",
+    std::printf("%-8s %-6s %-6s %-8s | %-16s %-10s %-10s %-10s | %-8s %-8s %-8s %-8s %-8s | %-10s %-10s %-10s %-s\n",
                 "Cycle", "Start", "Reset", "Busy", "State",
                 "AXIS_v", "AXIS_r", "AXIS_last",
+                "WL_ready", "WL_start", "WL_addr", "WL_head", "WL_tile",
                 "CmpStart", "CmpReady", "CmpDone", "CmpOp");
 
     auto dash_or = [](bool v) { return v ? "1" : "-"; };
@@ -131,6 +154,17 @@ int main() {
             }
         }
 
+        // Complete outstanding DMA transfers
+        dma_done = false;
+        if (dma_busy) {
+            if (dma_timer == 0) {
+                dma_done = true;
+                dma_busy = false;
+            } else {
+                --dma_timer;
+            }
+        }
+
         // Stream completion: single-cycle pulse after start
         stream_done = false;
         if (stream_busy) {
@@ -141,7 +175,7 @@ int main() {
         // Ready signals depend on busy flags
         compute_ready = !comp_busy && !compute_done;
         stream_ready  = !stream_busy;
-        wl_ready      = ((cycle % 9) != 0);
+        wl_ready      = !dma_busy;
         requant_ready = true;
 
         // Drive AXIS ingress: send a short burst when ready is asserted
@@ -186,7 +220,7 @@ int main() {
             done,
             STATE);
 
-        std::printf("%-8d %-6d %-6d %-8s | %-16s %-10s %-10s %-10s %-10s %-10s %-10s %-s\n",
+        std::printf("%-8d %-6d %-6d %-8s | %-16s %-10s %-10s %-10s | %-8s %-8s %-8s %-8d %-8d | %-10s %-10s %-10s %-s\n",
                     cycle,
                     cntrl_start ? 1 : 0,
                     cntrl_reset_n ? 1 : 0,
@@ -195,6 +229,11 @@ int main() {
                     dash_or(axis_in_valid),
                     dash_or(axis_in_ready),
                     dash_or(axis_in_last),
+                    dash_or(wl_ready),
+                    dash_or(wl_start),
+                    dma_name(wl_addr_sel),
+                    wl_head,
+                    wl_tile,
                     dash_or(compute_start),
                     dash_or(compute_ready),
                     dash_or(compute_done),
@@ -206,6 +245,10 @@ int main() {
             comp_timer = COMP_LAT - 1;
             if (compute_op == CMP_ATT_SCORES) seen_attn = true;
             if (compute_op == CMP_CONCAT)     seen_concat = true;
+        }
+        if (wl_start && wl_ready && !dma_busy) {
+            dma_busy  = true;
+            dma_timer = DMA_LAT - 1;
         }
         if (stream_start) {
             stream_busy = true;

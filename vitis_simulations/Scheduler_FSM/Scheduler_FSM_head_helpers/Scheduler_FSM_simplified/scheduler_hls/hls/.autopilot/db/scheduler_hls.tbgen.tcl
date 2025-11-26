@@ -27,13 +27,13 @@ set C_modelArgList {
 	{ axis_in_valid uint 1 regular  }
 	{ axis_in_last uint 1 regular  }
 	{ axis_in_ready int 1 regular {pointer 1}  }
-	{ wl_ready uint 1 unused  }
+	{ wl_ready uint 1 regular  }
 	{ wl_start int 1 regular {pointer 1}  }
 	{ wl_addr_sel int 32 regular {pointer 1}  }
 	{ wl_layer int 32 regular {pointer 1}  }
 	{ wl_head int 32 regular {pointer 1}  }
 	{ wl_tile int 32 regular {pointer 1}  }
-	{ dma_done uint 1 unused  }
+	{ dma_done uint 1 regular  }
 	{ compute_ready uint 1 regular  }
 	{ compute_done uint 1 regular  }
 	{ requant_ready uint 1 unused  }
@@ -196,13 +196,13 @@ set ArgLastReadFirstWriteLatency {
 		axis_in_valid {Type I LastRead 0 FirstWrite -1}
 		axis_in_last {Type I LastRead 0 FirstWrite -1}
 		axis_in_ready {Type O LastRead -1 FirstWrite 0}
-		wl_ready {Type I LastRead -1 FirstWrite -1}
+		wl_ready {Type I LastRead 0 FirstWrite -1}
 		wl_start {Type O LastRead -1 FirstWrite 0}
 		wl_addr_sel {Type O LastRead -1 FirstWrite 0}
 		wl_layer {Type O LastRead -1 FirstWrite 0}
 		wl_head {Type O LastRead -1 FirstWrite 0}
 		wl_tile {Type O LastRead -1 FirstWrite 0}
-		dma_done {Type I LastRead -1 FirstWrite -1}
+		dma_done {Type I LastRead 0 FirstWrite -1}
 		compute_ready {Type I LastRead 0 FirstWrite -1}
 		compute_done {Type I LastRead 0 FirstWrite -1}
 		requant_ready {Type I LastRead -1 FirstWrite -1}
@@ -222,6 +222,9 @@ set ArgLastReadFirstWriteLatency {
 		attn_started {Type IO LastRead -1 FirstWrite -1}
 		concat_started {Type IO LastRead -1 FirstWrite -1}
 		outproj_started {Type IO LastRead -1 FirstWrite -1}
+		wo_tile {Type IO LastRead -1 FirstWrite -1}
+		wo_dma_busy {Type IO LastRead -1 FirstWrite -1}
+		wo_comp_busy {Type IO LastRead -1 FirstWrite -1}
 		resid0_started {Type IO LastRead -1 FirstWrite -1}
 		ln0_started {Type IO LastRead -1 FirstWrite -1}
 		ffn_stage {Type IO LastRead -1 FirstWrite -1}

@@ -5,6 +5,7 @@ module scheduler_hls_tb;
   localparam int CLK_PERIOD = 10;
   localparam int MAX_CYCLES = 2000;
   localparam int COMP_LAT = 3;
+  localparam int DMA_LAT  = 3;
   localparam int AXIS_BEATS = 3;
 
   // Clock / reset
@@ -67,6 +68,8 @@ module scheduler_hls_tb;
   // Testbench state variables
   logic comp_busy;
   int comp_timer;
+  logic dma_busy;
+  int dma_timer;
   logic stream_busy;
   logic start_pulsed;
   logic seen_done;
@@ -77,6 +80,25 @@ module scheduler_hls_tb;
   int axis_sent;
   logic axis_feed_done;
   logic axis_drive;
+
+  // Helper to decode DMA select
+  function string dma_name(input [31:0] sel);
+    case (sel)
+      32'd0:  return "NONE";
+      32'd1:  return "WQ";
+      32'd2:  return "WK";
+      32'd3:  return "WV";
+      32'd4:  return "CTX_K";
+      32'd5:  return "CTX_V";
+      32'd6:  return "K_WR";
+      32'd7:  return "V_WR";
+      32'd8:  return "WO";
+      32'd9:  return "W1";
+      32'd10: return "W2";
+      32'd11: return "WLOGIT";
+      default: return "UNK";
+    endcase
+  endfunction
 
 
   // Compute model with latency
@@ -138,9 +160,38 @@ module scheduler_hls_tb;
     end
   end
 
-  // WL ready model (varies with cycle)
-  always @(posedge ap_clk) begin
-    wl_ready <= ((($time / CLK_PERIOD) % 9) != 0);
+  // DMA model for weight loader
+  initial begin : dma_model
+    dma_busy = 1'b0;
+    dma_timer = 0;
+    dma_done = 1'b0;
+    wl_ready = 1'b1;
+
+    forever begin
+      @(posedge ap_clk);
+
+      // Default deassert
+      dma_done <= 1'b0;
+
+      // Complete outstanding DMA transfers
+      if (dma_busy) begin
+        if (dma_timer == 0) begin
+          dma_done <= 1'b1;
+          dma_busy <= 1'b0;
+        end else begin
+          dma_timer <= dma_timer - 1;
+        end
+      end
+
+      // Launch DMA when scheduler requests and we're idle/ready
+      if (wl_start && wl_start_ap_vld && wl_ready && !dma_busy) begin
+        dma_busy  <= 1'b1;
+        dma_timer <= DMA_LAT - 1;
+      end
+
+      // Ready asserted when not busy
+      wl_ready <= !dma_busy;
+    end
   end
 
   // AXIS ingress driver
@@ -202,10 +253,11 @@ module scheduler_hls_tb;
     seen_concat = 1'b0;
 
     // Print header
-    $display("%-8s %-6s %-6s %-8s | %-16s %-10s %-10s %-10s %-10s %-10s %-10s %-10s",
+    $display("%-8s %-6s %-6s %-8s | %-12s | %-6s %-6s %-8s | %-6s %-6s %-8s %-6s %-6s | %-8s %-8s %-8s %-6s",
              "Cycle", "Start", "Reset", "Busy", "State",
              "AXIS_v", "AXIS_r", "AXIS_last",
-             "CmpStart", "CmpReady", "CmpDone", "CmpOp");
+             "WL_rdy", "WL_strt", "WL_addr", "WL_head", "WL_tile",
+             "CmpStrt", "CmpRdy", "CmpDone", "CmpOp");
 
     // Release reset at cycle 2
     repeat(2) @(posedge ap_clk);
@@ -228,7 +280,7 @@ module scheduler_hls_tb;
       end
       
       // Print state
-      $display("%-8d %-6s %-6s %-8s | %-16s %-10s %-10s %-10s %-10s %-10s %-10s %0d",
+      $display("%-8d %-6s %-6s %-8s | %-12s | %-6s %-6s %-8s | %-6s %-6s %-8s %-6d %-6d | %-8s %-8s %-8s %-6d",
                cycle,
                cntrl_start ? "1" : "-",
                cntrl_reset_n ? "1" : "-",
@@ -237,6 +289,11 @@ module scheduler_hls_tb;
                axis_in_valid ? "1" : "-",
                axis_in_ready ? "1" : "-",
                axis_in_last ? "1" : "-",
+               wl_ready ? "1" : "-",
+               wl_start ? "1" : "-",
+               dma_name(wl_addr_sel),
+               wl_head,
+               wl_tile,
                compute_start ? "1" : "-",
                compute_ready ? "1" : "-",
                compute_done ? "1" : "-",

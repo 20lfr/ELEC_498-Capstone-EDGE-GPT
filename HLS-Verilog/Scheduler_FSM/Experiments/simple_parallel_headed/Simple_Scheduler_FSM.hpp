@@ -161,17 +161,18 @@ enum class HeadPhase : uint8_t {
 };
 
 enum DmaSel : uint8_t {
-    DMASEL_WQ = 0, // 0
-    DMASEL_WK,     // 1
-    DMASEL_WV,     // 2
-    DMASEL_CTX_K,  // 3
-    DMASEL_CTX_V,  // 4
-    DMASEL_K_WRITE,// 5
-    DMASEL_V_WRITE,// 6
-    DMASEL_WO,     // 7
-    DMASEL_W1,     // 8
-    DMASEL_W2,     // 9
-    DMASEL_WLOGIT  // 10
+    DMASEL_NONE = 0,    // 0
+    DMASEL_WQ,          // 1
+    DMASEL_WK,          // 2
+    DMASEL_WV,          // 3
+    DMASEL_CTX_K,       // 4
+    DMASEL_CTX_V,       // 5
+    DMASEL_K_WRITE,     // 6
+    DMASEL_V_WRITE,     // 7
+    DMASEL_WO,          // 8
+    DMASEL_W1,          // 9
+    DMASEL_W2,          // 10
+    DMASEL_WLOGIT       // 11
 };
 
 enum ComputeOp : uint8_t {

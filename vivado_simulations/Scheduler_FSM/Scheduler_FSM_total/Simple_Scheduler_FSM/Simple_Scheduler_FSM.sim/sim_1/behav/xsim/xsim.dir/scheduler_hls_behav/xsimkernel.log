@@ -1,0 +1,4 @@
+Running: xsim.dir/scheduler_hls_behav/xsimk -simmode gui -wdb scheduler_hls_behav.wdb -simrunnum 0 -socket 32919
+Design successfully loaded
+Design Loading Memory Usage: 179236 KB (Peak: 179236 KB)
+Design Loading CPU Usage: 830 ms

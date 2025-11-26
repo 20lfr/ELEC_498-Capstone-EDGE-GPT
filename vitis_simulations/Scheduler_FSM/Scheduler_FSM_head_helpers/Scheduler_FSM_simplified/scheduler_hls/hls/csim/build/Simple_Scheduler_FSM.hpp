@@ -128,81 +128,82 @@ constexpr int NUM_HEAD_GROUPS =
 // Scheduler state + helper enums
 // ------------------------------------------------------------
 enum SchedState {
-    S_IDLE,
-    S_STREAM_IN,
-    S_LAYER_COUNT,
-    S_ATTENTION_HEADS,
-    S_HEAD_CONCAT,
-    S_OUT_PROJECTION,
-    S_RES_ADD_1,
-    S_LAYER_NORM_1,
-    S_FFN,
-    S_RES_ADD_2,
-    S_LAYER_NORM_2,
-    S_LOOP_CHECK,
-    S_STREAM_OUT
+    S_IDLE,            // 0
+    S_STREAM_IN,       // 1
+    S_LAYER_COUNT,     // 2
+    S_ATTENTION_HEADS, // 3
+    S_HEAD_CONCAT,     // 4
+    S_OUT_PROJECTION,  // 5
+    S_RES_ADD_1,       // 6
+    S_LAYER_NORM_1,    // 7
+    S_FFN,             // 8
+    S_RES_ADD_2,       // 9
+    S_LAYER_NORM_2,    // 10
+    S_LOOP_CHECK,      // 11
+    S_STREAM_OUT       // 12
 };
 
 enum class HeadPhase : uint8_t {
-    Q = 0,
-    K,
-    K_REQUANT,
-    K_WRITEBACK,
-    V,
-    V_REQUANT,
-    V_WRITEBACK,
-    REQUANT_Q,
-    ATT_SCORES,
-    VALUE_SCALE_CLAMP,
-    ATT_SOFTMAX,
-    ATT_VALUE,
-    REQUANT2,
-    DONE
+    Q = 0,             // 0
+    K,                 // 1
+    K_REQUANT,         // 2
+    K_WRITEBACK,       // 3
+    V,                 // 4
+    V_REQUANT,         // 5
+    V_WRITEBACK,       // 6
+    REQUANT_Q,         // 7
+    ATT_SCORES,        // 8
+    VALUE_SCALE_CLAMP, // 9
+    ATT_SOFTMAX,       // 10
+    ATT_VALUE,         // 11
+    REQUANT2,          // 12
+    DONE               // 13
 };
 
 enum DmaSel : uint8_t {
-    DMASEL_WQ = 0,
-    DMASEL_WK,
-    DMASEL_WV,
-    DMASEL_CTX_K,
-    DMASEL_CTX_V,
-    DMASEL_K_WRITE,
-    DMASEL_V_WRITE,
-    DMASEL_WO,
-    DMASEL_W1,
-    DMASEL_W2,
-    DMASEL_WLOGIT
+    DMASEL_NONE = 0,    // 0
+    DMASEL_WQ,          // 1
+    DMASEL_WK,          // 2
+    DMASEL_WV,          // 3
+    DMASEL_CTX_K,       // 4
+    DMASEL_CTX_V,       // 5
+    DMASEL_K_WRITE,     // 6
+    DMASEL_V_WRITE,     // 7
+    DMASEL_WO,          // 8
+    DMASEL_W1,          // 9
+    DMASEL_W2,          // 10
+    DMASEL_WLOGIT       // 11
 };
 
 enum ComputeOp : uint8_t {
-    CMP_NONE = 0,
-    CMP_Q,
-    CMP_K,
-    CMP_V,
-    CMP_ATT_SCORES,
-    CMP_VALUE_SCALE,
-    CMP_SOFTMAX,
-    CMP_ATT_VALUE,
-    CMP_HEAD_REQUANT,
-    CMP_CONCAT,
-    CMP_OUT_PROJ,
-    CMP_RESID0,
-    CMP_LN0,
-    CMP_FFN_W1,
-    CMP_FFN_ACT,
-    CMP_FFN_W2,
-    CMP_RESID1,
-    CMP_LN1,
-    CMP_DEQUANT,
-    CMP_LOGITS
+    CMP_NONE = 0,   // 0
+    CMP_Q,          // 1
+    CMP_K,          // 2
+    CMP_V,          // 3
+    CMP_ATT_SCORES, // 4
+    CMP_VALUE_SCALE,// 5
+    CMP_SOFTMAX,    // 6
+    CMP_ATT_VALUE,  // 7
+    CMP_HEAD_REQUANT,// 8
+    CMP_CONCAT,     // 9
+    CMP_OUT_PROJ,   // 10
+    CMP_RESID0,     // 11
+    CMP_LN0,        // 12
+    CMP_FFN_W1,     // 13
+    CMP_FFN_ACT,    // 14
+    CMP_FFN_W2,     // 15
+    CMP_RESID1,     // 16
+    CMP_LN1,        // 17
+    CMP_DEQUANT,    // 18
+    CMP_LOGITS      // 19
 };
 
 enum RequantOp : uint8_t {
-    RQ_NONE = 0,
-    RQ_K,
-    RQ_V,
-    RQ_Q,
-    RQ_FINAL
+    RQ_NONE = 0, // 0
+    RQ_K,        // 1
+    RQ_V,        // 2
+    RQ_Q,        // 3
+    RQ_FINAL     // 4
 };
 
 // ------------------------------------------------------------

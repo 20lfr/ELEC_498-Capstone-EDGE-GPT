@@ -215,3 +215,437 @@ Tue Nov 25 16:31:26 2025: SERVER: destructor for server bound to port 38297
 Tue Nov 25 16:31:26 2025: XCD main fifo: Good unlink of /tmp/xcdmain999372fd-af39-4d8b-91eb-924260fa8a14
 Tue Nov 25 16:31:26 2025: Server exiting with status 0.
 Tue Nov 25 16:31:26 2025: Closing log file.
+Tue Nov 25 18:55:25 2025: Running xcd server. This server was built by gradle.
+Tue Nov 25 18:55:25 2025: Server was asked to start on port: '33141'
+Tue Nov 25 18:55:25 2025: Server is using token UUID: '9cd042f5-28b5-489d-8c29-a692da53efb7'
+Tue Nov 25 18:55:25 2025: SESSION_MGR: creating session with session uuid: '6d04a3e9-ade5-4ab9-8d63-1f78fcd2ec76' and name 'default'
+Tue Nov 25 18:55:25 2025: Attempting to start server on port '33141'
+Tue Nov 25 18:55:25 2025: XCD main fifo: created main fifo '/tmp/xcdmain9cd042f5-28b5-489d-8c29-a692da53efb7', fd read = 12
+Tue Nov 25 18:55:25 2025: Running Dispatch Server
+Tue Nov 25 18:55:25 2025: Version 2.2.0
+Tue Nov 25 18:55:26 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 18:55:26 2025: Starting Socket connection
+Tue Nov 25 18:55:26 2025: EXCHANGE_TOKEN received, server token: 9cd042f5-28b5-489d-8c29-a692da53efb7, passed token: 9cd042f5-28b5-489d-8c29-a692da53efb7
+Tue Nov 25 18:55:26 2025: DISPATCH_HANDLER: Adding handler from function makeHandler in library libxv_system_diagram failed with exception: Could not dynamically load libxv_system_diagram.so
+Tue Nov 25 18:55:26 2025: SESSION_MGR: creating session with session uuid: '4c7badfb-8f3c-4fbf-bbee-eda15c547d53' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 18:55:26 2025: KERNEL_SVC: creating session with uuid: '4c7badfb-8f3c-4fbf-bbee-eda15c547d53' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 18:55:26 2025: GUIDANCE_SMGR: creating guidance session with uuid: '4c7badfb-8f3c-4fbf-bbee-eda15c547d53' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 18:55:30 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 18:55:30 2025: Starting Socket connection
+Tue Nov 25 18:55:31 2025: SESSION_MGR: closing session for UUID '4c7badfb-8f3c-4fbf-bbee-eda15c547d53' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 18:55:31 2025: KERNEL_SVC: closing session for UUID '4c7badfb-8f3c-4fbf-bbee-eda15c547d53' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 18:55:31 2025: GUIDANCE_SMGR: closing session for UUID '4c7badfb-8f3c-4fbf-bbee-eda15c547d53' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 18:55:31 2025: STOP_SERVER received, server token: 9cd042f5-28b5-489d-8c29-a692da53efb7, passed token: 9cd042f5-28b5-489d-8c29-a692da53efb7
+Tue Nov 25 18:55:31 2025: Socket received request to stop server.
+Tue Nov 25 18:55:31 2025: Dispatch Server: do_await_stop
+Tue Nov 25 18:55:31 2025: Dispatch Server: stopping mainFifo_
+Tue Nov 25 18:55:31 2025: XCD main fifo: Stopping
+Tue Nov 25 18:55:31 2025: XCD main fifo: do_read error code: Operation canceled
+Tue Nov 25 18:55:31 2025: XCD main fifo: bytes_transferred: 0
+Tue Nov 25 18:55:31 2025: SERVER: destructor for server bound to port 33141
+Tue Nov 25 18:55:31 2025: XCD main fifo: Good unlink of /tmp/xcdmain9cd042f5-28b5-489d-8c29-a692da53efb7
+Tue Nov 25 18:55:31 2025: Server exiting with status 0.
+Tue Nov 25 18:55:31 2025: Closing log file.
+Tue Nov 25 19:06:12 2025: Running xcd server. This server was built by gradle.
+Tue Nov 25 19:06:12 2025: Server was asked to start on port: '37739'
+Tue Nov 25 19:06:12 2025: Server is using token UUID: '08cba5ae-6ebe-423e-8cf1-8410671da612'
+Tue Nov 25 19:06:12 2025: SESSION_MGR: creating session with session uuid: '6d04a3e9-ade5-4ab9-8d63-1f78fcd2ec76' and name 'default'
+Tue Nov 25 19:06:12 2025: Attempting to start server on port '37739'
+Tue Nov 25 19:06:12 2025: XCD main fifo: created main fifo '/tmp/xcdmain08cba5ae-6ebe-423e-8cf1-8410671da612', fd read = 12
+Tue Nov 25 19:06:12 2025: Running Dispatch Server
+Tue Nov 25 19:06:12 2025: Version 2.2.0
+Tue Nov 25 19:06:14 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 19:06:14 2025: Starting Socket connection
+Tue Nov 25 19:06:14 2025: EXCHANGE_TOKEN received, server token: 08cba5ae-6ebe-423e-8cf1-8410671da612, passed token: 08cba5ae-6ebe-423e-8cf1-8410671da612
+Tue Nov 25 19:06:14 2025: DISPATCH_HANDLER: Adding handler from function makeHandler in library libxv_system_diagram failed with exception: Could not dynamically load libxv_system_diagram.so
+Tue Nov 25 19:06:14 2025: SESSION_MGR: creating session with session uuid: 'dd0fb85b-cf3a-42bd-a94d-2269b755f167' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:06:14 2025: KERNEL_SVC: creating session with uuid: 'dd0fb85b-cf3a-42bd-a94d-2269b755f167' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:06:14 2025: GUIDANCE_SMGR: creating guidance session with uuid: 'dd0fb85b-cf3a-42bd-a94d-2269b755f167' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:06:18 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 19:06:18 2025: Starting Socket connection
+Tue Nov 25 19:06:18 2025: SESSION_MGR: closing session for UUID 'dd0fb85b-cf3a-42bd-a94d-2269b755f167' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:06:18 2025: KERNEL_SVC: closing session for UUID 'dd0fb85b-cf3a-42bd-a94d-2269b755f167' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:06:18 2025: GUIDANCE_SMGR: closing session for UUID 'dd0fb85b-cf3a-42bd-a94d-2269b755f167' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:06:18 2025: STOP_SERVER received, server token: 08cba5ae-6ebe-423e-8cf1-8410671da612, passed token: 08cba5ae-6ebe-423e-8cf1-8410671da612
+Tue Nov 25 19:06:18 2025: Socket received request to stop server.
+Tue Nov 25 19:06:18 2025: Dispatch Server: do_await_stop
+Tue Nov 25 19:06:18 2025: Dispatch Server: stopping mainFifo_
+Tue Nov 25 19:06:18 2025: XCD main fifo: Stopping
+Tue Nov 25 19:06:18 2025: XCD main fifo: do_read error code: Operation canceled
+Tue Nov 25 19:06:18 2025: XCD main fifo: bytes_transferred: 0
+Tue Nov 25 19:06:18 2025: SERVER: destructor for server bound to port 37739
+Tue Nov 25 19:06:18 2025: XCD main fifo: Good unlink of /tmp/xcdmain08cba5ae-6ebe-423e-8cf1-8410671da612
+Tue Nov 25 19:06:18 2025: Server exiting with status 0.
+Tue Nov 25 19:06:18 2025: Closing log file.
+Tue Nov 25 19:09:11 2025: Running xcd server. This server was built by gradle.
+Tue Nov 25 19:09:11 2025: Server was asked to start on port: '41743'
+Tue Nov 25 19:09:11 2025: Server is using token UUID: 'bccdf2ec-f76f-40eb-b880-d07995199566'
+Tue Nov 25 19:09:11 2025: SESSION_MGR: creating session with session uuid: '6d04a3e9-ade5-4ab9-8d63-1f78fcd2ec76' and name 'default'
+Tue Nov 25 19:09:11 2025: Attempting to start server on port '41743'
+Tue Nov 25 19:09:11 2025: XCD main fifo: created main fifo '/tmp/xcdmainbccdf2ec-f76f-40eb-b880-d07995199566', fd read = 12
+Tue Nov 25 19:09:11 2025: Running Dispatch Server
+Tue Nov 25 19:09:11 2025: Version 2.2.0
+Tue Nov 25 19:09:12 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 19:09:12 2025: Starting Socket connection
+Tue Nov 25 19:09:12 2025: EXCHANGE_TOKEN received, server token: bccdf2ec-f76f-40eb-b880-d07995199566, passed token: bccdf2ec-f76f-40eb-b880-d07995199566
+Tue Nov 25 19:09:12 2025: DISPATCH_HANDLER: Adding handler from function makeHandler in library libxv_system_diagram failed with exception: Could not dynamically load libxv_system_diagram.so
+Tue Nov 25 19:09:12 2025: SESSION_MGR: creating session with session uuid: '54628217-9e7a-4c06-80d9-9c9b1464062b' and name 'v++_compile_scheduler_hls'
+Tue Nov 25 19:09:12 2025: KERNEL_SVC: creating session with uuid: '54628217-9e7a-4c06-80d9-9c9b1464062b' and name 'v++_compile_scheduler_hls'
+Tue Nov 25 19:09:12 2025: GUIDANCE_SMGR: creating guidance session with uuid: '54628217-9e7a-4c06-80d9-9c9b1464062b' and name 'v++_compile_scheduler_hls'
+Tue Nov 25 19:09:16 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 19:09:16 2025: Starting Socket connection
+Tue Nov 25 19:09:25 2025: SESSION_MGR: closing session for UUID '54628217-9e7a-4c06-80d9-9c9b1464062b' with name 'v++_compile_scheduler_hls'
+Tue Nov 25 19:09:25 2025: KERNEL_SVC: closing session for UUID '54628217-9e7a-4c06-80d9-9c9b1464062b' with name 'v++_compile_scheduler_hls'
+Tue Nov 25 19:09:25 2025: GUIDANCE_SMGR: closing session for UUID '54628217-9e7a-4c06-80d9-9c9b1464062b' with name 'v++_compile_scheduler_hls'
+Tue Nov 25 19:09:25 2025: STOP_SERVER received, server token: bccdf2ec-f76f-40eb-b880-d07995199566, passed token: bccdf2ec-f76f-40eb-b880-d07995199566
+Tue Nov 25 19:09:25 2025: Socket received request to stop server.
+Tue Nov 25 19:09:25 2025: Dispatch Server: do_await_stop
+Tue Nov 25 19:09:25 2025: Dispatch Server: stopping mainFifo_
+Tue Nov 25 19:09:25 2025: XCD main fifo: Stopping
+Tue Nov 25 19:09:25 2025: XCD main fifo: do_read error code: Operation canceled
+Tue Nov 25 19:09:25 2025: XCD main fifo: bytes_transferred: 0
+Tue Nov 25 19:09:25 2025: SERVER: destructor for server bound to port 41743
+Tue Nov 25 19:09:25 2025: XCD main fifo: Good unlink of /tmp/xcdmainbccdf2ec-f76f-40eb-b880-d07995199566
+Tue Nov 25 19:09:25 2025: Server exiting with status 0.
+Tue Nov 25 19:09:25 2025: Closing log file.
+Tue Nov 25 19:28:57 2025: Running xcd server. This server was built by gradle.
+Tue Nov 25 19:28:57 2025: Server was asked to start on port: '37683'
+Tue Nov 25 19:28:57 2025: Server is using token UUID: '1f1e3a2e-1590-4e67-9670-c6fb8a7a280d'
+Tue Nov 25 19:28:57 2025: SESSION_MGR: creating session with session uuid: '6d04a3e9-ade5-4ab9-8d63-1f78fcd2ec76' and name 'default'
+Tue Nov 25 19:28:57 2025: Attempting to start server on port '37683'
+Tue Nov 25 19:28:57 2025: XCD main fifo: created main fifo '/tmp/xcdmain1f1e3a2e-1590-4e67-9670-c6fb8a7a280d', fd read = 12
+Tue Nov 25 19:28:57 2025: Running Dispatch Server
+Tue Nov 25 19:28:57 2025: Version 2.2.0
+Tue Nov 25 19:28:59 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 19:28:59 2025: Starting Socket connection
+Tue Nov 25 19:28:59 2025: EXCHANGE_TOKEN received, server token: 1f1e3a2e-1590-4e67-9670-c6fb8a7a280d, passed token: 1f1e3a2e-1590-4e67-9670-c6fb8a7a280d
+Tue Nov 25 19:28:59 2025: DISPATCH_HANDLER: Adding handler from function makeHandler in library libxv_system_diagram failed with exception: Could not dynamically load libxv_system_diagram.so
+Tue Nov 25 19:28:59 2025: SESSION_MGR: creating session with session uuid: '77d36eb6-fb2e-47aa-a385-bbd6d2164561' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:28:59 2025: KERNEL_SVC: creating session with uuid: '77d36eb6-fb2e-47aa-a385-bbd6d2164561' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:28:59 2025: GUIDANCE_SMGR: creating guidance session with uuid: '77d36eb6-fb2e-47aa-a385-bbd6d2164561' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:29:02 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 19:29:02 2025: Starting Socket connection
+Tue Nov 25 19:29:03 2025: SESSION_MGR: closing session for UUID '77d36eb6-fb2e-47aa-a385-bbd6d2164561' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:29:03 2025: KERNEL_SVC: closing session for UUID '77d36eb6-fb2e-47aa-a385-bbd6d2164561' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:29:03 2025: GUIDANCE_SMGR: closing session for UUID '77d36eb6-fb2e-47aa-a385-bbd6d2164561' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:29:03 2025: STOP_SERVER received, server token: 1f1e3a2e-1590-4e67-9670-c6fb8a7a280d, passed token: 1f1e3a2e-1590-4e67-9670-c6fb8a7a280d
+Tue Nov 25 19:29:03 2025: Socket received request to stop server.
+Tue Nov 25 19:29:03 2025: Dispatch Server: do_await_stop
+Tue Nov 25 19:29:03 2025: Dispatch Server: stopping mainFifo_
+Tue Nov 25 19:29:03 2025: XCD main fifo: Stopping
+Tue Nov 25 19:29:03 2025: XCD main fifo: do_read error code: Operation canceled
+Tue Nov 25 19:29:03 2025: XCD main fifo: bytes_transferred: 0
+Tue Nov 25 19:29:03 2025: SERVER: destructor for server bound to port 37683
+Tue Nov 25 19:29:03 2025: XCD main fifo: Good unlink of /tmp/xcdmain1f1e3a2e-1590-4e67-9670-c6fb8a7a280d
+Tue Nov 25 19:29:03 2025: Server exiting with status 0.
+Tue Nov 25 19:29:03 2025: Closing log file.
+Tue Nov 25 19:32:09 2025: Running xcd server. This server was built by gradle.
+Tue Nov 25 19:32:09 2025: Server was asked to start on port: '35451'
+Tue Nov 25 19:32:09 2025: Server is using token UUID: '028a1f57-fd80-486e-82bb-92293f018416'
+Tue Nov 25 19:32:09 2025: SESSION_MGR: creating session with session uuid: '6d04a3e9-ade5-4ab9-8d63-1f78fcd2ec76' and name 'default'
+Tue Nov 25 19:32:09 2025: Attempting to start server on port '35451'
+Tue Nov 25 19:32:09 2025: XCD main fifo: created main fifo '/tmp/xcdmain028a1f57-fd80-486e-82bb-92293f018416', fd read = 12
+Tue Nov 25 19:32:09 2025: Running Dispatch Server
+Tue Nov 25 19:32:09 2025: Version 2.2.0
+Tue Nov 25 19:32:11 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 19:32:11 2025: Starting Socket connection
+Tue Nov 25 19:32:11 2025: EXCHANGE_TOKEN received, server token: 028a1f57-fd80-486e-82bb-92293f018416, passed token: 028a1f57-fd80-486e-82bb-92293f018416
+Tue Nov 25 19:32:11 2025: DISPATCH_HANDLER: Adding handler from function makeHandler in library libxv_system_diagram failed with exception: Could not dynamically load libxv_system_diagram.so
+Tue Nov 25 19:32:11 2025: SESSION_MGR: creating session with session uuid: '62f73ed7-69b9-465c-bb11-cd59101e98c0' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:32:11 2025: KERNEL_SVC: creating session with uuid: '62f73ed7-69b9-465c-bb11-cd59101e98c0' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:32:11 2025: GUIDANCE_SMGR: creating guidance session with uuid: '62f73ed7-69b9-465c-bb11-cd59101e98c0' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:32:14 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 19:32:14 2025: Starting Socket connection
+Tue Nov 25 19:32:15 2025: SESSION_MGR: closing session for UUID '62f73ed7-69b9-465c-bb11-cd59101e98c0' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:32:15 2025: KERNEL_SVC: closing session for UUID '62f73ed7-69b9-465c-bb11-cd59101e98c0' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:32:15 2025: GUIDANCE_SMGR: closing session for UUID '62f73ed7-69b9-465c-bb11-cd59101e98c0' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:32:15 2025: STOP_SERVER received, server token: 028a1f57-fd80-486e-82bb-92293f018416, passed token: 028a1f57-fd80-486e-82bb-92293f018416
+Tue Nov 25 19:32:15 2025: Socket received request to stop server.
+Tue Nov 25 19:32:15 2025: Dispatch Server: do_await_stop
+Tue Nov 25 19:32:15 2025: Dispatch Server: stopping mainFifo_
+Tue Nov 25 19:32:15 2025: XCD main fifo: Stopping
+Tue Nov 25 19:32:15 2025: XCD main fifo: do_read error code: Operation canceled
+Tue Nov 25 19:32:15 2025: XCD main fifo: bytes_transferred: 0
+Tue Nov 25 19:32:15 2025: SERVER: destructor for server bound to port 35451
+Tue Nov 25 19:32:15 2025: XCD main fifo: Good unlink of /tmp/xcdmain028a1f57-fd80-486e-82bb-92293f018416
+Tue Nov 25 19:32:15 2025: Server exiting with status 0.
+Tue Nov 25 19:32:15 2025: Closing log file.
+Tue Nov 25 19:34:15 2025: Running xcd server. This server was built by gradle.
+Tue Nov 25 19:34:15 2025: Server was asked to start on port: '37937'
+Tue Nov 25 19:34:15 2025: Server is using token UUID: '1fd898bc-b887-4390-b188-7fab26657fa1'
+Tue Nov 25 19:34:15 2025: SESSION_MGR: creating session with session uuid: '6d04a3e9-ade5-4ab9-8d63-1f78fcd2ec76' and name 'default'
+Tue Nov 25 19:34:15 2025: Attempting to start server on port '37937'
+Tue Nov 25 19:34:15 2025: XCD main fifo: created main fifo '/tmp/xcdmain1fd898bc-b887-4390-b188-7fab26657fa1', fd read = 12
+Tue Nov 25 19:34:15 2025: Running Dispatch Server
+Tue Nov 25 19:34:15 2025: Version 2.2.0
+Tue Nov 25 19:34:16 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 19:34:16 2025: Starting Socket connection
+Tue Nov 25 19:34:16 2025: EXCHANGE_TOKEN received, server token: 1fd898bc-b887-4390-b188-7fab26657fa1, passed token: 1fd898bc-b887-4390-b188-7fab26657fa1
+Tue Nov 25 19:34:16 2025: DISPATCH_HANDLER: Adding handler from function makeHandler in library libxv_system_diagram failed with exception: Could not dynamically load libxv_system_diagram.so
+Tue Nov 25 19:34:16 2025: SESSION_MGR: creating session with session uuid: '3c6fba0c-063f-4db6-b0fc-316d74326091' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:34:16 2025: KERNEL_SVC: creating session with uuid: '3c6fba0c-063f-4db6-b0fc-316d74326091' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:34:16 2025: GUIDANCE_SMGR: creating guidance session with uuid: '3c6fba0c-063f-4db6-b0fc-316d74326091' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:34:20 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 19:34:20 2025: Starting Socket connection
+Tue Nov 25 19:34:21 2025: SESSION_MGR: closing session for UUID '3c6fba0c-063f-4db6-b0fc-316d74326091' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:34:21 2025: KERNEL_SVC: closing session for UUID '3c6fba0c-063f-4db6-b0fc-316d74326091' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:34:21 2025: GUIDANCE_SMGR: closing session for UUID '3c6fba0c-063f-4db6-b0fc-316d74326091' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:34:21 2025: STOP_SERVER received, server token: 1fd898bc-b887-4390-b188-7fab26657fa1, passed token: 1fd898bc-b887-4390-b188-7fab26657fa1
+Tue Nov 25 19:34:21 2025: Socket received request to stop server.
+Tue Nov 25 19:34:21 2025: Dispatch Server: do_await_stop
+Tue Nov 25 19:34:21 2025: Dispatch Server: stopping mainFifo_
+Tue Nov 25 19:34:21 2025: XCD main fifo: Stopping
+Tue Nov 25 19:34:21 2025: XCD main fifo: do_read error code: Operation canceled
+Tue Nov 25 19:34:21 2025: XCD main fifo: bytes_transferred: 0
+Tue Nov 25 19:34:21 2025: SERVER: destructor for server bound to port 37937
+Tue Nov 25 19:34:21 2025: XCD main fifo: Good unlink of /tmp/xcdmain1fd898bc-b887-4390-b188-7fab26657fa1
+Tue Nov 25 19:34:21 2025: Server exiting with status 0.
+Tue Nov 25 19:34:21 2025: Closing log file.
+Tue Nov 25 19:36:33 2025: Running xcd server. This server was built by gradle.
+Tue Nov 25 19:36:33 2025: Server was asked to start on port: '45033'
+Tue Nov 25 19:36:33 2025: Server is using token UUID: 'ef14f873-efab-4d82-b7ae-c55d9ab645a3'
+Tue Nov 25 19:36:33 2025: SESSION_MGR: creating session with session uuid: '6d04a3e9-ade5-4ab9-8d63-1f78fcd2ec76' and name 'default'
+Tue Nov 25 19:36:33 2025: Attempting to start server on port '45033'
+Tue Nov 25 19:36:33 2025: XCD main fifo: created main fifo '/tmp/xcdmainef14f873-efab-4d82-b7ae-c55d9ab645a3', fd read = 12
+Tue Nov 25 19:36:33 2025: Running Dispatch Server
+Tue Nov 25 19:36:33 2025: Version 2.2.0
+Tue Nov 25 19:36:34 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 19:36:34 2025: Starting Socket connection
+Tue Nov 25 19:36:34 2025: EXCHANGE_TOKEN received, server token: ef14f873-efab-4d82-b7ae-c55d9ab645a3, passed token: ef14f873-efab-4d82-b7ae-c55d9ab645a3
+Tue Nov 25 19:36:34 2025: DISPATCH_HANDLER: Adding handler from function makeHandler in library libxv_system_diagram failed with exception: Could not dynamically load libxv_system_diagram.so
+Tue Nov 25 19:36:34 2025: SESSION_MGR: creating session with session uuid: '22e83ee5-5578-4380-be26-f876ebddb25b' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:36:34 2025: KERNEL_SVC: creating session with uuid: '22e83ee5-5578-4380-be26-f876ebddb25b' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:36:34 2025: GUIDANCE_SMGR: creating guidance session with uuid: '22e83ee5-5578-4380-be26-f876ebddb25b' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:36:38 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 19:36:38 2025: Starting Socket connection
+Tue Nov 25 19:36:39 2025: SESSION_MGR: closing session for UUID '22e83ee5-5578-4380-be26-f876ebddb25b' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:36:39 2025: KERNEL_SVC: closing session for UUID '22e83ee5-5578-4380-be26-f876ebddb25b' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:36:39 2025: GUIDANCE_SMGR: closing session for UUID '22e83ee5-5578-4380-be26-f876ebddb25b' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:36:39 2025: STOP_SERVER received, server token: ef14f873-efab-4d82-b7ae-c55d9ab645a3, passed token: ef14f873-efab-4d82-b7ae-c55d9ab645a3
+Tue Nov 25 19:36:39 2025: Socket received request to stop server.
+Tue Nov 25 19:36:39 2025: Dispatch Server: do_await_stop
+Tue Nov 25 19:36:39 2025: Dispatch Server: stopping mainFifo_
+Tue Nov 25 19:36:39 2025: XCD main fifo: Stopping
+Tue Nov 25 19:36:39 2025: XCD main fifo: do_read error code: Operation canceled
+Tue Nov 25 19:36:39 2025: XCD main fifo: bytes_transferred: 0
+Tue Nov 25 19:36:39 2025: SERVER: destructor for server bound to port 45033
+Tue Nov 25 19:36:39 2025: XCD main fifo: Good unlink of /tmp/xcdmainef14f873-efab-4d82-b7ae-c55d9ab645a3
+Tue Nov 25 19:36:39 2025: Server exiting with status 0.
+Tue Nov 25 19:36:39 2025: Closing log file.
+Tue Nov 25 19:43:54 2025: Running xcd server. This server was built by gradle.
+Tue Nov 25 19:43:54 2025: Server was asked to start on port: '33373'
+Tue Nov 25 19:43:54 2025: Server is using token UUID: '676ab30e-2925-4ee9-ad46-7b6b613539ec'
+Tue Nov 25 19:43:54 2025: SESSION_MGR: creating session with session uuid: '6d04a3e9-ade5-4ab9-8d63-1f78fcd2ec76' and name 'default'
+Tue Nov 25 19:43:54 2025: Attempting to start server on port '33373'
+Tue Nov 25 19:43:54 2025: XCD main fifo: created main fifo '/tmp/xcdmain676ab30e-2925-4ee9-ad46-7b6b613539ec', fd read = 12
+Tue Nov 25 19:43:54 2025: Running Dispatch Server
+Tue Nov 25 19:43:54 2025: Version 2.2.0
+Tue Nov 25 19:43:56 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 19:43:56 2025: Starting Socket connection
+Tue Nov 25 19:43:56 2025: EXCHANGE_TOKEN received, server token: 676ab30e-2925-4ee9-ad46-7b6b613539ec, passed token: 676ab30e-2925-4ee9-ad46-7b6b613539ec
+Tue Nov 25 19:43:56 2025: DISPATCH_HANDLER: Adding handler from function makeHandler in library libxv_system_diagram failed with exception: Could not dynamically load libxv_system_diagram.so
+Tue Nov 25 19:43:56 2025: SESSION_MGR: creating session with session uuid: 'd1830a6d-a038-4588-8abd-4b2570680328' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:43:56 2025: KERNEL_SVC: creating session with uuid: 'd1830a6d-a038-4588-8abd-4b2570680328' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:43:56 2025: GUIDANCE_SMGR: creating guidance session with uuid: 'd1830a6d-a038-4588-8abd-4b2570680328' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:43:59 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 19:43:59 2025: Starting Socket connection
+Tue Nov 25 19:44:00 2025: SESSION_MGR: closing session for UUID 'd1830a6d-a038-4588-8abd-4b2570680328' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:44:00 2025: KERNEL_SVC: closing session for UUID 'd1830a6d-a038-4588-8abd-4b2570680328' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:44:00 2025: GUIDANCE_SMGR: closing session for UUID 'd1830a6d-a038-4588-8abd-4b2570680328' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:44:00 2025: STOP_SERVER received, server token: 676ab30e-2925-4ee9-ad46-7b6b613539ec, passed token: 676ab30e-2925-4ee9-ad46-7b6b613539ec
+Tue Nov 25 19:44:00 2025: Socket received request to stop server.
+Tue Nov 25 19:44:00 2025: Dispatch Server: do_await_stop
+Tue Nov 25 19:44:00 2025: Dispatch Server: stopping mainFifo_
+Tue Nov 25 19:44:00 2025: XCD main fifo: Stopping
+Tue Nov 25 19:44:00 2025: XCD main fifo: do_read error code: Operation canceled
+Tue Nov 25 19:44:00 2025: XCD main fifo: bytes_transferred: 0
+Tue Nov 25 19:44:00 2025: SERVER: destructor for server bound to port 33373
+Tue Nov 25 19:44:00 2025: XCD main fifo: Good unlink of /tmp/xcdmain676ab30e-2925-4ee9-ad46-7b6b613539ec
+Tue Nov 25 19:44:00 2025: Server exiting with status 0.
+Tue Nov 25 19:44:00 2025: Closing log file.
+Tue Nov 25 19:55:19 2025: Running xcd server. This server was built by gradle.
+Tue Nov 25 19:55:19 2025: Server was asked to start on port: '41703'
+Tue Nov 25 19:55:19 2025: Server is using token UUID: 'ae6ccac5-ec3a-469b-9eb0-5ac70326af6e'
+Tue Nov 25 19:55:19 2025: SESSION_MGR: creating session with session uuid: '6d04a3e9-ade5-4ab9-8d63-1f78fcd2ec76' and name 'default'
+Tue Nov 25 19:55:19 2025: Attempting to start server on port '41703'
+Tue Nov 25 19:55:19 2025: XCD main fifo: created main fifo '/tmp/xcdmainae6ccac5-ec3a-469b-9eb0-5ac70326af6e', fd read = 12
+Tue Nov 25 19:55:19 2025: Running Dispatch Server
+Tue Nov 25 19:55:19 2025: Version 2.2.0
+Tue Nov 25 19:55:20 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 19:55:20 2025: Starting Socket connection
+Tue Nov 25 19:55:20 2025: EXCHANGE_TOKEN received, server token: ae6ccac5-ec3a-469b-9eb0-5ac70326af6e, passed token: ae6ccac5-ec3a-469b-9eb0-5ac70326af6e
+Tue Nov 25 19:55:20 2025: DISPATCH_HANDLER: Adding handler from function makeHandler in library libxv_system_diagram failed with exception: Could not dynamically load libxv_system_diagram.so
+Tue Nov 25 19:55:20 2025: SESSION_MGR: creating session with session uuid: '713c33e3-5cf0-491c-abc6-dc0e405ee6a9' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:55:20 2025: KERNEL_SVC: creating session with uuid: '713c33e3-5cf0-491c-abc6-dc0e405ee6a9' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:55:20 2025: GUIDANCE_SMGR: creating guidance session with uuid: '713c33e3-5cf0-491c-abc6-dc0e405ee6a9' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:55:24 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 19:55:24 2025: Starting Socket connection
+Tue Nov 25 19:55:24 2025: SESSION_MGR: closing session for UUID '713c33e3-5cf0-491c-abc6-dc0e405ee6a9' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:55:24 2025: KERNEL_SVC: closing session for UUID '713c33e3-5cf0-491c-abc6-dc0e405ee6a9' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:55:24 2025: GUIDANCE_SMGR: closing session for UUID '713c33e3-5cf0-491c-abc6-dc0e405ee6a9' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 19:55:24 2025: STOP_SERVER received, server token: ae6ccac5-ec3a-469b-9eb0-5ac70326af6e, passed token: ae6ccac5-ec3a-469b-9eb0-5ac70326af6e
+Tue Nov 25 19:55:24 2025: Socket received request to stop server.
+Tue Nov 25 19:55:24 2025: Dispatch Server: do_await_stop
+Tue Nov 25 19:55:24 2025: Dispatch Server: stopping mainFifo_
+Tue Nov 25 19:55:24 2025: XCD main fifo: Stopping
+Tue Nov 25 19:55:24 2025: XCD main fifo: do_read error code: Operation canceled
+Tue Nov 25 19:55:24 2025: XCD main fifo: bytes_transferred: 0
+Tue Nov 25 19:55:24 2025: SERVER: destructor for server bound to port 41703
+Tue Nov 25 19:55:24 2025: XCD main fifo: Good unlink of /tmp/xcdmainae6ccac5-ec3a-469b-9eb0-5ac70326af6e
+Tue Nov 25 19:55:24 2025: Server exiting with status 0.
+Tue Nov 25 19:55:24 2025: Closing log file.
+Tue Nov 25 20:27:08 2025: Running xcd server. This server was built by gradle.
+Tue Nov 25 20:27:08 2025: Server was asked to start on port: '41593'
+Tue Nov 25 20:27:08 2025: Server is using token UUID: '8ec1efcd-2b5b-4c30-9ab3-ca9b1c1a44ce'
+Tue Nov 25 20:27:08 2025: SESSION_MGR: creating session with session uuid: '6d04a3e9-ade5-4ab9-8d63-1f78fcd2ec76' and name 'default'
+Tue Nov 25 20:27:08 2025: Attempting to start server on port '41593'
+Tue Nov 25 20:27:08 2025: XCD main fifo: created main fifo '/tmp/xcdmain8ec1efcd-2b5b-4c30-9ab3-ca9b1c1a44ce', fd read = 12
+Tue Nov 25 20:27:08 2025: Running Dispatch Server
+Tue Nov 25 20:27:08 2025: Version 2.2.0
+Tue Nov 25 20:27:09 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 20:27:09 2025: Starting Socket connection
+Tue Nov 25 20:27:09 2025: EXCHANGE_TOKEN received, server token: 8ec1efcd-2b5b-4c30-9ab3-ca9b1c1a44ce, passed token: 8ec1efcd-2b5b-4c30-9ab3-ca9b1c1a44ce
+Tue Nov 25 20:27:09 2025: DISPATCH_HANDLER: Adding handler from function makeHandler in library libxv_system_diagram failed with exception: Could not dynamically load libxv_system_diagram.so
+Tue Nov 25 20:27:09 2025: SESSION_MGR: creating session with session uuid: '92596523-ebfe-443d-a0cb-61d42c2cfe74' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:27:09 2025: KERNEL_SVC: creating session with uuid: '92596523-ebfe-443d-a0cb-61d42c2cfe74' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:27:09 2025: GUIDANCE_SMGR: creating guidance session with uuid: '92596523-ebfe-443d-a0cb-61d42c2cfe74' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:27:13 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 20:27:13 2025: Starting Socket connection
+Tue Nov 25 20:27:14 2025: SESSION_MGR: closing session for UUID '92596523-ebfe-443d-a0cb-61d42c2cfe74' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:27:14 2025: KERNEL_SVC: closing session for UUID '92596523-ebfe-443d-a0cb-61d42c2cfe74' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:27:14 2025: GUIDANCE_SMGR: closing session for UUID '92596523-ebfe-443d-a0cb-61d42c2cfe74' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:27:14 2025: STOP_SERVER received, server token: 8ec1efcd-2b5b-4c30-9ab3-ca9b1c1a44ce, passed token: 8ec1efcd-2b5b-4c30-9ab3-ca9b1c1a44ce
+Tue Nov 25 20:27:14 2025: Socket received request to stop server.
+Tue Nov 25 20:27:14 2025: Dispatch Server: do_await_stop
+Tue Nov 25 20:27:14 2025: Dispatch Server: stopping mainFifo_
+Tue Nov 25 20:27:14 2025: XCD main fifo: Stopping
+Tue Nov 25 20:27:14 2025: XCD main fifo: do_read error code: Operation canceled
+Tue Nov 25 20:27:14 2025: XCD main fifo: bytes_transferred: 0
+Tue Nov 25 20:27:14 2025: SERVER: destructor for server bound to port 41593
+Tue Nov 25 20:27:14 2025: XCD main fifo: Good unlink of /tmp/xcdmain8ec1efcd-2b5b-4c30-9ab3-ca9b1c1a44ce
+Tue Nov 25 20:27:14 2025: Server exiting with status 0.
+Tue Nov 25 20:27:14 2025: Closing log file.
+Tue Nov 25 20:30:15 2025: Running xcd server. This server was built by gradle.
+Tue Nov 25 20:30:15 2025: Server was asked to start on port: '36085'
+Tue Nov 25 20:30:15 2025: Server is using token UUID: '8ba191ab-b2f5-40ef-9e65-66fddf88e5ca'
+Tue Nov 25 20:30:15 2025: SESSION_MGR: creating session with session uuid: '6d04a3e9-ade5-4ab9-8d63-1f78fcd2ec76' and name 'default'
+Tue Nov 25 20:30:15 2025: Attempting to start server on port '36085'
+Tue Nov 25 20:30:15 2025: XCD main fifo: created main fifo '/tmp/xcdmain8ba191ab-b2f5-40ef-9e65-66fddf88e5ca', fd read = 12
+Tue Nov 25 20:30:15 2025: Running Dispatch Server
+Tue Nov 25 20:30:15 2025: Version 2.2.0
+Tue Nov 25 20:30:17 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 20:30:17 2025: Starting Socket connection
+Tue Nov 25 20:30:17 2025: EXCHANGE_TOKEN received, server token: 8ba191ab-b2f5-40ef-9e65-66fddf88e5ca, passed token: 8ba191ab-b2f5-40ef-9e65-66fddf88e5ca
+Tue Nov 25 20:30:17 2025: DISPATCH_HANDLER: Adding handler from function makeHandler in library libxv_system_diagram failed with exception: Could not dynamically load libxv_system_diagram.so
+Tue Nov 25 20:30:17 2025: SESSION_MGR: creating session with session uuid: '72273bbb-e887-465e-8fc6-b8463b905bc5' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:30:17 2025: KERNEL_SVC: creating session with uuid: '72273bbb-e887-465e-8fc6-b8463b905bc5' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:30:17 2025: GUIDANCE_SMGR: creating guidance session with uuid: '72273bbb-e887-465e-8fc6-b8463b905bc5' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:30:21 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 20:30:21 2025: Starting Socket connection
+Tue Nov 25 20:30:21 2025: SESSION_MGR: closing session for UUID '72273bbb-e887-465e-8fc6-b8463b905bc5' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:30:21 2025: KERNEL_SVC: closing session for UUID '72273bbb-e887-465e-8fc6-b8463b905bc5' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:30:21 2025: GUIDANCE_SMGR: closing session for UUID '72273bbb-e887-465e-8fc6-b8463b905bc5' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:30:21 2025: STOP_SERVER received, server token: 8ba191ab-b2f5-40ef-9e65-66fddf88e5ca, passed token: 8ba191ab-b2f5-40ef-9e65-66fddf88e5ca
+Tue Nov 25 20:30:21 2025: Socket received request to stop server.
+Tue Nov 25 20:30:21 2025: Dispatch Server: do_await_stop
+Tue Nov 25 20:30:21 2025: Dispatch Server: stopping mainFifo_
+Tue Nov 25 20:30:21 2025: XCD main fifo: Stopping
+Tue Nov 25 20:30:21 2025: XCD main fifo: do_read error code: Operation canceled
+Tue Nov 25 20:30:21 2025: XCD main fifo: bytes_transferred: 0
+Tue Nov 25 20:30:21 2025: SERVER: destructor for server bound to port 36085
+Tue Nov 25 20:30:21 2025: XCD main fifo: Good unlink of /tmp/xcdmain8ba191ab-b2f5-40ef-9e65-66fddf88e5ca
+Tue Nov 25 20:30:21 2025: Server exiting with status 0.
+Tue Nov 25 20:30:21 2025: Closing log file.
+Tue Nov 25 20:30:51 2025: Running xcd server. This server was built by gradle.
+Tue Nov 25 20:30:51 2025: Server was asked to start on port: '43373'
+Tue Nov 25 20:30:51 2025: Server is using token UUID: '4bc18ad4-3897-45af-8dd7-f4ff842e03c3'
+Tue Nov 25 20:30:51 2025: SESSION_MGR: creating session with session uuid: '6d04a3e9-ade5-4ab9-8d63-1f78fcd2ec76' and name 'default'
+Tue Nov 25 20:30:51 2025: Attempting to start server on port '43373'
+Tue Nov 25 20:30:51 2025: XCD main fifo: created main fifo '/tmp/xcdmain4bc18ad4-3897-45af-8dd7-f4ff842e03c3', fd read = 12
+Tue Nov 25 20:30:51 2025: Running Dispatch Server
+Tue Nov 25 20:30:51 2025: Version 2.2.0
+Tue Nov 25 20:30:53 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 20:30:53 2025: Starting Socket connection
+Tue Nov 25 20:30:53 2025: EXCHANGE_TOKEN received, server token: 4bc18ad4-3897-45af-8dd7-f4ff842e03c3, passed token: 4bc18ad4-3897-45af-8dd7-f4ff842e03c3
+Tue Nov 25 20:30:53 2025: DISPATCH_HANDLER: Adding handler from function makeHandler in library libxv_system_diagram failed with exception: Could not dynamically load libxv_system_diagram.so
+Tue Nov 25 20:30:53 2025: SESSION_MGR: creating session with session uuid: '278c976b-2d80-4a04-88bc-09683dcae3c0' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:30:53 2025: KERNEL_SVC: creating session with uuid: '278c976b-2d80-4a04-88bc-09683dcae3c0' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:30:53 2025: GUIDANCE_SMGR: creating guidance session with uuid: '278c976b-2d80-4a04-88bc-09683dcae3c0' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:30:57 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 20:30:57 2025: Starting Socket connection
+Tue Nov 25 20:30:57 2025: SESSION_MGR: closing session for UUID '278c976b-2d80-4a04-88bc-09683dcae3c0' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:30:57 2025: KERNEL_SVC: closing session for UUID '278c976b-2d80-4a04-88bc-09683dcae3c0' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:30:57 2025: GUIDANCE_SMGR: closing session for UUID '278c976b-2d80-4a04-88bc-09683dcae3c0' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:30:57 2025: STOP_SERVER received, server token: 4bc18ad4-3897-45af-8dd7-f4ff842e03c3, passed token: 4bc18ad4-3897-45af-8dd7-f4ff842e03c3
+Tue Nov 25 20:30:57 2025: Socket received request to stop server.
+Tue Nov 25 20:30:57 2025: Dispatch Server: do_await_stop
+Tue Nov 25 20:30:57 2025: Dispatch Server: stopping mainFifo_
+Tue Nov 25 20:30:57 2025: XCD main fifo: Stopping
+Tue Nov 25 20:30:57 2025: XCD main fifo: do_read error code: Operation canceled
+Tue Nov 25 20:30:57 2025: XCD main fifo: bytes_transferred: 0
+Tue Nov 25 20:30:57 2025: SERVER: destructor for server bound to port 43373
+Tue Nov 25 20:30:57 2025: XCD main fifo: Good unlink of /tmp/xcdmain4bc18ad4-3897-45af-8dd7-f4ff842e03c3
+Tue Nov 25 20:30:57 2025: Server exiting with status 0.
+Tue Nov 25 20:30:57 2025: Closing log file.
+Tue Nov 25 20:37:59 2025: Running xcd server. This server was built by gradle.
+Tue Nov 25 20:37:59 2025: Server was asked to start on port: '38133'
+Tue Nov 25 20:37:59 2025: Server is using token UUID: '47e5128e-64e9-4879-a264-bdf05a0bc79d'
+Tue Nov 25 20:37:59 2025: SESSION_MGR: creating session with session uuid: '6d04a3e9-ade5-4ab9-8d63-1f78fcd2ec76' and name 'default'
+Tue Nov 25 20:37:59 2025: Attempting to start server on port '38133'
+Tue Nov 25 20:37:59 2025: XCD main fifo: created main fifo '/tmp/xcdmain47e5128e-64e9-4879-a264-bdf05a0bc79d', fd read = 12
+Tue Nov 25 20:37:59 2025: Running Dispatch Server
+Tue Nov 25 20:37:59 2025: Version 2.2.0
+Tue Nov 25 20:38:00 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 20:38:00 2025: Starting Socket connection
+Tue Nov 25 20:38:00 2025: EXCHANGE_TOKEN received, server token: 47e5128e-64e9-4879-a264-bdf05a0bc79d, passed token: 47e5128e-64e9-4879-a264-bdf05a0bc79d
+Tue Nov 25 20:38:00 2025: DISPATCH_HANDLER: Adding handler from function makeHandler in library libxv_system_diagram failed with exception: Could not dynamically load libxv_system_diagram.so
+Tue Nov 25 20:38:00 2025: SESSION_MGR: creating session with session uuid: 'f8200e6b-d534-4b2e-a716-11d1c9188820' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:38:00 2025: KERNEL_SVC: creating session with uuid: 'f8200e6b-d534-4b2e-a716-11d1c9188820' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:38:00 2025: GUIDANCE_SMGR: creating guidance session with uuid: 'f8200e6b-d534-4b2e-a716-11d1c9188820' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:38:04 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 20:38:04 2025: Starting Socket connection
+Tue Nov 25 20:38:05 2025: SESSION_MGR: closing session for UUID 'f8200e6b-d534-4b2e-a716-11d1c9188820' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:38:05 2025: KERNEL_SVC: closing session for UUID 'f8200e6b-d534-4b2e-a716-11d1c9188820' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:38:05 2025: GUIDANCE_SMGR: closing session for UUID 'f8200e6b-d534-4b2e-a716-11d1c9188820' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:38:05 2025: STOP_SERVER received, server token: 47e5128e-64e9-4879-a264-bdf05a0bc79d, passed token: 47e5128e-64e9-4879-a264-bdf05a0bc79d
+Tue Nov 25 20:38:05 2025: Socket received request to stop server.
+Tue Nov 25 20:38:05 2025: Dispatch Server: do_await_stop
+Tue Nov 25 20:38:05 2025: Dispatch Server: stopping mainFifo_
+Tue Nov 25 20:38:05 2025: XCD main fifo: Stopping
+Tue Nov 25 20:38:05 2025: XCD main fifo: do_read error code: Operation canceled
+Tue Nov 25 20:38:05 2025: XCD main fifo: bytes_transferred: 0
+Tue Nov 25 20:38:05 2025: SERVER: destructor for server bound to port 38133
+Tue Nov 25 20:38:05 2025: XCD main fifo: Good unlink of /tmp/xcdmain47e5128e-64e9-4879-a264-bdf05a0bc79d
+Tue Nov 25 20:38:05 2025: Server exiting with status 0.
+Tue Nov 25 20:38:05 2025: Closing log file.
+Tue Nov 25 20:38:16 2025: Running xcd server. This server was built by gradle.
+Tue Nov 25 20:38:16 2025: Server was asked to start on port: '36961'
+Tue Nov 25 20:38:16 2025: Server is using token UUID: 'f7064f0b-9825-401f-ab93-e92fe194deaa'
+Tue Nov 25 20:38:16 2025: SESSION_MGR: creating session with session uuid: '6d04a3e9-ade5-4ab9-8d63-1f78fcd2ec76' and name 'default'
+Tue Nov 25 20:38:16 2025: Attempting to start server on port '36961'
+Tue Nov 25 20:38:16 2025: XCD main fifo: created main fifo '/tmp/xcdmainf7064f0b-9825-401f-ab93-e92fe194deaa', fd read = 12
+Tue Nov 25 20:38:16 2025: Running Dispatch Server
+Tue Nov 25 20:38:16 2025: Version 2.2.0
+Tue Nov 25 20:38:18 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 20:38:18 2025: Starting Socket connection
+Tue Nov 25 20:38:18 2025: EXCHANGE_TOKEN received, server token: f7064f0b-9825-401f-ab93-e92fe194deaa, passed token: f7064f0b-9825-401f-ab93-e92fe194deaa
+Tue Nov 25 20:38:18 2025: DISPATCH_HANDLER: Adding handler from function makeHandler in library libxv_system_diagram failed with exception: Could not dynamically load libxv_system_diagram.so
+Tue Nov 25 20:38:18 2025: SESSION_MGR: creating session with session uuid: 'e6441387-f3ec-4fc8-99f9-5572c5eb29ce' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:38:18 2025: KERNEL_SVC: creating session with uuid: 'e6441387-f3ec-4fc8-99f9-5572c5eb29ce' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:38:18 2025: GUIDANCE_SMGR: creating guidance session with uuid: 'e6441387-f3ec-4fc8-99f9-5572c5eb29ce' and name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:38:22 2025: Dispatch Server: Accepted socket connection from client
+Tue Nov 25 20:38:22 2025: Starting Socket connection
+Tue Nov 25 20:38:23 2025: SESSION_MGR: closing session for UUID 'e6441387-f3ec-4fc8-99f9-5572c5eb29ce' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:38:23 2025: KERNEL_SVC: closing session for UUID 'e6441387-f3ec-4fc8-99f9-5572c5eb29ce' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:38:23 2025: GUIDANCE_SMGR: closing session for UUID 'e6441387-f3ec-4fc8-99f9-5572c5eb29ce' with name 'vitis-run_compile_scheduler_hls'
+Tue Nov 25 20:38:23 2025: STOP_SERVER received, server token: f7064f0b-9825-401f-ab93-e92fe194deaa, passed token: f7064f0b-9825-401f-ab93-e92fe194deaa
+Tue Nov 25 20:38:23 2025: Socket received request to stop server.
+Tue Nov 25 20:38:23 2025: Dispatch Server: do_await_stop
+Tue Nov 25 20:38:23 2025: Dispatch Server: stopping mainFifo_
+Tue Nov 25 20:38:23 2025: XCD main fifo: Stopping
+Tue Nov 25 20:38:23 2025: XCD main fifo: do_read error code: Operation canceled
+Tue Nov 25 20:38:23 2025: XCD main fifo: bytes_transferred: 0
+Tue Nov 25 20:38:23 2025: SERVER: destructor for server bound to port 36961
+Tue Nov 25 20:38:23 2025: XCD main fifo: Good unlink of /tmp/xcdmainf7064f0b-9825-401f-ab93-e92fe194deaa
+Tue Nov 25 20:38:23 2025: Server exiting with status 0.
+Tue Nov 25 20:38:23 2025: Closing log file.
