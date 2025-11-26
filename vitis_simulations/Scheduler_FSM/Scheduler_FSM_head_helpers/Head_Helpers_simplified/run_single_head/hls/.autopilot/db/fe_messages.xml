@@ -1,0 +1,15 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="directive:1:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="run_single_head" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=run_single_head" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:21:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="run_single_head" ARG_PragmaIsValid="1" ARG_PragmaOptions="off" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:20:0" msg_body="Inlining function 'init_head_ctx(HeadCtx&amp;, int)' into 'run_single_head(HeadCtx&amp;, int, int)'">
+        <args Callee="init_head_ctx(HeadCtx&amp;, int)" Callee-DebugLoc="File /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp Line 5 Column 0" Caller="run_single_head(HeadCtx&amp;, int, int)" Caller-DebugLoc="File /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp Line 20 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:20:0" msg_body="Aggregating scalar variable 'ctx' with compact=bit mode in 77-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="77" HwTyName="scalar" Name="ctx"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

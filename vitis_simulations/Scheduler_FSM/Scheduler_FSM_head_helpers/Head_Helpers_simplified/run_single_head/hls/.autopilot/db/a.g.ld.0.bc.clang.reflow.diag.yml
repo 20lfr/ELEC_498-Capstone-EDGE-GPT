@@ -1,0 +1,78 @@
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
+                   Line: 28, Column: 9 }
+Function:        _Z15run_single_headR7HeadCtxii
+Args:            
+  - Callee:          'init_head_ctx(HeadCtx&, int)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
+                       Line: 5, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'run_single_head(HeadCtx&, int, int)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
+                       Line: 20, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
+                   Line: 28, Column: 9 }
+Function:        _Z15run_single_headR7HeadCtxii
+Args:            
+  - Callee:          'init_head_ctx(HeadCtx&, int)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
+                       Line: 5, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'run_single_head(HeadCtx&, int, int)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
+                       Line: 20, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        apatb_run_single_head_ir
+Args:            
+  - Callee:          'run_single_head(HeadCtx&, int, int)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
+                       Line: 20, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          apatb_run_single_head_ir
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
+                   Line: 20, Column: 0 }
+Function:        _Z15run_single_headR7HeadCtxii
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'init_head_ctx(HeadCtx&, int)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
+                       Line: 5, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'run_single_head(HeadCtx&, int, int)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
+                       Line: 20, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
+                   Line: 20, Column: 0 }
+Function:        _Z15run_single_headR7HeadCtxii
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            ctx
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '77'
+  - String:          '-bits'
+...

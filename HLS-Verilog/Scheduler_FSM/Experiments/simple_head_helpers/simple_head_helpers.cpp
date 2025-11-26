@@ -7,21 +7,21 @@ void init_head_ctx(HeadCtx &ctx, int layer_idx) {
     ctx.phase         = HeadPhase::Q;
     ctx.wait_comp     = false;
     ctx.comp_done_flag= false;
+    ctx.compute_ready = false;
+    ctx.compute_done  = false;
+    ctx.compute_start = false;
+    ctx.compute_op    = static_cast<int>(CMP_NONE);
 }
 
 bool run_single_head(
     HeadCtx &ctx,
     int      head_idx,
-    int      layer_idx,
-    bool     compute_ready,
-    bool     compute_done,
-    bool    &compute_start,
-    int     &compute_op)
+    int      layer_idx)
 {
 #pragma HLS INLINE off
     // Defaults each call
-    compute_start = false;
-    compute_op    = static_cast<int>(CMP_NONE);
+    ctx.compute_start = false;
+    ctx.compute_op    = static_cast<int>(CMP_NONE);
 
     // Initialize context if layer changes
     if (ctx.layer_stamp != layer_idx) {
@@ -29,7 +29,7 @@ bool run_single_head(
     }
 
     // Consume compute_done if we were waiting
-    if (ctx.wait_comp && compute_done) {
+    if (ctx.wait_comp && ctx.compute_done) {
         ctx.wait_comp      = false;
         ctx.comp_done_flag = true;
     }
@@ -38,9 +38,9 @@ bool run_single_head(
     switch (ctx.phase) {
         case HeadPhase::Q: // Q
             if (!ctx.wait_comp) {
-                if (compute_ready) {
-                    compute_start = true;
-                    compute_op    = static_cast<int>(CMP_Q);
+                if (ctx.compute_ready) {
+                    ctx.compute_start = true;
+                    ctx.compute_op    = static_cast<int>(CMP_Q);
                     ctx.wait_comp = true;
                 }
             } else if (ctx.comp_done_flag) {
@@ -50,9 +50,9 @@ bool run_single_head(
             break;
         case HeadPhase::K: // K
             if (!ctx.wait_comp) {
-                if (compute_ready) {
-                    compute_start = true;
-                    compute_op    = static_cast<int>(CMP_K);
+                if (ctx.compute_ready) {
+                    ctx.compute_start = true;
+                    ctx.compute_op    = static_cast<int>(CMP_K);
                     ctx.wait_comp = true;
                 }
             } else if (ctx.comp_done_flag) {
@@ -62,9 +62,9 @@ bool run_single_head(
             break;
         case HeadPhase::V: // V
             if (!ctx.wait_comp) {
-                if (compute_ready) {
-                    compute_start = true;
-                    compute_op    = static_cast<int>(CMP_V);
+                if (ctx.compute_ready) {
+                    ctx.compute_start = true;
+                    ctx.compute_op    = static_cast<int>(CMP_V);
                     ctx.wait_comp = true;
                 }
             } else if (ctx.comp_done_flag) {

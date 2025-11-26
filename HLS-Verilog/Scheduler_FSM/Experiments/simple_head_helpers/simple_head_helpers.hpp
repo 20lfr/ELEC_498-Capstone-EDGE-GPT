@@ -34,6 +34,10 @@ struct HeadCtx {
     HeadPhase  phase   = HeadPhase::Q; // 0=Q,1=K,2=V,3=DONE
     bool wait_comp     = false;
     bool comp_done_flag= false;
+    bool compute_ready = false;
+    bool compute_done  = false;
+    bool compute_start = false;
+    int  compute_op    = static_cast<int>(CMP_NONE);
 };
 
 void init_head_ctx(HeadCtx &ctx, int layer_idx);
@@ -43,8 +47,4 @@ void init_head_ctx(HeadCtx &ctx, int layer_idx);
 bool run_single_head(
     HeadCtx &ctx,
     int      head_idx,
-    int      layer_idx,
-    bool     compute_ready,
-    bool     compute_done,
-    bool    &compute_start,
-    int     &compute_op);
+    int      layer_idx);

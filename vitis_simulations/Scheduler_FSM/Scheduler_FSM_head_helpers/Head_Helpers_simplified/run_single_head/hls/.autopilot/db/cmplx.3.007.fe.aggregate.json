@@ -1,0 +1,20 @@
+{
+  "0": {
+    "basicblocks": 24,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 5,
+    "file": "simple_head_helpers.cpp",
+    "fileloc": 16,
+    "instructions": 277,
+    "loads": {
+      "T": 37
+    },
+    "memory_accesses": 0,
+    "name": "run_single_head",
+    "stores": {
+      "T": 27
+    },
+    "total_instructions": 277
+  }
+}

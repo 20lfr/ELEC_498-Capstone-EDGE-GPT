@@ -26,26 +26,75 @@ INFO: [SIM 211-2] *************** CSIM start ***************
 INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
 INFO: [HLS 200-2036] Building debug C Simulation binaries
    Compiling ../../../../../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers_tb.cpp in debug mode
+   Compiling ../../../../../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp in debug mode
    Generating csim.exe
-cycle |h0_phase  |rdy|done|start|op 
-0     |Q         |1  |-   |1    |Q  
-1     |Q         |-  |-   |-    |-  
-2     |Q         |-  |-   |-    |-  
-3     |Q         |-  |1   |-    |-  
-4     |Q         |1  |-   |1    |Q  
-5     |K         |-  |-   |-    |-  
-6     |K         |-  |-   |-    |-  
-7     |K         |-  |1   |-    |-  
-8     |K         |1  |-   |1    |K  
-9     |V         |-  |-   |-    |-  
-10    |V         |-  |-   |-    |-  
-11    |V         |-  |1   |-    |-  
-12    |V         |1  |-   |1    |V  
-13    |DONE      |-  |-   |-    |-  
-14    |DONE      |-  |-   |-    |-  
-15    |DONE      |-  |1   |-    |-  
+cycle |h0_phase    |rdy |done |start |op    |h1_phase    |rdy |done |start |op    |h2_phase    |rdy |done |start |op    |h3_phase    |rdy |done |start |op    
+0     |Q           |1   |-    |1     |Q     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+1     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+2     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+3     |Q           |-   |1    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+4     |Q           |1   |-    |1     |Q     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+5     |K           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+6     |K           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+7     |K           |-   |1    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+8     |K           |1   |-    |1     |K     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+9     |V           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+10    |V           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+11    |V           |-   |1    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+12    |V           |1   |-    |1     |V     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+13    |DONE        |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+14    |DONE        |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+15    |DONE        |-   |1    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+16    |DONE        |-   |-    |-     |-     |Q           |1   |-    |1     |Q     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+17    |DONE        |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+18    |DONE        |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+19    |DONE        |-   |-    |-     |-     |Q           |-   |1    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+20    |DONE        |-   |-    |-     |-     |Q           |1   |-    |1     |Q     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+21    |DONE        |-   |-    |-     |-     |K           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+22    |DONE        |-   |-    |-     |-     |K           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+23    |DONE        |-   |-    |-     |-     |K           |-   |1    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+24    |DONE        |-   |-    |-     |-     |K           |1   |-    |1     |K     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+25    |DONE        |-   |-    |-     |-     |V           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+26    |DONE        |-   |-    |-     |-     |V           |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+27    |DONE        |-   |-    |-     |-     |V           |-   |1    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+28    |DONE        |-   |-    |-     |-     |V           |1   |-    |1     |V     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+29    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+30    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+31    |DONE        |-   |-    |-     |-     |DONE        |-   |1    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+32    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |Q           |1   |-    |1     |Q     |Q           |-   |-    |-     |-     
+33    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+34    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |Q           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+35    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |Q           |-   |1    |-     |-     |Q           |-   |-    |-     |-     
+36    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |Q           |1   |-    |1     |Q     |Q           |-   |-    |-     |-     
+37    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |K           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+38    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |K           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+39    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |K           |-   |1    |-     |-     |Q           |-   |-    |-     |-     
+40    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |K           |1   |-    |1     |K     |Q           |-   |-    |-     |-     
+41    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |V           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+42    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |V           |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+43    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |V           |-   |1    |-     |-     |Q           |-   |-    |-     |-     
+44    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |V           |1   |-    |1     |V     |Q           |-   |-    |-     |-     
+45    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+46    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+47    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |DONE        |-   |1    |-     |-     |Q           |-   |-    |-     |-     
+48    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |Q           |1   |-    |1     |Q     
+49    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+50    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |Q           |-   |-    |-     |-     
+51    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |Q           |-   |1    |-     |-     
+52    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |Q           |1   |-    |1     |Q     
+53    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |K           |-   |-    |-     |-     
+54    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |K           |-   |-    |-     |-     
+55    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |K           |-   |1    |-     |-     
+56    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |K           |1   |-    |1     |K     
+57    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |V           |-   |-    |-     |-     
+58    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |V           |-   |-    |-     |-     
+59    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |V           |-   |1    |-     |-     
+60    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |V           |1   |-    |1     |V     
+61    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     
+62    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     
+63    |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |DONE        |-   |-    |-     |-     |DONE        |-   |1    |-     |-     
 simple_head_helpers test complete.
 INFO: [SIM 211-1] CSim done with 0 errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [HLS 200-112] Total CPU user time: 2.66 seconds. Total CPU system time: 0.77 seconds. Total elapsed time: 3.39 seconds; peak allocated memory: 445.102 MB.
+INFO: [HLS 200-112] Total CPU user time: 2.69 seconds. Total CPU system time: 0.83 seconds. Total elapsed time: 3.48 seconds; peak allocated memory: 445.102 MB.
 INFO: [vitis-run 60-791] Total elapsed time: 0h 0m 7s
