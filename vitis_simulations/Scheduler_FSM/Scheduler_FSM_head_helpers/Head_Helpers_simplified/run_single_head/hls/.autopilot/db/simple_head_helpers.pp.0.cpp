@@ -479,7 +479,8 @@ constexpr int NUM_HEADS = 4;
 constexpr int HEADS_PARALLEL = 1;
 
 enum class HeadPhase : uint8_t {
-    Q = 0,
+    IDLE = 0,
+    Q,
     K,
     K_REQUANT,
     K_WRITEBACK,
@@ -499,18 +500,20 @@ enum ComputeOp : uint8_t {
     CMP_NONE = 0,
     CMP_Q,
     CMP_K,
-    CMP_V
+    CMP_V,
+    CMP_ATT_SCORES,
+    CMP_VALUE_SCALE,
+    CMP_SOFTMAX,
+    CMP_ATT_VALUE
 };
 
 struct HeadCtx {
     int layer_stamp = -1;
-    HeadPhase phase = HeadPhase::Q;
-    bool wait_comp = false;
-    bool comp_done_flag= false;
+    HeadPhase phase = HeadPhase::IDLE;
     bool compute_ready = false;
     bool compute_done = false;
     bool compute_start = false;
-    int compute_op = static_cast<int>(CMP_NONE);
+    ComputeOp compute_op = ComputeOp::CMP_NONE;
 };
 
 void init_head_ctx(HeadCtx &ctx, int layer_idx);
@@ -519,90 +522,184 @@ void init_head_ctx(HeadCtx &ctx, int layer_idx);
 
 __attribute__((sdx_kernel("run_single_head", 0))) bool run_single_head(
     HeadCtx &ctx,
-    int head_idx,
-    int layer_idx);
+    int layer_idx,
+    bool start);
 # 4 "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp" 2
 
 void init_head_ctx(HeadCtx &ctx, int layer_idx) {
     ctx.layer_stamp = layer_idx;
-    ctx.phase = HeadPhase::Q;
-    ctx.wait_comp = false;
-    ctx.comp_done_flag= false;
+    ctx.phase = HeadPhase::IDLE;
     ctx.compute_ready = false;
     ctx.compute_done = false;
     ctx.compute_start = false;
-    ctx.compute_op = static_cast<int>(CMP_NONE);
+    ctx.compute_op = ComputeOp::CMP_NONE;
 }
+
+
 
 __attribute__((sdx_kernel("run_single_head", 0))) bool run_single_head(
     HeadCtx &ctx,
-    int head_idx,
-    int layer_idx)
+    int layer_idx,
+    bool start
+)
 {
 #line 1 "directive"
 #pragma HLSDIRECTIVE TOP name=run_single_head
-# 20 "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp"
+# 21 "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp"
 
 #pragma HLS INLINE off
+ static bool Q_started;
+#pragma HLS reset variable=Q_started
+ static bool K_started;
+#pragma HLS reset variable=K_started
+ static bool V_started;
+#pragma HLS reset variable=V_started
+ static bool att_scores_started;
+#pragma HLS reset variable=att_scores_started
+ static bool val_scale_started;
+#pragma HLS reset variable=val_scale_started
+ static bool softmax_started;
+#pragma HLS reset variable=softmax_started
+ static bool att_value_started;
+#pragma HLS reset variable=att_value_started
 
- ctx.compute_start = false;
-    ctx.compute_op = static_cast<int>(CMP_NONE);
+ bool reset_flags = false;
+
+
+
+    ctx.compute_start = false;
+    ctx.compute_op = ComputeOp::CMP_NONE;
 
 
     if (ctx.layer_stamp != layer_idx) {
         init_head_ctx(ctx, layer_idx);
+        reset_flags = true;
     }
 
-
-    if (ctx.wait_comp && ctx.compute_done) {
-        ctx.wait_comp = false;
-        ctx.comp_done_flag = true;
+    if (reset_flags) {
+        Q_started = false;
+        K_started = false;
+        V_started = false;
+        att_scores_started = false;
+        val_scale_started = false;
+        softmax_started = false;
+        att_value_started = false;
     }
 
 
     switch (ctx.phase) {
+        case HeadPhase::IDLE:
+            if (start) {
+
+                ctx.compute_ready = false;
+                ctx.compute_done = false;
+                ctx.compute_start = false;
+                Q_started = false;
+                K_started = false;
+                V_started = false;
+                att_scores_started = false;
+                val_scale_started = false;
+                softmax_started = false;
+                att_value_started = false;
+                ctx.phase = HeadPhase::Q;
+            }
+            break;
         case HeadPhase::Q:
-            if (!ctx.wait_comp) {
-                if (ctx.compute_ready) {
-                    ctx.compute_start = true;
-                    ctx.compute_op = static_cast<int>(CMP_Q);
-                    ctx.wait_comp = true;
-                }
-            } else if (ctx.comp_done_flag) {
-                ctx.comp_done_flag = false;
+            if (ctx.compute_ready && !Q_started) {
+                ctx.compute_start = true;
+                ctx.compute_op = ComputeOp::CMP_Q;
+                Q_started = true;
+            }
+            else if (ctx.compute_done && Q_started) {
                 ctx.phase = HeadPhase::K;
+                Q_started = false;
             }
             break;
         case HeadPhase::K:
-            if (!ctx.wait_comp) {
-                if (ctx.compute_ready) {
-                    ctx.compute_start = true;
-                    ctx.compute_op = static_cast<int>(CMP_K);
-                    ctx.wait_comp = true;
-                }
-            } else if (ctx.comp_done_flag) {
-                ctx.comp_done_flag = false;
-                ctx.phase = HeadPhase::V;
+            if (ctx.compute_ready && !K_started) {
+                ctx.compute_start = true;
+                ctx.compute_op = ComputeOp::CMP_K;
+                K_started = true;
+            }
+            else if (ctx.compute_done && K_started) {
+                ctx.phase = HeadPhase::K_REQUANT;
+                K_started = false;
             }
             break;
+        case HeadPhase::K_REQUANT:
+            ctx.phase = HeadPhase::K_WRITEBACK;
+            break;
+        case HeadPhase::K_WRITEBACK:
+            ctx.phase = HeadPhase::V;
+            break;
         case HeadPhase::V:
-            if (!ctx.wait_comp) {
-                if (ctx.compute_ready) {
-                    ctx.compute_start = true;
-                    ctx.compute_op = static_cast<int>(CMP_V);
-                    ctx.wait_comp = true;
-                }
-            } else if (ctx.comp_done_flag) {
-                ctx.comp_done_flag = false;
-                ctx.phase = HeadPhase::DONE;
+            if (ctx.compute_ready && !V_started) {
+                ctx.compute_start = true;
+                ctx.compute_op = ComputeOp::CMP_V;
+                V_started = true;
             }
+            else if (ctx.compute_done && V_started) {
+                ctx.phase = HeadPhase::V_REQUANT;
+                V_started = false;
+            }
+            break;
+        case HeadPhase::V_REQUANT:
+            ctx.phase = HeadPhase::V_WRITEBACK;
+            break;
+        case HeadPhase::V_WRITEBACK:
+            ctx.phase = HeadPhase::REQUANT_Q;
+            break;
+        case HeadPhase::REQUANT_Q:
+            ctx.phase = HeadPhase::ATT_SCORES;
+            break;
+        case HeadPhase::ATT_SCORES:
+            if (ctx.compute_ready && !att_scores_started) {
+                ctx.compute_start = true;
+                ctx.compute_op = ComputeOp::CMP_ATT_SCORES;
+                att_scores_started = true;
+            } else if (ctx.compute_done && att_scores_started) {
+                ctx.phase = HeadPhase::VALUE_SCALE_CLAMP;
+                att_scores_started = false;
+            }
+            break;
+        case HeadPhase::VALUE_SCALE_CLAMP:
+            if (ctx.compute_ready && !val_scale_started) {
+                ctx.compute_start = true;
+                ctx.compute_op = ComputeOp::CMP_VALUE_SCALE;
+                val_scale_started = true;
+            } else if (ctx.compute_done && val_scale_started) {
+                ctx.phase = HeadPhase::ATT_SOFTMAX;
+                val_scale_started = false;
+            }
+            break;
+        case HeadPhase::ATT_SOFTMAX:
+            if (ctx.compute_ready && !softmax_started) {
+                ctx.compute_start = true;
+                ctx.compute_op = ComputeOp::CMP_SOFTMAX;
+                softmax_started = true;
+            } else if (ctx.compute_done && softmax_started) {
+                ctx.phase = HeadPhase::ATT_VALUE;
+                softmax_started = false;
+            }
+            break;
+        case HeadPhase::ATT_VALUE:
+            if (ctx.compute_ready && !att_value_started) {
+                ctx.compute_start = true;
+                ctx.compute_op = ComputeOp::CMP_ATT_VALUE;
+                att_value_started = true;
+            } else if (ctx.compute_done && att_value_started) {
+                ctx.phase = HeadPhase::REQUANT2;
+                att_value_started = false;
+            }
+            break;
+        case HeadPhase::REQUANT2:
+            ctx.phase = HeadPhase::DONE;
             break;
         case HeadPhase::DONE:
         default:
             break;
     }
 
-    const bool finished = (ctx.phase == HeadPhase::DONE) && !ctx.wait_comp;
-    (void)head_idx;
+    const bool finished = (ctx.phase == HeadPhase::DONE);
     return finished;
 }

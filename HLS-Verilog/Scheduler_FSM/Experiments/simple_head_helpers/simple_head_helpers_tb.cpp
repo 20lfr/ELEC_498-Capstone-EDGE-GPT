@@ -11,9 +11,20 @@
 
 static const char* phase_str(HeadPhase phase) {
     switch (phase) {
+        case HeadPhase::IDLE: return "IDLE";
         case HeadPhase::Q: return "Q";
         case HeadPhase::K: return "K";
         case HeadPhase::V: return "V";
+        case HeadPhase::K_REQUANT: return "K_RQ";
+        case HeadPhase::K_WRITEBACK: return "K_WB";
+        case HeadPhase::V_REQUANT: return "V_RQ";
+        case HeadPhase::V_WRITEBACK: return "V_WB";
+        case HeadPhase::REQUANT_Q: return "RQ_Q";
+        case HeadPhase::ATT_SCORES: return "ATT_SCO";
+        case HeadPhase::VALUE_SCALE_CLAMP: return "VAL_SCL";
+        case HeadPhase::ATT_SOFTMAX: return "SOFT";
+        case HeadPhase::ATT_VALUE: return "ATT_VAL";
+        case HeadPhase::REQUANT2: return "RQ2";
         case HeadPhase::DONE: return "DONE";
         default: return "?";
     }
@@ -24,6 +35,10 @@ static const char* op_str(int op) {
         case CMP_Q: return "Q";
         case CMP_K: return "K";
         case CMP_V: return "V";
+        case CMP_ATT_SCORES: return "SCO";
+        case CMP_VALUE_SCALE: return "SCL";
+        case CMP_SOFTMAX: return "SFM";
+        case CMP_ATT_VALUE: return "VAL";
         default:    return "-";
     }
 }
@@ -45,7 +60,7 @@ int main() {
         std::string hdr = "h" + std::to_string(h) + "_phase";
         std::cout << "|" << std::setw(12) << hdr
                   << "|" << std::setw(4) << "rdy"
-                  << "|" << std::setw(5) << "done"
+                  << "|" << std::setw(4) << "done"
                   << "|" << std::setw(6) << "start"
                   << "|" << std::setw(4) << "op"
                   << "  ";
@@ -75,10 +90,12 @@ int main() {
                 head_ctx[h].compute_done  = false;
             }
 
+            const bool start = in_group; // allow only the active group to leave IDLE
+
             bool head_done = run_single_head(
                 head_ctx[h],
-                h,
-                0); // layer_idx
+                0,   // layer_idx
+                start);
             all_done &= head_done;
             if (in_group) group_complete &= head_done;
         }
@@ -92,7 +109,7 @@ int main() {
             std::cout << "|"
                       << std::setw(12) << phase_str(head_ctx[h].phase)
                       << "|" << std::setw(4) << (head_ctx[h].compute_ready ? "1" : "-")
-                      << "|" << std::setw(5) << (head_ctx[h].compute_done ? "1" : "-")
+                      << "|" << std::setw(4) << (head_ctx[h].compute_done ? "1" : "-")
                       << "|" << std::setw(6) << (head_ctx[h].compute_start ? "1" : "-")
                       << "|" << std::setw(4) << op_str(head_ctx[h].compute_op)
                       << "  ";
@@ -110,7 +127,6 @@ int main() {
     // Basic checks
     for (int h = 0; h < HEADS_TOTAL; ++h) {
         assert(head_ctx[h].phase == HeadPhase::DONE && "head did not reach DONE");
-        assert(!head_ctx[h].wait_comp && "head still waiting on compute");
     }
 
     std::cout << "simple_head_helpers test complete.\n";
