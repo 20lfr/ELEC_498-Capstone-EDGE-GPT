@@ -516,6 +516,25 @@ struct HeadCtx {
     ComputeOp compute_op = ComputeOp::CMP_NONE;
 
     bool start_head = false;
+
+
+    bool q_started = false;
+    bool k_started = false;
+    bool v_started = false;
+    bool att_scores_started = false;
+    bool val_scale_started = false;
+    bool softmax_started = false;
+    bool att_value_started = false;
+
+    bool q_compute_done = false;
+    bool k_compute_done = false;
+    bool v_compute_done = false;
+    bool att_scores_compute_done = false;
+    bool val_scale_compute_done = false;
+    bool softmax_compute_done = false;
+    bool att_value_compute_done = false;
+
+
 };
 
 void init_head_ctx(HeadCtx &ctx, int layer_idx);
@@ -543,10 +562,24 @@ void init_head_ctx(HeadCtx &ctx, int layer_idx) {
     ctx.compute_done = false;
     ctx.compute_start = false;
     ctx.compute_op = ComputeOp::CMP_NONE;
+    ctx.start_head = false;
+    ctx.q_started = false;
+    ctx.k_started = false;
+    ctx.v_started = false;
+    ctx.att_scores_started = false;
+    ctx.val_scale_started = false;
+    ctx.softmax_started = false;
+    ctx.att_value_started = false;
+
+    ctx.q_compute_done = false;
+    ctx.k_compute_done = false;
+    ctx.v_compute_done = false;
+    ctx.att_scores_compute_done = false;
+    ctx.val_scale_compute_done = false;
+    ctx.softmax_compute_done = false;
+    ctx.att_value_compute_done = false;
 }
-
-
-
+# 39 "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp"
 bool run_single_head(
     HeadCtx &ctx,
     int layer_idx,
@@ -554,42 +587,24 @@ bool run_single_head(
 )
 {
 #pragma HLS INLINE off
- static bool Q_started;
-#pragma HLS reset variable=Q_started
- static bool K_started;
-#pragma HLS reset variable=K_started
- static bool V_started;
-#pragma HLS reset variable=V_started
- static bool att_scores_started;
-#pragma HLS reset variable=att_scores_started
- static bool val_scale_started;
-#pragma HLS reset variable=val_scale_started
- static bool softmax_started;
-#pragma HLS reset variable=softmax_started
- static bool att_value_started;
-#pragma HLS reset variable=att_value_started
 
- bool reset_flags = false;
-
-
-
-    ctx.compute_start = false;
+ ctx.compute_start = false;
     ctx.compute_op = ComputeOp::CMP_NONE;
 
 
     if (ctx.layer_stamp != layer_idx) {
         init_head_ctx(ctx, layer_idx);
-        reset_flags = true;
     }
 
-    if (reset_flags) {
-        Q_started = false;
-        K_started = false;
-        V_started = false;
-        att_scores_started = false;
-        val_scale_started = false;
-        softmax_started = false;
-        att_value_started = false;
+
+    if (ctx.compute_done) {
+        if (ctx.q_started) ctx.q_compute_done = true;
+        if (ctx.k_started) ctx.k_compute_done = true;
+        if (ctx.v_started) ctx.v_compute_done = true;
+        if (ctx.att_scores_started) ctx.att_scores_compute_done = true;
+        if (ctx.val_scale_started) ctx.val_scale_compute_done = true;
+        if (ctx.softmax_started) ctx.softmax_compute_done = true;
+        if (ctx.att_value_started) ctx.att_value_compute_done = true;
     }
 
 
@@ -600,36 +615,45 @@ bool run_single_head(
                 ctx.compute_ready = false;
                 ctx.compute_done = false;
                 ctx.compute_start = false;
-                Q_started = false;
-                K_started = false;
-                V_started = false;
-                att_scores_started = false;
-                val_scale_started = false;
-                softmax_started = false;
-                att_value_started = false;
+                ctx.q_started = false;
+                ctx.k_started = false;
+                ctx.v_started = false;
+                ctx.att_scores_started = false;
+                ctx.val_scale_started = false;
+                ctx.softmax_started = false;
+                ctx.att_value_started = false;
+                ctx.q_compute_done = false;
+                ctx.k_compute_done = false;
+                ctx.v_compute_done = false;
+                ctx.att_scores_compute_done = false;
+                ctx.val_scale_compute_done = false;
+                ctx.softmax_compute_done = false;
+                ctx.att_value_compute_done = false;
                 ctx.phase = HeadPhase::Q;
             }
             break;
         case HeadPhase::Q:
-            if (ctx.compute_ready && !Q_started) {
+            if (ctx.compute_ready && !ctx.q_started) {
                 ctx.compute_start = true;
                 ctx.compute_op = ComputeOp::CMP_Q;
-                Q_started = true;
+                ctx.q_started = true;
             }
-            else if (ctx.compute_done && Q_started) {
+            else if (ctx.q_compute_done && ctx.q_started) {
                 ctx.phase = HeadPhase::K;
-                Q_started = false;
+                ctx.q_started = false;
+                ctx.q_compute_done = false;
             }
             break;
         case HeadPhase::K:
-            if (ctx.compute_ready && !K_started) {
+            if (ctx.compute_ready && !ctx.k_started) {
                 ctx.compute_start = true;
                 ctx.compute_op = ComputeOp::CMP_K;
-                K_started = true;
+                ctx.k_started = true;
             }
-            else if (ctx.compute_done && K_started) {
+            else if (ctx.k_compute_done && ctx.k_started) {
                 ctx.phase = HeadPhase::K_REQUANT;
-                K_started = false;
+                ctx.k_started = false;
+                ctx.k_compute_done = false;
             }
             break;
         case HeadPhase::K_REQUANT:
@@ -639,14 +663,15 @@ bool run_single_head(
             ctx.phase = HeadPhase::V;
             break;
         case HeadPhase::V:
-            if (ctx.compute_ready && !V_started) {
+            if (ctx.compute_ready && !ctx.v_started) {
                 ctx.compute_start = true;
                 ctx.compute_op = ComputeOp::CMP_V;
-                V_started = true;
+                ctx.v_started = true;
             }
-            else if (ctx.compute_done && V_started) {
+            else if (ctx.v_compute_done && ctx.v_started) {
                 ctx.phase = HeadPhase::V_REQUANT;
-                V_started = false;
+                ctx.v_started = false;
+                ctx.v_compute_done = false;
             }
             break;
         case HeadPhase::V_REQUANT:
@@ -659,43 +684,47 @@ bool run_single_head(
             ctx.phase = HeadPhase::ATT_SCORES;
             break;
         case HeadPhase::ATT_SCORES:
-            if (ctx.compute_ready && !att_scores_started) {
+            if (ctx.compute_ready && !ctx.att_scores_started) {
                 ctx.compute_start = true;
                 ctx.compute_op = ComputeOp::CMP_ATT_SCORES;
-                att_scores_started = true;
-            } else if (ctx.compute_done && att_scores_started) {
+                ctx.att_scores_started = true;
+            } else if (ctx.att_scores_compute_done && ctx.att_scores_started) {
                 ctx.phase = HeadPhase::VALUE_SCALE_CLAMP;
-                att_scores_started = false;
+                ctx.att_scores_started = false;
+                ctx.att_scores_compute_done = false;
             }
             break;
         case HeadPhase::VALUE_SCALE_CLAMP:
-            if (ctx.compute_ready && !val_scale_started) {
+            if (ctx.compute_ready && !ctx.val_scale_started) {
                 ctx.compute_start = true;
                 ctx.compute_op = ComputeOp::CMP_VALUE_SCALE;
-                val_scale_started = true;
-            } else if (ctx.compute_done && val_scale_started) {
+                ctx.val_scale_started = true;
+            } else if (ctx.val_scale_compute_done && ctx.val_scale_started) {
                 ctx.phase = HeadPhase::ATT_SOFTMAX;
-                val_scale_started = false;
+                ctx.val_scale_started = false;
+                ctx.val_scale_compute_done = false;
             }
             break;
         case HeadPhase::ATT_SOFTMAX:
-            if (ctx.compute_ready && !softmax_started) {
+            if (ctx.compute_ready && !ctx.softmax_started) {
                 ctx.compute_start = true;
                 ctx.compute_op = ComputeOp::CMP_SOFTMAX;
-                softmax_started = true;
-            } else if (ctx.compute_done && softmax_started) {
+                ctx.softmax_started = true;
+            } else if (ctx.softmax_compute_done && ctx.softmax_started) {
                 ctx.phase = HeadPhase::ATT_VALUE;
-                softmax_started = false;
+                ctx.softmax_started = false;
+                ctx.softmax_compute_done = false;
             }
             break;
         case HeadPhase::ATT_VALUE:
-            if (ctx.compute_ready && !att_value_started) {
+            if (ctx.compute_ready && !ctx.att_value_started) {
                 ctx.compute_start = true;
                 ctx.compute_op = ComputeOp::CMP_ATT_VALUE;
-                att_value_started = true;
-            } else if (ctx.compute_done && att_value_started) {
+                ctx.att_value_started = true;
+            } else if (ctx.att_value_compute_done && ctx.att_value_started) {
                 ctx.phase = HeadPhase::REQUANT2;
-                att_value_started = false;
+                ctx.att_value_started = false;
+                ctx.att_value_compute_done = false;
             }
             break;
         case HeadPhase::REQUANT2:
@@ -720,7 +749,7 @@ __attribute__((sdx_kernel("drive_group_head_phase", 0))) bool drive_group_head_p
 ){
 #line 1 "directive"
 #pragma HLSDIRECTIVE TOP name=drive_group_head_phase
-# 186 "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp"
+# 205 "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp"
 
 
 
@@ -731,16 +760,13 @@ __attribute__((sdx_kernel("drive_group_head_phase", 0))) bool drive_group_head_p
     bool group_finished = true;
 
     const int head_group_base = group_idx * HEADS_PARALLEL;
-    VITIS_LOOP_196_1: for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
+    VITIS_LOOP_215_1: for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
 #pragma HLS UNROLL
  const int head_idx = head_group_base + lane;
         if (head_idx >= NUM_HEADS)
             continue;
 
         HeadCtx &ctx = head_ctx_ref[head_idx];
-        if (ctx.layer_stamp != layer_idx) {
-            init_head_ctx(ctx, layer_idx);
-        }
 
         if (ctx.phase != HeadPhase::DONE) {
             ctx.start_head = start && (ctx.phase == HeadPhase::IDLE);

@@ -41,6 +41,17 @@ struct HeadCtx {
     bool compute_done  = false;
     bool compute_start = false;
     ComputeOp  compute_op    = ComputeOp::CMP_NONE;
+
+    bool start_head = false;
+
+    // Per-head bookkeeping for started phases
+    bool q_started          = false;
+    bool k_started          = false;
+    bool v_started          = false;
+    bool att_scores_started = false;
+    bool val_scale_started  = false;
+    bool softmax_started    = false;
+    bool att_value_started  = false;
 };
 
 void init_head_ctx(HeadCtx &ctx, int layer_idx);
@@ -48,6 +59,14 @@ void init_head_ctx(HeadCtx &ctx, int layer_idx);
 // Single-head driver: issues compute_start when ready, advances on compute_done.
 // Returns true when the head reaches DONE and is not waiting on compute.
 bool run_single_head(
-    HeadCtx &ctx,
-    int      layer_idx,
-    bool     start);
+    HeadCtx     &ctx,
+    int         layer_idx,
+    bool        start
+);
+
+bool drive_group_head_phase(
+    HeadCtx     (&head_ctx_ref)[NUM_HEADS],
+    int         group_idx,
+    int         layer_idx,
+    bool        start
+);

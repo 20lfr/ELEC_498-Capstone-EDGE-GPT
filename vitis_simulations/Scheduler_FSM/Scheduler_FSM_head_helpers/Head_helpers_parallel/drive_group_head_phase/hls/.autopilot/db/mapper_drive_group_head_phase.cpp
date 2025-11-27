@@ -243,22 +243,24 @@ class AESL_RUNTIME_BC {
     string mName;
 };
 using hls::sim::Byte;
-extern "C" char drive_group_head_phase(Byte<8>*, int, int, char);
+struct __cosim_s9__ { char data[9]; };
+struct __cosim_s16__ { char data[16]; };
+extern "C" char drive_group_head_phase(Byte<16>*, int, int, char);
 extern "C" char apatb_drive_group_head_phase_hw(volatile void * __xlx_apatb_param_head_ctx_ref, int __xlx_apatb_param_group_idx, int __xlx_apatb_param_layer_idx, char __xlx_apatb_param_start_r) {
 using hls::sim::createStream;
   // Collect __xlx_head_ctx_ref__tmp_vec
-std::vector<Byte<8>> __xlx_head_ctx_ref__tmp_vec;
+std::vector<Byte<16>> __xlx_head_ctx_ref__tmp_vec;
 for (size_t i = 0; i < 4; ++i){
-__xlx_head_ctx_ref__tmp_vec.push_back(((Byte<8>*)__xlx_apatb_param_head_ctx_ref)[i]);
+__xlx_head_ctx_ref__tmp_vec.push_back(((Byte<16>*)__xlx_apatb_param_head_ctx_ref)[i]);
 }
   int __xlx_size_param_head_ctx_ref = 4;
   int __xlx_offset_param_head_ctx_ref = 0;
-  int __xlx_offset_byte_param_head_ctx_ref = 0*8;
+  int __xlx_offset_byte_param_head_ctx_ref = 0*16;
   // DUT call
   char ap_return = drive_group_head_phase(__xlx_head_ctx_ref__tmp_vec.data(), __xlx_apatb_param_group_idx, __xlx_apatb_param_layer_idx, __xlx_apatb_param_start_r);
 // print __xlx_apatb_param_head_ctx_ref
 for (size_t i = 0; i < __xlx_size_param_head_ctx_ref; ++i) {
-((Byte<8>*)__xlx_apatb_param_head_ctx_ref)[i] = __xlx_head_ctx_ref__tmp_vec[__xlx_offset_param_head_ctx_ref+i];
+((Byte<16>*)__xlx_apatb_param_head_ctx_ref)[i] = __xlx_head_ctx_ref__tmp_vec[__xlx_offset_param_head_ctx_ref+i];
 }
 return ap_return;
 }

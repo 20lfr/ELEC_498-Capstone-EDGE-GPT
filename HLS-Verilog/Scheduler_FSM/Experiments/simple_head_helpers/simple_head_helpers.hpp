@@ -43,6 +43,25 @@ struct HeadCtx {
     ComputeOp  compute_op    = ComputeOp::CMP_NONE;
 
     bool start_head = false;
+
+    // Per-head bookkeeping for started phases
+    bool q_started          = false;
+    bool k_started          = false;
+    bool v_started          = false;
+    bool att_scores_started = false;
+    bool val_scale_started  = false;
+    bool softmax_started    = false;
+    bool att_value_started  = false;
+
+    bool q_compute_done          = false;
+    bool k_compute_done          = false;
+    bool v_compute_done          = false;
+    bool att_scores_compute_done = false;
+    bool val_scale_compute_done  = false;
+    bool softmax_compute_done    = false;
+    bool att_value_compute_done  = false;
+
+
 };
 
 void init_head_ctx(HeadCtx &ctx, int layer_idx);
