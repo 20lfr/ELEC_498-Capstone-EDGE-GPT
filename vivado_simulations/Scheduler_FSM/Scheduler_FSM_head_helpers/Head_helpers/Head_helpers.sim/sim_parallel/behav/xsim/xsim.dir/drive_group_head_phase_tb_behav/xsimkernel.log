@@ -1,0 +1,4 @@
+Running: xsim.dir/drive_group_head_phase_tb_behav/xsimk -simmode gui -wdb drive_group_head_phase_tb_behav.wdb -simrunnum 0 -socket 42079
+Design successfully loaded
+Design Loading Memory Usage: 179504 KB (Peak: 179504 KB)
+Design Loading CPU Usage: 820 ms

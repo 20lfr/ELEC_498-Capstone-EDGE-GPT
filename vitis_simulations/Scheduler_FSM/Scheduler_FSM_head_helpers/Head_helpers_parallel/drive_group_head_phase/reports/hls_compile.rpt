@@ -1,0 +1,173 @@
+
+
+================================================================
+== Synthesis Summary Report of 'drive_group_head_phase'
+================================================================
++ General Information: 
+    * Date:           Wed Nov 26 20:23:07 2025
+    * Version:        2025.1 (Build 6135595 on May 21 2025)
+    * Project:        drive_group_head_phase
+    * Solution:       hls (Vivado IP Flow Target)
+    * Product family: zynquplus
+    * Target device:  xck26-sfvc784-2LV-c
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +--------------------------+------+------+---------+---------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+    |          Modules         | Issue|      |      Latency      | Iteration|         | Trip |          |      |    |           |           |     |
+    |          & Loops         | Type | Slack| (cycles)|   (ns)  |  Latency | Interval| Count| Pipelined| BRAM | DSP|     FF    |    LUT    | URAM|
+    +--------------------------+------+------+---------+---------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+    |+ drive_group_head_phase  |     -|  2.98|       13|  130.000|         -|       14|     -|        no|     -|   -|  281 (~0%)|  4898 (4%)|    -|
+    | + run_single_head        |     -|  2.98|        3|   30.000|         -|        3|     -|        no|     -|   -|  115 (~0%)|  4501 (3%)|    -|
+    +--------------------------+------+------+---------+---------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* AP_MEMORY
++-----------------------+-----------+----------+
+| Port                  | Direction | Bitwidth |
++-----------------------+-----------+----------+
+| head_ctx_ref_address0 | out       | 2        |
+| head_ctx_ref_d0       | out       | 51       |
+| head_ctx_ref_q0       | in        | 51       |
++-----------------------+-----------+----------+
+
+* Other Ports
++-----------+---------+-----------+----------+
+| Port      | Mode    | Direction | Bitwidth |
++-----------+---------+-----------+----------+
+| ap_return |         | out       | 1        |
+| group_idx | ap_none | in        | 32       |
+| layer_idx | ap_none | in        | 32       |
+| start_r   | ap_none | in        | 1        |
++-----------+---------+-----------+----------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------------------------------+
+| Interface | Type       | Ports                             |
++-----------+------------+-----------------------------------+
+| ap_clk    | clock      | ap_clk                            |
+| ap_rst    | reset      | ap_rst                            |
+| ap_ctrl   | ap_ctrl_hs | ap_done ap_idle ap_ready ap_start |
++-----------+------------+-----------------------------------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++--------------+-----------+----------+
+| Argument     | Direction | Datatype |
++--------------+-----------+----------+
+| head_ctx_ref | inout     | HeadCtx& |
+| group_idx    | in        | int      |
+| layer_idx    | in        | int      |
+| start        | in        | bool     |
+| return       | out       | bool     |
++--------------+-----------+----------+
+
+* SW-to-HW Mapping
++--------------+-----------------------+---------+----------+
+| Argument     | HW Interface          | HW Type | HW Usage |
++--------------+-----------------------+---------+----------+
+| head_ctx_ref | head_ctx_ref_address0 | port    | offset   |
+| head_ctx_ref | head_ctx_ref_ce0      | port    |          |
+| head_ctx_ref | head_ctx_ref_we0      | port    |          |
+| head_ctx_ref | head_ctx_ref_d0       | port    |          |
+| head_ctx_ref | head_ctx_ref_q0       | port    |          |
+| group_idx    | group_idx             | port    |          |
+| layer_idx    | layer_idx             | port    |          |
+| start        | start_r               | port    |          |
+| return       | ap_return             | port    |          |
++--------------+-----------------------+---------+----------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++------------------------------+-----+--------+------------------+-------+-----------+---------+
+| Name                         | DSP | Pragma | Variable         | Op    | Impl      | Latency |
++------------------------------+-----+--------+------------------+-------+-----------+---------+
+| + drive_group_head_phase     | 0   |        |                  |       |           |         |
+|   icmp_ln199_fu_210_p2       |     |        | icmp_ln199       | setgt | auto      | 0       |
+|   icmp_ln203_fu_236_p2       |     |        | icmp_ln203       | seteq | auto      | 0       |
+|   icmp_ln207_fu_258_p2       |     |        | icmp_ln207       | seteq | auto      | 0       |
+|   icmp_ln208_fu_264_p2       |     |        | icmp_ln208       | seteq | auto      | 0       |
+|   start_head_fu_270_p2       |     |        | start_head       | and   | auto      | 0       |
+|   icmp_ln203_1_fu_303_p2     |     |        | icmp_ln203_1     | seteq | auto      | 0       |
+|   icmp_ln207_1_fu_325_p2     |     |        | icmp_ln207_1     | seteq | auto      | 0       |
+|   icmp_ln208_1_fu_331_p2     |     |        | icmp_ln208_1     | seteq | auto      | 0       |
+|   start_head_1_fu_337_p2     |     |        | start_head_1     | and   | auto      | 0       |
+|   group_finished_2_fu_343_p2 |     |        | group_finished_2 | and   | auto      | 0       |
+|  + run_single_head           | 0   |        |                  |       |           |         |
+|    lshr_ln42_fu_2051_p2      |     |        | lshr_ln42        | lshr  | auto_pipe | 0       |
+|    shl_ln43_fu_2065_p2       |     |        | shl_ln43         | shl   | auto_pipe | 0       |
+|    icmp_ln46_fu_2076_p2      |     |        | icmp_ln46        | seteq | auto      | 0       |
+|    shl_ln11_fu_2117_p2       |     |        | shl_ln11         | shl   | auto_pipe | 0       |
+|    shl_ln168_fu_2323_p2      |     |        | shl_ln168        | shl   | auto_pipe | 0       |
+|    xor_ln158_fu_2173_p2      |     |        | xor_ln158        | xor   | auto      | 0       |
+|    or_ln158_fu_2179_p2       |     |        | or_ln158         | or    | auto      | 0       |
+|    shl_ln160_fu_2345_p2      |     |        | shl_ln160        | shl   | auto_pipe | 0       |
+|    shl_ln163_fu_2369_p2      |     |        | shl_ln163        | shl   | auto_pipe | 0       |
+|    xor_ln148_fu_2193_p2      |     |        | xor_ln148        | xor   | auto      | 0       |
+|    or_ln148_fu_2199_p2       |     |        | or_ln148         | or    | auto      | 0       |
+|    shl_ln150_fu_2391_p2      |     |        | shl_ln150        | shl   | auto_pipe | 0       |
+|    shl_ln153_fu_2415_p2      |     |        | shl_ln153        | shl   | auto_pipe | 0       |
+|    xor_ln138_fu_2213_p2      |     |        | xor_ln138        | xor   | auto      | 0       |
+|    or_ln138_fu_2219_p2       |     |        | or_ln138         | or    | auto      | 0       |
+|    shl_ln140_fu_2433_p2      |     |        | shl_ln140        | shl   | auto_pipe | 0       |
+|    shl_ln143_fu_2457_p2      |     |        | shl_ln143        | shl   | auto_pipe | 0       |
+|    xor_ln128_fu_2233_p2      |     |        | xor_ln128        | xor   | auto      | 0       |
+|    or_ln128_fu_2239_p2       |     |        | or_ln128         | or    | auto      | 0       |
+|    shl_ln130_fu_2475_p2      |     |        | shl_ln130        | shl   | auto_pipe | 0       |
+|    shl_ln133_fu_2499_p2      |     |        | shl_ln133        | shl   | auto_pipe | 0       |
+|    shl_ln125_fu_2523_p2      |     |        | shl_ln125        | shl   | auto_pipe | 0       |
+|    shl_ln122_fu_2547_p2      |     |        | shl_ln122        | shl   | auto_pipe | 0       |
+|    shl_ln119_fu_2571_p2      |     |        | shl_ln119        | shl   | auto_pipe | 0       |
+|    xor_ln108_fu_2253_p2      |     |        | xor_ln108        | xor   | auto      | 0       |
+|    or_ln108_fu_2259_p2       |     |        | or_ln108         | or    | auto      | 0       |
+|    shl_ln110_fu_2593_p2      |     |        | shl_ln110        | shl   | auto_pipe | 0       |
+|    shl_ln114_fu_2617_p2      |     |        | shl_ln114        | shl   | auto_pipe | 0       |
+|    shl_ln105_fu_2641_p2      |     |        | shl_ln105        | shl   | auto_pipe | 0       |
+|    shl_ln102_fu_2665_p2      |     |        | shl_ln102        | shl   | auto_pipe | 0       |
+|    xor_ln91_fu_2273_p2       |     |        | xor_ln91         | xor   | auto      | 0       |
+|    or_ln91_fu_2279_p2        |     |        | or_ln91          | or    | auto      | 0       |
+|    shl_ln93_fu_2683_p2       |     |        | shl_ln93         | shl   | auto_pipe | 0       |
+|    shl_ln97_fu_2707_p2       |     |        | shl_ln97         | shl   | auto_pipe | 0       |
+|    xor_ln80_fu_2293_p2       |     |        | xor_ln80         | xor   | auto      | 0       |
+|    or_ln80_fu_2299_p2        |     |        | or_ln80          | or    | auto      | 0       |
+|    shl_ln82_fu_2729_p2       |     |        | shl_ln82         | shl   | auto_pipe | 0       |
+|    shl_ln86_fu_2753_p2       |     |        | shl_ln86         | shl   | auto_pipe | 0       |
+|    shl_ln76_fu_2775_p2       |     |        | shl_ln76         | shl   | auto_pipe | 0       |
+|    finished_fu_2781_p2       |     |        | finished         | seteq | auto      | 0       |
++------------------------------+-----+--------+------------------+-------+-----------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
+  No bind storage info in design
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++--------+-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+| Type   | Options                     | Location                                                                                                                                |
++--------+-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+| INLINE | off                         | ../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:22 in run_single_head                     |
+| RESET  | variable=Q_started          | ../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:24 in run_single_head, Q_started          |
+| RESET  | variable=K_started          | ../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:26 in run_single_head, K_started          |
+| RESET  | variable=V_started          | ../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:28 in run_single_head, V_started          |
+| RESET  | variable=att_scores_started | ../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:30 in run_single_head, att_scores_started |
+| RESET  | variable=val_scale_started  | ../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:32 in run_single_head, val_scale_started  |
+| RESET  | variable=softmax_started    | ../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:34 in run_single_head, softmax_started    |
+| RESET  | variable=att_value_started  | ../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:36 in run_single_head, att_value_started  |
+| UNROLL |                             | ../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:197 in drive_group_head_phase             |
++--------+-----------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+
+

@@ -838,3 +838,17 @@ Wed Nov 26 16:40:35 2025: KERNEL_SVC: creating session with uuid: 'bbbc73d1-ecea
 Wed Nov 26 16:40:35 2025: GUIDANCE_SMGR: creating guidance session with uuid: 'bbbc73d1-ecea-48ee-a2d0-d16018df3e8d' and name 'v++_compile_run_single_head'
 Wed Nov 26 16:40:39 2025: Dispatch Server: Accepted socket connection from client
 Wed Nov 26 16:40:39 2025: Starting Socket connection
+Wed Nov 26 16:40:47 2025: SESSION_MGR: closing session for UUID 'bbbc73d1-ecea-48ee-a2d0-d16018df3e8d' with name 'v++_compile_run_single_head'
+Wed Nov 26 16:40:47 2025: KERNEL_SVC: closing session for UUID 'bbbc73d1-ecea-48ee-a2d0-d16018df3e8d' with name 'v++_compile_run_single_head'
+Wed Nov 26 16:40:47 2025: GUIDANCE_SMGR: closing session for UUID 'bbbc73d1-ecea-48ee-a2d0-d16018df3e8d' with name 'v++_compile_run_single_head'
+Wed Nov 26 16:40:47 2025: STOP_SERVER received, server token: f07c3d24-b1c2-4172-a3e2-02200d37c44c, passed token: f07c3d24-b1c2-4172-a3e2-02200d37c44c
+Wed Nov 26 16:40:47 2025: Socket received request to stop server.
+Wed Nov 26 16:40:47 2025: Dispatch Server: do_await_stop
+Wed Nov 26 16:40:47 2025: Dispatch Server: stopping mainFifo_
+Wed Nov 26 16:40:47 2025: XCD main fifo: Stopping
+Wed Nov 26 16:40:47 2025: XCD main fifo: do_read error code: Operation canceled
+Wed Nov 26 16:40:47 2025: XCD main fifo: bytes_transferred: 0
+Wed Nov 26 16:40:47 2025: SERVER: destructor for server bound to port 35935
+Wed Nov 26 16:40:47 2025: XCD main fifo: Good unlink of /tmp/xcdmainf07c3d24-b1c2-4172-a3e2-02200d37c44c
+Wed Nov 26 16:40:47 2025: Server exiting with status 0.
+Wed Nov 26 16:40:47 2025: Closing log file.

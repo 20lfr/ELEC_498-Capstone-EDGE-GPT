@@ -6,7 +6,7 @@
       "--gcc-toolchain=/tools/Xilinx/2025.1/Vitis/tps/lnx64/gcc-8.3.0",
       "-fhls",
       "-hls-syn-headers-dir=/tools/Xilinx/2025.1/Vitis/common/technology/autopilot",
-      "-fhlstoplevel=run_single_head",
+      "-fhlstoplevel=drive_group_head_phase",
       "-c",
       "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp"
     ],

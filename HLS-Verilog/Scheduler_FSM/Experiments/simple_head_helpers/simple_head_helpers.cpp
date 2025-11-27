@@ -175,3 +175,49 @@ bool run_single_head(
     const bool finished = (ctx.phase == HeadPhase::DONE);
     return finished;
 }
+
+
+
+bool drive_group_head_phase(
+    HeadCtx     (&head_ctx_ref)[NUM_HEADS], // [BOTH]:  Tracks all head data
+    int         group_idx,                  // [INPUT]: Which group of heads to service
+    int         layer_idx,                  // [INPUT]: Current Layer ID
+    bool        start                       // [INPUT]: Start the driving phase
+){
+    
+// #pragma HLS INLINE off
+    // Default deasserts
+    
+
+    // This is the the return conditional later to make vitis Synthesize into RTL easier
+    bool group_finished = true; // assume finished unless any head is still active
+
+    const int head_group_base = group_idx * HEADS_PARALLEL;
+    for (int lane = 0; lane < HEADS_PARALLEL; ++lane) { // service only the active group
+#pragma HLS UNROLL
+        const int head_idx = head_group_base + lane;
+        if (head_idx >= NUM_HEADS)
+            continue;
+
+        HeadCtx &ctx = head_ctx_ref[head_idx]; // Current head
+        if (ctx.layer_stamp != layer_idx) {
+            init_head_ctx(ctx, layer_idx);
+        }
+
+        if (ctx.phase != HeadPhase::DONE) {
+            const bool start_head = start && (ctx.phase == HeadPhase::IDLE);
+            const bool head_done = run_single_head(
+                ctx,
+                layer_idx,
+                start_head);
+            if (!head_done) group_finished = false;
+        }
+    }
+    
+
+    if (!group_finished) return false;
+    return group_finished;
+
+
+
+}
