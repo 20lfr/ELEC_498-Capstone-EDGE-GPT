@@ -40,20 +40,27 @@ module drive_group_head_phase_tb;
 
   // Packed view of HeadCtx
   typedef struct packed {
-    logic        att_value_started;   // [58]
-    logic        softmax_started;     // [57]
-    logic        val_scale_started;   // [56]
-    logic        att_scores_started;  // [55]
-    logic        v_started;           // [54]
-    logic        k_started;           // [53]
-    logic        q_started;           // [52]
-    logic        start_head;          // [51]
-    logic [7:0]  compute_op;          // [50:43]
-    logic        compute_start;       // [42]
-    logic        compute_done;        // [41]
-    logic        compute_ready;       // [40]
-    logic [7:0]  phase;               // [39:32]
-    logic [31:0] layer_stamp;         // [31:0]
+    logic        att_value_compute_done;  // [65]
+    logic        softmax_compute_done;    // [64]
+    logic        val_scale_compute_done;  // [63]
+    logic        att_scores_compute_done; // [62]
+    logic        v_compute_done;          // [61]
+    logic        k_compute_done;          // [60]
+    logic        q_compute_done;          // [59]
+    logic        att_value_started;       // [58]
+    logic        softmax_started;         // [57]
+    logic        val_scale_started;       // [56]
+    logic        att_scores_started;      // [55]
+    logic        v_started;               // [54]
+    logic        k_started;               // [53]
+    logic        q_started;               // [52]
+    logic        start_head;              // [51]
+    logic [7:0]  compute_op;              // [50:43]
+    logic        compute_start;           // [42]
+    logic        compute_done;            // [41]
+    logic        compute_ready;           // [40]
+    logic [7:0]  phase;                   // [39:32]
+    logic [31:0] layer_stamp;             // [31:0]
   } head_ctx_t;
 
   // Clock/reset
@@ -68,8 +75,8 @@ module drive_group_head_phase_tb;
   logic [1:0]  head_ctx_ref_address0;
   logic        head_ctx_ref_ce0;
   logic        head_ctx_ref_we0;
-  logic [58:0] head_ctx_ref_d0;
-  logic [58:0] head_ctx_ref_q0;
+  logic [65:0] head_ctx_ref_d0;
+  logic [65:0] head_ctx_ref_q0;
   logic [31:0] group_idx;
   logic [31:0] layer_idx;
   logic        start_r;
@@ -95,6 +102,13 @@ module drive_group_head_phase_tb;
   logic       head_val_scale_started_dbg  [0:HEADS_TOTAL-1];
   logic       head_softmax_started_dbg    [0:HEADS_TOTAL-1];
   logic       head_att_value_started_dbg  [0:HEADS_TOTAL-1];
+  logic       head_q_compute_done_dbg     [0:HEADS_TOTAL-1];
+  logic       head_k_compute_done_dbg     [0:HEADS_TOTAL-1];
+  logic       head_v_compute_done_dbg     [0:HEADS_TOTAL-1];
+  logic       head_att_scores_compute_done_dbg [0:HEADS_TOTAL-1];
+  logic       head_val_scale_compute_done_dbg  [0:HEADS_TOTAL-1];
+  logic       head_softmax_compute_done_dbg    [0:HEADS_TOTAL-1];
+  logic       head_att_value_compute_done_dbg  [0:HEADS_TOTAL-1];
   logic [7:0] head_op_dbg    [0:HEADS_TOTAL-1];
   logic [31:0] head_layer_stamp_dbg [0:HEADS_TOTAL-1];
 
@@ -113,6 +127,13 @@ module drive_group_head_phase_tb;
       assign head_val_scale_started_dbg[g]  = head_ctx_mem[g].val_scale_started;
       assign head_softmax_started_dbg[g]    = head_ctx_mem[g].softmax_started;
       assign head_att_value_started_dbg[g]  = head_ctx_mem[g].att_value_started;
+      assign head_q_compute_done_dbg[g]          = head_ctx_mem[g].q_compute_done;
+      assign head_k_compute_done_dbg[g]          = head_ctx_mem[g].k_compute_done;
+      assign head_v_compute_done_dbg[g]          = head_ctx_mem[g].v_compute_done;
+      assign head_att_scores_compute_done_dbg[g] = head_ctx_mem[g].att_scores_compute_done;
+      assign head_val_scale_compute_done_dbg[g]  = head_ctx_mem[g].val_scale_compute_done;
+      assign head_softmax_compute_done_dbg[g]    = head_ctx_mem[g].softmax_compute_done;
+      assign head_att_value_compute_done_dbg[g]  = head_ctx_mem[g].att_value_compute_done;
       assign head_op_dbg[g]    = head_ctx_mem[g].compute_op;
       assign head_layer_stamp_dbg[g] = head_ctx_mem[g].layer_stamp;
     end
@@ -194,6 +215,13 @@ module drive_group_head_phase_tb;
                           val_scale_started: 1'b0,
                           softmax_started: 1'b0,
                           att_value_started: 1'b0,
+                          q_compute_done: 1'b0,
+                          k_compute_done: 1'b0,
+                          v_compute_done: 1'b0,
+                          att_scores_compute_done: 1'b0,
+                          val_scale_compute_done: 1'b0,
+                          softmax_compute_done: 1'b0,
+                          att_value_compute_done: 1'b0,
                           phase: PHASE_IDLE,
                           layer_stamp: layer_idx};
       busy_ctr[h] = 0;
@@ -209,6 +237,7 @@ module drive_group_head_phase_tb;
     start_r   = 1'b0;
     group_idx = 32'd0;
     layer_idx = 32'd0;
+    ap_return = 1'b0;
     init_ctx_mem();
     head_ctx_q0 = head_ctx_mem[0];
     

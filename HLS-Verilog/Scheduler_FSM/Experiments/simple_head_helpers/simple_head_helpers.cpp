@@ -46,7 +46,6 @@ bool run_single_head(
     // Defaults each call
     ctx.compute_start = false;
     ctx.compute_op    = ComputeOp::CMP_NONE;
-
     // Initialize context if layer changes
     if (ctx.layer_stamp != layer_idx) {
         init_head_ctx(ctx, layer_idx);
@@ -187,12 +186,12 @@ bool run_single_head(
             ctx.phase = HeadPhase::DONE;
             break;
         case HeadPhase::DONE: // DONE
+            break;
         default:
             break;
     }
 
-    const bool finished = (ctx.phase == HeadPhase::DONE);
-    return finished;
+    return (ctx.phase == HeadPhase::DONE);
 }
 
 

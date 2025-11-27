@@ -591,7 +591,6 @@ bool run_single_head(
  ctx.compute_start = false;
     ctx.compute_op = ComputeOp::CMP_NONE;
 
-
     if (ctx.layer_stamp != layer_idx) {
         init_head_ctx(ctx, layer_idx);
     }
@@ -731,12 +730,12 @@ bool run_single_head(
             ctx.phase = HeadPhase::DONE;
             break;
         case HeadPhase::DONE:
+            break;
         default:
             break;
     }
 
-    const bool finished = (ctx.phase == HeadPhase::DONE);
-    return finished;
+    return (ctx.phase == HeadPhase::DONE);
 }
 
 
@@ -749,7 +748,7 @@ __attribute__((sdx_kernel("drive_group_head_phase", 0))) bool drive_group_head_p
 ){
 #line 1 "directive"
 #pragma HLSDIRECTIVE TOP name=drive_group_head_phase
-# 205 "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp"
+# 204 "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp"
 
 
 
@@ -760,7 +759,7 @@ __attribute__((sdx_kernel("drive_group_head_phase", 0))) bool drive_group_head_p
     bool group_finished = true;
 
     const int head_group_base = group_idx * HEADS_PARALLEL;
-    VITIS_LOOP_215_1: for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
+    VITIS_LOOP_214_1: for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
 #pragma HLS UNROLL
  const int head_idx = head_group_base + lane;
         if (head_idx >= NUM_HEADS)
