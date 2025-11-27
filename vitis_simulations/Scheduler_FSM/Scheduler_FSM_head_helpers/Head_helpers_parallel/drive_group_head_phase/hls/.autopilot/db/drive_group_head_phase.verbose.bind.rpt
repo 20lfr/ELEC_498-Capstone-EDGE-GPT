@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'drive_group_head_phase'
 ================================================================
-* Date:           Thu Nov 27 15:54:17 2025
+* Date:           Thu Nov 27 18:02:42 2025
 
 * Version:        2025.1 (Build 6135595 on May 21 2025)
 * Project:        drive_group_head_phase
@@ -87,7 +87,7 @@ IsGatedGlobalClock: 0
 
 State 1 <SV = 0> <Delay = 1.48>
 ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 0"   --->   Operation 8 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%spectopmodule_ln199 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:199]   --->   Operation 9 'spectopmodule' 'spectopmodule_ln199' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%spectopmodule_ln191 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:191]   --->   Operation 9 'spectopmodule' 'spectopmodule_ln191' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i66 %head_ctx_ref_0"   --->   Operation 10 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i66 %head_ctx_ref_0, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 11 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i66 %head_ctx_ref_1"   --->   Operation 12 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
@@ -98,79 +98,79 @@ ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void
 ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %layer_idx, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 17 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %start_r"   --->   Operation 18 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %start_r, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0, i32 0"   --->   Operation 19 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%start_r_read = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %start_r" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:201]   --->   Operation 20 'read' 'start_r_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%layer_idx_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %layer_idx" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:201]   --->   Operation 21 'read' 'layer_idx_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%group_idx_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %group_idx" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:201]   --->   Operation 22 'read' 'group_idx_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%trunc_ln216 = trunc i32 %group_idx_read" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:216]   --->   Operation 23 'trunc' 'trunc_ln216' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 24 [1/1] (1.00ns)   --->   "%icmp_ln220 = icmp_sgt  i31 %trunc_ln216, i31 0" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:220]   --->   Operation 24 'icmp' 'icmp_ln220' <Predicate = true> <Delay = 1.00> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.00> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%head_ctx_ref_0_read = read i66 @_ssdm_op_Read.ap_auto.i66P0A, i66 %head_ctx_ref_0" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:225]   --->   Operation 25 'read' 'head_ctx_ref_0_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 26 [1/1] (0.47ns)   --->   "%br_ln220 = br i1 %icmp_ln220, void %if.end, void %cleanup" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:220]   --->   Operation 26 'br' 'br_ln220' <Predicate = true> <Delay = 0.47>
-ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%trunc_ln = partselect i8 @_ssdm_op_PartSelect.i8.i66.i32.i32, i66 %head_ctx_ref_0_read, i32 32, i32 39" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:225]   --->   Operation 27 'partselect' 'trunc_ln' <Predicate = (!icmp_ln220)> <Delay = 0.00>
-ST_1 : Operation 28 [1/1] (0.76ns)   --->   "%icmp_ln225 = icmp_eq  i8 %trunc_ln, i8 14" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:225]   --->   Operation 28 'icmp' 'icmp_ln225' <Predicate = (!icmp_ln220)> <Delay = 0.76> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 29 [1/1] (0.47ns)   --->   "%br_ln225 = br i1 %icmp_ln225, void %if.then3, void %cleanup" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:225]   --->   Operation 29 'br' 'br_ln225' <Predicate = (!icmp_ln220)> <Delay = 0.47>
-ST_1 : Operation 30 [1/1] (0.76ns)   --->   "%icmp_ln226 = icmp_eq  i8 %trunc_ln, i8 0" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:226]   --->   Operation 30 'icmp' 'icmp_ln226' <Predicate = (!icmp_ln220 & !icmp_ln225)> <Delay = 0.76> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 31 [1/1] (0.28ns)   --->   "%and_ln226 = and i1 %icmp_ln226, i1 %start_r_read" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:226]   --->   Operation 31 'and' 'and_ln226' <Predicate = (!icmp_ln220 & !icmp_ln225)> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 32 [1/1] (1.01ns)   --->   "%icmp_ln226_1 = icmp_eq  i32 %group_idx_read, i32 0" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:226]   --->   Operation 32 'icmp' 'icmp_ln226_1' <Predicate = (!icmp_ln220 & !icmp_ln225)> <Delay = 1.01> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%br_ln226 = br i1 %icmp_ln226_1, void %arrayidx.default, void %start_head2.case.0" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:226]   --->   Operation 33 'br' 'br_ln226' <Predicate = (!icmp_ln220 & !icmp_ln225)> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%start_r_read = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %start_r" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:193]   --->   Operation 20 'read' 'start_r_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%layer_idx_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %layer_idx" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:193]   --->   Operation 21 'read' 'layer_idx_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%group_idx_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %group_idx" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:193]   --->   Operation 22 'read' 'group_idx_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%trunc_ln208 = trunc i32 %group_idx_read" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:208]   --->   Operation 23 'trunc' 'trunc_ln208' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (1.00ns)   --->   "%icmp_ln212 = icmp_sgt  i31 %trunc_ln208, i31 0" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:212]   --->   Operation 24 'icmp' 'icmp_ln212' <Predicate = true> <Delay = 1.00> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.00> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%head_ctx_ref_0_read = read i66 @_ssdm_op_Read.ap_auto.i66P0A, i66 %head_ctx_ref_0" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:217]   --->   Operation 25 'read' 'head_ctx_ref_0_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.47ns)   --->   "%br_ln212 = br i1 %icmp_ln212, void %if.end, void %cleanup" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:212]   --->   Operation 26 'br' 'br_ln212' <Predicate = true> <Delay = 0.47>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%trunc_ln = partselect i8 @_ssdm_op_PartSelect.i8.i66.i32.i32, i66 %head_ctx_ref_0_read, i32 32, i32 39" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:217]   --->   Operation 27 'partselect' 'trunc_ln' <Predicate = (!icmp_ln212)> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.76ns)   --->   "%icmp_ln217 = icmp_eq  i8 %trunc_ln, i8 14" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:217]   --->   Operation 28 'icmp' 'icmp_ln217' <Predicate = (!icmp_ln212)> <Delay = 0.76> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 29 [1/1] (0.47ns)   --->   "%br_ln217 = br i1 %icmp_ln217, void %if.then3, void %cleanup" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:217]   --->   Operation 29 'br' 'br_ln217' <Predicate = (!icmp_ln212)> <Delay = 0.47>
+ST_1 : Operation 30 [1/1] (0.76ns)   --->   "%icmp_ln218 = icmp_eq  i8 %trunc_ln, i8 0" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:218]   --->   Operation 30 'icmp' 'icmp_ln218' <Predicate = (!icmp_ln212 & !icmp_ln217)> <Delay = 0.76> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 31 [1/1] (0.28ns)   --->   "%and_ln218 = and i1 %icmp_ln218, i1 %start_r_read" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:218]   --->   Operation 31 'and' 'and_ln218' <Predicate = (!icmp_ln212 & !icmp_ln217)> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 32 [1/1] (1.01ns)   --->   "%icmp_ln218_1 = icmp_eq  i32 %group_idx_read, i32 0" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:218]   --->   Operation 32 'icmp' 'icmp_ln218_1' <Predicate = (!icmp_ln212 & !icmp_ln217)> <Delay = 1.01> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%br_ln218 = br i1 %icmp_ln218_1, void %arrayidx.default, void %start_head2.case.0" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:218]   --->   Operation 33 'br' 'br_ln218' <Predicate = (!icmp_ln212 & !icmp_ln217)> <Delay = 0.00>
 
 State 2 <SV = 1> <Delay = 7.04>
-ST_2 : Operation 34 [1/1] (7.04ns)   --->   "%call_ret9 = call i67 @run_single_head, i66 %head_ctx_ref_0_read, i32 %layer_idx_read, i1 %and_ln226" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:227]   --->   Operation 34 'call' 'call_ret9' <Predicate = true> <Delay = 7.04> <CoreType = "Generic">   --->   Generic Core
-ST_2 : Operation 35 [1/1] (0.00ns)   --->   "%tmp_2 = extractvalue i67 %call_ret9" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:227]   --->   Operation 35 'extractvalue' 'tmp_2' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 36 [1/1] (0.00ns)   --->   "%head_ctx_ref_0_ret2 = extractvalue i67 %call_ret9" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:227]   --->   Operation 36 'extractvalue' 'head_ctx_ref_0_ret2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 34 [1/1] (7.04ns)   --->   "%call_ret9 = call i67 @run_single_head, i66 %head_ctx_ref_0_read, i32 %layer_idx_read, i1 %and_ln218" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:219]   --->   Operation 34 'call' 'call_ret9' <Predicate = true> <Delay = 7.04> <CoreType = "Generic">   --->   Generic Core
+ST_2 : Operation 35 [1/1] (0.00ns)   --->   "%tmp_2 = extractvalue i67 %call_ret9" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:219]   --->   Operation 35 'extractvalue' 'tmp_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 36 [1/1] (0.00ns)   --->   "%head_ctx_ref_0_ret2 = extractvalue i67 %call_ret9" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:219]   --->   Operation 36 'extractvalue' 'head_ctx_ref_0_ret2' <Predicate = true> <Delay = 0.00>
 
 State 3 <SV = 2> <Delay = 1.19>
-ST_3 : Operation 37 [1/1] (0.47ns)   --->   "%br_ln227 = br void %cleanup" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:227]   --->   Operation 37 'br' 'br_ln227' <Predicate = (!icmp_ln220 & !icmp_ln225 & !icmp_ln226_1)> <Delay = 0.47>
-ST_3 : Operation 38 [1/1] (0.47ns)   --->   "%br_ln227 = br void %cleanup" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:227]   --->   Operation 38 'br' 'br_ln227' <Predicate = (!icmp_ln220 & !icmp_ln225 & icmp_ln226_1)> <Delay = 0.47>
+ST_3 : Operation 37 [1/1] (0.47ns)   --->   "%br_ln219 = br void %cleanup" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:219]   --->   Operation 37 'br' 'br_ln219' <Predicate = (!icmp_ln212 & !icmp_ln217 & !icmp_ln218_1)> <Delay = 0.47>
+ST_3 : Operation 38 [1/1] (0.47ns)   --->   "%br_ln219 = br void %cleanup" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:219]   --->   Operation 38 'br' 'br_ln219' <Predicate = (!icmp_ln212 & !icmp_ln217 & icmp_ln218_1)> <Delay = 0.47>
 ST_3 : Operation 39 [1/1] (0.00ns)   --->   "%head_ctx_ref_0_flag_0 = phi i1 0, void %entry, i1 0, void %if.end, i1 1, void %start_head2.case.0, i1 1, void %arrayidx.default"   --->   Operation 39 'phi' 'head_ctx_ref_0_flag_0' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 40 [1/1] (0.00ns)   --->   "%head_ctx_ref_0_loc_0 = phi i66 %head_ctx_ref_0_read, void %entry, i66 %head_ctx_ref_0_read, void %if.end, i66 %head_ctx_ref_0_ret4, void %start_head2.case.0, i66 %head_ctx_ref_0_ret2, void %arrayidx.default" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:225]   --->   Operation 40 'phi' 'head_ctx_ref_0_loc_0' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 41 [1/1] (0.00ns)   --->   "%group_finished = phi i1 1, void %entry, i1 1, void %if.end, i1 %tmp_1, void %start_head2.case.0, i1 %tmp_2, void %arrayidx.default" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:227]   --->   Operation 41 'phi' 'group_finished' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 42 [1/1] (0.42ns)   --->   "%br_ln220 = br i1 %icmp_ln220, void %if.end.1, void %cleanup.1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:220]   --->   Operation 42 'br' 'br_ln220' <Predicate = true> <Delay = 0.42>
-ST_3 : Operation 43 [1/1] (0.00ns)   --->   "%head_ctx_ref_1_read = read i66 @_ssdm_op_Read.ap_auto.i66P0A, i66 %head_ctx_ref_1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:225]   --->   Operation 43 'read' 'head_ctx_ref_1_read' <Predicate = (!icmp_ln220)> <Delay = 0.00>
-ST_3 : Operation 44 [1/1] (0.00ns)   --->   "%trunc_ln225_1 = partselect i8 @_ssdm_op_PartSelect.i8.i66.i32.i32, i66 %head_ctx_ref_1_read, i32 32, i32 39" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:225]   --->   Operation 44 'partselect' 'trunc_ln225_1' <Predicate = (!icmp_ln220)> <Delay = 0.00>
-ST_3 : Operation 45 [1/1] (0.76ns)   --->   "%icmp_ln225_1 = icmp_eq  i8 %trunc_ln225_1, i8 14" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:225]   --->   Operation 45 'icmp' 'icmp_ln225_1' <Predicate = (!icmp_ln220)> <Delay = 0.76> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 46 [1/1] (0.42ns)   --->   "%br_ln225 = br i1 %icmp_ln225_1, void %if.then3.1, void %cleanup.1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:225]   --->   Operation 46 'br' 'br_ln225' <Predicate = (!icmp_ln220)> <Delay = 0.42>
-ST_3 : Operation 47 [1/1] (0.76ns)   --->   "%icmp_ln226_2 = icmp_eq  i8 %trunc_ln225_1, i8 0" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:226]   --->   Operation 47 'icmp' 'icmp_ln226_2' <Predicate = (!icmp_ln220 & !icmp_ln225_1)> <Delay = 0.76> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 48 [1/1] (0.28ns)   --->   "%and_ln226_1 = and i1 %icmp_ln226_2, i1 %start_r_read" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:226]   --->   Operation 48 'and' 'and_ln226_1' <Predicate = (!icmp_ln220 & !icmp_ln225_1)> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 49 [1/1] (1.01ns)   --->   "%icmp_ln226_3 = icmp_eq  i32 %group_idx_read, i32 0" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:226]   --->   Operation 49 'icmp' 'icmp_ln226_3' <Predicate = (!icmp_ln220 & !icmp_ln225_1)> <Delay = 1.01> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 50 [1/1] (0.00ns)   --->   "%br_ln226 = br i1 %icmp_ln226_3, void %arrayidx.1.default, void %start_head2.1.case.1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:226]   --->   Operation 50 'br' 'br_ln226' <Predicate = (!icmp_ln220 & !icmp_ln225_1)> <Delay = 0.00>
-ST_3 : Operation 51 [1/1] (0.00ns)   --->   "%tmp_77 = partselect i14 @_ssdm_op_PartSelect.i14.i66.i32.i32, i66 %head_ctx_ref_1_read, i32 52, i32 65" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:226]   --->   Operation 51 'partselect' 'tmp_77' <Predicate = (!icmp_ln220 & icmp_ln225 & !icmp_ln225_1 & icmp_ln226_3) | (!icmp_ln220 & !icmp_ln225 & icmp_ln226_1 & !icmp_ln225_1)> <Delay = 0.00>
-ST_3 : Operation 52 [1/1] (0.00ns)   --->   "%trunc_ln226_1 = trunc i66 %head_ctx_ref_1_read" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:226]   --->   Operation 52 'trunc' 'trunc_ln226_1' <Predicate = (!icmp_ln220 & icmp_ln225 & !icmp_ln225_1 & icmp_ln226_3) | (!icmp_ln220 & !icmp_ln225 & icmp_ln226_1 & !icmp_ln225_1)> <Delay = 0.00>
+ST_3 : Operation 40 [1/1] (0.00ns)   --->   "%head_ctx_ref_0_loc_0 = phi i66 %head_ctx_ref_0_read, void %entry, i66 %head_ctx_ref_0_read, void %if.end, i66 %head_ctx_ref_0_ret4, void %start_head2.case.0, i66 %head_ctx_ref_0_ret2, void %arrayidx.default" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:217]   --->   Operation 40 'phi' 'head_ctx_ref_0_loc_0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 41 [1/1] (0.00ns)   --->   "%group_finished = phi i1 1, void %entry, i1 1, void %if.end, i1 %tmp_1, void %start_head2.case.0, i1 %tmp_2, void %arrayidx.default" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:219]   --->   Operation 41 'phi' 'group_finished' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 42 [1/1] (0.42ns)   --->   "%br_ln212 = br i1 %icmp_ln212, void %if.end.1, void %cleanup.1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:212]   --->   Operation 42 'br' 'br_ln212' <Predicate = true> <Delay = 0.42>
+ST_3 : Operation 43 [1/1] (0.00ns)   --->   "%head_ctx_ref_1_read = read i66 @_ssdm_op_Read.ap_auto.i66P0A, i66 %head_ctx_ref_1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:217]   --->   Operation 43 'read' 'head_ctx_ref_1_read' <Predicate = (!icmp_ln212)> <Delay = 0.00>
+ST_3 : Operation 44 [1/1] (0.00ns)   --->   "%trunc_ln217_1 = partselect i8 @_ssdm_op_PartSelect.i8.i66.i32.i32, i66 %head_ctx_ref_1_read, i32 32, i32 39" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:217]   --->   Operation 44 'partselect' 'trunc_ln217_1' <Predicate = (!icmp_ln212)> <Delay = 0.00>
+ST_3 : Operation 45 [1/1] (0.76ns)   --->   "%icmp_ln217_1 = icmp_eq  i8 %trunc_ln217_1, i8 14" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:217]   --->   Operation 45 'icmp' 'icmp_ln217_1' <Predicate = (!icmp_ln212)> <Delay = 0.76> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 46 [1/1] (0.42ns)   --->   "%br_ln217 = br i1 %icmp_ln217_1, void %if.then3.1, void %cleanup.1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:217]   --->   Operation 46 'br' 'br_ln217' <Predicate = (!icmp_ln212)> <Delay = 0.42>
+ST_3 : Operation 47 [1/1] (0.76ns)   --->   "%icmp_ln218_2 = icmp_eq  i8 %trunc_ln217_1, i8 0" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:218]   --->   Operation 47 'icmp' 'icmp_ln218_2' <Predicate = (!icmp_ln212 & !icmp_ln217_1)> <Delay = 0.76> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 48 [1/1] (0.28ns)   --->   "%and_ln218_1 = and i1 %icmp_ln218_2, i1 %start_r_read" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:218]   --->   Operation 48 'and' 'and_ln218_1' <Predicate = (!icmp_ln212 & !icmp_ln217_1)> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 49 [1/1] (1.01ns)   --->   "%icmp_ln218_3 = icmp_eq  i32 %group_idx_read, i32 0" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:218]   --->   Operation 49 'icmp' 'icmp_ln218_3' <Predicate = (!icmp_ln212 & !icmp_ln217_1)> <Delay = 1.01> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 50 [1/1] (0.00ns)   --->   "%br_ln218 = br i1 %icmp_ln218_3, void %arrayidx.1.default, void %start_head2.1.case.1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:218]   --->   Operation 50 'br' 'br_ln218' <Predicate = (!icmp_ln212 & !icmp_ln217_1)> <Delay = 0.00>
+ST_3 : Operation 51 [1/1] (0.00ns)   --->   "%tmp_71 = partselect i14 @_ssdm_op_PartSelect.i14.i66.i32.i32, i66 %head_ctx_ref_1_read, i32 52, i32 65" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:218]   --->   Operation 51 'partselect' 'tmp_71' <Predicate = (!icmp_ln212 & icmp_ln217 & !icmp_ln217_1 & icmp_ln218_3) | (!icmp_ln212 & !icmp_ln217 & icmp_ln218_1 & !icmp_ln217_1)> <Delay = 0.00>
+ST_3 : Operation 52 [1/1] (0.00ns)   --->   "%trunc_ln218_1 = trunc i66 %head_ctx_ref_1_read" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:218]   --->   Operation 52 'trunc' 'trunc_ln218_1' <Predicate = (!icmp_ln212 & icmp_ln217 & !icmp_ln217_1 & icmp_ln218_3) | (!icmp_ln212 & !icmp_ln217 & icmp_ln218_1 & !icmp_ln217_1)> <Delay = 0.00>
 
 State 4 <SV = 1> <Delay = 7.04>
-ST_4 : Operation 53 [1/1] (0.00ns)   --->   "%tmp_s = partselect i14 @_ssdm_op_PartSelect.i14.i66.i32.i32, i66 %head_ctx_ref_0_read, i32 52, i32 65" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:226]   --->   Operation 53 'partselect' 'tmp_s' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 54 [1/1] (0.00ns)   --->   "%trunc_ln226 = trunc i66 %head_ctx_ref_0_read" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:226]   --->   Operation 54 'trunc' 'trunc_ln226' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 55 [1/1] (0.00ns)   --->   "%or_ln = bitconcatenate i66 @_ssdm_op_BitConcatenate.i66.i14.i1.i51, i14 %tmp_s, i1 %and_ln226, i51 %trunc_ln226" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:226]   --->   Operation 55 'bitconcatenate' 'or_ln' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 56 [1/1] (7.04ns)   --->   "%call_ret7 = call i67 @run_single_head, i66 %or_ln, i32 %layer_idx_read, i1 %and_ln226" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:227]   --->   Operation 56 'call' 'call_ret7' <Predicate = true> <Delay = 7.04> <CoreType = "Generic">   --->   Generic Core
-ST_4 : Operation 57 [1/1] (0.00ns)   --->   "%tmp_1 = extractvalue i67 %call_ret7" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:227]   --->   Operation 57 'extractvalue' 'tmp_1' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 58 [1/1] (0.00ns)   --->   "%head_ctx_ref_0_ret4 = extractvalue i67 %call_ret7" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:227]   --->   Operation 58 'extractvalue' 'head_ctx_ref_0_ret4' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 53 [1/1] (0.00ns)   --->   "%tmp_s = partselect i14 @_ssdm_op_PartSelect.i14.i66.i32.i32, i66 %head_ctx_ref_0_read, i32 52, i32 65" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:218]   --->   Operation 53 'partselect' 'tmp_s' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 54 [1/1] (0.00ns)   --->   "%trunc_ln218 = trunc i66 %head_ctx_ref_0_read" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:218]   --->   Operation 54 'trunc' 'trunc_ln218' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 55 [1/1] (0.00ns)   --->   "%or_ln = bitconcatenate i66 @_ssdm_op_BitConcatenate.i66.i14.i1.i51, i14 %tmp_s, i1 %and_ln218, i51 %trunc_ln218" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:218]   --->   Operation 55 'bitconcatenate' 'or_ln' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 56 [1/1] (7.04ns)   --->   "%call_ret7 = call i67 @run_single_head, i66 %or_ln, i32 %layer_idx_read, i1 %and_ln218" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:219]   --->   Operation 56 'call' 'call_ret7' <Predicate = true> <Delay = 7.04> <CoreType = "Generic">   --->   Generic Core
+ST_4 : Operation 57 [1/1] (0.00ns)   --->   "%tmp_1 = extractvalue i67 %call_ret7" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:219]   --->   Operation 57 'extractvalue' 'tmp_1' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 58 [1/1] (0.00ns)   --->   "%head_ctx_ref_0_ret4 = extractvalue i67 %call_ret7" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:219]   --->   Operation 58 'extractvalue' 'head_ctx_ref_0_ret4' <Predicate = true> <Delay = 0.00>
 
 State 5 <SV = 3> <Delay = 7.04>
-ST_5 : Operation 59 [1/1] (7.04ns)   --->   "%call_ret = call i67 @run_single_head, i66 %head_ctx_ref_0_loc_0, i32 %layer_idx_read, i1 %and_ln226_1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:227]   --->   Operation 59 'call' 'call_ret' <Predicate = true> <Delay = 7.04> <CoreType = "Generic">   --->   Generic Core
-ST_5 : Operation 60 [1/1] (0.00ns)   --->   "%tmp_5 = extractvalue i67 %call_ret" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:227]   --->   Operation 60 'extractvalue' 'tmp_5' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 61 [1/1] (0.00ns)   --->   "%head_ctx_ref_0_ret = extractvalue i67 %call_ret" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:227]   --->   Operation 61 'extractvalue' 'head_ctx_ref_0_ret' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 59 [1/1] (7.04ns)   --->   "%call_ret = call i67 @run_single_head, i66 %head_ctx_ref_0_loc_0, i32 %layer_idx_read, i1 %and_ln218_1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:219]   --->   Operation 59 'call' 'call_ret' <Predicate = true> <Delay = 7.04> <CoreType = "Generic">   --->   Generic Core
+ST_5 : Operation 60 [1/1] (0.00ns)   --->   "%tmp_5 = extractvalue i67 %call_ret" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:219]   --->   Operation 60 'extractvalue' 'tmp_5' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 61 [1/1] (0.00ns)   --->   "%head_ctx_ref_0_ret = extractvalue i67 %call_ret" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:219]   --->   Operation 61 'extractvalue' 'head_ctx_ref_0_ret' <Predicate = true> <Delay = 0.00>
 
 State 6 <SV = 4> <Delay = 1.14>
-ST_6 : Operation 62 [1/1] (0.42ns)   --->   "%br_ln227 = br void %arrayidx.1.exit" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:227]   --->   Operation 62 'br' 'br_ln227' <Predicate = (!icmp_ln220 & !icmp_ln225_1 & !icmp_ln226_3)> <Delay = 0.42>
-ST_6 : Operation 63 [1/1] (0.42ns)   --->   "%br_ln227 = br void %arrayidx.1.exit" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:227]   --->   Operation 63 'br' 'br_ln227' <Predicate = (!icmp_ln220 & !icmp_ln225_1 & icmp_ln226_3)> <Delay = 0.42>
-ST_6 : Operation 64 [1/1] (0.00ns)   --->   "%head_ctx_ref_0_flag_1 = phi i1 %head_ctx_ref_0_flag_0, void %start_head2.1.case.1, i1 1, void %arrayidx.1.default"   --->   Operation 64 'phi' 'head_ctx_ref_0_flag_1' <Predicate = (!icmp_ln220 & !icmp_ln225_1)> <Delay = 0.00>
-ST_6 : Operation 65 [1/1] (0.00ns)   --->   "%head_ctx_ref_0_new_1 = phi i66 %head_ctx_ref_0_loc_0, void %start_head2.1.case.1, i66 %head_ctx_ref_0_ret, void %arrayidx.1.default" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:225]   --->   Operation 65 'phi' 'head_ctx_ref_0_new_1' <Predicate = (!icmp_ln220 & !icmp_ln225_1)> <Delay = 0.00>
-ST_6 : Operation 66 [1/1] (0.00ns) (grouped into LUT with out node group_finished_1)   --->   "%head_done = phi i1 %tmp_4, void %start_head2.1.case.1, i1 %tmp_5, void %arrayidx.1.default" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:227]   --->   Operation 66 'phi' 'head_done' <Predicate = (!icmp_ln220 & !icmp_ln225_1)> <Delay = 0.00>
-ST_6 : Operation 67 [1/1] (0.28ns) (out node of the LUT)   --->   "%group_finished_1 = and i1 %head_done, i1 %group_finished" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:231]   --->   Operation 67 'and' 'group_finished_1' <Predicate = (!icmp_ln220 & !icmp_ln225_1)> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
-ST_6 : Operation 68 [1/1] (0.42ns)   --->   "%br_ln232 = br void %cleanup.1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:232]   --->   Operation 68 'br' 'br_ln232' <Predicate = (!icmp_ln220 & !icmp_ln225_1)> <Delay = 0.42>
+ST_6 : Operation 62 [1/1] (0.42ns)   --->   "%br_ln219 = br void %arrayidx.1.exit" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:219]   --->   Operation 62 'br' 'br_ln219' <Predicate = (!icmp_ln212 & !icmp_ln217_1 & !icmp_ln218_3)> <Delay = 0.42>
+ST_6 : Operation 63 [1/1] (0.42ns)   --->   "%br_ln219 = br void %arrayidx.1.exit" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:219]   --->   Operation 63 'br' 'br_ln219' <Predicate = (!icmp_ln212 & !icmp_ln217_1 & icmp_ln218_3)> <Delay = 0.42>
+ST_6 : Operation 64 [1/1] (0.00ns)   --->   "%head_ctx_ref_0_flag_1 = phi i1 %head_ctx_ref_0_flag_0, void %start_head2.1.case.1, i1 1, void %arrayidx.1.default"   --->   Operation 64 'phi' 'head_ctx_ref_0_flag_1' <Predicate = (!icmp_ln212 & !icmp_ln217_1)> <Delay = 0.00>
+ST_6 : Operation 65 [1/1] (0.00ns)   --->   "%head_ctx_ref_0_new_1 = phi i66 %head_ctx_ref_0_loc_0, void %start_head2.1.case.1, i66 %head_ctx_ref_0_ret, void %arrayidx.1.default" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:217]   --->   Operation 65 'phi' 'head_ctx_ref_0_new_1' <Predicate = (!icmp_ln212 & !icmp_ln217_1)> <Delay = 0.00>
+ST_6 : Operation 66 [1/1] (0.00ns) (grouped into LUT with out node group_finished_1)   --->   "%head_done = phi i1 %tmp_4, void %start_head2.1.case.1, i1 %tmp_5, void %arrayidx.1.default" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:219]   --->   Operation 66 'phi' 'head_done' <Predicate = (!icmp_ln212 & !icmp_ln217_1)> <Delay = 0.00>
+ST_6 : Operation 67 [1/1] (0.28ns) (out node of the LUT)   --->   "%group_finished_1 = and i1 %head_done, i1 %group_finished" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:223]   --->   Operation 67 'and' 'group_finished_1' <Predicate = (!icmp_ln212 & !icmp_ln217_1)> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 68 [1/1] (0.42ns)   --->   "%br_ln224 = br void %cleanup.1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:224]   --->   Operation 68 'br' 'br_ln224' <Predicate = (!icmp_ln212 & !icmp_ln217_1)> <Delay = 0.42>
 ST_6 : Operation 69 [1/1] (0.00ns)   --->   "%head_ctx_ref_0_flag_2 = phi i1 %head_ctx_ref_0_flag_0, void %cleanup, i1 %head_ctx_ref_0_flag_0, void %if.end.1, i1 %head_ctx_ref_0_flag_1, void %arrayidx.1.exit"   --->   Operation 69 'phi' 'head_ctx_ref_0_flag_2' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 70 [1/1] (0.00ns)   --->   "%head_ctx_ref_0_new_2 = phi i66 %head_ctx_ref_0_loc_0, void %cleanup, i66 %head_ctx_ref_0_loc_0, void %if.end.1, i66 %head_ctx_ref_0_new_1, void %arrayidx.1.exit" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:225]   --->   Operation 70 'phi' 'head_ctx_ref_0_new_2' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 70 [1/1] (0.00ns)   --->   "%head_ctx_ref_0_new_2 = phi i66 %head_ctx_ref_0_loc_0, void %cleanup, i66 %head_ctx_ref_0_loc_0, void %if.end.1, i66 %head_ctx_ref_0_new_1, void %arrayidx.1.exit" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:217]   --->   Operation 70 'phi' 'head_ctx_ref_0_new_2' <Predicate = true> <Delay = 0.00>
 ST_6 : Operation 71 [1/1] (0.00ns)   --->   "%group_finished_2 = phi i1 %group_finished, void %cleanup, i1 %group_finished, void %if.end.1, i1 %group_finished_1, void %arrayidx.1.exit"   --->   Operation 71 'phi' 'group_finished_2' <Predicate = true> <Delay = 0.00>
 ST_6 : Operation 72 [1/1] (0.00ns)   --->   "%br_ln0 = br i1 %head_ctx_ref_0_flag_2, void %cleanup.1.new, void %mergeST"   --->   Operation 72 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 73 [1/1] (0.00ns)   --->   "%write_ln226 = write void @_ssdm_op_Write.ap_auto.i66P0A, i66 %head_ctx_ref_0, i66 %head_ctx_ref_0_new_2" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:226]   --->   Operation 73 'write' 'write_ln226' <Predicate = (head_ctx_ref_0_flag_2)> <Delay = 0.00>
+ST_6 : Operation 73 [1/1] (0.00ns)   --->   "%write_ln218 = write void @_ssdm_op_Write.ap_auto.i66P0A, i66 %head_ctx_ref_0, i66 %head_ctx_ref_0_new_2" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:218]   --->   Operation 73 'write' 'write_ln218' <Predicate = (head_ctx_ref_0_flag_2)> <Delay = 0.00>
 ST_6 : Operation 74 [1/1] (0.00ns)   --->   "%br_ln0 = br void %cleanup.1.new"   --->   Operation 74 'br' 'br_ln0' <Predicate = (head_ctx_ref_0_flag_2)> <Delay = 0.00>
-ST_6 : Operation 75 [1/1] (0.00ns)   --->   "%ret_ln241 = ret i1 %group_finished_2" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:241]   --->   Operation 75 'ret' 'ret_ln241' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 75 [1/1] (0.00ns)   --->   "%ret_ln233 = ret i1 %group_finished_2" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:233]   --->   Operation 75 'ret' 'ret_ln233' <Predicate = true> <Delay = 0.00>
 
 State 7 <SV = 3> <Delay = 7.04>
-ST_7 : Operation 76 [1/1] (0.00ns)   --->   "%or_ln226_1 = bitconcatenate i66 @_ssdm_op_BitConcatenate.i66.i14.i1.i51, i14 %tmp_77, i1 %and_ln226_1, i51 %trunc_ln226_1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:226]   --->   Operation 76 'bitconcatenate' 'or_ln226_1' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 77 [1/1] (7.04ns)   --->   "%call_ret1 = call i67 @run_single_head, i66 %or_ln226_1, i32 %layer_idx_read, i1 %and_ln226_1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:227]   --->   Operation 77 'call' 'call_ret1' <Predicate = true> <Delay = 7.04> <CoreType = "Generic">   --->   Generic Core
-ST_7 : Operation 78 [1/1] (0.00ns)   --->   "%tmp_4 = extractvalue i67 %call_ret1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:227]   --->   Operation 78 'extractvalue' 'tmp_4' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 79 [1/1] (0.00ns)   --->   "%head_ctx_ref_1_ret = extractvalue i67 %call_ret1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:227]   --->   Operation 79 'extractvalue' 'head_ctx_ref_1_ret' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 80 [1/1] (0.00ns)   --->   "%write_ln227 = write void @_ssdm_op_Write.ap_auto.i66P0A, i66 %head_ctx_ref_1, i66 %head_ctx_ref_1_ret" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:227]   --->   Operation 80 'write' 'write_ln227' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 76 [1/1] (0.00ns)   --->   "%or_ln218_1 = bitconcatenate i66 @_ssdm_op_BitConcatenate.i66.i14.i1.i51, i14 %tmp_71, i1 %and_ln218_1, i51 %trunc_ln218_1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:218]   --->   Operation 76 'bitconcatenate' 'or_ln218_1' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 77 [1/1] (7.04ns)   --->   "%call_ret1 = call i67 @run_single_head, i66 %or_ln218_1, i32 %layer_idx_read, i1 %and_ln218_1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:219]   --->   Operation 77 'call' 'call_ret1' <Predicate = true> <Delay = 7.04> <CoreType = "Generic">   --->   Generic Core
+ST_7 : Operation 78 [1/1] (0.00ns)   --->   "%tmp_4 = extractvalue i67 %call_ret1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:219]   --->   Operation 78 'extractvalue' 'tmp_4' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 79 [1/1] (0.00ns)   --->   "%head_ctx_ref_1_ret = extractvalue i67 %call_ret1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:219]   --->   Operation 79 'extractvalue' 'head_ctx_ref_1_ret' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 80 [1/1] (0.00ns)   --->   "%write_ln219 = write void @_ssdm_op_Write.ap_auto.i66P0A, i66 %head_ctx_ref_1, i66 %head_ctx_ref_1_ret" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:219]   --->   Operation 80 'write' 'write_ln219' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -196,7 +196,7 @@ Port [ start_r]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; ex
 <LifeTime>
 <method=bitvector/>
 specbitsmap_ln0       (specbitsmap   ) [ 00000000]
-spectopmodule_ln199   (spectopmodule ) [ 00000000]
+spectopmodule_ln191   (spectopmodule ) [ 00000000]
 specbitsmap_ln0       (specbitsmap   ) [ 00000000]
 specinterface_ln0     (specinterface ) [ 00000000]
 specbitsmap_ln0       (specbitsmap   ) [ 00000000]
@@ -210,38 +210,38 @@ specinterface_ln0     (specinterface ) [ 00000000]
 start_r_read          (read          ) [ 00111000]
 layer_idx_read        (read          ) [ 00111101]
 group_idx_read        (read          ) [ 00111000]
-trunc_ln216           (trunc         ) [ 00000000]
-icmp_ln220            (icmp          ) [ 01111111]
+trunc_ln208           (trunc         ) [ 00000000]
+icmp_ln212            (icmp          ) [ 01111111]
 head_ctx_ref_0_read   (read          ) [ 01111000]
-br_ln220              (br            ) [ 01111000]
+br_ln212              (br            ) [ 01111000]
 trunc_ln              (partselect    ) [ 00000000]
-icmp_ln225            (icmp          ) [ 01111000]
-br_ln225              (br            ) [ 01111000]
-icmp_ln226            (icmp          ) [ 00000000]
-and_ln226             (and           ) [ 00101000]
-icmp_ln226_1          (icmp          ) [ 01111000]
-br_ln226              (br            ) [ 00000000]
+icmp_ln217            (icmp          ) [ 01111000]
+br_ln217              (br            ) [ 01111000]
+icmp_ln218            (icmp          ) [ 00000000]
+and_ln218             (and           ) [ 00101000]
+icmp_ln218_1          (icmp          ) [ 01111000]
+br_ln218              (br            ) [ 00000000]
 call_ret9             (call          ) [ 00000000]
 tmp_2                 (extractvalue  ) [ 01010000]
 head_ctx_ref_0_ret2   (extractvalue  ) [ 01010000]
-br_ln227              (br            ) [ 00000000]
-br_ln227              (br            ) [ 00000000]
+br_ln219              (br            ) [ 00000000]
+br_ln219              (br            ) [ 00000000]
 head_ctx_ref_0_flag_0 (phi           ) [ 00111111]
 head_ctx_ref_0_loc_0  (phi           ) [ 00111111]
 group_finished        (phi           ) [ 00111111]
-br_ln220              (br            ) [ 00010111]
+br_ln212              (br            ) [ 00010111]
 head_ctx_ref_1_read   (read          ) [ 00000000]
-trunc_ln225_1         (partselect    ) [ 00000000]
-icmp_ln225_1          (icmp          ) [ 00010111]
-br_ln225              (br            ) [ 00010111]
-icmp_ln226_2          (icmp          ) [ 00000000]
-and_ln226_1           (and           ) [ 00000101]
-icmp_ln226_3          (icmp          ) [ 00010111]
-br_ln226              (br            ) [ 00000000]
-tmp_77                (partselect    ) [ 00000001]
-trunc_ln226_1         (trunc         ) [ 00000001]
+trunc_ln217_1         (partselect    ) [ 00000000]
+icmp_ln217_1          (icmp          ) [ 00010111]
+br_ln217              (br            ) [ 00010111]
+icmp_ln218_2          (icmp          ) [ 00000000]
+and_ln218_1           (and           ) [ 00000101]
+icmp_ln218_3          (icmp          ) [ 00010111]
+br_ln218              (br            ) [ 00000000]
+tmp_71                (partselect    ) [ 00000001]
+trunc_ln218_1         (trunc         ) [ 00000001]
 tmp_s                 (partselect    ) [ 00000000]
-trunc_ln226           (trunc         ) [ 00000000]
+trunc_ln218           (trunc         ) [ 00000000]
 or_ln                 (bitconcatenate) [ 00000000]
 call_ret7             (call          ) [ 00000000]
 tmp_1                 (extractvalue  ) [ 01010000]
@@ -249,25 +249,25 @@ head_ctx_ref_0_ret4   (extractvalue  ) [ 01010000]
 call_ret              (call          ) [ 00000000]
 tmp_5                 (extractvalue  ) [ 00000010]
 head_ctx_ref_0_ret    (extractvalue  ) [ 00000010]
-br_ln227              (br            ) [ 00000000]
-br_ln227              (br            ) [ 00000000]
+br_ln219              (br            ) [ 00000000]
+br_ln219              (br            ) [ 00000000]
 head_ctx_ref_0_flag_1 (phi           ) [ 00000010]
 head_ctx_ref_0_new_1  (phi           ) [ 00000010]
 head_done             (phi           ) [ 00000010]
 group_finished_1      (and           ) [ 00000000]
-br_ln232              (br            ) [ 00000000]
+br_ln224              (br            ) [ 00000000]
 head_ctx_ref_0_flag_2 (phi           ) [ 00000010]
 head_ctx_ref_0_new_2  (phi           ) [ 00000010]
 group_finished_2      (phi           ) [ 00000010]
 br_ln0                (br            ) [ 00000000]
-write_ln226           (write         ) [ 00000000]
+write_ln218           (write         ) [ 00000000]
 br_ln0                (br            ) [ 00000000]
-ret_ln241             (ret           ) [ 00000000]
-or_ln226_1            (bitconcatenate) [ 00000000]
+ret_ln233             (ret           ) [ 00000000]
+or_ln218_1            (bitconcatenate) [ 00000000]
 call_ret1             (call          ) [ 00000000]
 tmp_4                 (extractvalue  ) [ 00000010]
 head_ctx_ref_1_ret    (extractvalue  ) [ 00000000]
-write_ln227           (write         ) [ 00000000]
+write_ln219           (write         ) [ 00000000]
 </LifeTime>
 
 <model>
@@ -603,7 +603,7 @@ write_ln227           (write         ) [ 00000000]
 </bind>
 </comp>
 
-<comp id="90" class="1004" name="write_ln226_write_fu_90">
+<comp id="90" class="1004" name="write_ln218_write_fu_90">
 <pin_list>
 <pin id="91" dir="0" index="0" bw="0" slack="0"/>
 <pin id="92" dir="0" index="1" bw="66" slack="0"/>
@@ -612,11 +612,11 @@ write_ln227           (write         ) [ 00000000]
 </pin_list>
 <bind>
 <opcode="write(1151) " fcode="write"/>
-<opset="write_ln226/6 "/>
+<opset="write_ln218/6 "/>
 </bind>
 </comp>
 
-<comp id="97" class="1004" name="write_ln227_write_fu_97">
+<comp id="97" class="1004" name="write_ln219_write_fu_97">
 <pin_list>
 <pin id="98" dir="0" index="0" bw="0" slack="0"/>
 <pin id="99" dir="0" index="1" bw="66" slack="0"/>
@@ -625,7 +625,7 @@ write_ln227           (write         ) [ 00000000]
 </pin_list>
 <bind>
 <opcode="write(1151) " fcode="write"/>
-<opset="write_ln227/7 "/>
+<opset="write_ln219/7 "/>
 </bind>
 </comp>
 
@@ -909,18 +909,18 @@ write_ln227           (write         ) [ 00000000]
 </bind>
 </comp>
 
-<comp id="249" class="1004" name="trunc_ln216_fu_249">
+<comp id="249" class="1004" name="trunc_ln208_fu_249">
 <pin_list>
 <pin id="250" dir="0" index="0" bw="32" slack="0"/>
 <pin id="251" dir="1" index="1" bw="31" slack="0"/>
 </pin_list>
 <bind>
 <opcode="trunc(33) " fcode="trunc"/>
-<opset="trunc_ln216/1 "/>
+<opset="trunc_ln208/1 "/>
 </bind>
 </comp>
 
-<comp id="253" class="1004" name="icmp_ln220_fu_253">
+<comp id="253" class="1004" name="icmp_ln212_fu_253">
 <pin_list>
 <pin id="254" dir="0" index="0" bw="31" slack="0"/>
 <pin id="255" dir="0" index="1" bw="1" slack="0"/>
@@ -928,7 +928,7 @@ write_ln227           (write         ) [ 00000000]
 </pin_list>
 <bind>
 <opcode="icmp(45) " fcode="icmp"/>
-<opset="icmp_ln220/1 "/>
+<opset="icmp_ln212/1 "/>
 </bind>
 </comp>
 
@@ -946,7 +946,7 @@ write_ln227           (write         ) [ 00000000]
 </bind>
 </comp>
 
-<comp id="269" class="1004" name="icmp_ln225_fu_269">
+<comp id="269" class="1004" name="icmp_ln217_fu_269">
 <pin_list>
 <pin id="270" dir="0" index="0" bw="8" slack="0"/>
 <pin id="271" dir="0" index="1" bw="5" slack="0"/>
@@ -954,11 +954,11 @@ write_ln227           (write         ) [ 00000000]
 </pin_list>
 <bind>
 <opcode="icmp(45) " fcode="icmp"/>
-<opset="icmp_ln225/1 "/>
+<opset="icmp_ln217/1 "/>
 </bind>
 </comp>
 
-<comp id="275" class="1004" name="icmp_ln226_fu_275">
+<comp id="275" class="1004" name="icmp_ln218_fu_275">
 <pin_list>
 <pin id="276" dir="0" index="0" bw="8" slack="0"/>
 <pin id="277" dir="0" index="1" bw="1" slack="0"/>
@@ -966,11 +966,11 @@ write_ln227           (write         ) [ 00000000]
 </pin_list>
 <bind>
 <opcode="icmp(45) " fcode="icmp"/>
-<opset="icmp_ln226/1 "/>
+<opset="icmp_ln218/1 "/>
 </bind>
 </comp>
 
-<comp id="281" class="1004" name="and_ln226_fu_281">
+<comp id="281" class="1004" name="and_ln218_fu_281">
 <pin_list>
 <pin id="282" dir="0" index="0" bw="1" slack="0"/>
 <pin id="283" dir="0" index="1" bw="1" slack="0"/>
@@ -978,11 +978,11 @@ write_ln227           (write         ) [ 00000000]
 </pin_list>
 <bind>
 <opcode="and(23) " fcode="and"/>
-<opset="and_ln226/1 "/>
+<opset="and_ln218/1 "/>
 </bind>
 </comp>
 
-<comp id="287" class="1004" name="icmp_ln226_1_fu_287">
+<comp id="287" class="1004" name="icmp_ln218_1_fu_287">
 <pin_list>
 <pin id="288" dir="0" index="0" bw="32" slack="0"/>
 <pin id="289" dir="0" index="1" bw="1" slack="0"/>
@@ -990,11 +990,11 @@ write_ln227           (write         ) [ 00000000]
 </pin_list>
 <bind>
 <opcode="icmp(45) " fcode="icmp"/>
-<opset="icmp_ln226_1/1 "/>
+<opset="icmp_ln218_1/1 "/>
 </bind>
 </comp>
 
-<comp id="293" class="1004" name="trunc_ln225_1_fu_293">
+<comp id="293" class="1004" name="trunc_ln217_1_fu_293">
 <pin_list>
 <pin id="294" dir="0" index="0" bw="8" slack="0"/>
 <pin id="295" dir="0" index="1" bw="66" slack="0"/>
@@ -1004,11 +1004,11 @@ write_ln227           (write         ) [ 00000000]
 </pin_list>
 <bind>
 <opcode="partselect(1002) " fcode="partselect"/>
-<opset="trunc_ln225_1/3 "/>
+<opset="trunc_ln217_1/3 "/>
 </bind>
 </comp>
 
-<comp id="303" class="1004" name="icmp_ln225_1_fu_303">
+<comp id="303" class="1004" name="icmp_ln217_1_fu_303">
 <pin_list>
 <pin id="304" dir="0" index="0" bw="8" slack="0"/>
 <pin id="305" dir="0" index="1" bw="5" slack="0"/>
@@ -1016,11 +1016,11 @@ write_ln227           (write         ) [ 00000000]
 </pin_list>
 <bind>
 <opcode="icmp(45) " fcode="icmp"/>
-<opset="icmp_ln225_1/3 "/>
+<opset="icmp_ln217_1/3 "/>
 </bind>
 </comp>
 
-<comp id="309" class="1004" name="icmp_ln226_2_fu_309">
+<comp id="309" class="1004" name="icmp_ln218_2_fu_309">
 <pin_list>
 <pin id="310" dir="0" index="0" bw="8" slack="0"/>
 <pin id="311" dir="0" index="1" bw="1" slack="0"/>
@@ -1028,11 +1028,11 @@ write_ln227           (write         ) [ 00000000]
 </pin_list>
 <bind>
 <opcode="icmp(45) " fcode="icmp"/>
-<opset="icmp_ln226_2/3 "/>
+<opset="icmp_ln218_2/3 "/>
 </bind>
 </comp>
 
-<comp id="315" class="1004" name="and_ln226_1_fu_315">
+<comp id="315" class="1004" name="and_ln218_1_fu_315">
 <pin_list>
 <pin id="316" dir="0" index="0" bw="1" slack="0"/>
 <pin id="317" dir="0" index="1" bw="1" slack="2"/>
@@ -1040,11 +1040,11 @@ write_ln227           (write         ) [ 00000000]
 </pin_list>
 <bind>
 <opcode="and(23) " fcode="and"/>
-<opset="and_ln226_1/3 "/>
+<opset="and_ln218_1/3 "/>
 </bind>
 </comp>
 
-<comp id="320" class="1004" name="icmp_ln226_3_fu_320">
+<comp id="320" class="1004" name="icmp_ln218_3_fu_320">
 <pin_list>
 <pin id="321" dir="0" index="0" bw="32" slack="2"/>
 <pin id="322" dir="0" index="1" bw="1" slack="0"/>
@@ -1052,11 +1052,11 @@ write_ln227           (write         ) [ 00000000]
 </pin_list>
 <bind>
 <opcode="icmp(45) " fcode="icmp"/>
-<opset="icmp_ln226_3/3 "/>
+<opset="icmp_ln218_3/3 "/>
 </bind>
 </comp>
 
-<comp id="325" class="1004" name="tmp_77_fu_325">
+<comp id="325" class="1004" name="tmp_71_fu_325">
 <pin_list>
 <pin id="326" dir="0" index="0" bw="14" slack="0"/>
 <pin id="327" dir="0" index="1" bw="66" slack="0"/>
@@ -1066,18 +1066,18 @@ write_ln227           (write         ) [ 00000000]
 </pin_list>
 <bind>
 <opcode="partselect(1002) " fcode="partselect"/>
-<opset="tmp_77/3 "/>
+<opset="tmp_71/3 "/>
 </bind>
 </comp>
 
-<comp id="335" class="1004" name="trunc_ln226_1_fu_335">
+<comp id="335" class="1004" name="trunc_ln218_1_fu_335">
 <pin_list>
 <pin id="336" dir="0" index="0" bw="66" slack="0"/>
 <pin id="337" dir="1" index="1" bw="51" slack="1"/>
 </pin_list>
 <bind>
 <opcode="trunc(33) " fcode="trunc"/>
-<opset="trunc_ln226_1/3 "/>
+<opset="trunc_ln218_1/3 "/>
 </bind>
 </comp>
 
@@ -1095,14 +1095,14 @@ write_ln227           (write         ) [ 00000000]
 </bind>
 </comp>
 
-<comp id="348" class="1004" name="trunc_ln226_fu_348">
+<comp id="348" class="1004" name="trunc_ln218_fu_348">
 <pin_list>
 <pin id="349" dir="0" index="0" bw="66" slack="1"/>
 <pin id="350" dir="1" index="1" bw="51" slack="0"/>
 </pin_list>
 <bind>
 <opcode="trunc(33) " fcode="trunc"/>
-<opset="trunc_ln226/4 "/>
+<opset="trunc_ln218/4 "/>
 </bind>
 </comp>
 
@@ -1132,7 +1132,7 @@ write_ln227           (write         ) [ 00000000]
 </bind>
 </comp>
 
-<comp id="368" class="1004" name="or_ln226_1_fu_368">
+<comp id="368" class="1004" name="or_ln218_1_fu_368">
 <pin_list>
 <pin id="369" dir="0" index="0" bw="66" slack="0"/>
 <pin id="370" dir="0" index="1" bw="14" slack="1"/>
@@ -1142,7 +1142,7 @@ write_ln227           (write         ) [ 00000000]
 </pin_list>
 <bind>
 <opcode="bitconcatenate(1004) " fcode="bitconcatenate"/>
-<opset="or_ln226_1/7 "/>
+<opset="or_ln218_1/7 "/>
 </bind>
 </comp>
 
@@ -1176,13 +1176,13 @@ write_ln227           (write         ) [ 00000000]
 </bind>
 </comp>
 
-<comp id="391" class="1005" name="icmp_ln220_reg_391">
+<comp id="391" class="1005" name="icmp_ln212_reg_391">
 <pin_list>
 <pin id="392" dir="0" index="0" bw="1" slack="2"/>
 <pin id="393" dir="1" index="1" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<opset="icmp_ln220 "/>
+<opset="icmp_ln212 "/>
 </bind>
 </comp>
 
@@ -1196,33 +1196,33 @@ write_ln227           (write         ) [ 00000000]
 </bind>
 </comp>
 
-<comp id="404" class="1005" name="icmp_ln225_reg_404">
+<comp id="404" class="1005" name="icmp_ln217_reg_404">
 <pin_list>
 <pin id="405" dir="0" index="0" bw="1" slack="2"/>
 <pin id="406" dir="1" index="1" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<opset="icmp_ln225 "/>
+<opset="icmp_ln217 "/>
 </bind>
 </comp>
 
-<comp id="408" class="1005" name="and_ln226_reg_408">
+<comp id="408" class="1005" name="and_ln218_reg_408">
 <pin_list>
 <pin id="409" dir="0" index="0" bw="1" slack="1"/>
 <pin id="410" dir="1" index="1" bw="1" slack="1"/>
 </pin_list>
 <bind>
-<opset="and_ln226 "/>
+<opset="and_ln218 "/>
 </bind>
 </comp>
 
-<comp id="414" class="1005" name="icmp_ln226_1_reg_414">
+<comp id="414" class="1005" name="icmp_ln218_1_reg_414">
 <pin_list>
 <pin id="415" dir="0" index="0" bw="1" slack="2"/>
 <pin id="416" dir="1" index="1" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<opset="icmp_ln226_1 "/>
+<opset="icmp_ln218_1 "/>
 </bind>
 </comp>
 
@@ -1236,53 +1236,53 @@ write_ln227           (write         ) [ 00000000]
 </bind>
 </comp>
 
-<comp id="423" class="1005" name="icmp_ln225_1_reg_423">
+<comp id="423" class="1005" name="icmp_ln217_1_reg_423">
 <pin_list>
 <pin id="424" dir="0" index="0" bw="1" slack="2"/>
 <pin id="425" dir="1" index="1" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<opset="icmp_ln225_1 "/>
+<opset="icmp_ln217_1 "/>
 </bind>
 </comp>
 
-<comp id="427" class="1005" name="and_ln226_1_reg_427">
+<comp id="427" class="1005" name="and_ln218_1_reg_427">
 <pin_list>
 <pin id="428" dir="0" index="0" bw="1" slack="1"/>
 <pin id="429" dir="1" index="1" bw="1" slack="1"/>
 </pin_list>
 <bind>
-<opset="and_ln226_1 "/>
+<opset="and_ln218_1 "/>
 </bind>
 </comp>
 
-<comp id="433" class="1005" name="icmp_ln226_3_reg_433">
+<comp id="433" class="1005" name="icmp_ln218_3_reg_433">
 <pin_list>
 <pin id="434" dir="0" index="0" bw="1" slack="2"/>
 <pin id="435" dir="1" index="1" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<opset="icmp_ln226_3 "/>
+<opset="icmp_ln218_3 "/>
 </bind>
 </comp>
 
-<comp id="437" class="1005" name="tmp_77_reg_437">
+<comp id="437" class="1005" name="tmp_71_reg_437">
 <pin_list>
 <pin id="438" dir="0" index="0" bw="14" slack="1"/>
 <pin id="439" dir="1" index="1" bw="14" slack="1"/>
 </pin_list>
 <bind>
-<opset="tmp_77 "/>
+<opset="tmp_71 "/>
 </bind>
 </comp>
 
-<comp id="442" class="1005" name="trunc_ln226_1_reg_442">
+<comp id="442" class="1005" name="trunc_ln218_1_reg_442">
 <pin_list>
 <pin id="443" dir="0" index="0" bw="51" slack="1"/>
 <pin id="444" dir="1" index="1" bw="51" slack="1"/>
 </pin_list>
 <bind>
-<opset="trunc_ln226_1 "/>
+<opset="trunc_ln218_1 "/>
 </bind>
 </comp>
 
@@ -1594,13 +1594,13 @@ write_ln227           (write         ) [ 00000000]
 	Port: drive_group_head_phase : start_r | {1 }
   - Chain level:
 	State 1
-		icmp_ln220 : 1
-		br_ln220 : 2
-		icmp_ln225 : 1
-		br_ln225 : 2
-		icmp_ln226 : 1
-		and_ln226 : 2
-		br_ln226 : 1
+		icmp_ln212 : 1
+		br_ln212 : 2
+		icmp_ln217 : 1
+		br_ln217 : 2
+		icmp_ln218 : 1
+		and_ln218 : 2
+		br_ln218 : 1
 	State 2
 		tmp_2 : 1
 		head_ctx_ref_0_ret2 : 1
@@ -1608,11 +1608,11 @@ write_ln227           (write         ) [ 00000000]
 		head_ctx_ref_0_flag_0 : 1
 		head_ctx_ref_0_loc_0 : 1
 		group_finished : 1
-		icmp_ln225_1 : 1
-		br_ln225 : 2
-		icmp_ln226_2 : 1
-		and_ln226_1 : 2
-		br_ln226 : 1
+		icmp_ln217_1 : 1
+		br_ln217 : 2
+		icmp_ln218_2 : 1
+		and_ln218_1 : 2
+		br_ln218 : 1
 	State 4
 		or_ln : 1
 		call_ret7 : 2
@@ -1630,13 +1630,13 @@ write_ln227           (write         ) [ 00000000]
 		head_ctx_ref_0_new_2 : 2
 		group_finished_2 : 2
 		br_ln0 : 3
-		write_ln226 : 3
-		ret_ln241 : 3
+		write_ln218 : 3
+		ret_ln233 : 3
 	State 7
 		call_ret1 : 1
 		tmp_4 : 2
 		head_ctx_ref_1_ret : 2
-		write_ln227 : 3
+		write_ln219 : 3
 
 
 ============================================================
@@ -1649,16 +1649,16 @@ write_ln227           (write         ) [ 00000000]
 |----------|--------------------------------|---------|---------|
 |   call   |   grp_run_single_head_fu_226   |    74   |   606   |
 |----------|--------------------------------|---------|---------|
-|          |        icmp_ln220_fu_253       |    0    |    38   |
-|          |        icmp_ln225_fu_269       |    0    |    15   |
-|          |        icmp_ln226_fu_275       |    0    |    15   |
-|   icmp   |       icmp_ln226_1_fu_287      |    0    |    39   |
-|          |       icmp_ln225_1_fu_303      |    0    |    15   |
-|          |       icmp_ln226_2_fu_309      |    0    |    15   |
-|          |       icmp_ln226_3_fu_320      |    0    |    39   |
+|          |        icmp_ln212_fu_253       |    0    |    38   |
+|          |        icmp_ln217_fu_269       |    0    |    15   |
+|          |        icmp_ln218_fu_275       |    0    |    15   |
+|   icmp   |       icmp_ln218_1_fu_287      |    0    |    39   |
+|          |       icmp_ln217_1_fu_303      |    0    |    15   |
+|          |       icmp_ln218_2_fu_309      |    0    |    15   |
+|          |       icmp_ln218_3_fu_320      |    0    |    39   |
 |----------|--------------------------------|---------|---------|
-|          |        and_ln226_fu_281        |    0    |    2    |
-|    and   |       and_ln226_1_fu_315       |    0    |    2    |
+|          |        and_ln218_fu_281        |    0    |    2    |
+|    and   |       and_ln218_1_fu_315       |    0    |    2    |
 |          |     group_finished_1_fu_361    |    0    |    2    |
 |----------|--------------------------------|---------|---------|
 |          |     start_r_read_read_fu_60    |    0    |    0    |
@@ -1667,23 +1667,23 @@ write_ln227           (write         ) [ 00000000]
 |          | head_ctx_ref_0_read_read_fu_78 |    0    |    0    |
 |          | head_ctx_ref_1_read_read_fu_84 |    0    |    0    |
 |----------|--------------------------------|---------|---------|
-|   write  |     write_ln226_write_fu_90    |    0    |    0    |
-|          |     write_ln227_write_fu_97    |    0    |    0    |
+|   write  |     write_ln218_write_fu_90    |    0    |    0    |
+|          |     write_ln219_write_fu_97    |    0    |    0    |
 |----------|--------------------------------|---------|---------|
 |extractvalue|           grp_fu_234           |    0    |    0    |
 |          |           grp_fu_238           |    0    |    0    |
 |----------|--------------------------------|---------|---------|
-|          |       trunc_ln216_fu_249       |    0    |    0    |
-|   trunc  |      trunc_ln226_1_fu_335      |    0    |    0    |
-|          |       trunc_ln226_fu_348       |    0    |    0    |
+|          |       trunc_ln208_fu_249       |    0    |    0    |
+|   trunc  |      trunc_ln218_1_fu_335      |    0    |    0    |
+|          |       trunc_ln218_fu_348       |    0    |    0    |
 |----------|--------------------------------|---------|---------|
 |          |         trunc_ln_fu_259        |    0    |    0    |
-|partselect|      trunc_ln225_1_fu_293      |    0    |    0    |
-|          |          tmp_77_fu_325         |    0    |    0    |
+|partselect|      trunc_ln217_1_fu_293      |    0    |    0    |
+|          |          tmp_71_fu_325         |    0    |    0    |
 |          |          tmp_s_fu_339          |    0    |    0    |
 |----------|--------------------------------|---------|---------|
 |bitconcatenate|          or_ln_fu_351          |    0    |    0    |
-|          |        or_ln226_1_fu_368       |    0    |    0    |
+|          |        or_ln218_1_fu_368       |    0    |    0    |
 |----------|--------------------------------|---------|---------|
 |   Total  |                                |    74   |   788   |
 |----------|--------------------------------|---------|---------|
@@ -1695,8 +1695,8 @@ N/A
 +-----------------------------+--------+
 |                             |   FF   |
 +-----------------------------+--------+
-|     and_ln226_1_reg_427     |    1   |
-|      and_ln226_reg_408      |    1   |
+|     and_ln218_1_reg_427     |    1   |
+|      and_ln218_reg_408      |    1   |
 |   group_finished_2_reg_213  |    1   |
 |    group_finished_reg_137   |    1   |
 |    group_idx_read_reg_386   |   32   |
@@ -1709,11 +1709,11 @@ N/A
 | head_ctx_ref_0_read_reg_395 |   66   |
 | head_ctx_ref_0_ret4_reg_452 |   66   |
 |      head_done_reg_175      |    1   |
-|      icmp_ln220_reg_391     |    1   |
-|     icmp_ln225_1_reg_423    |    1   |
-|      icmp_ln225_reg_404     |    1   |
-|     icmp_ln226_1_reg_414    |    1   |
-|     icmp_ln226_3_reg_433    |    1   |
+|      icmp_ln212_reg_391     |    1   |
+|     icmp_ln217_1_reg_423    |    1   |
+|      icmp_ln217_reg_404     |    1   |
+|     icmp_ln218_1_reg_414    |    1   |
+|     icmp_ln218_3_reg_433    |    1   |
 |    layer_idx_read_reg_381   |   32   |
 |           reg_243           |   66   |
 |     start_r_read_reg_376    |    1   |
@@ -1721,8 +1721,8 @@ N/A
 |        tmp_2_reg_418        |    1   |
 |        tmp_4_reg_462        |    1   |
 |        tmp_5_reg_457        |    1   |
-|        tmp_77_reg_437       |   14   |
-|    trunc_ln226_1_reg_442    |   51   |
+|        tmp_71_reg_437       |   14   |
+|    trunc_ln218_1_reg_442    |   51   |
 +-----------------------------+--------+
 |            Total            |   543  |
 +-----------------------------+--------+

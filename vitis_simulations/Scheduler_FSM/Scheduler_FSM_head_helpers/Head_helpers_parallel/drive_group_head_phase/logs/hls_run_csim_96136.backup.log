@@ -25,6 +25,7 @@ INFO: [HLS 200-2176] Writing Vitis IDE component file /home/luka/Scripting/ELEC_
 INFO: [SIM 211-2] *************** CSIM start ***************
 INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
 INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/drive_head_phase_tb.cpp in debug mode
    Compiling ../../../../../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp in debug mode
    Generating csim.exe
 cycle |h0_phase    |hstrt|rdy |done|start |op    |h1_phase    |hstrt|rdy |done|start |op    
@@ -66,5 +67,5 @@ cycle |h0_phase    |hstrt|rdy |done|start |op    |h1_phase    |hstrt|rdy |done|s
 drive_head_phase test complete.
 INFO: [SIM 211-1] CSim done with 0 errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [HLS 200-112] Total CPU user time: 2.37 seconds. Total CPU system time: 0.76 seconds. Total elapsed time: 3.08 seconds; peak allocated memory: 445.148 MB.
-INFO: [vitis-run 60-791] Total elapsed time: 0h 0m 6s
+INFO: [HLS 200-112] Total CPU user time: 2.73 seconds. Total CPU system time: 0.81 seconds. Total elapsed time: 3.5 seconds; peak allocated memory: 445.152 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 0m 7s

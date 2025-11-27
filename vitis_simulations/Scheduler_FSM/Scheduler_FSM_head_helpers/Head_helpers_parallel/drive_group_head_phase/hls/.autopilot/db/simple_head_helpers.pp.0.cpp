@@ -640,7 +640,6 @@ bool run_single_head(
             else if (ctx.q_compute_done && ctx.q_started) {
                 ctx.phase = HeadPhase::K;
                 ctx.q_started = false;
-                ctx.q_compute_done = false;
             }
             break;
         case HeadPhase::K:
@@ -651,9 +650,7 @@ bool run_single_head(
             }
             else if (ctx.k_compute_done && ctx.k_started) {
                 ctx.phase = HeadPhase::K_REQUANT;
-                ctx.k_started = false;
-                ctx.k_compute_done = false;
-            }
+                ctx.k_started = false; }
             break;
         case HeadPhase::K_REQUANT:
             ctx.phase = HeadPhase::K_WRITEBACK;
@@ -670,7 +667,6 @@ bool run_single_head(
             else if (ctx.v_compute_done && ctx.v_started) {
                 ctx.phase = HeadPhase::V_REQUANT;
                 ctx.v_started = false;
-                ctx.v_compute_done = false;
             }
             break;
         case HeadPhase::V_REQUANT:
@@ -690,7 +686,6 @@ bool run_single_head(
             } else if (ctx.att_scores_compute_done && ctx.att_scores_started) {
                 ctx.phase = HeadPhase::VALUE_SCALE_CLAMP;
                 ctx.att_scores_started = false;
-                ctx.att_scores_compute_done = false;
             }
             break;
         case HeadPhase::VALUE_SCALE_CLAMP:
@@ -701,7 +696,6 @@ bool run_single_head(
             } else if (ctx.val_scale_compute_done && ctx.val_scale_started) {
                 ctx.phase = HeadPhase::ATT_SOFTMAX;
                 ctx.val_scale_started = false;
-                ctx.val_scale_compute_done = false;
             }
             break;
         case HeadPhase::ATT_SOFTMAX:
@@ -712,7 +706,6 @@ bool run_single_head(
             } else if (ctx.softmax_compute_done && ctx.softmax_started) {
                 ctx.phase = HeadPhase::ATT_VALUE;
                 ctx.softmax_started = false;
-                ctx.softmax_compute_done = false;
             }
             break;
         case HeadPhase::ATT_VALUE:
@@ -723,7 +716,6 @@ bool run_single_head(
             } else if (ctx.att_value_compute_done && ctx.att_value_started) {
                 ctx.phase = HeadPhase::REQUANT2;
                 ctx.att_value_started = false;
-                ctx.att_value_compute_done = false;
             }
             break;
         case HeadPhase::REQUANT2:
@@ -748,7 +740,7 @@ __attribute__((sdx_kernel("drive_group_head_phase", 0))) bool drive_group_head_p
 ){
 #line 1 "directive"
 #pragma HLSDIRECTIVE TOP name=drive_group_head_phase
-# 204 "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp"
+# 196 "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp"
 
 
 
@@ -762,7 +754,7 @@ __attribute__((sdx_kernel("drive_group_head_phase", 0))) bool drive_group_head_p
 #pragma HLS ARRAY_PARTITION variable=head_ctx_ref complete dim=1
 
  const int head_group_base = group_idx * HEADS_PARALLEL;
-    VITIS_LOOP_217_1: for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
+    VITIS_LOOP_209_1: for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
 #pragma HLS UNROLL
  const int head_idx = head_group_base + lane;
         if (head_idx >= NUM_HEADS)

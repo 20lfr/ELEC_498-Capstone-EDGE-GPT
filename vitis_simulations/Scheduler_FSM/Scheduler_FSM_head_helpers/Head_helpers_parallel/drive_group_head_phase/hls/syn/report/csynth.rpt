@@ -4,7 +4,7 @@
 == Synthesis Summary Report of 'drive_group_head_phase'
 ================================================================
 + General Information: 
-    * Date:           Thu Nov 27 15:54:17 2025
+    * Date:           Thu Nov 27 18:02:43 2025
     * Version:        2025.1 (Build 6135595 on May 21 2025)
     * Project:        drive_group_head_phase
     * Solution:       hls (Vivado IP Flow Target)
@@ -89,36 +89,36 @@
 | Name                          | DSP | Pragma | Variable         | Op        | Impl                   | Latency |
 +-------------------------------+-----+--------+------------------+-----------+------------------------+---------+
 | + drive_group_head_phase      | 0   |        |                  |           |                        |         |
-|   icmp_ln220_fu_253_p2        |     |        | icmp_ln220       | setgt     | auto                   | 0       |
-|   icmp_ln225_fu_269_p2        |     |        | icmp_ln225       | seteq     | auto                   | 0       |
-|   icmp_ln226_fu_275_p2        |     |        | icmp_ln226       | seteq     | auto                   | 0       |
-|   and_ln226_fu_281_p2         |     |        | and_ln226        | and       | auto                   | 0       |
-|   icmp_ln226_1_fu_287_p2      |     |        | icmp_ln226_1     | seteq     | auto                   | 0       |
-|   icmp_ln225_1_fu_303_p2      |     |        | icmp_ln225_1     | seteq     | auto                   | 0       |
-|   icmp_ln226_2_fu_309_p2      |     |        | icmp_ln226_2     | seteq     | auto                   | 0       |
-|   and_ln226_1_fu_315_p2       |     |        | and_ln226_1      | and       | auto                   | 0       |
-|   icmp_ln226_3_fu_320_p2      |     |        | icmp_ln226_3     | seteq     | auto                   | 0       |
+|   icmp_ln212_fu_253_p2        |     |        | icmp_ln212       | setgt     | auto                   | 0       |
+|   icmp_ln217_fu_269_p2        |     |        | icmp_ln217       | seteq     | auto                   | 0       |
+|   icmp_ln218_fu_275_p2        |     |        | icmp_ln218       | seteq     | auto                   | 0       |
+|   and_ln218_fu_281_p2         |     |        | and_ln218        | and       | auto                   | 0       |
+|   icmp_ln218_1_fu_287_p2      |     |        | icmp_ln218_1     | seteq     | auto                   | 0       |
+|   icmp_ln217_1_fu_303_p2      |     |        | icmp_ln217_1     | seteq     | auto                   | 0       |
+|   icmp_ln218_2_fu_309_p2      |     |        | icmp_ln218_2     | seteq     | auto                   | 0       |
+|   and_ln218_1_fu_315_p2       |     |        | and_ln218_1      | and       | auto                   | 0       |
+|   icmp_ln218_3_fu_320_p2      |     |        | icmp_ln218_3     | seteq     | auto                   | 0       |
 |   group_finished_1_fu_361_p2  |     |        | group_finished_1 | and       | auto                   | 0       |
 |  + run_single_head            | 0   |        |                  |           |                        |         |
-|    icmp_ln50_fu_467_p2        |     |        | icmp_ln50        | setne     | auto                   | 0       |
-|    select_ln50_fu_477_p3      |     |        | select_ln50      | select    | auto_sel               | 0       |
-|    select_ln56_fu_525_p3      |     |        | select_ln56      | select    | auto_sel               | 0       |
-|    select_ln57_fu_565_p3      |     |        | select_ln57      | select    | auto_sel               | 0       |
-|    select_ln58_fu_605_p3      |     |        | select_ln58      | select    | auto_sel               | 0       |
-|    select_ln59_fu_645_p3      |     |        | select_ln59      | select    | auto_sel               | 0       |
-|    select_ln60_fu_685_p3      |     |        | select_ln60      | select    | auto_sel               | 0       |
-|    select_ln61_fu_723_p3      |     |        | select_ln61      | select    | auto_sel               | 0       |
-|    or_ln62_fu_731_p2          |     |        | or_ln62          | or        | auto                   | 0       |
-|    or_ln62_1_fu_737_p2        |     |        | or_ln62_1        | or        | auto                   | 0       |
-|    or_ln62_2_fu_743_p2        |     |        | or_ln62_2        | or        | auto                   | 0       |
-|    or_ln62_3_fu_749_p2        |     |        | or_ln62_3        | or        | auto                   | 0       |
-|    or_ln62_5_fu_755_p2        |     |        | or_ln62_5        | or        | auto                   | 0       |
-|    head_ctx_ref_0_1_fu_809_p6 |     |        | select_ln62      | select    | auto_sel               | 0       |
-|    and_ln62_fu_789_p2         |     |        | and_ln62         | and       | auto                   | 0       |
-|    xor_ln55_fu_795_p2         |     |        | xor_ln55         | xor       | auto                   | 0       |
+|    icmp_ln50_fu_523_p2        |     |        | icmp_ln50        | setne     | auto                   | 0       |
+|    select_ln50_fu_533_p3      |     |        | select_ln50      | select    | auto_sel               | 0       |
+|    select_ln56_fu_581_p3      |     |        | select_ln56      | select    | auto_sel               | 0       |
+|    select_ln57_fu_621_p3      |     |        | select_ln57      | select    | auto_sel               | 0       |
+|    select_ln58_fu_661_p3      |     |        | select_ln58      | select    | auto_sel               | 0       |
+|    select_ln59_fu_701_p3      |     |        | select_ln59      | select    | auto_sel               | 0       |
+|    select_ln60_fu_741_p3      |     |        | select_ln60      | select    | auto_sel               | 0       |
+|    select_ln61_fu_779_p3      |     |        | select_ln61      | select    | auto_sel               | 0       |
+|    or_ln62_fu_787_p2          |     |        | or_ln62          | or        | auto                   | 0       |
+|    or_ln62_1_fu_793_p2        |     |        | or_ln62_1        | or        | auto                   | 0       |
+|    or_ln62_2_fu_799_p2        |     |        | or_ln62_2        | or        | auto                   | 0       |
+|    or_ln62_3_fu_805_p2        |     |        | or_ln62_3        | or        | auto                   | 0       |
+|    or_ln62_5_fu_811_p2        |     |        | or_ln62_5        | or        | auto                   | 0       |
+|    head_ctx_ref_0_1_fu_865_p6 |     |        | select_ln62      | select    | auto_sel               | 0       |
+|    and_ln62_fu_845_p2         |     |        | and_ln62         | and       | auto                   | 0       |
+|    xor_ln55_fu_851_p2         |     |        | xor_ln55         | xor       | auto                   | 0       |
 |    sparsemux_7_2_66_1_1_U1    |     |        | head_ctx_ref_0_1 | sparsemux | onehotencoding_realdef | 0       |
 |    sparsemux_7_2_66_1_1_U2    |     |        | tmp              | sparsemux | onehotencoding_realdef | 0       |
-|    icmp_ln194_fu_1814_p2      |     |        | icmp_ln194       | seteq     | auto                   | 0       |
+|    icmp_ln186_fu_1666_p2      |     |        | icmp_ln186       | seteq     | auto                   | 0       |
 +-------------------------------+-----+--------+------------------+-----------+------------------------+---------+
 
 
@@ -135,8 +135,8 @@
 | Type            | Options                              | Location                                                                                                                                  |
 +-----------------+--------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
 | INLINE          | off                                  | ../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:45 in run_single_head                       |
-| ARRAY_PARTITION | variable=head_ctx_ref complete dim=1 | ../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:214 in drive_group_head_phase, head_ctx_ref |
-| UNROLL          |                                      | ../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:218 in drive_group_head_phase               |
+| ARRAY_PARTITION | variable=head_ctx_ref complete dim=1 | ../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:206 in drive_group_head_phase, head_ctx_ref |
+| UNROLL          |                                      | ../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:210 in drive_group_head_phase               |
 +-----------------+--------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
 
 

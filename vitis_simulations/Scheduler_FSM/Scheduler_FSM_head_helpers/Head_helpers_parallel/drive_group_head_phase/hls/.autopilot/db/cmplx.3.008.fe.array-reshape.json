@@ -5,7 +5,7 @@
     "control_depth": 0,
     "def_use_depth": 5,
     "file": "simple_head_helpers.cpp",
-    "fileloc": 199,
+    "fileloc": 191,
     "instructions": 58,
     "loads": {
       "T": 2
@@ -15,7 +15,7 @@
     "stores": {
       "T": 2
     },
-    "total_instructions": 2438
+    "total_instructions": 2382
   },
   "1": {
     "basicblocks": 70,
@@ -24,7 +24,7 @@
     "def_use_depth": 21,
     "file": "simple_head_helpers.cpp",
     "fileloc": 39,
-    "instructions": 518,
+    "instructions": 504,
     "loads": {
       "L": 1
     },
@@ -33,6 +33,6 @@
     "stores": {
       "L": 30
     },
-    "total_instructions": 594
+    "total_instructions": 580
   }
 }
