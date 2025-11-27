@@ -8,29 +8,40 @@ if {${::AESL::PGuard_autoexp_gen}} {
 }
 
 set axilite_register_dict [dict create]
-# XIL_BRAM:
+# Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
-if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
-eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 5 \
-    name head_ctx_ref \
+eval "cg_default_interface_gen_dc { \
+    id 7 \
+    name head_ctx_ref_0 \
+    type other \
+    dir IO \
     reset_level 1 \
     sync_rst true \
-    dir IO \
-    corename head_ctx_ref \
+    corename dc_head_ctx_ref_0 \
     op interface \
-    ports { head_ctx_ref_address0 { O 2 vector } head_ctx_ref_ce0 { O 1 bit } head_ctx_ref_we0 { O 1 bit } head_ctx_ref_d0 { O 66 vector } head_ctx_ref_q0 { I 66 vector } } \
+    ports { head_ctx_ref_0_i { I 66 vector } head_ctx_ref_0_o { O 66 vector } head_ctx_ref_0_o_ap_vld { O 1 bit } } \
 } "
-} else {
-puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'head_ctx_ref'"
 }
-}
-
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 6 \
+    id 8 \
+    name head_ctx_ref_1 \
+    type other \
+    dir IO \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_head_ctx_ref_1 \
+    op interface \
+    ports { head_ctx_ref_1_i { I 66 vector } head_ctx_ref_1_o { O 66 vector } head_ctx_ref_1_o_ap_vld { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 9 \
     name group_idx \
     type other \
     dir I \
@@ -45,7 +56,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 7 \
+    id 10 \
     name layer_idx \
     type other \
     dir I \
@@ -60,7 +71,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 8 \
+    id 11 \
     name start_r \
     type other \
     dir I \

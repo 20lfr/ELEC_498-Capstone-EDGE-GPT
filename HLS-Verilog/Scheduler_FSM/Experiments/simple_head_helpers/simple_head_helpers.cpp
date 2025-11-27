@@ -210,6 +210,9 @@ bool drive_group_head_phase(
     // This is the the return conditional later to make vitis Synthesize into RTL easier
     bool group_finished = true; // assume finished unless any head is still active
 
+    // Give each head its own storage bank to avoid port conflicts when unrolled
+#pragma HLS ARRAY_PARTITION variable=head_ctx_ref complete dim=1
+
     const int head_group_base = group_idx * HEADS_PARALLEL;
     for (int lane = 0; lane < HEADS_PARALLEL; ++lane) { // service only the active group
 #pragma HLS UNROLL

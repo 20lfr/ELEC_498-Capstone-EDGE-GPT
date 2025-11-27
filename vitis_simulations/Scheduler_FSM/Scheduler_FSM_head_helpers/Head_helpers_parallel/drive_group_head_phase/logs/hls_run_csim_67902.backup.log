@@ -1,0 +1,71 @@
+WARNING: [vitis-run 60-2507] Dispatch failed to load the system diagram library librdi_system_diagram. Diagrams will not be produced.
+  **** HLS Build v2025.1 6135595
+INFO: [HLS 200-2005] Using work_dir /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_helpers_parallel/drive_group_head_phase 
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_helpers_parallel/drive_group_head_phase/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component '/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_helpers_parallel/drive_group_head_phase'.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-2174] Applying component config ini file /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_helpers_parallel/hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.hpp' from /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_helpers_parallel/hls_config.cfg(8)
+INFO: [HLS 200-10] Adding design file '/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.hpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp' from /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_helpers_parallel/hls_config.cfg(9)
+INFO: [HLS 200-10] Adding design file '/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/drive_head_phase_tb.cpp' from /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_helpers_parallel/hls_config.cfg(10)
+INFO: [HLS 200-10] Adding test bench file '/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/drive_head_phase_tb.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=drive_group_head_phase' from /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_helpers_parallel/hls_config.cfg(7)
+INFO: [HLS 200-1465] Applying config ini 'flow_target=vivado' from /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_helpers_parallel/hls_config.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying config ini 'part=xck26-sfvc784-2LV-c' from /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_helpers_parallel/hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xck26-sfvc784-2LV-c'
+INFO: [HLS 200-1465] Applying config ini 'clock=10ns' from /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_helpers_parallel/hls_config.cfg(11)
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_helpers_parallel/hls_config.cfg(5)
+INFO: [HLS 200-2176] Writing Vitis IDE component file /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_helpers_parallel/drive_group_head_phase/vitis-comp.json
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+   Compiling ../../../../../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/drive_head_phase_tb.cpp in debug mode
+   Compiling ../../../../../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp in debug mode
+   Generating csim.exe
+cycle |h0_phase    |hstrt|rdy |done|start |op    |h1_phase    |hstrt|rdy |done|start |op    
+0     |Q           |1   |-   |-   |-     |-     |Q           |1   |-   |-   |-     |-     
+1     |Q           |-   |1   |-   |1     |Q     |Q           |-   |1   |-   |1     |Q     
+2     |Q           |-   |-   |-   |-     |-     |Q           |-   |-   |-   |-     |-     
+3     |Q           |-   |-   |-   |-     |-     |Q           |-   |-   |-   |-     |-     
+4     |K           |-   |-   |1   |-     |-     |K           |-   |-   |1   |-     |-     
+5     |K           |-   |1   |-   |1     |K     |K           |-   |1   |-   |1     |K     
+6     |K           |-   |-   |-   |-     |-     |K           |-   |-   |-   |-     |-     
+7     |K           |-   |-   |-   |-     |-     |K           |-   |-   |-   |-     |-     
+8     |K_RQ        |-   |-   |1   |-     |-     |K_RQ        |-   |-   |1   |-     |-     
+9     |K_WB        |-   |1   |-   |-     |-     |K_WB        |-   |1   |-   |-     |-     
+10    |V           |-   |1   |-   |-     |-     |V           |-   |1   |-   |-     |-     
+11    |V           |-   |1   |-   |1     |V     |V           |-   |1   |-   |1     |V     
+12    |V           |-   |-   |-   |-     |-     |V           |-   |-   |-   |-     |-     
+13    |V           |-   |-   |-   |-     |-     |V           |-   |-   |-   |-     |-     
+14    |V_RQ        |-   |-   |1   |-     |-     |V_RQ        |-   |-   |1   |-     |-     
+15    |V_WB        |-   |1   |-   |-     |-     |V_WB        |-   |1   |-   |-     |-     
+16    |RQ_Q        |-   |1   |-   |-     |-     |RQ_Q        |-   |1   |-   |-     |-     
+17    |ATT_SCO     |-   |1   |-   |-     |-     |ATT_SCO     |-   |1   |-   |-     |-     
+18    |ATT_SCO     |-   |1   |-   |1     |SCO   |ATT_SCO     |-   |1   |-   |1     |SCO   
+19    |ATT_SCO     |-   |-   |-   |-     |-     |ATT_SCO     |-   |-   |-   |-     |-     
+20    |ATT_SCO     |-   |-   |-   |-     |-     |ATT_SCO     |-   |-   |-   |-     |-     
+21    |VAL_SCL     |-   |-   |1   |-     |-     |VAL_SCL     |-   |-   |1   |-     |-     
+22    |VAL_SCL     |-   |1   |-   |1     |SCL   |VAL_SCL     |-   |1   |-   |1     |SCL   
+23    |VAL_SCL     |-   |-   |-   |-     |-     |VAL_SCL     |-   |-   |-   |-     |-     
+24    |VAL_SCL     |-   |-   |-   |-     |-     |VAL_SCL     |-   |-   |-   |-     |-     
+25    |SOFT        |-   |-   |1   |-     |-     |SOFT        |-   |-   |1   |-     |-     
+26    |SOFT        |-   |1   |-   |1     |SFM   |SOFT        |-   |1   |-   |1     |SFM   
+27    |SOFT        |-   |-   |-   |-     |-     |SOFT        |-   |-   |-   |-     |-     
+28    |SOFT        |-   |-   |-   |-     |-     |SOFT        |-   |-   |-   |-     |-     
+29    |ATT_VAL     |-   |-   |1   |-     |-     |ATT_VAL     |-   |-   |1   |-     |-     
+30    |ATT_VAL     |-   |1   |-   |1     |VAL   |ATT_VAL     |-   |1   |-   |1     |VAL   
+31    |ATT_VAL     |-   |-   |-   |-     |-     |ATT_VAL     |-   |-   |-   |-     |-     
+32    |ATT_VAL     |-   |-   |-   |-     |-     |ATT_VAL     |-   |-   |-   |-     |-     
+33    |RQ2         |-   |-   |1   |-     |-     |RQ2         |-   |-   |1   |-     |-     
+34    |DONE        |-   |1   |-   |-     |-     |DONE        |-   |1   |-   |-     |-     
+drive_head_phase test complete.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-112] Total CPU user time: 2.8 seconds. Total CPU system time: 0.79 seconds. Total elapsed time: 3.55 seconds; peak allocated memory: 445.160 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 0m 7s

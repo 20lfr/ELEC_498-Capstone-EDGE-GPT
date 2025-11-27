@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'drive_group_head_phase'" level="0">
-<item name = "Date">Thu Nov 27 14:52:30 2025
+<item name = "Date">Thu Nov 27 15:54:17 2025
 </item>
 <item name = "Version">2025.1 (Build 6135595 on May 21 2025)</item>
 <item name = "Project">drive_group_head_phase</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 6.187 ns, 2.70 ns</column>
+<column name="ap_clk">10.00 ns, 7.042 ns, 2.70 ns</column>
 </table>
 </item>
 </section>
@@ -24,14 +24,14 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">2, 7, 20.000 ns, 70.000 ns, 3, 8, no</column>
+<column name="">2, 4, 20.000 ns, 40.000 ns, 3, 5, no</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_run_single_head_fu_110">run_single_head, 3, 4, 30.000 ns, 40.000 ns, 3, 4, no</column>
+<column name="grp_run_single_head_fu_226">run_single_head, 0, 0, 0 ns, 0 ns, 0, 0, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -48,21 +48,21 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 79, -</column>
+<column name="Expression">-, -, 0, 186, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">-, -, 177, 5526, -</column>
+<column name="Instance">-, -, 0, 803, -</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, 0, 90, -</column>
-<column name="Register">-, -, 47, -, -</column>
+<column name="Multiplexer">-, -, 0, 262, -</column>
+<column name="Register">-, -, 482, -, -</column>
 <specialColumn name="Available">288, 1248, 234240, 117120, 64</specialColumn>
-<specialColumn name="Utilization (%)">0, 0, ~0, 4, 0</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, ~0, 1, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="grp_run_single_head_fu_110">run_single_head, 0, 0, 177, 5526, 0</column>
+<column name="grp_run_single_head_fu_226">run_single_head, 0, 0, 0, 803, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
@@ -79,40 +79,71 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="and_ln223_fu_173_p2">and, 0, 0, 2, 1, 1</column>
-<column name="ap_block_state4_on_subcall_done">and, 0, 0, 2, 1, 1</column>
-<column name="ap_condition_101">and, 0, 0, 2, 1, 1</column>
-<column name="ap_predicate_op38_call_state4">and, 0, 0, 2, 1, 1</column>
-<column name="icmp_ln217_fu_129_p2">icmp, 0, 0, 37, 30, 1</column>
-<column name="icmp_ln222_fu_161_p2">icmp, 0, 0, 15, 8, 4</column>
-<column name="icmp_ln223_fu_167_p2">icmp, 0, 0, 15, 8, 1</column>
-<column name="ap_condition_97">or, 0, 0, 2, 1, 1</column>
-<column name="head_ctx_ref_we0">or, 0, 0, 2, 1, 1</column>
+<column name="and_ln226_1_fu_315_p2">and, 0, 0, 2, 1, 1</column>
+<column name="and_ln226_fu_281_p2">and, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_159">and, 0, 0, 2, 1, 1</column>
+<column name="ap_condition_302">and, 0, 0, 2, 1, 1</column>
+<column name="group_finished_1_fu_361_p2">and, 0, 0, 2, 1, 1</column>
+<column name="icmp_ln220_fu_253_p2">icmp, 0, 0, 38, 31, 1</column>
+<column name="icmp_ln225_1_fu_303_p2">icmp, 0, 0, 15, 8, 4</column>
+<column name="icmp_ln225_fu_269_p2">icmp, 0, 0, 15, 8, 4</column>
+<column name="icmp_ln226_1_fu_287_p2">icmp, 0, 0, 39, 32, 1</column>
+<column name="icmp_ln226_2_fu_309_p2">icmp, 0, 0, 15, 8, 1</column>
+<column name="icmp_ln226_3_fu_320_p2">icmp, 0, 0, 39, 32, 1</column>
+<column name="icmp_ln226_fu_275_p2">icmp, 0, 0, 15, 8, 1</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_NS_fsm">26, 5, 1, 5</column>
-<column name="ap_phi_mux_empty_phi_fu_102_p4">14, 3, 1, 3</column>
-<column name="head_ctx_ref_address0">9, 2, 2, 4</column>
-<column name="head_ctx_ref_address0_local">14, 3, 2, 6</column>
-<column name="head_ctx_ref_ce0">9, 2, 1, 2</column>
-<column name="head_ctx_ref_d0">9, 2, 66, 132</column>
-<column name="head_ctx_ref_we0">9, 2, 1, 2</column>
+<column name="ap_NS_fsm">43, 8, 1, 8</column>
+<column name="ap_phi_mux_group_finished_2_phi_fu_216_p6">9, 2, 1, 2</column>
+<column name="ap_phi_mux_group_finished_phi_fu_141_p8">14, 3, 1, 3</column>
+<column name="ap_phi_mux_head_ctx_ref_0_flag_0_phi_fu_108_p8">9, 2, 1, 2</column>
+<column name="ap_phi_mux_head_ctx_ref_0_flag_1_phi_fu_157_p4">14, 3, 1, 3</column>
+<column name="ap_phi_mux_head_ctx_ref_0_flag_2_phi_fu_187_p6">9, 2, 1, 2</column>
+<column name="ap_phi_mux_head_ctx_ref_0_loc_0_phi_fu_126_p8">14, 3, 66, 198</column>
+<column name="ap_phi_mux_head_ctx_ref_0_new_1_phi_fu_168_p4">14, 3, 66, 198</column>
+<column name="ap_phi_mux_head_ctx_ref_0_new_2_phi_fu_201_p6">9, 2, 66, 132</column>
+<column name="ap_phi_mux_head_done_phi_fu_178_p4">14, 3, 1, 3</column>
+<column name="group_finished_2_reg_213">9, 2, 1, 2</column>
+<column name="group_finished_reg_137">14, 3, 1, 3</column>
+<column name="grp_run_single_head_fu_226_p_read">26, 5, 66, 330</column>
+<column name="grp_run_single_head_fu_226_start_r">14, 3, 1, 3</column>
+<column name="head_ctx_ref_0_flag_2_reg_184">9, 2, 1, 2</column>
+<column name="head_ctx_ref_0_loc_0_reg_123">14, 3, 66, 198</column>
+<column name="head_ctx_ref_0_new_2_reg_198">9, 2, 66, 132</column>
+<column name="head_ctx_ref_0_o">9, 2, 66, 132</column>
+<column name="head_ctx_ref_1_o">9, 2, 66, 132</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="and_ln223_reg_236">1, 0, 1, 0</column>
-<column name="ap_CS_fsm">4, 0, 4, 0</column>
-<column name="grp_run_single_head_fu_110_ap_start_reg">1, 0, 1, 0</column>
-<column name="head_ctx_ref_addr_reg_222">2, 0, 2, 0</column>
-<column name="icmp_ln217_reg_213">1, 0, 1, 0</column>
-<column name="icmp_ln222_reg_232">1, 0, 1, 0</column>
-<column name="layer_idx_read_reg_208">32, 0, 32, 0</column>
-<column name="shl_ln_reg_227">2, 0, 6, 4</column>
-<column name="start_r_read_reg_203">1, 0, 1, 0</column>
-<column name="trunc_ln220_reg_217">2, 0, 2, 0</column>
+<column name="and_ln226_1_reg_427">1, 0, 1, 0</column>
+<column name="and_ln226_reg_408">1, 0, 1, 0</column>
+<column name="ap_CS_fsm">7, 0, 7, 0</column>
+<column name="group_finished_2_reg_213">1, 0, 1, 0</column>
+<column name="group_finished_reg_137">1, 0, 1, 0</column>
+<column name="group_idx_read_reg_386">32, 0, 32, 0</column>
+<column name="head_ctx_ref_0_flag_0_reg_104">1, 0, 1, 0</column>
+<column name="head_ctx_ref_0_flag_2_reg_184">1, 0, 1, 0</column>
+<column name="head_ctx_ref_0_loc_0_reg_123">66, 0, 66, 0</column>
+<column name="head_ctx_ref_0_new_2_reg_198">66, 0, 66, 0</column>
+<column name="head_ctx_ref_0_read_reg_395">66, 0, 66, 0</column>
+<column name="head_ctx_ref_0_ret4_reg_452">66, 0, 66, 0</column>
+<column name="icmp_ln220_reg_391">1, 0, 1, 0</column>
+<column name="icmp_ln225_1_reg_423">1, 0, 1, 0</column>
+<column name="icmp_ln225_reg_404">1, 0, 1, 0</column>
+<column name="icmp_ln226_1_reg_414">1, 0, 1, 0</column>
+<column name="icmp_ln226_3_reg_433">1, 0, 1, 0</column>
+<column name="layer_idx_read_reg_381">32, 0, 32, 0</column>
+<column name="reg_243">66, 0, 66, 0</column>
+<column name="start_r_read_reg_376">1, 0, 1, 0</column>
+<column name="tmp_1_reg_447">1, 0, 1, 0</column>
+<column name="tmp_2_reg_418">1, 0, 1, 0</column>
+<column name="tmp_4_reg_462">1, 0, 1, 0</column>
+<column name="tmp_5_reg_457">1, 0, 1, 0</column>
+<column name="tmp_77_reg_437">14, 0, 14, 0</column>
+<column name="trunc_ln226_1_reg_442">51, 0, 51, 0</column>
 </table>
 </item>
 </section>
@@ -129,11 +160,12 @@
 <column name="ap_idle">out, 1, ap_ctrl_hs, drive_group_head_phase, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, drive_group_head_phase, return value</column>
 <column name="ap_return">out, 1, ap_ctrl_hs, drive_group_head_phase, return value</column>
-<column name="head_ctx_ref_address0">out, 2, ap_memory, head_ctx_ref, array</column>
-<column name="head_ctx_ref_ce0">out, 1, ap_memory, head_ctx_ref, array</column>
-<column name="head_ctx_ref_we0">out, 1, ap_memory, head_ctx_ref, array</column>
-<column name="head_ctx_ref_d0">out, 66, ap_memory, head_ctx_ref, array</column>
-<column name="head_ctx_ref_q0">in, 66, ap_memory, head_ctx_ref, array</column>
+<column name="head_ctx_ref_0_i">in, 66, ap_ovld, head_ctx_ref_0, pointer</column>
+<column name="head_ctx_ref_0_o">out, 66, ap_ovld, head_ctx_ref_0, pointer</column>
+<column name="head_ctx_ref_0_o_ap_vld">out, 1, ap_ovld, head_ctx_ref_0, pointer</column>
+<column name="head_ctx_ref_1_i">in, 66, ap_ovld, head_ctx_ref_1, pointer</column>
+<column name="head_ctx_ref_1_o">out, 66, ap_ovld, head_ctx_ref_1, pointer</column>
+<column name="head_ctx_ref_1_o_ap_vld">out, 1, ap_ovld, head_ctx_ref_1, pointer</column>
 <column name="group_idx">in, 32, ap_none, group_idx, scalar</column>
 <column name="layer_idx">in, 32, ap_none, layer_idx, scalar</column>
 <column name="start_r">in, 1, ap_none, start_r, scalar</column>

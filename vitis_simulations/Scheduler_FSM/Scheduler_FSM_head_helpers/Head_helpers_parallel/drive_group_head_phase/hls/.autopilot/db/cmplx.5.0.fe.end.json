@@ -3,36 +3,24 @@
         "name": "drive_group_head_phase",
         "file": "simple_head_helpers.cpp",
         "fileloc": "199",
-        "instructions": "36",
-        "total_instructions": "316",
-        "calls": "1",
-        "basicblocks": "6",
+        "instructions": "73",
+        "total_instructions": "977",
+        "calls": "1 1 1 1",
+        "basicblocks": "14",
         "memory_accesses": "0",
         "control_depth": "0",
-        "def_use_depth": "4",
-        "loads": {
-            "T": "1"
-        },
-        "stores": {
-            "T": "1"
-        }
+        "def_use_depth": "4"
     },
     "1": {
         "name": "run_single_head",
-        "file": "simple_head_helpers.cpp",
-        "fileloc": "39",
-        "instructions": "280",
-        "total_instructions": "280",
+        "file": "\/home\/luka\/Scripting\/ELEC_498-Capstone-LiteLM\/HLS-Verilog\/Scheduler_FSM\/Experiments\/simple_head_helpers\/simple_head_helpers.cpp",
+        "fileloc": "41",
+        "instructions": "226",
+        "total_instructions": "226",
         "calls": "",
-        "basicblocks": "57",
+        "basicblocks": "52",
         "memory_accesses": "0",
         "control_depth": "0",
-        "def_use_depth": "19",
-        "loads": {
-            "T": "1"
-        },
-        "stores": {
-            "T": "24"
-        }
+        "def_use_depth": "27"
     }
 }

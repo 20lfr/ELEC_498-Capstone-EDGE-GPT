@@ -15,18 +15,18 @@
         <PipelineType>no</PipelineType>
         <SummaryOfTimingAnalysis>
             <unit>ns</unit>
-            <EstimatedClockPeriod>6.187</EstimatedClockPeriod>
+            <EstimatedClockPeriod>7.042</EstimatedClockPeriod>
         </SummaryOfTimingAnalysis>
         <SummaryOfOverallLatency>
             <unit>clock cycles</unit>
             <Best-caseLatency>2</Best-caseLatency>
-            <Average-caseLatency>6</Average-caseLatency>
-            <Worst-caseLatency>7</Worst-caseLatency>
+            <Average-caseLatency>3</Average-caseLatency>
+            <Worst-caseLatency>4</Worst-caseLatency>
             <Best-caseRealTimeLatency>20.000 ns</Best-caseRealTimeLatency>
-            <Average-caseRealTimeLatency>60.000 ns</Average-caseRealTimeLatency>
-            <Worst-caseRealTimeLatency>70.000 ns</Worst-caseRealTimeLatency>
+            <Average-caseRealTimeLatency>30.000 ns</Average-caseRealTimeLatency>
+            <Worst-caseRealTimeLatency>40.000 ns</Worst-caseRealTimeLatency>
             <Interval-min>3</Interval-min>
-            <Interval-max>8</Interval-max>
+            <Interval-max>5</Interval-max>
             <PerformancePragma>-</PerformancePragma>
         </SummaryOfOverallLatency>
         <SummaryOfViolations>
@@ -37,8 +37,8 @@
     </PerformanceEstimates>
     <AreaEstimates>
         <Resources>
-            <FF>224</FF>
-            <LUT>5695</LUT>
+            <FF>482</FF>
+            <LUT>1251</LUT>
             <BRAM_18K>0</BRAM_18K>
             <DSP>0</DSP>
             <URAM>0</URAM>
@@ -130,63 +130,75 @@
             <Attribute>data</Attribute>
         </RtlPorts>
         <RtlPorts>
-            <name>head_ctx_ref_address0</name>
-            <Object>head_ctx_ref</Object>
-            <Type>array</Type>
+            <name>head_ctx_ref_0_i</name>
+            <Object>head_ctx_ref_0</Object>
+            <Type>pointer</Type>
             <Scope/>
-            <IOProtocol>ap_memory</IOProtocol>
-            <IOConfig/>
-            <Dir>out</Dir>
-            <Bits>2</Bits>
-            <Attribute>address</Attribute>
-            <CType>int</CType>
-        </RtlPorts>
-        <RtlPorts>
-            <name>head_ctx_ref_ce0</name>
-            <Object>head_ctx_ref</Object>
-            <Type>array</Type>
-            <Scope/>
-            <IOProtocol>ap_memory</IOProtocol>
-            <IOConfig/>
-            <Dir>out</Dir>
-            <Bits>1</Bits>
-            <Attribute>control</Attribute>
-            <CType>int</CType>
-        </RtlPorts>
-        <RtlPorts>
-            <name>head_ctx_ref_we0</name>
-            <Object>head_ctx_ref</Object>
-            <Type>array</Type>
-            <Scope/>
-            <IOProtocol>ap_memory</IOProtocol>
-            <IOConfig/>
-            <Dir>out</Dir>
-            <Bits>1</Bits>
-            <Attribute>control</Attribute>
-            <CType>int</CType>
-        </RtlPorts>
-        <RtlPorts>
-            <name>head_ctx_ref_d0</name>
-            <Object>head_ctx_ref</Object>
-            <Type>array</Type>
-            <Scope/>
-            <IOProtocol>ap_memory</IOProtocol>
-            <IOConfig/>
-            <Dir>out</Dir>
-            <Bits>66</Bits>
-            <Attribute>data</Attribute>
-            <CType>int</CType>
-        </RtlPorts>
-        <RtlPorts>
-            <name>head_ctx_ref_q0</name>
-            <Object>head_ctx_ref</Object>
-            <Type>array</Type>
-            <Scope/>
-            <IOProtocol>ap_memory</IOProtocol>
+            <IOProtocol>ap_ovld</IOProtocol>
             <IOConfig/>
             <Dir>in</Dir>
             <Bits>66</Bits>
             <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>head_ctx_ref_0_o</name>
+            <Object>head_ctx_ref_0</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_ovld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>66</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>head_ctx_ref_0_o_ap_vld</name>
+            <Object>head_ctx_ref_0</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_ovld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>head_ctx_ref_1_i</name>
+            <Object>head_ctx_ref_1</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_ovld</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>66</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>head_ctx_ref_1_o</name>
+            <Object>head_ctx_ref_1</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_ovld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>66</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>head_ctx_ref_1_o_ap_vld</name>
+            <Object>head_ctx_ref_1</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_ovld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
@@ -231,14 +243,14 @@
             <ModuleName>drive_group_head_phase</ModuleName>
             <InstancesList>
                 <Instance>
-                    <InstName>grp_run_single_head_fu_110</InstName>
+                    <InstName>grp_run_single_head_fu_226</InstName>
                     <ModuleName>run_single_head</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>110</ID>
-                    <BindInstances>lshr_ln47_fu_428_p2 icmp_ln50_fu_462_p2 select_ln50_fu_472_p3 shl_ln50_fu_480_p2 select_ln56_fu_527_p3 select_ln57_fu_567_p3 select_ln58_fu_607_p3 select_ln59_fu_647_p3 select_ln60_fu_687_p3 select_ln61_fu_725_p3 or_ln62_fu_733_p2 or_ln62_1_fu_739_p2 or_ln62_2_fu_745_p2 or_ln62_3_fu_751_p2 or_ln62_5_fu_757_p2 shl_ln62_fu_763_p2 shl_ln62_1_fu_787_p2 shl_ln186_fu_1017_p2 shl_ln178_fu_1061_p2 shl_ln182_fu_1109_p2 shl_ln167_fu_1153_p2 shl_ln171_fu_1209_p2 shl_ln156_fu_1253_p2 shl_ln160_fu_1311_p2 shl_ln145_fu_1355_p2 shl_ln149_fu_1413_p2 shl_ln139_fu_1433_p2 shl_ln136_fu_1453_p2 shl_ln133_fu_1473_p2 shl_ln124_fu_1517_p2 shl_ln129_fu_1575_p2 shl_ln118_fu_1595_p2 shl_ln115_fu_1615_p2 shl_ln106_fu_1659_p2 shl_ln111_fu_1717_p2 shl_ln94_fu_1759_p2 shl_ln99_fu_1817_p2 shl_ln87_fu_1851_p2 icmp_ln194_fu_1857_p2</BindInstances>
+                    <ID>226</ID>
+                    <BindInstances>icmp_ln50_fu_467_p2 select_ln50_fu_477_p3 select_ln56_fu_525_p3 select_ln57_fu_565_p3 select_ln58_fu_605_p3 select_ln59_fu_645_p3 select_ln60_fu_685_p3 select_ln61_fu_723_p3 or_ln62_fu_731_p2 or_ln62_1_fu_737_p2 or_ln62_2_fu_743_p2 or_ln62_3_fu_749_p2 or_ln62_5_fu_755_p2 head_ctx_ref_0_1_fu_809_p6 and_ln62_fu_789_p2 xor_ln55_fu_795_p2 sparsemux_7_2_66_1_1_U1 sparsemux_7_2_66_1_1_U2 icmp_ln194_fu_1814_p2</BindInstances>
                 </Instance>
             </InstancesList>
-            <BindInstances>icmp_ln217_fu_129_p2 icmp_ln222_fu_161_p2 icmp_ln223_fu_167_p2 and_ln223_fu_173_p2</BindInstances>
+            <BindInstances>icmp_ln220_fu_253_p2 icmp_ln225_fu_269_p2 icmp_ln226_fu_275_p2 and_ln226_fu_281_p2 icmp_ln226_1_fu_287_p2 icmp_ln225_1_fu_303_p2 icmp_ln226_2_fu_309_p2 and_ln226_1_fu_315_p2 icmp_ln226_3_fu_320_p2 group_finished_1_fu_361_p2</BindInstances>
         </TopModule>
     </RTLDesignHierarchy>
     <ModuleInformation>
@@ -248,16 +260,16 @@
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>10.00</TargetClockPeriod>
                     <ClockUncertainty>2.70</ClockUncertainty>
-                    <EstimatedClockPeriod>6.187</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>7.042</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
-                    <Best-caseLatency>3</Best-caseLatency>
-                    <Average-caseLatency>4</Average-caseLatency>
-                    <Worst-caseLatency>4</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>30.000 ns</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>40.000 ns</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>40.000 ns</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>3 ~ 4</PipelineInitiationInterval>
+                    <Best-caseLatency>0</Best-caseLatency>
+                    <Average-caseLatency>0</Average-caseLatency>
+                    <Worst-caseLatency>0</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0 ns</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0 ns</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>0</PipelineInitiationInterval>
                     <PipelineType>no</PipelineType>
                     <PerformancePragma>-</PerformancePragma>
                 </SummaryOfOverallLatency>
@@ -269,12 +281,12 @@
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>177</FF>
+                    <FF>0</FF>
                     <AVAIL_FF>234240</AVAIL_FF>
-                    <UTIL_FF>~0</UTIL_FF>
-                    <LUT>5526</LUT>
+                    <UTIL_FF>0</UTIL_FF>
+                    <LUT>803</LUT>
                     <AVAIL_LUT>117120</AVAIL_LUT>
-                    <UTIL_LUT>4</UTIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
                     <AVAIL_BRAM>288</AVAIL_BRAM>
                     <UTIL_BRAM>0</UTIL_BRAM>
@@ -287,45 +299,25 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op lshr" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="lshr" PRAGMA="" RTLNAME="lshr_ln47_fu_428_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:47" STORAGESUBTYPE="" URAM="0" VARIABLE="lshr_ln47" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setne" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setne" PRAGMA="" RTLNAME="icmp_ln50_fu_462_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:50" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln50" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln50_fu_472_p3" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:50" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln50" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln50_fu_480_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:50" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln50" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln56_fu_527_p3" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:56" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln56" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln57_fu_567_p3" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:57" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln57" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln58_fu_607_p3" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:58" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln58" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln59_fu_647_p3" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:59" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln59" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln60_fu_687_p3" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:60" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln60" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln61_fu_725_p3" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:61" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln61" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln62_fu_733_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln62" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln62_1_fu_739_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln62_1" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln62_2_fu_745_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln62_2" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln62_3_fu_751_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln62_3" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln62_5_fu_757_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln62_5" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln62_fu_763_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln62" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln62_1_fu_787_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln62_1" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln186_fu_1017_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:186" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln186" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln178_fu_1061_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:178" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln178" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln182_fu_1109_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:182" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln182" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln167_fu_1153_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:167" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln167" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln171_fu_1209_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:171" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln171" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln156_fu_1253_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:156" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln156" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln160_fu_1311_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:160" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln160" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln145_fu_1355_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:145" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln145" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln149_fu_1413_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:149" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln149" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln139_fu_1433_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:139" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln139" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln136_fu_1453_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:136" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln136" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln133_fu_1473_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:133" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln133" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln124_fu_1517_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:124" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln124" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln129_fu_1575_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:129" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln129" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln118_fu_1595_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:118" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln118" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln115_fu_1615_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:115" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln115" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln106_fu_1659_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:106" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln106" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln111_fu_1717_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:111" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln111" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln94_fu_1759_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:94" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln94" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln99_fu_1817_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:99" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln99" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op shl" DSP="0" ID="" IMPL="auto_pipe" LATENCY="0" LOOP="" OPTYPE="shl" PRAGMA="" RTLNAME="shl_ln87_fu_1851_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:87" STORAGESUBTYPE="" URAM="0" VARIABLE="shl_ln87" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln194_fu_1857_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:194" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln194" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setne" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setne" PRAGMA="" RTLNAME="icmp_ln50_fu_467_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:50" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln50" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln50_fu_477_p3" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:50" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln50" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln56_fu_525_p3" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:56" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln56" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln57_fu_565_p3" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:57" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln57" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln58_fu_605_p3" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:58" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln58" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln59_fu_645_p3" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:59" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln59" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln60_fu_685_p3" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:60" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln60" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="select_ln61_fu_723_p3" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:61" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln61" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln62_fu_731_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln62" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln62_1_fu_737_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln62_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln62_2_fu_743_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln62_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln62_3_fu_749_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln62_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln62_5_fu_755_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln62_5" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="head_ctx_ref_0_1_fu_809_p6" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln62" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln62_fu_789_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln62" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln55_fu_795_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:55" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln55" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sparsemux" DSP="0" ID="" IMPL="onehotencoding_realdef" LATENCY="0" LOOP="" OPTYPE="sparsemux" PRAGMA="" RTLNAME="sparsemux_7_2_66_1_1_U1" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="head_ctx_ref_0_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sparsemux" DSP="0" ID="" IMPL="onehotencoding_realdef" LATENCY="0" LOOP="" OPTYPE="sparsemux" PRAGMA="" RTLNAME="sparsemux_7_2_66_1_1_U2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln194_fu_1814_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:194" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln194" VISIBLE="false"/>
             </BindNodes>
         </Module>
         <Module>
@@ -334,16 +326,16 @@
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>10.00</TargetClockPeriod>
                     <ClockUncertainty>2.70</ClockUncertainty>
-                    <EstimatedClockPeriod>6.187</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>7.042</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>2</Best-caseLatency>
-                    <Average-caseLatency>6</Average-caseLatency>
-                    <Worst-caseLatency>7</Worst-caseLatency>
+                    <Average-caseLatency>3</Average-caseLatency>
+                    <Worst-caseLatency>4</Worst-caseLatency>
                     <Best-caseRealTimeLatency>20.000 ns</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>60.000 ns</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>70.000 ns</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>3 ~ 8</PipelineInitiationInterval>
+                    <Average-caseRealTimeLatency>30.000 ns</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>40.000 ns</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>3 ~ 5</PipelineInitiationInterval>
                     <PipelineType>no</PipelineType>
                     <PerformancePragma>-</PerformancePragma>
                 </SummaryOfOverallLatency>
@@ -355,12 +347,12 @@
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>224</FF>
+                    <FF>482</FF>
                     <AVAIL_FF>234240</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>5695</LUT>
+                    <LUT>1251</LUT>
                     <AVAIL_LUT>117120</AVAIL_LUT>
-                    <UTIL_LUT>4</UTIL_LUT>
+                    <UTIL_LUT>1</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
                     <AVAIL_BRAM>288</AVAIL_BRAM>
                     <UTIL_BRAM>0</UTIL_BRAM>
@@ -373,10 +365,16 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setgt" PRAGMA="" RTLNAME="icmp_ln217_fu_129_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:217" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln217" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln222_fu_161_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:222" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln222" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln223_fu_167_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:223" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln223" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln223_fu_173_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:223" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln223" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op setgt" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="setgt" PRAGMA="" RTLNAME="icmp_ln220_fu_253_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:220" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln220" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln225_fu_269_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:225" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln225" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln226_fu_275_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:226" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln226" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln226_fu_281_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:226" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln226" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln226_1_fu_287_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:226" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln226_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln225_1_fu_303_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:225" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln225_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln226_2_fu_309_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:226" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln226_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln226_1_fu_315_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:226" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln226_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln226_3_fu_320_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:226" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln226_3" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="group_finished_1_fu_361_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:231" STORAGESUBTYPE="" URAM="0" VARIABLE="group_finished_1" VISIBLE="false"/>
             </BindNodes>
         </Module>
     </ModuleInformation>
@@ -385,11 +383,12 @@
     <Args>
         <Arg ArgName="head_ctx_ref" index="0" direction="inout" srcType="HeadCtx&amp;" srcSize="192">
             <hwRefs>
-                <hwRef type="port" interface="head_ctx_ref_address0" name="head_ctx_ref_address0" usage="address" direction="out"/>
-                <hwRef type="port" interface="head_ctx_ref_ce0" name="head_ctx_ref_ce0" usage="control" direction="out"/>
-                <hwRef type="port" interface="head_ctx_ref_we0" name="head_ctx_ref_we0" usage="control" direction="out"/>
-                <hwRef type="port" interface="head_ctx_ref_d0" name="head_ctx_ref_d0" usage="data" direction="out"/>
-                <hwRef type="port" interface="head_ctx_ref_q0" name="head_ctx_ref_q0" usage="data" direction="in"/>
+                <hwRef type="port" interface="head_ctx_ref_0_i" name="head_ctx_ref_0_i" usage="data" direction="in"/>
+                <hwRef type="port" interface="head_ctx_ref_0_o" name="head_ctx_ref_0_o" usage="data" direction="out"/>
+                <hwRef type="port" interface="head_ctx_ref_0_o_ap_vld" name="head_ctx_ref_0_o_ap_vld" usage="control" direction="out"/>
+                <hwRef type="port" interface="head_ctx_ref_1_i" name="head_ctx_ref_1_i" usage="data" direction="in"/>
+                <hwRef type="port" interface="head_ctx_ref_1_o" name="head_ctx_ref_1_o" usage="data" direction="out"/>
+                <hwRef type="port" interface="head_ctx_ref_1_o_ap_vld" name="head_ctx_ref_1_o_ap_vld" usage="control" direction="out"/>
             </hwRefs>
         </Arg>
         <Arg ArgName="group_idx" index="1" direction="in" srcType="int" srcSize="32">
@@ -456,37 +455,48 @@
                 <port>ap_return</port>
             </ports>
         </Interface>
-        <Interface InterfaceName="head_ctx_ref_address0" type="data" busTypeName="data" protocol="ap_memory" mode="master" dataWidth="2">
+        <Interface InterfaceName="head_ctx_ref_0_i" type="data" busTypeName="data" protocol="ap_ovld" mode="slave" dataWidth="66">
             <portMaps>
-                <portMap portMapName="head_ctx_ref_address0">DATA</portMap>
+                <portMap portMapName="head_ctx_ref_0_i">DATA</portMap>
             </portMaps>
             <ports>
-                <port>head_ctx_ref_address0</port>
+                <port>head_ctx_ref_0_i</port>
             </ports>
             <constraints>
-                <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0" argName="head_ctx_ref"/>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="head_ctx_ref"/>
             </constraints>
         </Interface>
-        <Interface InterfaceName="head_ctx_ref_d0" type="data" busTypeName="data" protocol="ap_memory" mode="master" dataWidth="66">
+        <Interface InterfaceName="head_ctx_ref_0_o" type="data" busTypeName="data" protocol="ap_ovld" mode="master" dataWidth="66">
             <portMaps>
-                <portMap portMapName="head_ctx_ref_d0">DATA</portMap>
+                <portMap portMapName="head_ctx_ref_0_o">DATA</portMap>
             </portMaps>
             <ports>
-                <port>head_ctx_ref_d0</port>
+                <port>head_ctx_ref_0_o</port>
             </ports>
             <constraints>
-                <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0" argName="head_ctx_ref"/>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="head_ctx_ref"/>
             </constraints>
         </Interface>
-        <Interface InterfaceName="head_ctx_ref_q0" type="data" busTypeName="data" protocol="ap_memory" mode="slave" dataWidth="66">
+        <Interface InterfaceName="head_ctx_ref_1_i" type="data" busTypeName="data" protocol="ap_ovld" mode="slave" dataWidth="66">
             <portMaps>
-                <portMap portMapName="head_ctx_ref_q0">DATA</portMap>
+                <portMap portMapName="head_ctx_ref_1_i">DATA</portMap>
             </portMaps>
             <ports>
-                <port>head_ctx_ref_q0</port>
+                <port>head_ctx_ref_1_i</port>
             </ports>
             <constraints>
-                <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0" argName="head_ctx_ref"/>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="head_ctx_ref"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="head_ctx_ref_1_o" type="data" busTypeName="data" protocol="ap_ovld" mode="master" dataWidth="66">
+            <portMaps>
+                <portMap portMapName="head_ctx_ref_1_o">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>head_ctx_ref_1_o</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="head_ctx_ref"/>
             </constraints>
         </Interface>
         <Interface InterfaceName="group_idx" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="32">
@@ -525,19 +535,15 @@
     </Interfaces>
     <ReportHWInterface>
         <section name="HW Interfaces" level="0">
-            <item name="AP_MEMORY">
-                <table>
-                    <keys size="3">Port, Direction, Bitwidth</keys>
-                    <column name="head_ctx_ref_address0">out, 2</column>
-                    <column name="head_ctx_ref_d0">out, 66</column>
-                    <column name="head_ctx_ref_q0">in, 66</column>
-                </table>
-            </item>
             <item name="Other Ports">
                 <table>
                     <keys size="4">Port, Mode, Direction, Bitwidth</keys>
                     <column name="ap_return">, out, 1</column>
                     <column name="group_idx">ap_none, in, 32</column>
+                    <column name="head_ctx_ref_0_i">ap_ovld, in, 66</column>
+                    <column name="head_ctx_ref_0_o">ap_ovld, out, 66</column>
+                    <column name="head_ctx_ref_1_i">ap_ovld, in, 66</column>
+                    <column name="head_ctx_ref_1_o">ap_ovld, out, 66</column>
                     <column name="layer_idx">ap_none, in, 32</column>
                     <column name="start_r">ap_none, in, 1</column>
                 </table>
@@ -566,16 +572,17 @@
             </item>
             <item name="SW-to-HW Mapping">
                 <table>
-                    <keys size="4">Argument, HW Interface, HW Type, HW Usage</keys>
-                    <column name="head_ctx_ref">head_ctx_ref_address0, port, offset</column>
-                    <column name="head_ctx_ref">head_ctx_ref_ce0, port, </column>
-                    <column name="head_ctx_ref">head_ctx_ref_we0, port, </column>
-                    <column name="head_ctx_ref">head_ctx_ref_d0, port, </column>
-                    <column name="head_ctx_ref">head_ctx_ref_q0, port, </column>
-                    <column name="group_idx">group_idx, port, </column>
-                    <column name="layer_idx">layer_idx, port, </column>
-                    <column name="start">start_r, port, </column>
-                    <column name="return">ap_return, port, </column>
+                    <keys size="3">Argument, HW Interface, HW Type</keys>
+                    <column name="head_ctx_ref">head_ctx_ref_0_i, port</column>
+                    <column name="head_ctx_ref">head_ctx_ref_0_o, port</column>
+                    <column name="head_ctx_ref">head_ctx_ref_0_o_ap_vld, port</column>
+                    <column name="head_ctx_ref">head_ctx_ref_1_i, port</column>
+                    <column name="head_ctx_ref">head_ctx_ref_1_o, port</column>
+                    <column name="head_ctx_ref">head_ctx_ref_1_o_ap_vld, port</column>
+                    <column name="group_idx">group_idx, port</column>
+                    <column name="layer_idx">layer_idx, port</column>
+                    <column name="start">start_r, port</column>
+                    <column name="return">ap_return, port</column>
                 </table>
             </item>
         </section>
@@ -583,7 +590,8 @@
     <ResolutionUrl key="ZZZ">docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&amp;url=ug1448-hls-guidance&amp;resourceid=ZZZ.html</ResolutionUrl>
     <PragmaReport>
         <Pragma type="inline" location="../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:45" status="valid" parentFunction="run_single_head" variable="" isDirective="0" options="off"/>
-        <Pragma type="unroll" location="../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:215" status="valid" parentFunction="drive_group_head_phase" variable="" isDirective="0" options=""/>
+        <Pragma type="array_partition" location="../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:214" status="valid" parentFunction="drive_group_head_phase" variable="head_ctx_ref" isDirective="0" options="variable=head_ctx_ref complete dim=1"/>
+        <Pragma type="unroll" location="../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:218" status="valid" parentFunction="drive_group_head_phase" variable="" isDirective="0" options=""/>
     </PragmaReport>
 </profile>
 

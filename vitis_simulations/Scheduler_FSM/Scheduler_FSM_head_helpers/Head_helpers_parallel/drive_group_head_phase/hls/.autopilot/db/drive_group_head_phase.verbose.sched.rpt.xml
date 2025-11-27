@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'drive_group_head_phase'" level="0">
-<item name = "Date">Thu Nov 27 14:52:30 2025
+<item name = "Date">Thu Nov 27 15:54:17 2025
 </item>
 <item name = "Version">2025.1 (Build 6135595 on May 21 2025)</item>
 <item name = "Project">drive_group_head_phase</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 6.187 ns, 2.70 ns</column>
+<column name="ap_clk">10.00 ns, 7.042 ns, 2.70 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">2, 7, 20.000 ns, 70.000 ns, 3, 8, no</column>
+<column name="">2, 4, 20.000 ns, 40.000 ns, 3, 5, no</column>
 </table>
 </item>
 <item name = "Detail">

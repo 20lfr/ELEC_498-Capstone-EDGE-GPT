@@ -2,6 +2,7 @@
 verilog xil_defaultlib  --include "../../../../../../../../../../../../tools/Xilinx/2025.1/data/rsb/busdef" \
 "../../../../../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase.v" \
 "../../../../../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_run_single_head.v" \
+"../../../../../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_sparsemux_7_2_66_1_1.v" \
 
 sv xil_defaultlib  --include "../../../../../../../../../../../../tools/Xilinx/2025.1/data/rsb/busdef" \
 "../../../../../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_tb.sv" \

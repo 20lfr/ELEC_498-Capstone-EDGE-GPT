@@ -475,8 +475,8 @@ namespace std
 }
 # 4 "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.hpp" 2
 
-constexpr int NUM_HEADS = 4;
-constexpr int HEADS_PARALLEL = 1;
+constexpr int NUM_HEADS = 2;
+constexpr int HEADS_PARALLEL = 2;
 
 enum class HeadPhase : uint8_t {
     IDLE = 0,
@@ -758,8 +758,11 @@ __attribute__((sdx_kernel("drive_group_head_phase", 0))) bool drive_group_head_p
 
     bool group_finished = true;
 
-    const int head_group_base = group_idx * HEADS_PARALLEL;
-    VITIS_LOOP_214_1: for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
+
+#pragma HLS ARRAY_PARTITION variable=head_ctx_ref complete dim=1
+
+ const int head_group_base = group_idx * HEADS_PARALLEL;
+    VITIS_LOOP_217_1: for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
 #pragma HLS UNROLL
  const int head_idx = head_group_base + lane;
         if (head_idx >= NUM_HEADS)

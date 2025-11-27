@@ -1,9 +1,12 @@
 <root versionMajor = "1" versionMinor = "5">
   <kernel src_name="drive_group_head_phase" language="c" hwCtrl="ap_ctrl_hs" mem_layout="fpga64-xilinx-none">
     <args>
-      <arg id="0" access_type="rw" src_name="head_ctx_ref" src_type="HeadCtx&amp;" src_isptr="1" src_bitwidth="192" src_size_or_depth="4">
-        <hw hw_usage="data" hw_interface="BRAM" hw_name="head_ctx_ref" hw_bitwidth="66" hw_size_or_depth="4" hw_kernel_support="false">
-          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+      <arg id="0" access_type="rw" src_name="head_ctx_ref" src_type="HeadCtx&amp;" src_isptr="1" src_bitwidth="192" src_size_or_depth="2">
+        <hw hw_usage="data" hw_interface="Register" hw_name="head_ctx_ref_0" hw_bitwidth="66" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+        <hw hw_usage="data" hw_interface="Register" hw_name="head_ctx_ref_1" hw_bitwidth="66" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
         </hw>
       </arg>
       <arg id="1" access_type="r" src_name="group_idx" src_type="int" src_isptr="0" src_bitwidth="32" src_size_or_depth="1">

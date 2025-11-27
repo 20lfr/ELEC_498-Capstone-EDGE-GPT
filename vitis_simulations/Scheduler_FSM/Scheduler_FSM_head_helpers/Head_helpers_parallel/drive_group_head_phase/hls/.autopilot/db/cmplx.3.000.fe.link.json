@@ -6,7 +6,7 @@
     "def_use_depth": 5,
     "file": "simple_head_helpers.cpp",
     "fileloc": 199,
-    "instructions": 47,
+    "instructions": 48,
     "loads": {
       "T": 3
     },
@@ -15,7 +15,7 @@
     "stores": {
       "T": 1
     },
-    "total_instructions": 408
+    "total_instructions": 409
   },
   "1": {
     "basicblocks": 1,
