@@ -382,7 +382,7 @@ void wrapper_func_0(char *dp)
 
 void simulate(char *dp)
 {
-iki_register_root_pointers(4, 70184, -5,0,70000, -5,0,70552, -5,0,70736, -5,0) ; 
+iki_register_root_pointers(4, 70000, -5,0,70184, -5,0,70552, -5,0,70736, -5,0) ; 
 		iki_schedule_processes_at_time_zero(dp, "xsim.dir/drive_group_head_phase_tb_behav/xsim.reloc");
 	wrapper_func_0(dp);
 

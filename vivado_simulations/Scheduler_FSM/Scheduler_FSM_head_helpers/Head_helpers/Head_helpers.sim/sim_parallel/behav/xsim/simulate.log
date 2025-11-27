@@ -254,4 +254,4 @@ cycle grp ret|    head0 rdy done shd strt op  lay |
 151   0 ret:0 |      RQ2  1   0    0   0       -   0 |
 152   0 ret:1 |     DONE  1   0    0   0       -   0 |
 All head groups completed by cycle 152
-$finish called at time : 1556 ns : File "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_tb.sv" Line 362
+$finish called at time : 1556 ns : File "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_tb.sv" Line 365

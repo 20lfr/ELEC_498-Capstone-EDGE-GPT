@@ -238,6 +238,9 @@ module drive_group_head_phase_tb;
     group_idx = 32'd0;
     layer_idx = 32'd0;
     ap_return = 1'b0;
+    head_ctx_ref_address0 = '0;
+    head_ctx_ref_ce0 = 1'b0;
+    head_ctx_ref_we0 = 1'b0;
     init_ctx_mem();
     head_ctx_q0 = head_ctx_mem[0];
     
