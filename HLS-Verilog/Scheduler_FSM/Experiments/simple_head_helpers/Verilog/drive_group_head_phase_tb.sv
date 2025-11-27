@@ -95,7 +95,6 @@ module drive_group_head_phase_tb;
 
   // Group control
   logic [31:0] cycle_count;
-  logic group_done;
   logic all_done;
 
   // Debug signals
@@ -271,11 +270,14 @@ module drive_group_head_phase_tb;
   // ========================================================================
   generate
     for (genvar h = 0; h < HEADS_TOTAL; h++) begin : COMPUTE_MODEL
+      logic [1:0] done_hold_ctr; // Local counter for this block
+
       always_ff @(posedge clk) begin
         if (ap_rst) begin
           busy_ctr[h]  <= 0;
           inflight[h]  <= 1'b0;
           done_hold[h] <= 1'b0;
+          done_hold_ctr <= 0;
         end else begin
           int group_base = group_idx * HEADS_PAR;
           logic compute_start_now;
@@ -289,6 +291,10 @@ module drive_group_head_phase_tb;
             compute_start_now = 1'b0;
           end
           
+          if (compute_start_now) begin
+              $display("[TB-DBG] Time %0t: Head %0d compute_start detected! inflight=%d done_hold=%d", $time, h, inflight[h], done_hold[h]);
+          end
+
           // Only update for heads in active group
           if (h >= group_base && h < group_base + HEADS_PAR) begin
             if (compute_start_now && !inflight[h] && !done_hold[h]) begin
@@ -304,10 +310,16 @@ module drive_group_head_phase_tb;
                 // Transition to done_hold
                 inflight[h]  <= 1'b0;
                 done_hold[h] <= 1'b1;
+                done_hold_ctr <= 2'd2; // Hold for 2 cycles
+                $display("[TB-DBG] Time %0t: Head %0d compute DONE generated", $time, h);
               end
             end else if (done_hold[h]) begin
-              // Clear done_hold
-              done_hold[h] <= 1'b0;
+              // Count down hold time
+              if (done_hold_ctr > 1) begin
+                  done_hold_ctr <= done_hold_ctr - 1;
+              end else begin
+                  done_hold[h] <= 1'b0;
+              end
             end
           end
         end
