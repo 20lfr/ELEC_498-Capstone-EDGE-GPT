@@ -61,7 +61,7 @@ Args:
   - String:          'in function '''
   - String:          drive_group_head_phase
   - String:          ''' completely with a factor of '
-  - Factor:          '2'
+  - Factor:          '1'
 ...
 --- !Missed
 Pass:            inline
@@ -171,7 +171,7 @@ Args:
   - String:          ''' with '
   - AggregateTypeName: 'compact=bit'
   - String:          ' mode in '
-  - Bitwidth:        '51'
+  - Bitwidth:        '52'
   - String:          '-bits'
 ...
 --- !Missed

@@ -476,7 +476,7 @@ namespace std
 # 4 "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.hpp" 2
 
 constexpr int NUM_HEADS = 4;
-constexpr int HEADS_PARALLEL = 2;
+constexpr int HEADS_PARALLEL = 1;
 
 enum class HeadPhase : uint8_t {
     IDLE = 0,
@@ -514,6 +514,8 @@ struct HeadCtx {
     bool compute_done = false;
     bool compute_start = false;
     ComputeOp compute_op = ComputeOp::CMP_NONE;
+
+    bool start_head = false;
 };
 
 void init_head_ctx(HeadCtx &ctx, int layer_idx);
@@ -741,11 +743,11 @@ __attribute__((sdx_kernel("drive_group_head_phase", 0))) bool drive_group_head_p
         }
 
         if (ctx.phase != HeadPhase::DONE) {
-            const bool start_head = start && (ctx.phase == HeadPhase::IDLE);
+            ctx.start_head = start && (ctx.phase == HeadPhase::IDLE);
             const bool head_done = run_single_head(
                 ctx,
                 layer_idx,
-                start_head);
+                ctx.start_head);
             if (!head_done) group_finished = false;
         }
     }

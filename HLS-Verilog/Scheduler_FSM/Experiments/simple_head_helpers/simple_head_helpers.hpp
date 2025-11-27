@@ -3,7 +3,7 @@
 #include <cstdint>
 
 constexpr int NUM_HEADS      = 4;
-constexpr int HEADS_PARALLEL = 2;
+constexpr int HEADS_PARALLEL = 1;
 
 enum class HeadPhase : uint8_t {
     IDLE = 0,          // 0
@@ -41,6 +41,8 @@ struct HeadCtx {
     bool compute_done  = false;
     bool compute_start = false;
     ComputeOp  compute_op    = ComputeOp::CMP_NONE;
+
+    bool start_head = false;
 };
 
 void init_head_ctx(HeadCtx &ctx, int layer_idx);

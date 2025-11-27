@@ -1,18 +1,21 @@
 {
   "0": {
-    "basicblocks": 34,
-    "calls": "1 2 1 2",
+    "basicblocks": 21,
+    "calls": "1 2",
     "control_depth": 0,
     "def_use_depth": 3,
     "file": "simple_head_helpers.cpp",
     "fileloc": 181,
-    "instructions": 75,
+    "instructions": 43,
     "loads": {
-      "T": 6
+      "T": 3
     },
     "memory_accesses": 0,
     "name": "drive_group_head_phase",
-    "total_instructions": 579
+    "stores": {
+      "T": 1
+    },
+    "total_instructions": 295
   },
   "1": {
     "basicblocks": 1,

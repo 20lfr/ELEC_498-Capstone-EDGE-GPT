@@ -18,9 +18,9 @@ set cdfgNum 3
 set C_modelName {run_single_head}
 set C_modelType { int 1 }
 set ap_memory_interface_dict [dict create]
-dict set ap_memory_interface_dict head_ctx_ref { MEM_WIDTH 51 MEM_SIZE 28 MASTER_TYPE BRAM_CTRL MEM_ADDRESS_MODE WORD_ADDRESS PACKAGE_IO port READ_LATENCY 0 }
+dict set ap_memory_interface_dict head_ctx_ref { MEM_WIDTH 52 MEM_SIZE 28 MASTER_TYPE BRAM_CTRL MEM_ADDRESS_MODE WORD_ADDRESS PACKAGE_IO port READ_LATENCY 0 }
 set C_modelArgList {
-	{ head_ctx_ref int 51 regular {array 4 { 2 3 } 1 1 }  }
+	{ head_ctx_ref int 52 regular {array 4 { 2 3 } 1 1 }  }
 	{ ctx int 5 regular  }
 	{ layer_idx int 32 regular  }
 	{ start_r uint 1 regular  }
@@ -29,7 +29,7 @@ set hasAXIMCache 0
 set l_AXIML2Cache [list]
 set AXIMCacheInstDict [dict create]
 set C_modelArgMapList {[ 
-	{ "Name" : "head_ctx_ref", "interface" : "memory", "bitwidth" : 51, "direction" : "READWRITE"} , 
+	{ "Name" : "head_ctx_ref", "interface" : "memory", "bitwidth" : 52, "direction" : "READWRITE"} , 
  	{ "Name" : "ctx", "interface" : "wire", "bitwidth" : 5, "direction" : "READONLY"} , 
  	{ "Name" : "layer_idx", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
  	{ "Name" : "start_r", "interface" : "wire", "bitwidth" : 1, "direction" : "READONLY"} , 
@@ -46,8 +46,8 @@ set portList {
 	{ head_ctx_ref_address0 sc_out sc_lv 2 signal 0 } 
 	{ head_ctx_ref_ce0 sc_out sc_logic 1 signal 0 } 
 	{ head_ctx_ref_we0 sc_out sc_logic 1 signal 0 } 
-	{ head_ctx_ref_d0 sc_out sc_lv 51 signal 0 } 
-	{ head_ctx_ref_q0 sc_in sc_lv 51 signal 0 } 
+	{ head_ctx_ref_d0 sc_out sc_lv 52 signal 0 } 
+	{ head_ctx_ref_q0 sc_in sc_lv 52 signal 0 } 
 	{ ctx sc_in sc_lv 5 signal 1 } 
 	{ layer_idx sc_in sc_lv 32 signal 2 } 
 	{ start_r sc_in sc_lv 1 signal 3 } 
@@ -63,8 +63,8 @@ set NewPortList {[
  	{ "name": "head_ctx_ref_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "head_ctx_ref", "role": "address0" }} , 
  	{ "name": "head_ctx_ref_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "head_ctx_ref", "role": "ce0" }} , 
  	{ "name": "head_ctx_ref_we0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "head_ctx_ref", "role": "we0" }} , 
- 	{ "name": "head_ctx_ref_d0", "direction": "out", "datatype": "sc_lv", "bitwidth":51, "type": "signal", "bundle":{"name": "head_ctx_ref", "role": "d0" }} , 
- 	{ "name": "head_ctx_ref_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":51, "type": "signal", "bundle":{"name": "head_ctx_ref", "role": "q0" }} , 
+ 	{ "name": "head_ctx_ref_d0", "direction": "out", "datatype": "sc_lv", "bitwidth":52, "type": "signal", "bundle":{"name": "head_ctx_ref", "role": "d0" }} , 
+ 	{ "name": "head_ctx_ref_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":52, "type": "signal", "bundle":{"name": "head_ctx_ref", "role": "q0" }} , 
  	{ "name": "ctx", "direction": "in", "datatype": "sc_lv", "bitwidth":5, "type": "signal", "bundle":{"name": "ctx", "role": "default" }} , 
  	{ "name": "layer_idx", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "layer_idx", "role": "default" }} , 
  	{ "name": "start_r", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "start_r", "role": "default" }} , 
@@ -95,7 +95,7 @@ set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
-	head_ctx_ref { ap_memory {  { head_ctx_ref_address0 mem_address 1 2 }  { head_ctx_ref_ce0 mem_ce 1 1 }  { head_ctx_ref_we0 mem_we 1 1 }  { head_ctx_ref_d0 mem_din 1 51 }  { head_ctx_ref_q0 mem_dout 0 51 } } }
+	head_ctx_ref { ap_memory {  { head_ctx_ref_address0 mem_address 1 2 }  { head_ctx_ref_ce0 mem_ce 1 1 }  { head_ctx_ref_we0 mem_we 1 1 }  { head_ctx_ref_d0 mem_din 1 52 }  { head_ctx_ref_q0 mem_dout 0 52 } } }
 	ctx { ap_none {  { ctx in_data 0 5 } } }
 	layer_idx { ap_none {  { layer_idx in_data 0 32 } } }
 	start_r { ap_none {  { start_r in_data 0 1 } } }

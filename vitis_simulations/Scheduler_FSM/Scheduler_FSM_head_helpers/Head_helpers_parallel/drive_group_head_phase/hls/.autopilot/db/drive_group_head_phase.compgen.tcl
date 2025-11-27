@@ -19,7 +19,7 @@ eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
     dir IO \
     corename head_ctx_ref \
     op interface \
-    ports { head_ctx_ref_address0 { O 2 vector } head_ctx_ref_ce0 { O 1 bit } head_ctx_ref_we0 { O 1 bit } head_ctx_ref_d0 { O 51 vector } head_ctx_ref_q0 { I 51 vector } } \
+    ports { head_ctx_ref_address0 { O 2 vector } head_ctx_ref_ce0 { O 1 bit } head_ctx_ref_we0 { O 1 bit } head_ctx_ref_d0 { O 52 vector } head_ctx_ref_q0 { I 52 vector } } \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'head_ctx_ref'"

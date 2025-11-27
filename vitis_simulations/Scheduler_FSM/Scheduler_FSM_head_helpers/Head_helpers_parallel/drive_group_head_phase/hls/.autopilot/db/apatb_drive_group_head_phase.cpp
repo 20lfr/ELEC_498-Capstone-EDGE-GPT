@@ -1294,7 +1294,7 @@ hls::sim::Byte<1> apatb_drive_group_head_phase_hw(void* __xlx_apatb_param_head_c
 #else
   static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port4 {
 #endif
-    .width = 51,
+    .width = 52,
     .asize = 8,
     .hbm = false,
     .name = { "head_ctx_ref" },

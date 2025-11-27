@@ -1,21 +1,21 @@
 {
   "0": {
-    "basicblocks": 11,
-    "calls": "1 1",
+    "basicblocks": 8,
+    "calls": "1",
     "control_depth": 0,
-    "def_use_depth": 3,
+    "def_use_depth": 4,
     "file": "simple_head_helpers.cpp",
     "fileloc": 181,
-    "instructions": 48,
+    "instructions": 32,
     "loads": {
-      "T": 2
+      "T": 1
     },
     "memory_accesses": 0,
     "name": "drive_group_head_phase",
     "stores": {
       "T": 2
     },
-    "total_instructions": 446
+    "total_instructions": 240
   },
   "1": {
     "basicblocks": 54,
@@ -24,7 +24,7 @@
     "def_use_depth": 2,
     "file": "simple_head_helpers.cpp",
     "fileloc": 16,
-    "instructions": 199,
+    "instructions": 208,
     "loads": {
       "G": 14,
       "L": 1
@@ -35,6 +35,6 @@
       "G": 28,
       "L": 23
     },
-    "total_instructions": 199
+    "total_instructions": 208
   }
 }

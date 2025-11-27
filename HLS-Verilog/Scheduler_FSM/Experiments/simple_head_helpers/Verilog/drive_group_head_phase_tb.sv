@@ -40,10 +40,11 @@ module drive_group_head_phase_tb;
 
   // Packed view of HeadCtx
   typedef struct packed {
-    logic [7:0]  compute_op;      // [50:43]
-    logic        compute_start;   // [42]
-    logic        compute_done;    // [41]
-    logic        compute_ready;   // [40]
+    logic [7:0]  compute_op;      // [51:44]
+    logic        compute_start;   // [43]
+    logic        compute_done;    // [42]
+    logic        compute_ready;   // [41]
+    logic        start_head;      // [40]
     logic [7:0]  phase;           // [39:32]
     logic [31:0] layer_stamp;     // [31:0]
   } head_ctx_t;
@@ -60,8 +61,8 @@ module drive_group_head_phase_tb;
   logic [1:0]  head_ctx_ref_address0;
   logic        head_ctx_ref_ce0;
   logic        head_ctx_ref_we0;
-  logic [50:0] head_ctx_ref_d0;
-  logic [50:0] head_ctx_ref_q0;
+  logic [51:0] head_ctx_ref_d0;
+  logic [51:0] head_ctx_ref_q0;
   logic [31:0] group_idx;
   logic [31:0] layer_idx;
   logic        start_r;
@@ -72,16 +73,36 @@ module drive_group_head_phase_tb;
   head_ctx_t head_ctx_mem   [0:HEADS_TOTAL-1];
   logic [3:0] busy_ctr      [0:HEADS_TOTAL-1];
   logic       inflight      [0:HEADS_TOTAL-1];
+  head_ctx_t  head_ctx_q0;
+  // Debug views of per-head state
+  logic [7:0] head_phase_dbg [0:HEADS_TOTAL-1];
+  logic       head_ready_dbg [0:HEADS_TOTAL-1];
+  logic       head_done_dbg  [0:HEADS_TOTAL-1];
+  logic       head_start_dbg [0:HEADS_TOTAL-1];
+  logic       head_start_head_dbg [0:HEADS_TOTAL-1];
+  logic [7:0] head_op_dbg    [0:HEADS_TOTAL-1];
 
-  // Memory read logic - combinational
-  assign head_ctx_ref_q0 = head_ctx_mem[head_ctx_ref_address0];
+  genvar g;
+  generate
+    for (g = 0; g < HEADS_TOTAL; g++) begin : DBG_ALIAS
+      assign head_phase_dbg[g] = head_ctx_mem[g].phase;
+      assign head_ready_dbg[g] = head_ctx_mem[g].compute_ready;
+      assign head_done_dbg[g]  = head_ctx_mem[g].compute_done;
+      assign head_start_dbg[g] = head_ctx_mem[g].compute_start;
+      assign head_start_head_dbg[g] = head_ctx_mem[g].start_head;
+      assign head_op_dbg[g]    = head_ctx_mem[g].compute_op;
+    end
+  endgenerate
 
-  // Memory write logic - on clock edge
+  // Memory read logic - synchronous (models BRAM latency)
   always @(posedge clk) begin
-    if (head_ctx_ref_ce0 && head_ctx_ref_we0) begin
-      head_ctx_mem[head_ctx_ref_address0] <= head_ctx_ref_d0;
+    if (head_ctx_ref_ce0) begin
+      head_ctx_q0 <= head_ctx_mem[head_ctx_ref_address0];
     end
   end
+  assign head_ctx_ref_q0 = head_ctx_q0;
+
+
 
   drive_group_head_phase dut (
       .ap_clk              (clk),
@@ -141,6 +162,7 @@ module drive_group_head_phase_tb;
                           compute_start: 1'b0,
                           compute_done: 1'b0,
                           compute_ready: 1'b0,
+                          start_head: 1'b0,
                           phase: PHASE_IDLE,
                           layer_stamp: layer_idx};
       busy_ctr[h] = 0;
@@ -156,6 +178,8 @@ module drive_group_head_phase_tb;
     group_idx = 32'd0;
     layer_idx = 32'd0;
     init_ctx_mem();
+    head_ctx_q0 = head_ctx_mem[0];
+    
     repeat (3) @(posedge clk);
     ap_rst    = 1'b0;
     ap_start  = 1'b1;
@@ -167,18 +191,21 @@ module drive_group_head_phase_tb;
     bit done_all;
     
     @(negedge ap_rst);
-    
-    $display("cycle | grp | head0_phase (rdy done start op) | head1_phase (rdy done start op) | head2_phase (rdy done start op) | head3_phase (rdy done start op)");
-    
+
+    $display("cycle grp | %-8s rdy done shd strt op | %-8s rdy done shd strt op | %-8s rdy done shd strt op | %-8s rdy done shd strt op",
+             "head0", "head1", "head2", "head3");
+    $display("--------------------------------------------------------------------------------------------------------------------------------");
+
     done_all = 1'b0;
     for (cycle = 0; cycle < MAX_CYCLES; cycle++) begin
       int group_base;
       bit start_pulse;
       bit group_done;
+      bit start_seen [HEADS_TOTAL];
       
       // BEFORE clock edge: Set up handshake signals for active group
       group_base = group_idx * HEADS_PAR;
-      
+
       for (int h = 0; h < HEADS_TOTAL; ++h) begin
         if (h >= group_base && h < group_base + HEADS_PAR) begin
           // Active head: update handshake based on compute model
@@ -200,14 +227,20 @@ module drive_group_head_phase_tb;
         end
       end
       start_r = start_pulse;
-      
+
       @(posedge clk);
-      
+
+      // Apply DUT writes to context memory (only once reset is deasserted and start asserted)
+      if (!ap_rst && ap_start && head_ctx_ref_ce0 && head_ctx_ref_we0) begin
+        head_ctx_mem[head_ctx_ref_address0] = head_ctx_ref_d0;
+      end
+
       // AFTER clock edge: Update internal state based on what DUT did
       for (int h = 0; h < HEADS_TOTAL; ++h) begin
         if (h >= group_base && h < group_base + HEADS_PAR) begin
           // Track compute_start from DUT output
-          if (head_ctx_mem[h].compute_start && !inflight[h]) begin
+          start_seen[h] = head_ctx_mem[h].compute_start;
+          if (start_seen[h] && !inflight[h]) begin
             busy_ctr[h] = 3;  // Set latency
             inflight[h] = 1'b1;
           end else if (inflight[h]) begin
@@ -218,17 +251,21 @@ module drive_group_head_phase_tb;
               inflight[h] = 1'b0;
             end
           end
+          // Clear start so we only react once per pulse
+          head_ctx_mem[h].compute_start = 1'b0;
+        end else begin
+          start_seen[h] = 1'b0;
         end
       end
       
       // Log current state
-      $display("%0d    | %0d   | %-6s (%0d   %0d   %0d   %s) | %-6s (%0d   %0d   %0d   %s) | %-6s (%0d   %0d   %0d   %s) | %-6s (%0d   %0d   %0d   %s)",
+      $display("%0d %3d | %-8s  %0d   %0d    %0d   %0d   %-5s | %-8s  %0d   %0d    %0d   %0d   %-5s | %-8s  %0d   %0d    %0d   %0d   %-5s | %-8s  %0d   %0d    %0d   %0d   %-5s",
                cycle,
                group_idx,
-               phase_name(head_ctx_mem[0].phase), head_ctx_mem[0].compute_ready, head_ctx_mem[0].compute_done, head_ctx_mem[0].compute_start, op_name(head_ctx_mem[0].compute_op),
-               phase_name(head_ctx_mem[1].phase), head_ctx_mem[1].compute_ready, head_ctx_mem[1].compute_done, head_ctx_mem[1].compute_start, op_name(head_ctx_mem[1].compute_op),
-               phase_name(head_ctx_mem[2].phase), head_ctx_mem[2].compute_ready, head_ctx_mem[2].compute_done, head_ctx_mem[2].compute_start, op_name(head_ctx_mem[2].compute_op),
-               phase_name(head_ctx_mem[3].phase), head_ctx_mem[3].compute_ready, head_ctx_mem[3].compute_done, head_ctx_mem[3].compute_start, op_name(head_ctx_mem[3].compute_op));
+               phase_name(head_ctx_mem[0].phase), head_ctx_mem[0].compute_ready, head_ctx_mem[0].compute_done, head_ctx_mem[0].start_head, start_seen[0], op_name(head_ctx_mem[0].compute_op),
+               phase_name(head_ctx_mem[1].phase), head_ctx_mem[1].compute_ready, head_ctx_mem[1].compute_done, head_ctx_mem[1].start_head, start_seen[1], op_name(head_ctx_mem[1].compute_op),
+               phase_name(head_ctx_mem[2].phase), head_ctx_mem[2].compute_ready, head_ctx_mem[2].compute_done, head_ctx_mem[2].start_head, start_seen[2], op_name(head_ctx_mem[2].compute_op),
+               phase_name(head_ctx_mem[3].phase), head_ctx_mem[3].compute_ready, head_ctx_mem[3].compute_done, head_ctx_mem[3].start_head, start_seen[3], op_name(head_ctx_mem[3].compute_op));
       
       // Check if current group is done
       group_done = 1'b1;

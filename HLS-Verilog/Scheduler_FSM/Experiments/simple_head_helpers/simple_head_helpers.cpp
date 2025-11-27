@@ -205,11 +205,11 @@ bool drive_group_head_phase(
         }
 
         if (ctx.phase != HeadPhase::DONE) {
-            const bool start_head = start && (ctx.phase == HeadPhase::IDLE);
+            ctx.start_head = start && (ctx.phase == HeadPhase::IDLE);
             const bool head_done = run_single_head(
                 ctx,
                 layer_idx,
-                start_head);
+                ctx.start_head);
             if (!head_done) group_finished = false;
         }
     }

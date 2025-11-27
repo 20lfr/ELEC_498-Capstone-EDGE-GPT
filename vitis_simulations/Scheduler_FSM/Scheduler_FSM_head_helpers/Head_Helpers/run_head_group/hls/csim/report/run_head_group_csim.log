@@ -1,8 +1,6 @@
 INFO: [SIM 2] *************** CSIM start ***************
 INFO: [SIM 4] CSIM will launch CLANG as the compiler.
-   Compiling ../../../../../../../../HLS-Verilog/Scheduler_FSM/C_testbenches/Scheduler_head_helpers_tb.cpp in debug mode
-   Compiling ../../../../../../../../HLS-Verilog/Scheduler_FSM/Scheduler_head_helpers.cpp in debug mode
-   Generating csim.exe
+make: 'csim.exe' is up to date.
 cycle |reset|rsrc_reset |comp_rdy|comp_done |cmp_start |cmp_op  |group_done|comp_busy   |req       |grant     |granting|head0_phase |head1_phase 
 0     |1    |1          |1       |-         |-         |        |-         |-           |[1, 1]      |[-, -]      |-       |Q           |Q           
 1     |-    |-          |1       |-         |1         |Q       |-         |1           |[-, 1]      |[1, -]      |1       |Q           |Q           

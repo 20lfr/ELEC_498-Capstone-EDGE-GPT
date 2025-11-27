@@ -57,6 +57,7 @@ int main() {
     for (int h = 0; h < HEADS_TOTAL; ++h) {
         std::string hdr = "h" + std::to_string(h) + "_phase";
         std::cout << "|" << std::setw(12) << hdr
+                  << "|" << std::setw(4) << "hstrt"
                   << "|" << std::setw(4) << "rdy"
                   << "|" << std::setw(4) << "done"
                   << "|" << std::setw(6) << "start"
@@ -112,6 +113,7 @@ int main() {
         for (int h = 0; h < HEADS_TOTAL; ++h) {
             std::cout << "|"
                       << std::setw(12) << phase_str(head_ctx[h].phase)
+                      << "|" << std::setw(4) << (head_ctx[h].start_head ? "1" : "-")
                       << "|" << std::setw(4) << (head_ctx[h].compute_ready ? "1" : "-")
                       << "|" << std::setw(4) << (head_ctx[h].compute_done ? "1" : "-")
                       << "|" << std::setw(6) << (head_ctx[h].compute_start ? "1" : "-")
