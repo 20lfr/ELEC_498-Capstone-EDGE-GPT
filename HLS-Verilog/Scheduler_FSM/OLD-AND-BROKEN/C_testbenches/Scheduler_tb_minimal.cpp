@@ -1,34 +1,77 @@
+// Minimal testbench for Simple_Scheduler_FSM.
+// Mirrors the style of Scheduler_tb_minimal.cpp but against the simplified scheduler interface.
 #include <cstdio>
 #include <cstdint>
 #include <string>
 
 #include "../Scheduler_FSM.hpp"
 
-// Minimal testbench for the simplified, single-path scheduler FSM.
-// Drives basic handshakes and ensures the FSM reaches DONE within a small cycle budget.
-
 static const char *state_name(SchedState st) {
     switch (st) {
-    case S_IDLE:           return "S_IDLE";
-    case S_STREAM_IN:      return "S_STREAM_IN";
-    case S_LAYER_COUNT:    return "S_LAYER_COUNT";
-    case S_ATTENTION_HEADS:return "S_ATT_HEADS";
-    case S_HEAD_CONCAT:    return "S_HEAD_CONCAT";
-    case S_OUT_PROJECTION: return "S_OUT_PROJ";
-    case S_RES_ADD_1:      return "S_RES_ADD_1";
-    case S_LAYER_NORM_1:   return "S_LN_1";
-    case S_FFN:            return "S_FFN";
-    case S_RES_ADD_2:      return "S_RES_ADD_2";
-    case S_LAYER_NORM_2:   return "S_LN_2";
-    case S_LOOP_CHECK:     return "S_LOOP_CHECK";
-    case S_STREAM_OUT:     return "S_STREAM_OUT";
-    default:               return "UNKNOWN";
+    case S_IDLE:            return "S_IDLE";
+    case S_STREAM_IN:       return "S_STREAM_IN";
+    case S_LAYER_COUNT:     return "S_LAYER_COUNT";
+    case S_ATTENTION_HEADS: return "S_ATT_HEADS";
+    case S_HEAD_CONCAT:     return "S_HEAD_CONCAT";
+    case S_OUT_PROJECTION:  return "S_OUT_PROJ";
+    case S_RES_ADD_1:       return "S_RES_ADD_1";
+    case S_LAYER_NORM_1:    return "S_LN_1";
+    case S_FFN:             return "S_FFN";
+    case S_RES_ADD_2:       return "S_RES_ADD_2";
+    case S_LAYER_NORM_2:    return "S_LN_2";
+    case S_LOOP_CHECK:      return "S_LOOP_CHECK";
+    case S_STREAM_OUT:      return "S_STREAM_OUT";
+    default:                return "UNKNOWN";
+    }
+}
+
+static const char *op_name(int op_raw) {
+    const ComputeOp op = static_cast<ComputeOp>(op_raw);
+    switch (op) {
+    case CMP_NONE:         return "NONE";
+    case CMP_Q:            return "Q";
+    case CMP_K:            return "K";
+    case CMP_V:            return "V";
+    case CMP_ATT_SCORES:   return "ATT_SCORES";
+    case CMP_VALUE_SCALE:  return "VALUE_SCALE";
+    case CMP_SOFTMAX:      return "SOFTMAX";
+    case CMP_ATT_VALUE:    return "ATT_VALUE";
+    case CMP_CONCAT:       return "CONCAT";
+    case CMP_OUT_PROJ:     return "OUT_PROJ";
+    case CMP_RESID0:       return "RESID0";
+    case CMP_LN0:          return "LN0";
+    case CMP_FFN_W1:       return "FFN_W1";
+    case CMP_FFN_ACT:      return "FFN_ACT";
+    case CMP_FFN_W2:       return "FFN_W2";
+    case CMP_RESID1:       return "RESID1";
+    case CMP_LN1:          return "LN1";
+    default:               return "UNK";
+    }
+}
+
+static const char *dma_name(int sel_raw) {
+    const DmaSel sel = static_cast<DmaSel>(sel_raw);
+    switch (sel) {
+    case DMASEL_NONE:   return "-";
+    case DMASEL_WQ:     return "WQ";
+    case DMASEL_WK:     return "WK";
+    case DMASEL_WV:     return "WV";
+    case DMASEL_CTX_K:  return "CTX_K";
+    case DMASEL_CTX_V:  return "CTX_V";
+    case DMASEL_K_WRITE:return "K_WR";
+    case DMASEL_V_WRITE:return "V_WR";
+    case DMASEL_WO:     return "WO";
+    case DMASEL_W1:     return "W1";
+    case DMASEL_W2:     return "W2";
+    case DMASEL_WLOGIT: return "WLOGIT";
+    default:            return "UNK";
     }
 }
 
 int main() {
     const int MAX_CYCLES = 600;
-    const int COMP_LAT   = 3; // base compute latency
+    const int COMP_LAT   = 3;
+    const int DMA_LAT    = 3;
     const int AXIS_BEATS = 3;
 
     bool cntrl_start     = false;
@@ -68,11 +111,11 @@ int main() {
 
     bool done            = false;
     SchedState STATE     = S_IDLE;
-    HeadCtx dbg_head_ctx[NUM_HEADS];
-    HeadResources dbg_head_res{};
 
     bool comp_busy       = false;
     int  comp_timer      = 0;
+    bool dma_busy        = false;
+    int  dma_timer       = 0;
     bool stream_busy     = false;
     bool start_pulsed    = false;
     bool seen_done       = false;
@@ -81,78 +124,13 @@ int main() {
     bool seen_attn       = false;
     bool seen_concat     = false;
 
-    auto op_name = [](int op_raw) {
-        const ComputeOp op = static_cast<ComputeOp>(op_raw);
-        switch (op) {
-        case CMP_NONE:        return "NONE";
-        case CMP_Q:           return "Q";
-        case CMP_K:           return "K";
-        case CMP_V:           return "V";
-        case CMP_ATT_SCORES:  return "ATT_SCORES";
-        case CMP_VALUE_SCALE: return "VALUE_SCALE";
-        case CMP_SOFTMAX:     return "SOFTMAX";
-        case CMP_ATT_VALUE:   return "ATT_VALUE";
-        case CMP_HEAD_REQUANT:return "HEAD_REQ";
-        case CMP_CONCAT:      return "CONCAT";
-        case CMP_OUT_PROJ:    return "OUT_PROJ";
-        case CMP_RESID0:      return "RESID0";
-        case CMP_LN0:         return "LN0";
-        case CMP_FFN_W1:      return "FFN_W1";
-        case CMP_FFN_ACT:     return "FFN_ACT";
-        case CMP_FFN_W2:      return "FFN_W2";
-        case CMP_RESID1:      return "RESID1";
-        case CMP_LN1:         return "LN1";
-        case CMP_DEQUANT:     return "DEQUANT";
-        case CMP_LOGITS:      return "LOGITS";
-        default:              return "UNK";
-        }
-    };
-
-    std::printf("%-8s %-6s %-6s %-8s | %-16s %-10s %-10s %-10s %-10s %-10s %-10s %-12s %-10s %-24s %-23s %-15s %-s\n",
+    std::printf("%-8s %-6s %-6s %-8s | %-16s %-10s %-10s %-10s | %-8s %-8s %-8s %-8s %-8s | %-10s %-10s %-10s %-s\n",
                 "Cycle", "Start", "Reset", "Busy", "State",
                 "AXIS_v", "AXIS_r", "AXIS_last",
-                "CmpStart", "CmpReady", "CmpDone", "CmpOp",
-                "ResBusy", "Req", "Grant", "Granting", "HeadPhases");
+                "WL_ready", "WL_start", "WL_addr", "WL_head", "WL_tile",
+                "CmpStart", "CmpReady", "CmpDone", "CmpOp");
 
-    auto phase_name = [](HeadPhase p) {
-        switch (p) {
-        case HeadPhase::Q:                return "Q";
-        case HeadPhase::K:                return "K";
-        case HeadPhase::K_REQUANT:        return "K_RQ";
-        case HeadPhase::K_WRITEBACK:      return "K_WB";
-        case HeadPhase::V:                return "V";
-        case HeadPhase::V_REQUANT:        return "V_RQ";
-        case HeadPhase::V_WRITEBACK:      return "V_WB";
-        case HeadPhase::REQUANT_Q:        return "RQ_Q";
-        case HeadPhase::ATT_SCORES:       return "ATT_S";
-        case HeadPhase::VALUE_SCALE_CLAMP:return "SCALE";
-        case HeadPhase::ATT_SOFTMAX:      return "SOFT";
-        case HeadPhase::ATT_VALUE:        return "ATT_V";
-        case HeadPhase::REQUANT2:         return "RQ2";
-        case HeadPhase::DONE:             return "DONE";
-        default:                          return "?";
-        }
-    };
-
-    auto fmt_bool_array = [](const bool* arr, int len) {
-        std::string s = "[";
-        for (int i = 0; i < len; ++i) {
-            s += (arr[i] ? "1" : "-");
-            if (i != len - 1) s += ", ";
-        }
-        s += "]";
-        return s;
-    };
-
-    auto fmt_phases = [&](const HeadCtx* ctx) {
-        std::string s = "[";
-        for (int i = 0; i < NUM_HEADS; ++i) {
-            s += phase_name(ctx[i].phase);
-            if (i != NUM_HEADS - 1) s += ", ";
-        }
-        s += "]";
-        return s;
-    };
+    auto dash_or = [](bool v) { return v ? "1" : "-"; };
 
     for (int cycle = 0; cycle < MAX_CYCLES; ++cycle) {
         // Simple reset release at cycle 2
@@ -176,6 +154,17 @@ int main() {
             }
         }
 
+        // Complete outstanding DMA transfers
+        dma_done = false;
+        if (dma_busy) {
+            if (dma_timer == 0) {
+                dma_done = true;
+                dma_busy = false;
+            } else {
+                --dma_timer;
+            }
+        }
+
         // Stream completion: single-cycle pulse after start
         stream_done = false;
         if (stream_busy) {
@@ -184,11 +173,9 @@ int main() {
         }
 
         // Ready signals depend on busy flags
-        // Introduce stalls: every 7th cycle hold compute_ready low, every 9th hold wl_ready low
-        // Enforce a bubble after compute_done: keep ready low in the same cycle as done
         compute_ready = !comp_busy && !compute_done;
         stream_ready  = !stream_busy;
-        wl_ready      = ((cycle % 9) != 0);
+        wl_ready      = !dma_busy;
         requant_ready = true;
 
         // Drive AXIS ingress: send a short burst when ready is asserted
@@ -231,16 +218,9 @@ int main() {
             stream_start,
             stream_done,
             done,
-            STATE,
-            dbg_head_res,
-            dbg_head_ctx);
+            STATE);
 
-        auto dash_or = [](bool v) { return v ? "1" : "-"; };
-        std::string req_str   = fmt_bool_array(dbg_head_res.request_compute, NUM_HEADS);
-        std::string grant_str = fmt_bool_array(dbg_head_res.grant_compute, NUM_HEADS);
-        std::string phases    = fmt_phases(dbg_head_ctx);
-
-        std::printf("%-8d %-6d %-6d %-8s | %-16s %-10s %-10s %-10s %-10s %-10s %-10s %-12s %-10s %-18s %-18s %-12s %-s\n",
+        std::printf("%-8d %-6d %-6d %-8s | %-16s %-10s %-10s %-10s | %-8s %-8s %-8s %-8d %-8d | %-10s %-10s %-10s %-s\n",
                     cycle,
                     cntrl_start ? 1 : 0,
                     cntrl_reset_n ? 1 : 0,
@@ -249,15 +229,15 @@ int main() {
                     dash_or(axis_in_valid),
                     dash_or(axis_in_ready),
                     dash_or(axis_in_last),
+                    dash_or(wl_ready),
+                    dash_or(wl_start),
+                    dma_name(wl_addr_sel),
+                    wl_head,
+                    wl_tile,
                     dash_or(compute_start),
                     dash_or(compute_ready),
                     dash_or(compute_done),
-                    (compute_op == CMP_NONE ? "-" : op_name(compute_op)),
-                    dash_or(dbg_head_res.comp_busy),
-                    req_str.c_str(),
-                    grant_str.c_str(),
-                    dash_or(dbg_head_res.currently_granting),
-                    phases.c_str());
+                    (compute_op == CMP_NONE ? "-" : op_name(compute_op)));
 
         // Latch starts into busy trackers
         if (compute_start) {
@@ -265,6 +245,10 @@ int main() {
             comp_timer = COMP_LAT - 1;
             if (compute_op == CMP_ATT_SCORES) seen_attn = true;
             if (compute_op == CMP_CONCAT)     seen_concat = true;
+        }
+        if (wl_start && wl_ready && !dma_busy) {
+            dma_busy  = true;
+            dma_timer = DMA_LAT - 1;
         }
         if (stream_start) {
             stream_busy = true;
@@ -283,7 +267,6 @@ int main() {
 
         if (done) {
             seen_done = true;
-            // Drop start once done observed
             cntrl_start = false;
         }
         if (seen_done){
@@ -293,7 +276,6 @@ int main() {
             }
         }
 
-        // Exit once the machine is idle and we are no longer pulsing start/busy
         if (!cntrl_busy && !cntrl_start && seen_done && seen_idle_after) {
             break;
         }
@@ -301,10 +283,10 @@ int main() {
 
     bool ok = seen_done && seen_idle_after && seen_attn && seen_concat;
     if (!ok) {
-        if (!seen_done) std::fprintf(stderr, "ERROR: DONE never asserted\n");
+        if (!seen_done)       std::fprintf(stderr, "ERROR: DONE never asserted\n");
         if (!seen_idle_after) std::fprintf(stderr, "ERROR: FSM did not return to IDLE after DONE\n");
-        if (!seen_attn) std::fprintf(stderr, "ERROR: ATT_SCORES compute op never issued\n");
-        if (!seen_concat) std::fprintf(stderr, "ERROR: CONCAT compute op never issued\n");
+        if (!seen_attn)       std::fprintf(stderr, "ERROR: ATT_SCORES compute op never issued\n");
+        if (!seen_concat)     std::fprintf(stderr, "ERROR: CONCAT compute op never issued\n");
         return 1;
     }
 
