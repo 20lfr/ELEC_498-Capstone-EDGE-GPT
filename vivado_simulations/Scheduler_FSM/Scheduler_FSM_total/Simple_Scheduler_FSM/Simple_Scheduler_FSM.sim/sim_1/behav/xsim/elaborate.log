@@ -10,10 +10,4 @@ WARNING: [VRFC 10-3818] variable 'seen_attn' is driven by invalid combination of
 WARNING: [VRFC 10-2921] 'seen_attn' driven by this always_ff block should not be driven by any other process [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-Verilog/scheduler_hls_tb.sv:105]
 WARNING: [VRFC 10-3818] variable 'seen_concat' is driven by invalid combination of procedural drivers [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-Verilog/scheduler_hls_tb.sv:79]
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.scheduler_hls
-Compiling module xil_defaultlib.scheduler_hls_tb
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot scheduler_hls_tb_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

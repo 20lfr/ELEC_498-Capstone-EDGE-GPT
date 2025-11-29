@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'run_single_head'" level="0">
-<item name = "Date">Fri Nov 28 20:27:10 2025
+<item name = "Date">Fri Nov 28 21:53:09 2025
 </item>
 <item name = "Version">2025.1 (Build 6135595 on May 21 2025)</item>
 <item name = "Project">drive_group_head_phase</item>
@@ -87,7 +87,7 @@
 <column name="or_ln62_3_fu_805_p2">or, 0, 0, 2, 1, 1</column>
 <column name="or_ln62_5_fu_811_p2">or, 0, 0, 2, 1, 1</column>
 <column name="or_ln62_fu_787_p2">or, 0, 0, 2, 1, 1</column>
-<column name="head_ctx_ref_0_1_fu_865_p6">select, 0, 0, 65, 1, 66</column>
+<column name="head_ctx_ref_1_fu_865_p6">select, 0, 0, 65, 1, 66</column>
 <column name="select_ln50_fu_533_p3">select, 0, 0, 65, 1, 66</column>
 <column name="select_ln56_fu_581_p3">select, 0, 0, 65, 1, 66</column>
 <column name="select_ln57_fu_621_p3">select, 0, 0, 65, 1, 66</column>
@@ -101,7 +101,7 @@
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
 <column name="ap_phi_mux_empty_phi_fu_304_p74">81, 17, 8, 136</column>
-<column name="ap_phi_mux_head_ctx_ref_0_2_phi_fu_225_p74">116, 23, 66, 1518</column>
+<column name="ap_phi_mux_head_ctx_ref_2_phi_fu_225_p74">116, 23, 66, 1518</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">

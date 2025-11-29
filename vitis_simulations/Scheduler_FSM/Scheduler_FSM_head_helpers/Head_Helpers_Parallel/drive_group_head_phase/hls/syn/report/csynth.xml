@@ -19,14 +19,14 @@
         </SummaryOfTimingAnalysis>
         <SummaryOfOverallLatency>
             <unit>clock cycles</unit>
-            <Best-caseLatency>2</Best-caseLatency>
-            <Average-caseLatency>4</Average-caseLatency>
-            <Worst-caseLatency>4</Worst-caseLatency>
-            <Best-caseRealTimeLatency>20.000 ns</Best-caseRealTimeLatency>
-            <Average-caseRealTimeLatency>40.000 ns</Average-caseRealTimeLatency>
-            <Worst-caseRealTimeLatency>40.000 ns</Worst-caseRealTimeLatency>
-            <Interval-min>3</Interval-min>
-            <Interval-max>5</Interval-max>
+            <Best-caseLatency>1</Best-caseLatency>
+            <Average-caseLatency>2</Average-caseLatency>
+            <Worst-caseLatency>2</Worst-caseLatency>
+            <Best-caseRealTimeLatency>10.000 ns</Best-caseRealTimeLatency>
+            <Average-caseRealTimeLatency>20.000 ns</Average-caseRealTimeLatency>
+            <Worst-caseRealTimeLatency>20.000 ns</Worst-caseRealTimeLatency>
+            <Interval-min>2</Interval-min>
+            <Interval-max>3</Interval-max>
             <PerformancePragma>-</PerformancePragma>
         </SummaryOfOverallLatency>
         <SummaryOfViolations>
@@ -37,8 +37,8 @@
     </PerformanceEstimates>
     <AreaEstimates>
         <Resources>
-            <FF>176</FF>
-            <LUT>982</LUT>
+            <FF>104</FF>
+            <LUT>882</LUT>
             <BRAM_18K>0</BRAM_18K>
             <DSP>0</DSP>
             <URAM>0</URAM>
@@ -130,8 +130,8 @@
             <Attribute>data</Attribute>
         </RtlPorts>
         <RtlPorts>
-            <name>head_ctx_ref_0_i</name>
-            <Object>head_ctx_ref_0</Object>
+            <name>head_ctx_ref_i</name>
+            <Object>head_ctx_ref</Object>
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>ap_ovld</IOProtocol>
@@ -142,8 +142,8 @@
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
-            <name>head_ctx_ref_0_o</name>
-            <Object>head_ctx_ref_0</Object>
+            <name>head_ctx_ref_o</name>
+            <Object>head_ctx_ref</Object>
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>ap_ovld</IOProtocol>
@@ -154,44 +154,8 @@
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
-            <name>head_ctx_ref_0_o_ap_vld</name>
-            <Object>head_ctx_ref_0</Object>
-            <Type>pointer</Type>
-            <Scope/>
-            <IOProtocol>ap_ovld</IOProtocol>
-            <IOConfig/>
-            <Dir>out</Dir>
-            <Bits>1</Bits>
-            <Attribute>control</Attribute>
-            <CType>int</CType>
-        </RtlPorts>
-        <RtlPorts>
-            <name>head_ctx_ref_1_i</name>
-            <Object>head_ctx_ref_1</Object>
-            <Type>pointer</Type>
-            <Scope/>
-            <IOProtocol>ap_ovld</IOProtocol>
-            <IOConfig/>
-            <Dir>in</Dir>
-            <Bits>66</Bits>
-            <Attribute>data</Attribute>
-            <CType>int</CType>
-        </RtlPorts>
-        <RtlPorts>
-            <name>head_ctx_ref_1_o</name>
-            <Object>head_ctx_ref_1</Object>
-            <Type>pointer</Type>
-            <Scope/>
-            <IOProtocol>ap_ovld</IOProtocol>
-            <IOConfig/>
-            <Dir>out</Dir>
-            <Bits>66</Bits>
-            <Attribute>data</Attribute>
-            <CType>int</CType>
-        </RtlPorts>
-        <RtlPorts>
-            <name>head_ctx_ref_1_o_ap_vld</name>
-            <Object>head_ctx_ref_1</Object>
+            <name>head_ctx_ref_o_ap_vld</name>
+            <Object>head_ctx_ref</Object>
             <Type>pointer</Type>
             <Scope/>
             <IOProtocol>ap_ovld</IOProtocol>
@@ -243,14 +207,14 @@
             <ModuleName>drive_group_head_phase</ModuleName>
             <InstancesList>
                 <Instance>
-                    <InstName>grp_run_single_head_fu_118</InstName>
+                    <InstName>call_ret_run_single_head_fu_92</InstName>
                     <ModuleName>run_single_head</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>118</ID>
-                    <BindInstances>icmp_ln50_fu_523_p2 select_ln50_fu_533_p3 select_ln56_fu_581_p3 select_ln57_fu_621_p3 select_ln58_fu_661_p3 select_ln59_fu_701_p3 select_ln60_fu_741_p3 select_ln61_fu_779_p3 or_ln62_fu_787_p2 or_ln62_1_fu_793_p2 or_ln62_2_fu_799_p2 or_ln62_3_fu_805_p2 or_ln62_5_fu_811_p2 head_ctx_ref_0_1_fu_865_p6 and_ln62_fu_845_p2 xor_ln55_fu_851_p2 sparsemux_7_2_66_1_1_U1 sparsemux_7_2_66_1_1_U2 icmp_ln186_fu_1666_p2</BindInstances>
+                    <ID>92</ID>
+                    <BindInstances>icmp_ln50_fu_523_p2 select_ln50_fu_533_p3 select_ln56_fu_581_p3 select_ln57_fu_621_p3 select_ln58_fu_661_p3 select_ln59_fu_701_p3 select_ln60_fu_741_p3 select_ln61_fu_779_p3 or_ln62_fu_787_p2 or_ln62_1_fu_793_p2 or_ln62_2_fu_799_p2 or_ln62_3_fu_805_p2 or_ln62_5_fu_811_p2 head_ctx_ref_1_fu_865_p6 and_ln62_fu_845_p2 xor_ln55_fu_851_p2 sparsemux_7_2_66_1_1_U1 sparsemux_7_2_66_1_1_U2 icmp_ln186_fu_1666_p2</BindInstances>
                 </Instance>
             </InstancesList>
-            <BindInstances>icmp_ln205_fu_141_p2 icmp_ln206_fu_147_p2 and_ln206_fu_153_p2 icmp_ln205_1_fu_195_p2 icmp_ln206_1_fu_201_p2 and_ln206_1_fu_207_p2 group_finished_2_fu_237_p2</BindInstances>
+            <BindInstances>icmp_ln205_fu_109_p2 icmp_ln206_fu_115_p2 and_ln206_fu_121_p2</BindInstances>
         </TopModule>
     </RTLDesignHierarchy>
     <ModuleInformation>
@@ -312,10 +276,10 @@
                 <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln62_2_fu_799_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln62_2" VISIBLE="false"/>
                 <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln62_3_fu_805_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln62_3" VISIBLE="false"/>
                 <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op or" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="or" PRAGMA="" RTLNAME="or_ln62_5_fu_811_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="or_ln62_5" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="head_ctx_ref_0_1_fu_865_p6" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln62" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op select" DSP="0" ID="" IMPL="auto_sel" LATENCY="0" LOOP="" OPTYPE="select" PRAGMA="" RTLNAME="head_ctx_ref_1_fu_865_p6" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="select_ln62" VISIBLE="false"/>
                 <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln62_fu_845_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln62" VISIBLE="false"/>
                 <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op xor" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="xor" PRAGMA="" RTLNAME="xor_ln55_fu_851_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:55" STORAGESUBTYPE="" URAM="0" VARIABLE="xor_ln55" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sparsemux" DSP="0" ID="" IMPL="onehotencoding_realdef" LATENCY="0" LOOP="" OPTYPE="sparsemux" PRAGMA="" RTLNAME="sparsemux_7_2_66_1_1_U1" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="head_ctx_ref_0_1" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sparsemux" DSP="0" ID="" IMPL="onehotencoding_realdef" LATENCY="0" LOOP="" OPTYPE="sparsemux" PRAGMA="" RTLNAME="sparsemux_7_2_66_1_1_U1" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="head_ctx_ref_1" VISIBLE="false"/>
                 <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sparsemux" DSP="0" ID="" IMPL="onehotencoding_realdef" LATENCY="0" LOOP="" OPTYPE="sparsemux" PRAGMA="" RTLNAME="sparsemux_7_2_66_1_1_U2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp" VISIBLE="false"/>
                 <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln186_fu_1666_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:186" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln186" VISIBLE="false"/>
             </BindNodes>
@@ -329,13 +293,13 @@
                     <EstimatedClockPeriod>7.042</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
-                    <Best-caseLatency>2</Best-caseLatency>
-                    <Average-caseLatency>4</Average-caseLatency>
-                    <Worst-caseLatency>4</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>20.000 ns</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>40.000 ns</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>40.000 ns</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>3 ~ 5</PipelineInitiationInterval>
+                    <Best-caseLatency>1</Best-caseLatency>
+                    <Average-caseLatency>2</Average-caseLatency>
+                    <Worst-caseLatency>2</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>10.000 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>20.000 ns</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>20.000 ns</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>2 ~ 3</PipelineInitiationInterval>
                     <PipelineType>no</PipelineType>
                     <PerformancePragma>-</PerformancePragma>
                 </SummaryOfOverallLatency>
@@ -347,10 +311,10 @@
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>176</FF>
+                    <FF>104</FF>
                     <AVAIL_FF>234240</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>982</LUT>
+                    <LUT>882</LUT>
                     <AVAIL_LUT>117120</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -365,13 +329,9 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln205_fu_141_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:205" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln205" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln206_fu_147_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:206" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln206" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln206_fu_153_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:206" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln206" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln205_1_fu_195_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:205" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln205_1" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln206_1_fu_201_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:206" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln206_1" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln206_1_fu_207_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:206" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln206_1" VISIBLE="false"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="group_finished_2_fu_237_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:211" STORAGESUBTYPE="" URAM="0" VARIABLE="group_finished_2" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln205_fu_109_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:205" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln205" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op seteq" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="seteq" PRAGMA="" RTLNAME="icmp_ln206_fu_115_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:206" STORAGESUBTYPE="" URAM="0" VARIABLE="icmp_ln206" VISIBLE="false"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op and" DSP="0" ID="" IMPL="auto" LATENCY="0" LOOP="" OPTYPE="and" PRAGMA="" RTLNAME="and_ln206_fu_121_p2" SOURCE="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:206" STORAGESUBTYPE="" URAM="0" VARIABLE="and_ln206" VISIBLE="false"/>
             </BindNodes>
         </Module>
     </ModuleInformation>
@@ -380,12 +340,9 @@
     <Args>
         <Arg ArgName="head_ctx_ref" index="0" direction="inout" srcType="HeadCtx&amp;" srcSize="192">
             <hwRefs>
-                <hwRef type="port" interface="head_ctx_ref_0_i" name="head_ctx_ref_0_i" usage="data" direction="in"/>
-                <hwRef type="port" interface="head_ctx_ref_0_o" name="head_ctx_ref_0_o" usage="data" direction="out"/>
-                <hwRef type="port" interface="head_ctx_ref_0_o_ap_vld" name="head_ctx_ref_0_o_ap_vld" usage="control" direction="out"/>
-                <hwRef type="port" interface="head_ctx_ref_1_i" name="head_ctx_ref_1_i" usage="data" direction="in"/>
-                <hwRef type="port" interface="head_ctx_ref_1_o" name="head_ctx_ref_1_o" usage="data" direction="out"/>
-                <hwRef type="port" interface="head_ctx_ref_1_o_ap_vld" name="head_ctx_ref_1_o_ap_vld" usage="control" direction="out"/>
+                <hwRef type="port" interface="head_ctx_ref_i" name="head_ctx_ref_i" usage="data" direction="in"/>
+                <hwRef type="port" interface="head_ctx_ref_o" name="head_ctx_ref_o" usage="data" direction="out"/>
+                <hwRef type="port" interface="head_ctx_ref_o_ap_vld" name="head_ctx_ref_o_ap_vld" usage="control" direction="out"/>
             </hwRefs>
         </Arg>
         <Arg ArgName="base_head_idx" index="1" direction="in" srcType="int" srcSize="32">
@@ -452,45 +409,23 @@
                 <port>ap_return</port>
             </ports>
         </Interface>
-        <Interface InterfaceName="head_ctx_ref_0_i" type="data" busTypeName="data" protocol="ap_ovld" mode="slave" dataWidth="66">
+        <Interface InterfaceName="head_ctx_ref_i" type="data" busTypeName="data" protocol="ap_ovld" mode="slave" dataWidth="66">
             <portMaps>
-                <portMap portMapName="head_ctx_ref_0_i">DATA</portMap>
+                <portMap portMapName="head_ctx_ref_i">DATA</portMap>
             </portMaps>
             <ports>
-                <port>head_ctx_ref_0_i</port>
+                <port>head_ctx_ref_i</port>
             </ports>
             <constraints>
                 <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="head_ctx_ref"/>
             </constraints>
         </Interface>
-        <Interface InterfaceName="head_ctx_ref_0_o" type="data" busTypeName="data" protocol="ap_ovld" mode="master" dataWidth="66">
+        <Interface InterfaceName="head_ctx_ref_o" type="data" busTypeName="data" protocol="ap_ovld" mode="master" dataWidth="66">
             <portMaps>
-                <portMap portMapName="head_ctx_ref_0_o">DATA</portMap>
+                <portMap portMapName="head_ctx_ref_o">DATA</portMap>
             </portMaps>
             <ports>
-                <port>head_ctx_ref_0_o</port>
-            </ports>
-            <constraints>
-                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="head_ctx_ref"/>
-            </constraints>
-        </Interface>
-        <Interface InterfaceName="head_ctx_ref_1_i" type="data" busTypeName="data" protocol="ap_ovld" mode="slave" dataWidth="66">
-            <portMaps>
-                <portMap portMapName="head_ctx_ref_1_i">DATA</portMap>
-            </portMaps>
-            <ports>
-                <port>head_ctx_ref_1_i</port>
-            </ports>
-            <constraints>
-                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="head_ctx_ref"/>
-            </constraints>
-        </Interface>
-        <Interface InterfaceName="head_ctx_ref_1_o" type="data" busTypeName="data" protocol="ap_ovld" mode="master" dataWidth="66">
-            <portMaps>
-                <portMap portMapName="head_ctx_ref_1_o">DATA</portMap>
-            </portMaps>
-            <ports>
-                <port>head_ctx_ref_1_o</port>
+                <port>head_ctx_ref_o</port>
             </ports>
             <constraints>
                 <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="head_ctx_ref"/>
@@ -537,10 +472,8 @@
                     <keys size="4">Port, Mode, Direction, Bitwidth</keys>
                     <column name="ap_return">, out, 1</column>
                     <column name="base_head_idx">ap_none, in, 32</column>
-                    <column name="head_ctx_ref_0_i">ap_ovld, in, 66</column>
-                    <column name="head_ctx_ref_0_o">ap_ovld, out, 66</column>
-                    <column name="head_ctx_ref_1_i">ap_ovld, in, 66</column>
-                    <column name="head_ctx_ref_1_o">ap_ovld, out, 66</column>
+                    <column name="head_ctx_ref_i">ap_ovld, in, 66</column>
+                    <column name="head_ctx_ref_o">ap_ovld, out, 66</column>
                     <column name="layer_idx">ap_none, in, 32</column>
                     <column name="start_r">ap_none, in, 1</column>
                 </table>
@@ -570,12 +503,9 @@
             <item name="SW-to-HW Mapping">
                 <table>
                     <keys size="3">Argument, HW Interface, HW Type</keys>
-                    <column name="head_ctx_ref">head_ctx_ref_0_i, port</column>
-                    <column name="head_ctx_ref">head_ctx_ref_0_o, port</column>
-                    <column name="head_ctx_ref">head_ctx_ref_0_o_ap_vld, port</column>
-                    <column name="head_ctx_ref">head_ctx_ref_1_i, port</column>
-                    <column name="head_ctx_ref">head_ctx_ref_1_o, port</column>
-                    <column name="head_ctx_ref">head_ctx_ref_1_o_ap_vld, port</column>
+                    <column name="head_ctx_ref">head_ctx_ref_i, port</column>
+                    <column name="head_ctx_ref">head_ctx_ref_o, port</column>
+                    <column name="head_ctx_ref">head_ctx_ref_o_ap_vld, port</column>
                     <column name="base_head_idx">base_head_idx, port</column>
                     <column name="layer_idx">layer_idx, port</column>
                     <column name="start">start_r, port</column>

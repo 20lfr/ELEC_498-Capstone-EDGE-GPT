@@ -11,13 +11,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="105.255 ns"></ZoomStartTime>
-      <ZoomEndTime time="2,240.256 ns"></ZoomEndTime>
-      <Cursor1Time time="1,166.083 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="3,815.000 ns"></ZoomEndTime>
+      <Cursor1Time time="2,175.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="219"></NameColumnWidth>
-      <ValueColumnWidth column_width="95"></ValueColumnWidth>
+      <ValueColumnWidth column_width="91"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="66" />
    <wvobject type="logic" fp_name="/drive_group_head_phase_tb/clk">
@@ -89,28 +89,28 @@
       <obj_property name="ObjectShortName">ap_return[0:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/drive_group_head_phase_tb/busy_ctr">
-      <obj_property name="ElementShortName">busy_ctr[0:3][3:0]</obj_property>
-      <obj_property name="ObjectShortName">busy_ctr[0:3][3:0]</obj_property>
+      <obj_property name="ElementShortName">busy_ctr[0:7][3:0]</obj_property>
+      <obj_property name="ObjectShortName">busy_ctr[0:7][3:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/drive_group_head_phase_tb/inflight">
-      <obj_property name="ElementShortName">inflight[0:3]</obj_property>
-      <obj_property name="ObjectShortName">inflight[0:3]</obj_property>
+      <obj_property name="ElementShortName">inflight[0:7]</obj_property>
+      <obj_property name="ObjectShortName">inflight[0:7]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/drive_group_head_phase_tb/done_hold">
-      <obj_property name="ElementShortName">done_hold[0:3]</obj_property>
-      <obj_property name="ObjectShortName">done_hold[0:3]</obj_property>
+      <obj_property name="ElementShortName">done_hold[0:7]</obj_property>
+      <obj_property name="ObjectShortName">done_hold[0:7]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_ctx_shadow">
-      <obj_property name="ElementShortName">head_ctx_shadow[0:3]</obj_property>
-      <obj_property name="ObjectShortName">head_ctx_shadow[0:3]</obj_property>
+      <obj_property name="ElementShortName">head_ctx_shadow[0:7]</obj_property>
+      <obj_property name="ObjectShortName">head_ctx_shadow[0:7]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/drive_group_head_phase_tb/ext_compute_ready">
-      <obj_property name="ElementShortName">ext_compute_ready[0:3]</obj_property>
-      <obj_property name="ObjectShortName">ext_compute_ready[0:3]</obj_property>
+      <obj_property name="ElementShortName">ext_compute_ready[0:7]</obj_property>
+      <obj_property name="ObjectShortName">ext_compute_ready[0:7]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/drive_group_head_phase_tb/ext_compute_done">
-      <obj_property name="ElementShortName">ext_compute_done[0:3]</obj_property>
-      <obj_property name="ObjectShortName">ext_compute_done[0:3]</obj_property>
+      <obj_property name="ElementShortName">ext_compute_done[0:7]</obj_property>
+      <obj_property name="ObjectShortName">ext_compute_done[0:7]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/drive_group_head_phase_tb/cycle_count">
       <obj_property name="ElementShortName">cycle_count[31:0]</obj_property>
@@ -126,116 +126,148 @@
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_phase_dbg">
-      <obj_property name="ElementShortName">head_phase_dbg[0:3][7:0]</obj_property>
-      <obj_property name="ObjectShortName">head_phase_dbg[0:3][7:0]</obj_property>
+      <obj_property name="ElementShortName">head_phase_dbg[0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">head_phase_dbg[0:7][7:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
       <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_phase_dbg[0]">
          <obj_property name="ElementShortName">[0][7:0]</obj_property>
          <obj_property name="ObjectShortName">[0][7:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
          <obj_property name="CustomSignalColor">#FF00FF</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_phase_dbg[1]">
          <obj_property name="ElementShortName">[1][7:0]</obj_property>
          <obj_property name="ObjectShortName">[1][7:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
          <obj_property name="CustomSignalColor">#FF00FF</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_phase_dbg[2]">
          <obj_property name="ElementShortName">[2][7:0]</obj_property>
          <obj_property name="ObjectShortName">[2][7:0]</obj_property>
-         <obj_property name="CustomSignalColor">#D2691E</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_phase_dbg[3]">
          <obj_property name="ElementShortName">[3][7:0]</obj_property>
          <obj_property name="ObjectShortName">[3][7:0]</obj_property>
-         <obj_property name="CustomSignalColor">#D2691E</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_phase_dbg[4]">
+         <obj_property name="ElementShortName">[4][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][7:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_phase_dbg[5]">
+         <obj_property name="ElementShortName">[5][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][7:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_phase_dbg[6]">
+         <obj_property name="ElementShortName">[6][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][7:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_phase_dbg[7]">
+         <obj_property name="ElementShortName">[7][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][7:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_phase_dbg[0]">
+         <obj_property name="ElementShortName">[0][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_phase_dbg[1]">
+         <obj_property name="ElementShortName">[1][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_phase_dbg[2]">
+         <obj_property name="ElementShortName">[2][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_phase_dbg[3]">
+         <obj_property name="ElementShortName">[3][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_phase_dbg[4]">
+         <obj_property name="ElementShortName">[4][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_phase_dbg[5]">
+         <obj_property name="ElementShortName">[5][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_phase_dbg[6]">
+         <obj_property name="ElementShortName">[6][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_phase_dbg[7]">
+         <obj_property name="ElementShortName">[7][7:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][7:0]</obj_property>
       </wvobject>
    </wvobject>
    <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_op_dbg">
-      <obj_property name="ElementShortName">head_op_dbg[0:3][7:0]</obj_property>
-      <obj_property name="ObjectShortName">head_op_dbg[0:3][7:0]</obj_property>
+      <obj_property name="ElementShortName">head_op_dbg[0:7][7:0]</obj_property>
+      <obj_property name="ObjectShortName">head_op_dbg[0:7][7:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_op_dbg[0]">
-         <obj_property name="ElementShortName">[0][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[0][7:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_op_dbg[1]">
-         <obj_property name="ElementShortName">[1][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[1][7:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_op_dbg[2]">
-         <obj_property name="ElementShortName">[2][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[2][7:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-         <obj_property name="CustomSignalColor">#D2691E</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
-      </wvobject>
-      <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_op_dbg[3]">
-         <obj_property name="ElementShortName">[3][7:0]</obj_property>
-         <obj_property name="ObjectShortName">[3][7:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-         <obj_property name="CustomSignalColor">#D2691E</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
-      </wvobject>
    </wvobject>
    <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_q_started_dbg">
-      <obj_property name="ElementShortName">head_q_started_dbg[0:3]</obj_property>
-      <obj_property name="ObjectShortName">head_q_started_dbg[0:3]</obj_property>
+      <obj_property name="ElementShortName">head_q_started_dbg[0:7]</obj_property>
+      <obj_property name="ObjectShortName">head_q_started_dbg[0:7]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_k_started_dbg">
-      <obj_property name="ElementShortName">head_k_started_dbg[0:3]</obj_property>
-      <obj_property name="ObjectShortName">head_k_started_dbg[0:3]</obj_property>
+      <obj_property name="ElementShortName">head_k_started_dbg[0:7]</obj_property>
+      <obj_property name="ObjectShortName">head_k_started_dbg[0:7]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_v_started_dbg">
-      <obj_property name="ElementShortName">head_v_started_dbg[0:3]</obj_property>
-      <obj_property name="ObjectShortName">head_v_started_dbg[0:3]</obj_property>
+      <obj_property name="ElementShortName">head_v_started_dbg[0:7]</obj_property>
+      <obj_property name="ObjectShortName">head_v_started_dbg[0:7]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_q_compute_done_dbg">
-      <obj_property name="ElementShortName">head_q_compute_done_dbg[0:3]</obj_property>
-      <obj_property name="ObjectShortName">head_q_compute_done_dbg[0:3]</obj_property>
+      <obj_property name="ElementShortName">head_q_compute_done_dbg[0:7]</obj_property>
+      <obj_property name="ObjectShortName">head_q_compute_done_dbg[0:7]</obj_property>
       <obj_property name="CustomSignalColor">#FF00FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_k_compute_done_dbg">
-      <obj_property name="ElementShortName">head_k_compute_done_dbg[0:3]</obj_property>
-      <obj_property name="ObjectShortName">head_k_compute_done_dbg[0:3]</obj_property>
+      <obj_property name="ElementShortName">head_k_compute_done_dbg[0:7]</obj_property>
+      <obj_property name="ObjectShortName">head_k_compute_done_dbg[0:7]</obj_property>
       <obj_property name="CustomSignalColor">#FF00FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/drive_group_head_phase_tb/head_v_compute_done_dbg">
-      <obj_property name="ElementShortName">head_v_compute_done_dbg[0:3]</obj_property>
-      <obj_property name="ObjectShortName">head_v_compute_done_dbg[0:3]</obj_property>
+      <obj_property name="ElementShortName">head_v_compute_done_dbg[0:7]</obj_property>
+      <obj_property name="ObjectShortName">head_v_compute_done_dbg[0:7]</obj_property>
       <obj_property name="CustomSignalColor">#FF00FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/drive_group_head_phase_tb/\COMPUTE_MODEL[0].done_hold_ctr ">
-      <obj_property name="ElementShortName">\COMPUTE_MODEL[0].done_hold_ctr [1:0]</obj_property>
-      <obj_property name="ObjectShortName">\COMPUTE_MODEL[0].done_hold_ctr [1:0]</obj_property>
+      <obj_property name="ElementShortName">\COMPUTE_MODEL[0].done_hold_ctr [2:0]</obj_property>
+      <obj_property name="ObjectShortName">\COMPUTE_MODEL[0].done_hold_ctr [2:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/drive_group_head_phase_tb/\COMPUTE_MODEL[1].done_hold_ctr ">
-      <obj_property name="ElementShortName">\COMPUTE_MODEL[1].done_hold_ctr [1:0]</obj_property>
-      <obj_property name="ObjectShortName">\COMPUTE_MODEL[1].done_hold_ctr [1:0]</obj_property>
+      <obj_property name="ElementShortName">\COMPUTE_MODEL[1].done_hold_ctr [2:0]</obj_property>
+      <obj_property name="ObjectShortName">\COMPUTE_MODEL[1].done_hold_ctr [2:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/drive_group_head_phase_tb/\COMPUTE_MODEL[2].done_hold_ctr ">
-      <obj_property name="ElementShortName">\COMPUTE_MODEL[2].done_hold_ctr [1:0]</obj_property>
-      <obj_property name="ObjectShortName">\COMPUTE_MODEL[2].done_hold_ctr [1:0]</obj_property>
+      <obj_property name="ElementShortName">\COMPUTE_MODEL[2].done_hold_ctr [2:0]</obj_property>
+      <obj_property name="ObjectShortName">\COMPUTE_MODEL[2].done_hold_ctr [2:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/drive_group_head_phase_tb/\COMPUTE_MODEL[3].done_hold_ctr ">
-      <obj_property name="ElementShortName">\COMPUTE_MODEL[3].done_hold_ctr [1:0]</obj_property>
-      <obj_property name="ObjectShortName">\COMPUTE_MODEL[3].done_hold_ctr [1:0]</obj_property>
+      <obj_property name="ElementShortName">\COMPUTE_MODEL[3].done_hold_ctr [2:0]</obj_property>
+      <obj_property name="ObjectShortName">\COMPUTE_MODEL[3].done_hold_ctr [2:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/drive_group_head_phase_tb/CLK_PERIOD">
       <obj_property name="ElementShortName">CLK_PERIOD[31:0]</obj_property>

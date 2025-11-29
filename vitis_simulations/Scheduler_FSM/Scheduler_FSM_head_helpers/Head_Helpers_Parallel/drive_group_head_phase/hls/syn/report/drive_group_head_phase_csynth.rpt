@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'drive_group_head_phase'
 ================================================================
-* Date:           Fri Nov 28 20:27:10 2025
+* Date:           Fri Nov 28 21:53:09 2025
 
 * Version:        2025.1 (Build 6135595 on May 21 2025)
 * Project:        drive_group_head_phase
@@ -29,17 +29,17 @@
     |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
     |   min   |   max   |    min    |    max    | min | max |   Type  |
     +---------+---------+-----------+-----------+-----+-----+---------+
-    |        2|        4|  20.000 ns|  40.000 ns|    3|    5|       no|
+    |        1|        2|  10.000 ns|  20.000 ns|    2|    3|       no|
     +---------+---------+-----------+-----------+-----+-----+---------+
 
     + Detail: 
         * Instance: 
-        +----------------------------+-----------------+---------+---------+----------+----------+-----+-----+---------+
-        |                            |                 |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
-        |          Instance          |      Module     |   min   |   max   |    min   |    max   | min | max |   Type  |
-        +----------------------------+-----------------+---------+---------+----------+----------+-----+-----+---------+
-        |grp_run_single_head_fu_118  |run_single_head  |        0|        0|      0 ns|      0 ns|    0|    0|       no|
-        +----------------------------+-----------------+---------+---------+----------+----------+-----+-----+---------+
+        +--------------------------------+-----------------+---------+---------+----------+----------+-----+-----+---------+
+        |                                |                 |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+        |            Instance            |      Module     |   min   |   max   |    min   |    max   | min | max |   Type  |
+        +--------------------------------+-----------------+---------+---------+----------+----------+-----+-----+---------+
+        |call_ret_run_single_head_fu_92  |run_single_head  |        0|        0|      0 ns|      0 ns|    0|    0|       no|
+        +--------------------------------+-----------------+---------+---------+----------+----------+-----+-----+---------+
 
         * Loop: 
         N/A
@@ -54,14 +54,14 @@
 |       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
 +-----------------+---------+------+--------+--------+-----+
 |DSP              |        -|     -|       -|       -|    -|
-|Expression       |        -|     -|       0|      66|    -|
+|Expression       |        -|     -|       0|      32|    -|
 |FIFO             |        -|     -|       -|       -|    -|
 |Instance         |        -|     -|       0|     803|    -|
 |Memory           |        -|     -|       -|       -|    -|
-|Multiplexer      |        -|     -|       0|     113|    -|
-|Register         |        -|     -|     176|       -|    -|
+|Multiplexer      |        -|     -|       0|      47|    -|
+|Register         |        -|     -|     104|       -|    -|
 +-----------------+---------+------+--------+--------+-----+
-|Total            |        0|     0|     176|     982|    0|
+|Total            |        0|     0|     104|     882|    0|
 +-----------------+---------+------+--------+--------+-----+
 |Available        |      288|  1248|  234240|  117120|   64|
 +-----------------+---------+------+--------+--------+-----+
@@ -70,13 +70,13 @@
 
 + Detail: 
     * Instance: 
-    +----------------------------+-----------------+---------+----+---+-----+-----+
-    |          Instance          |      Module     | BRAM_18K| DSP| FF| LUT | URAM|
-    +----------------------------+-----------------+---------+----+---+-----+-----+
-    |grp_run_single_head_fu_118  |run_single_head  |        0|   0|  0|  803|    0|
-    +----------------------------+-----------------+---------+----+---+-----+-----+
-    |Total                       |                 |        0|   0|  0|  803|    0|
-    +----------------------------+-----------------+---------+----+---+-----+-----+
+    +--------------------------------+-----------------+---------+----+---+-----+-----+
+    |            Instance            |      Module     | BRAM_18K| DSP| FF| LUT | URAM|
+    +--------------------------------+-----------------+---------+----+---+-----+-----+
+    |call_ret_run_single_head_fu_92  |run_single_head  |        0|   0|  0|  803|    0|
+    +--------------------------------+-----------------+---------+----+---+-----+-----+
+    |Total                           |                 |        0|   0|  0|  803|    0|
+    +--------------------------------+-----------------+---------+----+---+-----+-----+
 
     * DSP: 
     N/A
@@ -88,59 +88,43 @@
     N/A
 
     * Expression: 
-    +----------------------------+----------+----+---+----+------------+------------+
-    |        Variable Name       | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
-    +----------------------------+----------+----+---+----+------------+------------+
-    |and_ln206_1_fu_207_p2       |       and|   0|  0|   2|           1|           1|
-    |and_ln206_fu_153_p2         |       and|   0|  0|   2|           1|           1|
-    |group_finished_2_fu_237_p2  |       and|   0|  0|   2|           1|           1|
-    |icmp_ln205_1_fu_195_p2      |      icmp|   0|  0|  15|           8|           4|
-    |icmp_ln205_fu_141_p2        |      icmp|   0|  0|  15|           8|           4|
-    |icmp_ln206_1_fu_201_p2      |      icmp|   0|  0|  15|           8|           1|
-    |icmp_ln206_fu_147_p2        |      icmp|   0|  0|  15|           8|           1|
-    +----------------------------+----------+----+---+----+------------+------------+
-    |Total                       |          |   0|  0|  66|          35|          13|
-    +----------------------------+----------+----+---+----+------------+------------+
+    +----------------------+----------+----+---+----+------------+------------+
+    |     Variable Name    | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------+----------+----+---+----+------------+------------+
+    |and_ln206_fu_121_p2   |       and|   0|  0|   2|           1|           1|
+    |icmp_ln205_fu_109_p2  |      icmp|   0|  0|  15|           8|           4|
+    |icmp_ln206_fu_115_p2  |      icmp|   0|  0|  15|           8|           1|
+    +----------------------+----------+----+---+----+------------+------------+
+    |Total                 |          |   0|  0|  32|          17|           6|
+    +----------------------+----------+----+---+----+------------+------------+
 
     * Multiplexer: 
-    +-------------------------------------------+----+-----------+-----+-----------+
-    |                    Name                   | LUT| Input Size| Bits| Total Bits|
-    +-------------------------------------------+----+-----------+-----+-----------+
-    |ap_NS_fsm                                  |  31|          6|    1|          6|
-    |ap_phi_mux_group_finished_1_phi_fu_100_p4  |   9|          2|    1|          2|
-    |ap_phi_mux_group_finished_3_phi_fu_111_p4  |   9|          2|    1|          2|
-    |group_finished_1_reg_96                    |   9|          2|    1|          2|
-    |group_finished_3_reg_108                   |   9|          2|    1|          2|
-    |grp_run_single_head_fu_118_p_read          |  14|          3|   66|        198|
-    |grp_run_single_head_fu_118_start_r         |  14|          3|    1|          3|
-    |head_ctx_ref_0_o                           |   9|          2|   66|        132|
-    |head_ctx_ref_1_o                           |   9|          2|   66|        132|
-    +-------------------------------------------+----+-----------+-----+-----------+
-    |Total                                      | 113|         24|  204|        479|
-    +-------------------------------------------+----+-----------+-----+-----------+
+    +------------------------------------------+----+-----------+-----+-----------+
+    |                   Name                   | LUT| Input Size| Bits| Total Bits|
+    +------------------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                                 |  20|          4|    1|          4|
+    |ap_phi_mux_group_finished_1_phi_fu_85_p4  |   9|          2|    1|          2|
+    |group_finished_1_reg_81                   |   9|          2|    1|          2|
+    |head_ctx_ref_o                            |   9|          2|   66|        132|
+    +------------------------------------------+----+-----------+-----+-----------+
+    |Total                                     |  47|         10|   69|        140|
+    +------------------------------------------+----+-----------+-----+-----------+
 
     * Register: 
-    +--------------------------+----+----+-----+-----------+
-    |           Name           | FF | LUT| Bits| Const Bits|
-    +--------------------------+----+----+-----+-----------+
-    |and_ln206_1_reg_283       |   1|   0|    1|          0|
-    |and_ln206_reg_258         |   1|   0|    1|          0|
-    |ap_CS_fsm                 |   5|   0|    5|          0|
-    |call_ret_reg_299_0        |   1|   0|    1|          0|
-    |group_finished_1_reg_96   |   1|   0|    1|          0|
-    |group_finished_3_reg_108  |   1|   0|    1|          0|
-    |head_done_2_reg_274       |   1|   0|    1|          0|
-    |icmp_ln205_1_reg_279      |   1|   0|    1|          0|
-    |icmp_ln205_reg_254        |   1|   0|    1|          0|
-    |layer_idx_read_reg_249    |  32|   0|   32|          0|
-    |start_r_read_reg_244      |   1|   0|    1|          0|
-    |tmp_reg_264               |  14|   0|   14|          0|
-    |tmp_s_reg_289             |  14|   0|   14|          0|
-    |trunc_ln206_1_reg_294     |  51|   0|   51|          0|
-    |trunc_ln206_reg_269       |  51|   0|   51|          0|
-    +--------------------------+----+----+-----+-----------+
-    |Total                     | 176|   0|  176|          0|
-    +--------------------------+----+----+-----+-----------+
+    +-------------------------+----+----+-----+-----------+
+    |           Name          | FF | LUT| Bits| Const Bits|
+    +-------------------------+----+----+-----+-----------+
+    |and_ln206_reg_167        |   1|   0|    1|          0|
+    |ap_CS_fsm                |   3|   0|    3|          0|
+    |group_finished_1_reg_81  |   1|   0|    1|          0|
+    |head_done_reg_183        |   1|   0|    1|          0|
+    |icmp_ln205_reg_163       |   1|   0|    1|          0|
+    |layer_idx_read_reg_158   |  32|   0|   32|          0|
+    |tmp_reg_173              |  14|   0|   14|          0|
+    |trunc_ln206_reg_178      |  51|   0|   51|          0|
+    +-------------------------+----+----+-----+-----------+
+    |Total                    | 104|   0|  104|          0|
+    +-------------------------+----+----+-----+-----------+
 
 
 
@@ -148,24 +132,21 @@
 == Interface
 ================================================================
 * Summary: 
-+-------------------------+-----+-----+------------+------------------------+--------------+
-|        RTL Ports        | Dir | Bits|  Protocol  |      Source Object     |    C Type    |
-+-------------------------+-----+-----+------------+------------------------+--------------+
-|ap_clk                   |   in|    1|  ap_ctrl_hs|  drive_group_head_phase|  return value|
-|ap_rst                   |   in|    1|  ap_ctrl_hs|  drive_group_head_phase|  return value|
-|ap_start                 |   in|    1|  ap_ctrl_hs|  drive_group_head_phase|  return value|
-|ap_done                  |  out|    1|  ap_ctrl_hs|  drive_group_head_phase|  return value|
-|ap_idle                  |  out|    1|  ap_ctrl_hs|  drive_group_head_phase|  return value|
-|ap_ready                 |  out|    1|  ap_ctrl_hs|  drive_group_head_phase|  return value|
-|ap_return                |  out|    1|  ap_ctrl_hs|  drive_group_head_phase|  return value|
-|head_ctx_ref_0_i         |   in|   66|     ap_ovld|          head_ctx_ref_0|       pointer|
-|head_ctx_ref_0_o         |  out|   66|     ap_ovld|          head_ctx_ref_0|       pointer|
-|head_ctx_ref_0_o_ap_vld  |  out|    1|     ap_ovld|          head_ctx_ref_0|       pointer|
-|head_ctx_ref_1_i         |   in|   66|     ap_ovld|          head_ctx_ref_1|       pointer|
-|head_ctx_ref_1_o         |  out|   66|     ap_ovld|          head_ctx_ref_1|       pointer|
-|head_ctx_ref_1_o_ap_vld  |  out|    1|     ap_ovld|          head_ctx_ref_1|       pointer|
-|base_head_idx            |   in|   32|     ap_none|           base_head_idx|        scalar|
-|layer_idx                |   in|   32|     ap_none|               layer_idx|        scalar|
-|start_r                  |   in|    1|     ap_none|                 start_r|        scalar|
-+-------------------------+-----+-----+------------+------------------------+--------------+
++-----------------------+-----+-----+------------+------------------------+--------------+
+|       RTL Ports       | Dir | Bits|  Protocol  |      Source Object     |    C Type    |
++-----------------------+-----+-----+------------+------------------------+--------------+
+|ap_clk                 |   in|    1|  ap_ctrl_hs|  drive_group_head_phase|  return value|
+|ap_rst                 |   in|    1|  ap_ctrl_hs|  drive_group_head_phase|  return value|
+|ap_start               |   in|    1|  ap_ctrl_hs|  drive_group_head_phase|  return value|
+|ap_done                |  out|    1|  ap_ctrl_hs|  drive_group_head_phase|  return value|
+|ap_idle                |  out|    1|  ap_ctrl_hs|  drive_group_head_phase|  return value|
+|ap_ready               |  out|    1|  ap_ctrl_hs|  drive_group_head_phase|  return value|
+|ap_return              |  out|    1|  ap_ctrl_hs|  drive_group_head_phase|  return value|
+|head_ctx_ref_i         |   in|   66|     ap_ovld|            head_ctx_ref|       pointer|
+|head_ctx_ref_o         |  out|   66|     ap_ovld|            head_ctx_ref|       pointer|
+|head_ctx_ref_o_ap_vld  |  out|    1|     ap_ovld|            head_ctx_ref|       pointer|
+|base_head_idx          |   in|   32|     ap_none|           base_head_idx|        scalar|
+|layer_idx              |   in|   32|     ap_none|               layer_idx|        scalar|
+|start_r                |   in|    1|     ap_none|                 start_r|        scalar|
++-----------------------+-----+-----+------------+------------------------+--------------+
 

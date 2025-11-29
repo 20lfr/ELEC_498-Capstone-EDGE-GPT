@@ -245,10 +245,10 @@ class AESL_RUNTIME_BC {
 using hls::sim::Byte;
 struct __cosim_s9__ { char data[16]; };
 struct __cosim_s16__ { char data[16]; };
-extern "C" char drive_group_head_phase(volatile void *, volatile void *, int, int, char);
-extern "C" char apatb_drive_group_head_phase_hw(volatile void * __xlx_apatb_param_head_ctx_ref_0, volatile void * __xlx_apatb_param_head_ctx_ref_1, int __xlx_apatb_param_base_head_idx, int __xlx_apatb_param_layer_idx, char __xlx_apatb_param_start_r) {
+extern "C" char drive_group_head_phase(volatile void *, int, int, char);
+extern "C" char apatb_drive_group_head_phase_hw(volatile void * __xlx_apatb_param_head_ctx_ref, int __xlx_apatb_param_base_head_idx, int __xlx_apatb_param_layer_idx, char __xlx_apatb_param_start_r) {
 using hls::sim::createStream;
   // DUT call
-  char ap_return = drive_group_head_phase(__xlx_apatb_param_head_ctx_ref_0, __xlx_apatb_param_head_ctx_ref_1, __xlx_apatb_param_base_head_idx, __xlx_apatb_param_layer_idx, __xlx_apatb_param_start_r);
+  char ap_return = drive_group_head_phase(__xlx_apatb_param_head_ctx_ref, __xlx_apatb_param_base_head_idx, __xlx_apatb_param_layer_idx, __xlx_apatb_param_start_r);
 return ap_return;
 }

@@ -12,14 +12,14 @@ set axilite_register_dict [dict create]
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 7 \
-    name head_ctx_ref_0 \
+    name head_ctx_ref \
     type other \
     dir IO \
     reset_level 1 \
     sync_rst true \
-    corename dc_head_ctx_ref_0 \
+    corename dc_head_ctx_ref \
     op interface \
-    ports { head_ctx_ref_0_i { I 66 vector } head_ctx_ref_0_o { O 66 vector } head_ctx_ref_0_o_ap_vld { O 1 bit } } \
+    ports { head_ctx_ref_i { I 66 vector } head_ctx_ref_o { O 66 vector } head_ctx_ref_o_ap_vld { O 1 bit } } \
 } "
 }
 
@@ -27,21 +27,6 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 8 \
-    name head_ctx_ref_1 \
-    type other \
-    dir IO \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_head_ctx_ref_1 \
-    op interface \
-    ports { head_ctx_ref_1_i { I 66 vector } head_ctx_ref_1_o { O 66 vector } head_ctx_ref_1_o_ap_vld { O 1 bit } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 9 \
     name layer_idx \
     type other \
     dir I \
@@ -56,7 +41,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 10 \
+    id 9 \
     name start_r \
     type other \
     dir I \

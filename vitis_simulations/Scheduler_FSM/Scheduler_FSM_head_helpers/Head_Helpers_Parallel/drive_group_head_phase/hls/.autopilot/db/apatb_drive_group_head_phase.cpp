@@ -21,10 +21,8 @@
 using namespace std;
 
 // wrapc file define:
-#define AUTOTB_TVIN_head_ctx_ref_0 "../tv/cdatafile/c.drive_group_head_phase.autotvin_head_ctx_ref_0.dat"
-#define AUTOTB_TVOUT_head_ctx_ref_0 "../tv/cdatafile/c.drive_group_head_phase.autotvout_head_ctx_ref_0.dat"
-#define AUTOTB_TVIN_head_ctx_ref_1 "../tv/cdatafile/c.drive_group_head_phase.autotvin_head_ctx_ref_1.dat"
-#define AUTOTB_TVOUT_head_ctx_ref_1 "../tv/cdatafile/c.drive_group_head_phase.autotvout_head_ctx_ref_1.dat"
+#define AUTOTB_TVIN_head_ctx_ref "../tv/cdatafile/c.drive_group_head_phase.autotvin_head_ctx_ref.dat"
+#define AUTOTB_TVOUT_head_ctx_ref "../tv/cdatafile/c.drive_group_head_phase.autotvout_head_ctx_ref.dat"
 #define AUTOTB_TVIN_base_head_idx "../tv/cdatafile/c.drive_group_head_phase.autotvin_base_head_idx.dat"
 #define AUTOTB_TVOUT_base_head_idx "../tv/cdatafile/c.drive_group_head_phase.autotvout_base_head_idx.dat"
 #define AUTOTB_TVIN_layer_idx "../tv/cdatafile/c.drive_group_head_phase.autotvin_layer_idx.dat"
@@ -35,8 +33,7 @@ using namespace std;
 
 
 // tvout file define:
-#define AUTOTB_TVOUT_PC_head_ctx_ref_0 "../tv/rtldatafile/rtl.drive_group_head_phase.autotvout_head_ctx_ref_0.dat"
-#define AUTOTB_TVOUT_PC_head_ctx_ref_1 "../tv/rtldatafile/rtl.drive_group_head_phase.autotvout_head_ctx_ref_1.dat"
+#define AUTOTB_TVOUT_PC_head_ctx_ref "../tv/rtldatafile/rtl.drive_group_head_phase.autotvout_head_ctx_ref.dat"
 #define AUTOTB_TVOUT_PC_return "../tv/rtldatafile/rtl.drive_group_head_phase.autotvout_ap_return.dat"
 
 
@@ -1241,10 +1238,10 @@ namespace hls::sim
 
 
 extern "C"
-hls::sim::Byte<1> drive_group_head_phase_hw_stub_wrapper(void*, void*, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<1>);
+hls::sim::Byte<1> drive_group_head_phase_hw_stub_wrapper(void*, hls::sim::Byte<4>, hls::sim::Byte<4>, hls::sim::Byte<1>);
 
 extern "C"
-hls::sim::Byte<1> apatb_drive_group_head_phase_hw(void* __xlx_apatb_param_head_ctx_ref_0, void* __xlx_apatb_param_head_ctx_ref_1, hls::sim::Byte<4> __xlx_apatb_param_base_head_idx, hls::sim::Byte<4> __xlx_apatb_param_layer_idx, hls::sim::Byte<1> __xlx_apatb_param_start_r)
+hls::sim::Byte<1> apatb_drive_group_head_phase_hw(void* __xlx_apatb_param_head_ctx_ref, hls::sim::Byte<4> __xlx_apatb_param_base_head_idx, hls::sim::Byte<4> __xlx_apatb_param_layer_idx, hls::sim::Byte<1> __xlx_apatb_param_start_r)
 {
    hls::sim::Byte<1> ap_return;
   static hls::sim::Register port0 {
@@ -1260,30 +1257,18 @@ hls::sim::Byte<1> apatb_drive_group_head_phase_hw(void* __xlx_apatb_param_head_c
   port0.param = &ap_return;
 
   static hls::sim::Register port1 {
-    .name = "head_ctx_ref_0",
+    .name = "head_ctx_ref",
     .width = 66,
 #ifdef POST_CHECK
-    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_head_ctx_ref_0),
+    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_head_ctx_ref),
 #else
-    .owriter = new hls::sim::Writer(AUTOTB_TVOUT_head_ctx_ref_0),
-    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_head_ctx_ref_0),
+    .owriter = new hls::sim::Writer(AUTOTB_TVOUT_head_ctx_ref),
+    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_head_ctx_ref),
 #endif
   };
-  port1.param = __xlx_apatb_param_head_ctx_ref_0;
+  port1.param = __xlx_apatb_param_head_ctx_ref;
 
   static hls::sim::Register port2 {
-    .name = "head_ctx_ref_1",
-    .width = 66,
-#ifdef POST_CHECK
-    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_head_ctx_ref_1),
-#else
-    .owriter = new hls::sim::Writer(AUTOTB_TVOUT_head_ctx_ref_1),
-    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_head_ctx_ref_1),
-#endif
-  };
-  port2.param = __xlx_apatb_param_head_ctx_ref_1;
-
-  static hls::sim::Register port3 {
     .name = "base_head_idx",
     .width = 32,
 #ifdef POST_CHECK
@@ -1292,9 +1277,9 @@ hls::sim::Byte<1> apatb_drive_group_head_phase_hw(void* __xlx_apatb_param_head_c
     .iwriter = new hls::sim::Writer(AUTOTB_TVIN_base_head_idx),
 #endif
   };
-  port3.param = &__xlx_apatb_param_base_head_idx;
+  port2.param = &__xlx_apatb_param_base_head_idx;
 
-  static hls::sim::Register port4 {
+  static hls::sim::Register port3 {
     .name = "layer_idx",
     .width = 32,
 #ifdef POST_CHECK
@@ -1303,9 +1288,9 @@ hls::sim::Byte<1> apatb_drive_group_head_phase_hw(void* __xlx_apatb_param_head_c
     .iwriter = new hls::sim::Writer(AUTOTB_TVIN_layer_idx),
 #endif
   };
-  port4.param = &__xlx_apatb_param_layer_idx;
+  port3.param = &__xlx_apatb_param_layer_idx;
 
-  static hls::sim::Register port5 {
+  static hls::sim::Register port4 {
     .name = "start_r",
     .width = 1,
 #ifdef POST_CHECK
@@ -1314,14 +1299,13 @@ hls::sim::Byte<1> apatb_drive_group_head_phase_hw(void* __xlx_apatb_param_head_c
     .iwriter = new hls::sim::Writer(AUTOTB_TVIN_start_r),
 #endif
   };
-  port5.param = &__xlx_apatb_param_start_r;
+  port4.param = &__xlx_apatb_param_start_r;
 
   try {
 #ifdef POST_CHECK
     CodeState = ENTER_WRAPC_PC;
     check(port0);
     check(port1);
-    check(port2);
 #else
     static hls::sim::RefTCL tcl("../tv/cdatafile/ref.tcl");
     tcl.containsVLA = 0;
@@ -1330,18 +1314,15 @@ hls::sim::Byte<1> apatb_drive_group_head_phase_hw(void* __xlx_apatb_param_head_c
     dump(port2, port2.iwriter, tcl.AESL_transaction);
     dump(port3, port3.iwriter, tcl.AESL_transaction);
     dump(port4, port4.iwriter, tcl.AESL_transaction);
-    dump(port5, port5.iwriter, tcl.AESL_transaction);
     port1.doTCL(tcl);
     port2.doTCL(tcl);
     port3.doTCL(tcl);
     port4.doTCL(tcl);
-    port5.doTCL(tcl);
     CodeState = CALL_C_DUT;
-    ap_return = drive_group_head_phase_hw_stub_wrapper(__xlx_apatb_param_head_ctx_ref_0, __xlx_apatb_param_head_ctx_ref_1, __xlx_apatb_param_base_head_idx, __xlx_apatb_param_layer_idx, __xlx_apatb_param_start_r);
+    ap_return = drive_group_head_phase_hw_stub_wrapper(__xlx_apatb_param_head_ctx_ref, __xlx_apatb_param_base_head_idx, __xlx_apatb_param_layer_idx, __xlx_apatb_param_start_r);
     CodeState = DUMP_OUTPUTS;
     dump(port0, port0.owriter, tcl.AESL_transaction);
     dump(port1, port1.owriter, tcl.AESL_transaction);
-    dump(port2, port2.owriter, tcl.AESL_transaction);
     port0.doTCL(tcl);
     tcl.AESL_transaction++;
 #endif

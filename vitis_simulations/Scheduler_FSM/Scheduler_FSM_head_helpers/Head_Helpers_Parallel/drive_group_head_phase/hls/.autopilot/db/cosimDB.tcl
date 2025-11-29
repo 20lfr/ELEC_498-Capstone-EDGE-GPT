@@ -7,7 +7,7 @@ set RtlHierarchyInfo {[
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "2", "EstimateLatencyMax" : "4",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "1", "EstimateLatencyMax" : "2",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -16,12 +16,11 @@ set RtlHierarchyInfo {[
 		"HasNonBlockingOperation" : "0",
 		"IsBlackBox" : "0",
 		"Port" : [
-			{"Name" : "head_ctx_ref_0", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "head_ctx_ref_1", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "head_ctx_ref", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "base_head_idx", "Type" : "None", "Direction" : "I"},
 			{"Name" : "layer_idx", "Type" : "None", "Direction" : "I"},
 			{"Name" : "start_r", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_run_single_head_fu_118", "Parent" : "0", "Child" : ["2", "3"],
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.call_ret_run_single_head_fu_92", "Parent" : "0", "Child" : ["2", "3"],
 		"CDFG" : "run_single_head",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "0", "ap_start" : "0", "ap_ready" : "1", "ap_done" : "0", "ap_continue" : "0", "ap_idle" : "0", "real_start" : "0",
@@ -39,5 +38,5 @@ set RtlHierarchyInfo {[
 			{"Name" : "p_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "layer_idx", "Type" : "None", "Direction" : "I"},
 			{"Name" : "start_r", "Type" : "None", "Direction" : "I"}]},
-	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_run_single_head_fu_118.sparsemux_7_2_66_1_1_U1", "Parent" : "1"},
-	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_run_single_head_fu_118.sparsemux_7_2_66_1_1_U2", "Parent" : "1"}]}
+	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.call_ret_run_single_head_fu_92.sparsemux_7_2_66_1_1_U1", "Parent" : "1"},
+	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.call_ret_run_single_head_fu_92.sparsemux_7_2_66_1_1_U2", "Parent" : "1"}]}

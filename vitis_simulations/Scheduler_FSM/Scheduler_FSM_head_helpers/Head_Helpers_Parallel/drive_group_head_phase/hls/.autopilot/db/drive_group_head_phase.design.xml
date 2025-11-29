@@ -5,10 +5,10 @@
 <ModuleName>drive_group_head_phase</ModuleName>
 <InstancesList>
 <Instance>
-<InstName>grp_run_single_head_fu_118</InstName>
+<InstName>call_ret_run_single_head_fu_92</InstName>
 <ModuleName>run_single_head</ModuleName>
 <IsCompInst>true</IsCompInst>
-<ID>118</ID>
+<ID>92</ID>
 </Instance>
 </InstancesList>
 </TopModule>
@@ -148,13 +148,13 @@
 <EstimatedClockPeriod>7.042</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
-<Best-caseLatency>2</Best-caseLatency>
-<Average-caseLatency>4</Average-caseLatency>
-<Worst-caseLatency>4</Worst-caseLatency>
-<Best-caseRealTimeLatency>20.000 ns</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>40.000 ns</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>40.000 ns</Worst-caseRealTimeLatency>
-<PipelineInitiationInterval>3 ~ 5</PipelineInitiationInterval>
+<Best-caseLatency>1</Best-caseLatency>
+<Average-caseLatency>2</Average-caseLatency>
+<Worst-caseLatency>2</Worst-caseLatency>
+<Best-caseRealTimeLatency>10.000 ns</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>20.000 ns</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>20.000 ns</Worst-caseRealTimeLatency>
+<PipelineInitiationInterval>2 ~ 3</PipelineInitiationInterval>
 <PipelineType>no</PipelineType>
 <PerformancePragma>-</PerformancePragma>
 </SummaryOfOverallLatency>
@@ -166,10 +166,10 @@
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<FF>176</FF>
+<FF>104</FF>
 <AVAIL_FF>234240</AVAIL_FF>
 <UTIL_FF>~0</UTIL_FF>
-<LUT>982</LUT>
+<LUT>882</LUT>
 <AVAIL_LUT>117120</AVAIL_LUT>
 <UTIL_LUT>~0</UTIL_LUT>
 <BRAM_18K>0</BRAM_18K>
@@ -262,8 +262,8 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>head_ctx_ref_0_i</name>
-<Object>head_ctx_ref_0</Object>
+<name>head_ctx_ref_i</name>
+<Object>head_ctx_ref</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_ovld</IOProtocol>
@@ -274,8 +274,8 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>head_ctx_ref_0_o</name>
-<Object>head_ctx_ref_0</Object>
+<name>head_ctx_ref_o</name>
+<Object>head_ctx_ref</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_ovld</IOProtocol>
@@ -286,44 +286,8 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>head_ctx_ref_0_o_ap_vld</name>
-<Object>head_ctx_ref_0</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>ap_ovld</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>head_ctx_ref_1_i</name>
-<Object>head_ctx_ref_1</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>ap_ovld</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>66</Bits>
-<Attribute>data</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>head_ctx_ref_1_o</name>
-<Object>head_ctx_ref_1</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>ap_ovld</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>66</Bits>
-<Attribute>data</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>head_ctx_ref_1_o_ap_vld</name>
-<Object>head_ctx_ref_1</Object>
+<name>head_ctx_ref_o_ap_vld</name>
+<Object>head_ctx_ref</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>ap_ovld</IOProtocol>

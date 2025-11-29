@@ -3191,7 +3191,7 @@
 					<Obj>
 						<type>0</type>
 						<id>57</id>
-						<name>head_ctx_ref_0_1</name>
+						<name>head_ctx_ref_1</name>
 						<fileName>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp</fileName>
 						<fileDirectory>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers_Parallel</fileDirectory>
 						<lineNumber>62</lineNumber>
@@ -12508,7 +12508,7 @@
 					<Obj>
 						<type>0</type>
 						<id>268</id>
-						<name>head_ctx_ref_0_2</name>
+						<name>head_ctx_ref_2</name>
 						<fileName>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp</fileName>
 						<fileDirectory>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers_Parallel</fileDirectory>
 						<lineNumber>62</lineNumber>

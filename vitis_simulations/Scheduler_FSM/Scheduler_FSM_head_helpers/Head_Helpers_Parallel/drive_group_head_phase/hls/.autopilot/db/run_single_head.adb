@@ -2814,7 +2814,7 @@
                 </item>
               </inlineStackInfo>
               <originalName></originalName>
-              <rtlName>head_ctx_ref_0_1_fu_865_p6</rtlName>
+              <rtlName>head_ctx_ref_1_fu_865_p6</rtlName>
               <control>auto</control>
               <opType>select</opType>
               <implIndex>auto_sel</implIndex>
@@ -3191,7 +3191,7 @@
             <Obj>
               <type>0</type>
               <id>57</id>
-              <name>head_ctx_ref_0_1</name>
+              <name>head_ctx_ref_1</name>
               <fileName>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp</fileName>
               <fileDirectory>../.</fileDirectory>
               <lineNumber>62</lineNumber>
@@ -12508,7 +12508,7 @@
             <Obj>
               <type>0</type>
               <id>268</id>
-              <name>head_ctx_ref_0_2</name>
+              <name>head_ctx_ref_2</name>
               <fileName>/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp</fileName>
               <fileDirectory>../.</fileDirectory>
               <lineNumber>62</lineNumber>
@@ -23165,7 +23165,7 @@
           </second>
         </item>
         <item>
-          <first>head_ctx_ref_0_1_fu_865_p6 ( select ) </first>
+          <first>head_ctx_ref_1_fu_865_p6 ( select ) </first>
           <second>
             <count>5</count>
             <item_version>0</item_version>
@@ -23604,7 +23604,7 @@
           </second>
         </item>
         <item>
-          <first>ap_phi_mux_head_ctx_ref_0_2_phi_fu_225_p74</first>
+          <first>ap_phi_mux_head_ctx_ref_2_phi_fu_225_p74</first>
           <second>
             <count>5</count>
             <item_version>0</item_version>
@@ -23685,7 +23685,7 @@
           </second>
         </item>
         <item>
-          <first>head_ctx_ref_0_1_fu_865_p6 ( select ) </first>
+          <first>head_ctx_ref_1_fu_865_p6 ( select ) </first>
           <second>
             <count>1</count>
             <item_version>0</item_version>
@@ -27071,7 +27071,7 @@
         </second>
       </item>
       <item>
-        <first>head_ctx_ref_0_1_fu_865</first>
+        <first>head_ctx_ref_1_fu_865</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -27079,7 +27079,7 @@
         </second>
       </item>
       <item>
-        <first>head_ctx_ref_0_2_phi_fu_225</first>
+        <first>head_ctx_ref_2_phi_fu_225</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -28239,7 +28239,7 @@
         </second>
       </item>
       <item>
-        <first>head_ctx_ref_0_2_reg_222</first>
+        <first>head_ctx_ref_2_reg_222</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -28279,7 +28279,7 @@
         </second>
       </item>
       <item>
-        <first>head_ctx_ref_0_2_reg_222</first>
+        <first>head_ctx_ref_2_reg_222</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>

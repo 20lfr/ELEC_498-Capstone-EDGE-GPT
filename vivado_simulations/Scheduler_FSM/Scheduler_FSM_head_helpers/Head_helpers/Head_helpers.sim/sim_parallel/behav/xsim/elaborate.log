@@ -6,10 +6,8 @@ Using 8 slave threads.
 WARNING: [XSIM 43-3431] One or more environment variables have been detected which affect the operation of the C compiler. These are typically not set in standard installations and are not tested by AMD, however they may be appropriate for your system, so the flow will attempt to continue.  If errors occur, try running xelab with the "-mt off -v 1" switches to see more information from the C compiler. The following environment variables have been detected:
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3818] variable 'gb' is driven by invalid combination of procedural drivers [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_tb.sv:100]
-WARNING: [VRFC 10-2921] 'gb' driven by this always_ff block should not be driven by any other process [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_tb.sv:231]
-WARNING: [VRFC 10-3818] variable 'cycle_count' is driven by invalid combination of procedural drivers [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_tb.sv:98]
-WARNING: [VRFC 10-2921] 'cycle_count' driven by this always_ff block should not be driven by any other process [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_tb.sv:365]
+WARNING: [VRFC 10-3818] variable 'cycle_count' is driven by invalid combination of procedural drivers [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_tb.sv:95]
+WARNING: [VRFC 10-2921] 'cycle_count' driven by this always_ff block should not be driven by any other process [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_tb.sv:345]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis

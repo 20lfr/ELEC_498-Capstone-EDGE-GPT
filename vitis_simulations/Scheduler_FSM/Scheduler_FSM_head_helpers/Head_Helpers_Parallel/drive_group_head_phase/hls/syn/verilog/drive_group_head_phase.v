@@ -6,7 +6,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="drive_group_head_phase_drive_group_head_phase,hls_ip_2025_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xck26-sfvc784-2LV-c,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=7.041650,HLS_SYN_LAT=4,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=176,HLS_SYN_LUT=982,HLS_VERSION=2025_1}" *)
+(* CORE_GENERATION_INFO="drive_group_head_phase_drive_group_head_phase,hls_ip_2025_1,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xck26-sfvc784-2LV-c,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=7.041650,HLS_SYN_LAT=2,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=104,HLS_SYN_LUT=882,HLS_VERSION=2025_1}" *)
 
 module drive_group_head_phase (
         ap_clk,
@@ -15,23 +15,18 @@ module drive_group_head_phase (
         ap_done,
         ap_idle,
         ap_ready,
-        head_ctx_ref_0_i,
-        head_ctx_ref_0_o,
-        head_ctx_ref_0_o_ap_vld,
-        head_ctx_ref_1_i,
-        head_ctx_ref_1_o,
-        head_ctx_ref_1_o_ap_vld,
+        head_ctx_ref_i,
+        head_ctx_ref_o,
+        head_ctx_ref_o_ap_vld,
         base_head_idx,
         layer_idx,
         start_r,
         ap_return
 );
 
-parameter    ap_ST_fsm_state1 = 5'd1;
-parameter    ap_ST_fsm_state2 = 5'd2;
-parameter    ap_ST_fsm_state3 = 5'd4;
-parameter    ap_ST_fsm_state4 = 5'd8;
-parameter    ap_ST_fsm_state5 = 5'd16;
+parameter    ap_ST_fsm_state1 = 3'd1;
+parameter    ap_ST_fsm_state2 = 3'd2;
+parameter    ap_ST_fsm_state3 = 3'd4;
 
 input   ap_clk;
 input   ap_rst;
@@ -39,12 +34,9 @@ input   ap_start;
 output   ap_done;
 output   ap_idle;
 output   ap_ready;
-input  [65:0] head_ctx_ref_0_i;
-output  [65:0] head_ctx_ref_0_o;
-output   head_ctx_ref_0_o_ap_vld;
-input  [65:0] head_ctx_ref_1_i;
-output  [65:0] head_ctx_ref_1_o;
-output   head_ctx_ref_1_o_ap_vld;
+input  [65:0] head_ctx_ref_i;
+output  [65:0] head_ctx_ref_o;
+output   head_ctx_ref_o_ap_vld;
 input  [31:0] base_head_idx;
 input  [31:0] layer_idx;
 input  [0:0] start_r;
@@ -53,71 +45,48 @@ output  [0:0] ap_return;
 reg ap_done;
 reg ap_idle;
 reg ap_ready;
-reg[65:0] head_ctx_ref_0_o;
-reg head_ctx_ref_0_o_ap_vld;
-reg[65:0] head_ctx_ref_1_o;
-reg head_ctx_ref_1_o_ap_vld;
+reg[65:0] head_ctx_ref_o;
+reg head_ctx_ref_o_ap_vld;
 
-(* fsm_encoding = "none" *) reg   [4:0] ap_CS_fsm;
+(* fsm_encoding = "none" *) reg   [2:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
-reg   [0:0] start_r_read_reg_244;
-reg   [31:0] layer_idx_read_reg_249;
-wire   [0:0] icmp_ln205_fu_141_p2;
-reg   [0:0] icmp_ln205_reg_254;
-wire   [0:0] and_ln206_fu_153_p2;
-reg   [0:0] and_ln206_reg_258;
-reg   [13:0] tmp_reg_264;
-wire   [50:0] trunc_ln206_fu_169_p1;
-reg   [50:0] trunc_ln206_reg_269;
-reg   [0:0] head_done_2_reg_274;
+reg   [31:0] layer_idx_read_reg_158;
+wire   [0:0] icmp_ln205_fu_109_p2;
+reg   [0:0] icmp_ln205_reg_163;
+wire   [0:0] and_ln206_fu_121_p2;
+reg   [0:0] and_ln206_reg_167;
+reg   [13:0] tmp_reg_173;
+wire   [50:0] trunc_ln206_fu_137_p1;
+reg   [50:0] trunc_ln206_reg_178;
+reg   [0:0] head_done_reg_183;
 wire    ap_CS_fsm_state2;
-wire   [0:0] icmp_ln205_1_fu_195_p2;
-reg   [0:0] icmp_ln205_1_reg_279;
+wire    call_ret_run_single_head_fu_92_ap_ready;
+wire   [65:0] call_ret_run_single_head_fu_92_p_read;
+wire   [0:0] call_ret_run_single_head_fu_92_ap_return_0;
+wire   [65:0] call_ret_run_single_head_fu_92_ap_return_1;
+reg   [0:0] ap_phi_mux_group_finished_1_phi_fu_85_p4;
+reg   [0:0] group_finished_1_reg_81;
 wire    ap_CS_fsm_state3;
-wire   [0:0] and_ln206_1_fu_207_p2;
-reg   [0:0] and_ln206_1_reg_283;
-reg   [13:0] tmp_s_reg_289;
-wire   [50:0] trunc_ln206_1_fu_222_p1;
-reg   [50:0] trunc_ln206_1_reg_294;
-wire   [0:0] grp_run_single_head_fu_118_ap_return_0;
-wire   [65:0] grp_run_single_head_fu_118_ap_return_1;
-reg   [0:0] call_ret_reg_299_0;
-wire    ap_CS_fsm_state4;
-wire    grp_run_single_head_fu_118_ap_ready;
-reg   [65:0] grp_run_single_head_fu_118_p_read;
-reg   [0:0] grp_run_single_head_fu_118_start_r;
-reg   [0:0] ap_phi_mux_group_finished_1_phi_fu_100_p4;
-reg   [0:0] group_finished_1_reg_96;
-wire   [0:0] group_finished_2_fu_237_p2;
-reg   [0:0] ap_phi_mux_group_finished_3_phi_fu_111_p4;
-reg   [0:0] group_finished_3_reg_108;
-wire    ap_CS_fsm_state5;
-wire   [65:0] or_ln_fu_173_p4;
-wire   [65:0] or_ln206_1_fu_226_p4;
-wire   [7:0] trunc_ln_fu_131_p4;
-wire   [0:0] icmp_ln206_fu_147_p2;
-wire   [7:0] trunc_ln205_1_fu_185_p4;
-wire   [0:0] icmp_ln206_1_fu_201_p2;
-reg   [4:0] ap_NS_fsm;
+wire   [7:0] trunc_ln_fu_99_p4;
+wire   [0:0] icmp_ln206_fu_115_p2;
+reg   [2:0] ap_NS_fsm;
 reg    ap_ST_fsm_state1_blk;
 wire    ap_ST_fsm_state2_blk;
 wire    ap_ST_fsm_state3_blk;
-wire    ap_ST_fsm_state4_blk;
-wire    ap_ST_fsm_state5_blk;
 wire    ap_ce_reg;
 
 // power-on initialization
 initial begin
-#0 ap_CS_fsm = 5'd1;
+#0 ap_CS_fsm = 3'd1;
 end
 
-drive_group_head_phase_run_single_head grp_run_single_head_fu_118(
-    .ap_ready(grp_run_single_head_fu_118_ap_ready),
-    .p_read(grp_run_single_head_fu_118_p_read),
-    .layer_idx(layer_idx_read_reg_249),
-    .start_r(grp_run_single_head_fu_118_start_r),
-    .ap_return_0(grp_run_single_head_fu_118_ap_return_0),
-    .ap_return_1(grp_run_single_head_fu_118_ap_return_1),
+drive_group_head_phase_run_single_head call_ret_run_single_head_fu_92(
+    .ap_ready(call_ret_run_single_head_fu_92_ap_ready),
+    .p_read(call_ret_run_single_head_fu_92_p_read),
+    .layer_idx(layer_idx_read_reg_158),
+    .start_r(and_ln206_reg_167),
+    .ap_return_0(call_ret_run_single_head_fu_92_ap_return_0),
+    .ap_return_1(call_ret_run_single_head_fu_92_ap_return_1),
     .ap_rst(ap_rst)
 );
 
@@ -130,50 +99,26 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if (((icmp_ln205_fu_141_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
-        group_finished_1_reg_96 <= 1'd1;
-    end else if (((icmp_ln205_reg_254 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
-        group_finished_1_reg_96 <= head_done_2_reg_274;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (((icmp_ln205_1_fu_195_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state3))) begin
-        group_finished_3_reg_108 <= ap_phi_mux_group_finished_1_phi_fu_100_p4;
-    end else if (((icmp_ln205_1_reg_279 == 1'd0) & (1'b1 == ap_CS_fsm_state5))) begin
-        group_finished_3_reg_108 <= group_finished_2_fu_237_p2;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        and_ln206_1_reg_283 <= and_ln206_1_fu_207_p2;
-        icmp_ln205_1_reg_279 <= icmp_ln205_1_fu_195_p2;
-        tmp_s_reg_289 <= {{head_ctx_ref_1_i[65:52]}};
-        trunc_ln206_1_reg_294 <= trunc_ln206_1_fu_222_p1;
+    if (((ap_start == 1'b1) & (icmp_ln205_fu_109_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1))) begin
+        group_finished_1_reg_81 <= 1'd1;
+    end else if (((icmp_ln205_reg_163 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
+        group_finished_1_reg_81 <= head_done_reg_183;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state1)) begin
-        and_ln206_reg_258 <= and_ln206_fu_153_p2;
-        icmp_ln205_reg_254 <= icmp_ln205_fu_141_p2;
-        layer_idx_read_reg_249 <= layer_idx;
-        start_r_read_reg_244 <= start_r;
-        tmp_reg_264 <= {{head_ctx_ref_0_i[65:52]}};
-        trunc_ln206_reg_269 <= trunc_ln206_fu_169_p1;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        call_ret_reg_299_0 <= grp_run_single_head_fu_118_ap_return_0;
+        and_ln206_reg_167 <= and_ln206_fu_121_p2;
+        icmp_ln205_reg_163 <= icmp_ln205_fu_109_p2;
+        layer_idx_read_reg_158 <= layer_idx;
+        tmp_reg_173 <= {{head_ctx_ref_i[65:52]}};
+        trunc_ln206_reg_178 <= trunc_ln206_fu_137_p1;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state2)) begin
-        head_done_2_reg_274 <= grp_run_single_head_fu_118_ap_return_0;
+        head_done_reg_183 <= call_ret_run_single_head_fu_92_ap_return_0;
     end
 end
 
@@ -189,12 +134,8 @@ assign ap_ST_fsm_state2_blk = 1'b0;
 
 assign ap_ST_fsm_state3_blk = 1'b0;
 
-assign ap_ST_fsm_state4_blk = 1'b0;
-
-assign ap_ST_fsm_state5_blk = 1'b0;
-
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
+    if ((1'b1 == ap_CS_fsm_state3)) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -202,7 +143,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b0))) begin
+    if (((ap_start == 1'b0) & (1'b1 == ap_CS_fsm_state1))) begin
         ap_idle = 1'b1;
     end else begin
         ap_idle = 1'b0;
@@ -210,23 +151,15 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln205_reg_254 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
-        ap_phi_mux_group_finished_1_phi_fu_100_p4 = head_done_2_reg_274;
+    if (((icmp_ln205_reg_163 == 1'd0) & (1'b1 == ap_CS_fsm_state3))) begin
+        ap_phi_mux_group_finished_1_phi_fu_85_p4 = head_done_reg_183;
     end else begin
-        ap_phi_mux_group_finished_1_phi_fu_100_p4 = group_finished_1_reg_96;
+        ap_phi_mux_group_finished_1_phi_fu_85_p4 = group_finished_1_reg_81;
     end
 end
 
 always @ (*) begin
-    if (((icmp_ln205_1_reg_279 == 1'd0) & (1'b1 == ap_CS_fsm_state5))) begin
-        ap_phi_mux_group_finished_3_phi_fu_111_p4 = group_finished_2_fu_237_p2;
-    end else begin
-        ap_phi_mux_group_finished_3_phi_fu_111_p4 = group_finished_3_reg_108;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
+    if ((1'b1 == ap_CS_fsm_state3)) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -234,63 +167,27 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        grp_run_single_head_fu_118_p_read = or_ln206_1_fu_226_p4;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        grp_run_single_head_fu_118_p_read = or_ln_fu_173_p4;
+    if ((1'b1 == ap_CS_fsm_state2)) begin
+        head_ctx_ref_o = call_ret_run_single_head_fu_92_ap_return_1;
     end else begin
-        grp_run_single_head_fu_118_p_read = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        grp_run_single_head_fu_118_start_r = and_ln206_1_reg_283;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        grp_run_single_head_fu_118_start_r = and_ln206_reg_258;
-    end else begin
-        grp_run_single_head_fu_118_start_r = 'bx;
+        head_ctx_ref_o = head_ctx_ref_i;
     end
 end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state2)) begin
-        head_ctx_ref_0_o = grp_run_single_head_fu_118_ap_return_1;
+        head_ctx_ref_o_ap_vld = 1'b1;
     end else begin
-        head_ctx_ref_0_o = head_ctx_ref_0_i;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state2)) begin
-        head_ctx_ref_0_o_ap_vld = 1'b1;
-    end else begin
-        head_ctx_ref_0_o_ap_vld = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        head_ctx_ref_1_o = grp_run_single_head_fu_118_ap_return_1;
-    end else begin
-        head_ctx_ref_1_o = head_ctx_ref_1_i;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        head_ctx_ref_1_o_ap_vld = 1'b1;
-    end else begin
-        head_ctx_ref_1_o_ap_vld = 1'b0;
+        head_ctx_ref_o_ap_vld = 1'b0;
     end
 end
 
 always @ (*) begin
     case (ap_CS_fsm)
         ap_ST_fsm_state1 : begin
-            if (((icmp_ln205_fu_141_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
+            if (((ap_start == 1'b1) & (icmp_ln205_fu_109_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1))) begin
                 ap_NS_fsm = ap_ST_fsm_state3;
-            end else if (((icmp_ln205_fu_141_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
+            end else if (((ap_start == 1'b1) & (icmp_ln205_fu_109_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1))) begin
                 ap_NS_fsm = ap_ST_fsm_state2;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state1;
@@ -300,16 +197,6 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state3;
         end
         ap_ST_fsm_state3 : begin
-            if (((icmp_ln205_1_fu_195_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state3))) begin
-                ap_NS_fsm = ap_ST_fsm_state5;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state4;
-            end
-        end
-        ap_ST_fsm_state4 : begin
-            ap_NS_fsm = ap_ST_fsm_state5;
-        end
-        ap_ST_fsm_state5 : begin
             ap_NS_fsm = ap_ST_fsm_state1;
         end
         default : begin
@@ -318,9 +205,7 @@ always @ (*) begin
     endcase
 end
 
-assign and_ln206_1_fu_207_p2 = (start_r_read_reg_244 & icmp_ln206_1_fu_201_p2);
-
-assign and_ln206_fu_153_p2 = (start_r & icmp_ln206_fu_147_p2);
+assign and_ln206_fu_121_p2 = (start_r & icmp_ln206_fu_115_p2);
 
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
@@ -328,32 +213,16 @@ assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
 
 assign ap_CS_fsm_state3 = ap_CS_fsm[32'd2];
 
-assign ap_CS_fsm_state4 = ap_CS_fsm[32'd3];
+assign ap_return = ap_phi_mux_group_finished_1_phi_fu_85_p4;
 
-assign ap_CS_fsm_state5 = ap_CS_fsm[32'd4];
+assign call_ret_run_single_head_fu_92_p_read = {{{tmp_reg_173}, {and_ln206_reg_167}}, {trunc_ln206_reg_178}};
 
-assign ap_return = ap_phi_mux_group_finished_3_phi_fu_111_p4;
+assign icmp_ln205_fu_109_p2 = ((trunc_ln_fu_99_p4 == 8'd14) ? 1'b1 : 1'b0);
 
-assign group_finished_2_fu_237_p2 = (group_finished_1_reg_96 & call_ret_reg_299_0);
+assign icmp_ln206_fu_115_p2 = ((trunc_ln_fu_99_p4 == 8'd0) ? 1'b1 : 1'b0);
 
-assign icmp_ln205_1_fu_195_p2 = ((trunc_ln205_1_fu_185_p4 == 8'd14) ? 1'b1 : 1'b0);
+assign trunc_ln206_fu_137_p1 = head_ctx_ref_i[50:0];
 
-assign icmp_ln205_fu_141_p2 = ((trunc_ln_fu_131_p4 == 8'd14) ? 1'b1 : 1'b0);
-
-assign icmp_ln206_1_fu_201_p2 = ((trunc_ln205_1_fu_185_p4 == 8'd0) ? 1'b1 : 1'b0);
-
-assign icmp_ln206_fu_147_p2 = ((trunc_ln_fu_131_p4 == 8'd0) ? 1'b1 : 1'b0);
-
-assign or_ln206_1_fu_226_p4 = {{{tmp_s_reg_289}, {and_ln206_1_reg_283}}, {trunc_ln206_1_reg_294}};
-
-assign or_ln_fu_173_p4 = {{{tmp_reg_264}, {and_ln206_reg_258}}, {trunc_ln206_reg_269}};
-
-assign trunc_ln205_1_fu_185_p4 = {{head_ctx_ref_1_i[39:32]}};
-
-assign trunc_ln206_1_fu_222_p1 = head_ctx_ref_1_i[50:0];
-
-assign trunc_ln206_fu_169_p1 = head_ctx_ref_0_i[50:0];
-
-assign trunc_ln_fu_131_p4 = {{head_ctx_ref_0_i[39:32]}};
+assign trunc_ln_fu_99_p4 = {{head_ctx_ref_i[39:32]}};
 
 endmodule //drive_group_head_phase

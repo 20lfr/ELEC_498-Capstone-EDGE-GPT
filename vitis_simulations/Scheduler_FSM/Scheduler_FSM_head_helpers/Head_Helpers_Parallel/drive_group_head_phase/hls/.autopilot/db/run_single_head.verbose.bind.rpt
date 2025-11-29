@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'run_single_head'
 ================================================================
-* Date:           Fri Nov 28 20:27:10 2025
+* Date:           Fri Nov 28 21:53:09 2025
 
 * Version:        2025.1 (Build 6135595 on May 21 2025)
 * Project:        drive_group_head_phase
@@ -128,7 +128,7 @@ ST_1 : Operation 51 [1/1] (0.00ns)   --->   "%or_ln62_4 = bitconcatenate i66 @_s
 ST_1 : Operation 52 [1/1] (0.28ns)   --->   "%and_ln62 = and i1 %tmp_2, i1 %tmp_15" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62]   --->   Operation 52 'and' 'and_ln62' <Predicate = true> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
 ST_1 : Operation 53 [1/1] (0.28ns)   --->   "%xor_ln55 = xor i1 %tmp_2, i1 1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:55]   --->   Operation 53 'xor' 'xor_ln55' <Predicate = true> <Delay = 0.28> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
 ST_1 : Operation 54 [1/1] (0.00ns)   --->   "%sel_tmp2 = bitconcatenate i2 @_ssdm_op_BitConcatenate.i2.i1.i1, i1 %and_ln62, i1 %xor_ln55" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62]   --->   Operation 54 'bitconcatenate' 'sel_tmp2' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 55 [1/1] (0.42ns)   --->   "%head_ctx_ref_0_1 = sparsemux i66 @_ssdm_op_SparseMux.ap_auto.3i66.i66.i2, i2 2, i66 %or_ln62_4, i2 1, i66 %select_ln50, i2 0, i66 %select_ln62, i66 0, i2 %sel_tmp2" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62]   --->   Operation 55 'sparsemux' 'head_ctx_ref_0_1' <Predicate = true> <Delay = 0.42> <CoreInst = "OneHotSparseMux_HasDef">   --->   Core 152 'OneHotSparseMux_HasDef' <Latency = 0> <II = 1> <Delay = 0.42> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 55 [1/1] (0.42ns)   --->   "%head_ctx_ref_1 = sparsemux i66 @_ssdm_op_SparseMux.ap_auto.3i66.i66.i2, i2 2, i66 %or_ln62_4, i2 1, i66 %select_ln50, i2 0, i66 %select_ln62, i66 0, i2 %sel_tmp2" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62]   --->   Operation 55 'sparsemux' 'head_ctx_ref_1' <Predicate = true> <Delay = 0.42> <CoreInst = "OneHotSparseMux_HasDef">   --->   Core 152 'OneHotSparseMux_HasDef' <Latency = 0> <II = 1> <Delay = 0.42> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
 ST_1 : Operation 56 [1/1] (0.42ns)   --->   "%tmp = sparsemux i66 @_ssdm_op_SparseMux.ap_auto.3i66.i66.i2, i2 2, i66 %or_ln62_4, i2 1, i66 %select_ln50, i2 0, i66 %select_ln61, i66 0, i2 %sel_tmp2" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62]   --->   Operation 56 'sparsemux' 'tmp' <Predicate = true> <Delay = 0.42> <CoreInst = "OneHotSparseMux_HasDef">   --->   Core 152 'OneHotSparseMux_HasDef' <Latency = 0> <II = 1> <Delay = 0.42> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
 ST_1 : Operation 57 [1/1] (0.00ns)   --->   "%trunc_ln9 = partselect i8 @_ssdm_op_PartSelect.i8.i66.i32.i32, i66 %tmp, i32 32, i32 39" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:66]   --->   Operation 57 'partselect' 'trunc_ln9' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 58 [1/1] (0.79ns)   --->   "%switch_ln66 = switch i8 %trunc_ln9, void %sw.epilog, i8 0, void %sw.bb, i8 1, void %sw.bb36, i8 2, void %sw.bb51, i8 3, void %sw.bb68, i8 4, void %sw.bb70, i8 5, void %sw.bb72, i8 6, void %sw.bb89, i8 7, void %sw.bb91, i8 8, void %sw.bb93, i8 9, void %sw.bb95, i8 10, void %sw.bb112, i8 11, void %sw.bb129, i8 12, void %sw.bb146, i8 13, void %sw.bb163" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:66]   --->   Operation 58 'switch' 'switch_ln66' <Predicate = true> <Delay = 0.79>
@@ -288,11 +288,11 @@ ST_1 : Operation 211 [1/1] (0.00ns)   --->   "%trunc_ln70 = trunc i66 %tmp" [/ho
 ST_1 : Operation 212 [1/1] (0.00ns)   --->   "%or_ln12 = bitconcatenate i52 @_ssdm_op_BitConcatenate.i52.i9.i11.i32, i9 %tmp_28, i11 1, i32 %trunc_ln70" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:87]   --->   Operation 212 'bitconcatenate' 'or_ln12' <Predicate = (trunc_ln9 == 0 & start_read)> <Delay = 0.00>
 ST_1 : Operation 213 [1/1] (0.00ns)   --->   "%zext_ln88 = zext i52 %or_ln12" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:88]   --->   Operation 213 'zext' 'zext_ln88' <Predicate = (trunc_ln9 == 0 & start_read)> <Delay = 0.00>
 ST_1 : Operation 214 [1/1] (0.79ns)   --->   "%br_ln88 = br void %sw.epilog" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:88]   --->   Operation 214 'br' 'br_ln88' <Predicate = (trunc_ln9 == 0 & start_read)> <Delay = 0.79>
-ST_1 : Operation 215 [1/1] (0.00ns)   --->   "%head_ctx_ref_0_2 = phi i66 %head_ctx_ref_0_1, void %entry_ifconv, i66 %or_ln11, void %sw.bb163, i66 %or_ln26, void %if.then158, i66 %head_ctx_ref_0_1, void %land.lhs.true156, i66 %head_ctx_ref_0_1, void %if.else154, i66 %or_ln19, void %if.then150, i66 %or_ln25, void %if.then141, i66 %head_ctx_ref_0_1, void %land.lhs.true139, i66 %head_ctx_ref_0_1, void %if.else137, i66 %or_ln18, void %if.then133, i66 %or_ln24, void %if.then124, i66 %head_ctx_ref_0_1, void %land.lhs.true122, i66 %head_ctx_ref_0_1, void %if.else120, i66 %or_ln17, void %if.then116, i66 %or_ln23, void %if.then107, i66 %head_ctx_ref_0_1, void %land.lhs.true105, i66 %head_ctx_ref_0_1, void %if.else103, i66 %or_ln16, void %if.then99, i66 %or_ln10, void %sw.bb93, i66 %or_ln9, void %sw.bb91, i66 %or_ln8, void %sw.bb89, i66 %or_ln22, void %if.then84, i66 %head_ctx_ref_0_1, void %land.lhs.true82, i66 %head_ctx_ref_0_1, void %if.else80, i66 %or_ln15, void %if.then76, i66 %or_ln7, void %sw.bb70, i66 %or_ln6, void %sw.bb68, i66 %or_ln21, void %if.then63, i66 %head_ctx_ref_0_1, void %land.lhs.true61, i66 %head_ctx_ref_0_1, void %if.else59, i66 %or_ln14, void %if.then55, i66 %or_ln20, void %if.then46, i66 %head_ctx_ref_0_1, void %land.lhs.true44, i66 %head_ctx_ref_0_1, void %if.else, i66 %or_ln13, void %if.then39, i66 %zext_ln88, void %if.then17, i66 %head_ctx_ref_0_1, void %sw.bb" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62]   --->   Operation 215 'phi' 'head_ctx_ref_0_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 215 [1/1] (0.00ns)   --->   "%head_ctx_ref_2 = phi i66 %head_ctx_ref_1, void %entry_ifconv, i66 %or_ln11, void %sw.bb163, i66 %or_ln26, void %if.then158, i66 %head_ctx_ref_1, void %land.lhs.true156, i66 %head_ctx_ref_1, void %if.else154, i66 %or_ln19, void %if.then150, i66 %or_ln25, void %if.then141, i66 %head_ctx_ref_1, void %land.lhs.true139, i66 %head_ctx_ref_1, void %if.else137, i66 %or_ln18, void %if.then133, i66 %or_ln24, void %if.then124, i66 %head_ctx_ref_1, void %land.lhs.true122, i66 %head_ctx_ref_1, void %if.else120, i66 %or_ln17, void %if.then116, i66 %or_ln23, void %if.then107, i66 %head_ctx_ref_1, void %land.lhs.true105, i66 %head_ctx_ref_1, void %if.else103, i66 %or_ln16, void %if.then99, i66 %or_ln10, void %sw.bb93, i66 %or_ln9, void %sw.bb91, i66 %or_ln8, void %sw.bb89, i66 %or_ln22, void %if.then84, i66 %head_ctx_ref_1, void %land.lhs.true82, i66 %head_ctx_ref_1, void %if.else80, i66 %or_ln15, void %if.then76, i66 %or_ln7, void %sw.bb70, i66 %or_ln6, void %sw.bb68, i66 %or_ln21, void %if.then63, i66 %head_ctx_ref_1, void %land.lhs.true61, i66 %head_ctx_ref_1, void %if.else59, i66 %or_ln14, void %if.then55, i66 %or_ln20, void %if.then46, i66 %head_ctx_ref_1, void %land.lhs.true44, i66 %head_ctx_ref_1, void %if.else, i66 %or_ln13, void %if.then39, i66 %zext_ln88, void %if.then17, i66 %head_ctx_ref_1, void %sw.bb" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:62]   --->   Operation 215 'phi' 'head_ctx_ref_2' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 216 [1/1] (0.00ns) (grouped into LUT with out node icmp_ln186)   --->   "%empty = phi i8 %trunc_ln9, void %entry_ifconv, i8 14, void %sw.bb163, i8 13, void %if.then158, i8 12, void %land.lhs.true156, i8 12, void %if.else154, i8 12, void %if.then150, i8 12, void %if.then141, i8 11, void %land.lhs.true139, i8 11, void %if.else137, i8 11, void %if.then133, i8 11, void %if.then124, i8 10, void %land.lhs.true122, i8 10, void %if.else120, i8 10, void %if.then116, i8 10, void %if.then107, i8 9, void %land.lhs.true105, i8 9, void %if.else103, i8 9, void %if.then99, i8 9, void %sw.bb93, i8 8, void %sw.bb91, i8 7, void %sw.bb89, i8 6, void %if.then84, i8 5, void %land.lhs.true82, i8 5, void %if.else80, i8 5, void %if.then76, i8 5, void %sw.bb70, i8 4, void %sw.bb68, i8 3, void %if.then63, i8 2, void %land.lhs.true61, i8 2, void %if.else59, i8 2, void %if.then55, i8 2, void %if.then46, i8 1, void %land.lhs.true44, i8 1, void %if.else, i8 1, void %if.then39, i8 1, void %if.then17, i8 0, void %sw.bb" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:66]   --->   Operation 216 'phi' 'empty' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 217 [1/1] (0.76ns) (out node of the LUT)   --->   "%icmp_ln186 = icmp_eq  i8 %empty, i8 14" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:186]   --->   Operation 217 'icmp' 'icmp_ln186' <Predicate = true> <Delay = 0.76> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'seteq' 'setne' 'setle' 'setge' 'setlt' 'setgt'> <InPorts = 2> <OutPorts = 1>
 ST_1 : Operation 218 [1/1] (0.00ns)   --->   "%mrv = insertvalue i67 <undef>, i1 %icmp_ln186" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:186]   --->   Operation 218 'insertvalue' 'mrv' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 219 [1/1] (0.00ns)   --->   "%mrv_1 = insertvalue i67 %mrv, i66 %head_ctx_ref_0_2" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:186]   --->   Operation 219 'insertvalue' 'mrv_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 219 [1/1] (0.00ns)   --->   "%mrv_1 = insertvalue i67 %mrv, i66 %head_ctx_ref_2" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:186]   --->   Operation 219 'insertvalue' 'mrv_1' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 220 [1/1] (0.00ns)   --->   "%ret_ln186 = ret i67 %mrv_1" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:186]   --->   Operation 220 'ret' 'ret_ln186' <Predicate = true> <Delay = 0.00>
 
 
@@ -316,225 +316,225 @@ Port [ start_r]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; ex
 
 <LifeTime>
 <method=bitvector/>
-start_read       (read          ) [ 01]
-layer_idx_read   (read          ) [ 00]
-p_read_1         (read          ) [ 00]
-tmp_1            (partselect    ) [ 00]
-trunc_ln47       (trunc         ) [ 00]
-and_ln           (bitconcatenate) [ 00]
-trunc_ln50       (trunc         ) [ 00]
-icmp_ln50        (icmp          ) [ 01]
-zext_ln6         (zext          ) [ 00]
-select_ln50      (select        ) [ 00]
-tmp_2            (bitselect     ) [ 00]
-tmp_4            (bitselect     ) [ 01]
-tmp_3            (partselect    ) [ 00]
-trunc_ln56       (trunc         ) [ 00]
-or_ln            (bitconcatenate) [ 00]
-select_ln56      (select        ) [ 00]
-tmp_6            (bitselect     ) [ 01]
-tmp_5            (partselect    ) [ 00]
-trunc_ln57       (trunc         ) [ 00]
-or_ln1           (bitconcatenate) [ 00]
-select_ln57      (select        ) [ 00]
-tmp_8            (bitselect     ) [ 01]
-tmp_7            (partselect    ) [ 00]
-trunc_ln58       (trunc         ) [ 00]
-or_ln2           (bitconcatenate) [ 00]
-select_ln58      (select        ) [ 00]
-tmp_10           (bitselect     ) [ 01]
-tmp_9            (partselect    ) [ 00]
-trunc_ln59       (trunc         ) [ 00]
-or_ln3           (bitconcatenate) [ 00]
-select_ln59      (select        ) [ 00]
-tmp_12           (bitselect     ) [ 01]
-tmp_s            (partselect    ) [ 00]
-trunc_ln60       (trunc         ) [ 00]
-or_ln4           (bitconcatenate) [ 00]
-select_ln60      (select        ) [ 00]
-tmp_13           (bitselect     ) [ 01]
-tmp_14           (bitselect     ) [ 00]
-trunc_ln61       (trunc         ) [ 00]
-or_ln5           (bitconcatenate) [ 00]
-select_ln61      (select        ) [ 00]
-or_ln62          (or            ) [ 00]
-or_ln62_1        (or            ) [ 00]
-or_ln62_2        (or            ) [ 00]
-or_ln62_3        (or            ) [ 00]
-or_ln62_5        (or            ) [ 00]
-select_ln62      (select        ) [ 00]
-tmp_15           (bitselect     ) [ 00]
-trunc_ln62       (trunc         ) [ 00]
-or_ln62_4        (bitconcatenate) [ 00]
-and_ln62         (and           ) [ 00]
-xor_ln55         (xor           ) [ 00]
-sel_tmp2         (bitconcatenate) [ 01]
-head_ctx_ref_0_1 (sparsemux     ) [ 00]
-tmp              (sparsemux     ) [ 00]
-trunc_ln9        (partselect    ) [ 01]
-switch_ln66      (switch        ) [ 00]
-tmp_26           (partselect    ) [ 00]
-trunc_ln178      (trunc         ) [ 00]
-or_ln11          (bitconcatenate) [ 00]
-br_ln179         (br            ) [ 00]
-tmp_27           (bitselect     ) [ 01]
-br_ln168         (br            ) [ 00]
-tmp_62           (bitselect     ) [ 01]
-br_ln168         (br            ) [ 00]
-tmp_48           (partselect    ) [ 00]
-tmp_49           (partselect    ) [ 00]
-trunc_ln169      (trunc         ) [ 00]
-or_ln19          (bitconcatenate) [ 00]
-br_ln172         (br            ) [ 00]
-tmp_65           (bitselect     ) [ 01]
-br_ln172         (br            ) [ 00]
-tmp_77           (bitselect     ) [ 01]
-br_ln172         (br            ) [ 00]
-tmp_69           (partselect    ) [ 00]
-tmp_70           (partselect    ) [ 00]
-trunc_ln173      (trunc         ) [ 00]
-or_ln26          (bitconcatenate) [ 00]
-br_ln175         (br            ) [ 00]
-tmp_25           (bitselect     ) [ 01]
-br_ln158         (br            ) [ 00]
-tmp_56           (bitselect     ) [ 01]
-br_ln158         (br            ) [ 00]
-tmp_45           (partselect    ) [ 00]
-tmp_46           (partselect    ) [ 00]
-trunc_ln159      (trunc         ) [ 00]
-or_ln18          (bitconcatenate) [ 00]
-br_ln162         (br            ) [ 00]
-tmp_59           (bitselect     ) [ 01]
-br_ln162         (br            ) [ 00]
-tmp_76           (bitselect     ) [ 01]
-br_ln162         (br            ) [ 00]
-tmp_66           (partselect    ) [ 00]
-tmp_67           (partselect    ) [ 00]
-trunc_ln163      (trunc         ) [ 00]
-or_ln25          (bitconcatenate) [ 00]
-br_ln165         (br            ) [ 00]
-tmp_24           (bitselect     ) [ 01]
-br_ln148         (br            ) [ 00]
-tmp_50           (bitselect     ) [ 01]
-br_ln148         (br            ) [ 00]
-tmp_42           (partselect    ) [ 00]
-tmp_43           (partselect    ) [ 00]
-trunc_ln149      (trunc         ) [ 00]
-or_ln17          (bitconcatenate) [ 00]
-br_ln152         (br            ) [ 00]
-tmp_53           (bitselect     ) [ 01]
-br_ln152         (br            ) [ 00]
-tmp_75           (bitselect     ) [ 01]
-br_ln152         (br            ) [ 00]
-tmp_63           (partselect    ) [ 00]
-tmp_64           (partselect    ) [ 00]
-trunc_ln153      (trunc         ) [ 00]
-or_ln24          (bitconcatenate) [ 00]
-br_ln155         (br            ) [ 00]
-tmp_23           (bitselect     ) [ 01]
-br_ln138         (br            ) [ 00]
-tmp_44           (bitselect     ) [ 01]
-br_ln138         (br            ) [ 00]
-tmp_39           (partselect    ) [ 00]
-tmp_40           (partselect    ) [ 00]
-trunc_ln139      (trunc         ) [ 00]
-or_ln16          (bitconcatenate) [ 00]
-br_ln142         (br            ) [ 00]
-tmp_47           (bitselect     ) [ 01]
-br_ln142         (br            ) [ 00]
-tmp_74           (bitselect     ) [ 01]
-br_ln142         (br            ) [ 00]
-tmp_60           (partselect    ) [ 00]
-tmp_61           (partselect    ) [ 00]
-trunc_ln143      (trunc         ) [ 00]
-or_ln23          (bitconcatenate) [ 00]
-br_ln145         (br            ) [ 00]
-tmp_22           (partselect    ) [ 00]
-trunc_ln135      (trunc         ) [ 00]
-or_ln10          (bitconcatenate) [ 00]
-br_ln136         (br            ) [ 00]
-tmp_20           (partselect    ) [ 00]
-trunc_ln132      (trunc         ) [ 00]
-or_ln9           (bitconcatenate) [ 00]
-br_ln133         (br            ) [ 00]
-tmp_18           (partselect    ) [ 00]
-trunc_ln129      (trunc         ) [ 00]
-or_ln8           (bitconcatenate) [ 00]
-br_ln130         (br            ) [ 00]
-tmp_21           (bitselect     ) [ 01]
-br_ln118         (br            ) [ 00]
-tmp_38           (bitselect     ) [ 01]
-br_ln118         (br            ) [ 00]
-tmp_36           (partselect    ) [ 00]
-tmp_37           (partselect    ) [ 00]
-trunc_ln119      (trunc         ) [ 00]
-or_ln15          (bitconcatenate) [ 00]
-br_ln122         (br            ) [ 00]
-tmp_41           (bitselect     ) [ 01]
-br_ln123         (br            ) [ 00]
-tmp_73           (bitselect     ) [ 01]
-br_ln123         (br            ) [ 00]
-tmp_57           (partselect    ) [ 00]
-tmp_58           (partselect    ) [ 00]
-trunc_ln124      (trunc         ) [ 00]
-or_ln22          (bitconcatenate) [ 00]
-br_ln126         (br            ) [ 00]
-tmp_16           (partselect    ) [ 00]
-trunc_ln115      (trunc         ) [ 00]
-or_ln7           (bitconcatenate) [ 00]
-br_ln116         (br            ) [ 00]
-tmp_11           (partselect    ) [ 00]
-trunc_ln112      (trunc         ) [ 00]
-or_ln6           (bitconcatenate) [ 00]
-br_ln113         (br            ) [ 00]
-tmp_19           (bitselect     ) [ 01]
-br_ln102         (br            ) [ 00]
-tmp_32           (bitselect     ) [ 01]
-br_ln102         (br            ) [ 00]
-tmp_33           (partselect    ) [ 00]
-tmp_34           (partselect    ) [ 00]
-trunc_ln103      (trunc         ) [ 00]
-or_ln14          (bitconcatenate) [ 00]
-br_ln106         (br            ) [ 00]
-tmp_35           (bitselect     ) [ 01]
-br_ln107         (br            ) [ 00]
-tmp_72           (bitselect     ) [ 01]
-br_ln107         (br            ) [ 00]
-tmp_54           (partselect    ) [ 00]
-tmp_55           (partselect    ) [ 00]
-trunc_ln108      (trunc         ) [ 00]
-or_ln21          (bitconcatenate) [ 00]
-br_ln109         (br            ) [ 00]
-tmp_17           (bitselect     ) [ 01]
-br_ln91          (br            ) [ 00]
-tmp_29           (bitselect     ) [ 01]
-br_ln91          (br            ) [ 00]
-tmp_30           (partselect    ) [ 00]
-tmp_68           (bitselect     ) [ 00]
-trunc_ln92       (trunc         ) [ 00]
-or_ln13          (bitconcatenate) [ 00]
-br_ln95          (br            ) [ 00]
-tmp_31           (bitselect     ) [ 01]
-br_ln96          (br            ) [ 00]
-tmp_71           (bitselect     ) [ 01]
-br_ln96          (br            ) [ 00]
-tmp_51           (partselect    ) [ 00]
-tmp_52           (partselect    ) [ 00]
-trunc_ln97       (trunc         ) [ 00]
-or_ln20          (bitconcatenate) [ 00]
-br_ln99          (br            ) [ 00]
-br_ln68          (br            ) [ 00]
-tmp_28           (partselect    ) [ 00]
-trunc_ln70       (trunc         ) [ 00]
-or_ln12          (bitconcatenate) [ 00]
-zext_ln88        (zext          ) [ 00]
-br_ln88          (br            ) [ 00]
-head_ctx_ref_0_2 (phi           ) [ 00]
-empty            (phi           ) [ 00]
-icmp_ln186       (icmp          ) [ 00]
-mrv              (insertvalue   ) [ 00]
-mrv_1            (insertvalue   ) [ 00]
-ret_ln186        (ret           ) [ 00]
+start_read     (read          ) [ 01]
+layer_idx_read (read          ) [ 00]
+p_read_1       (read          ) [ 00]
+tmp_1          (partselect    ) [ 00]
+trunc_ln47     (trunc         ) [ 00]
+and_ln         (bitconcatenate) [ 00]
+trunc_ln50     (trunc         ) [ 00]
+icmp_ln50      (icmp          ) [ 01]
+zext_ln6       (zext          ) [ 00]
+select_ln50    (select        ) [ 00]
+tmp_2          (bitselect     ) [ 00]
+tmp_4          (bitselect     ) [ 01]
+tmp_3          (partselect    ) [ 00]
+trunc_ln56     (trunc         ) [ 00]
+or_ln          (bitconcatenate) [ 00]
+select_ln56    (select        ) [ 00]
+tmp_6          (bitselect     ) [ 01]
+tmp_5          (partselect    ) [ 00]
+trunc_ln57     (trunc         ) [ 00]
+or_ln1         (bitconcatenate) [ 00]
+select_ln57    (select        ) [ 00]
+tmp_8          (bitselect     ) [ 01]
+tmp_7          (partselect    ) [ 00]
+trunc_ln58     (trunc         ) [ 00]
+or_ln2         (bitconcatenate) [ 00]
+select_ln58    (select        ) [ 00]
+tmp_10         (bitselect     ) [ 01]
+tmp_9          (partselect    ) [ 00]
+trunc_ln59     (trunc         ) [ 00]
+or_ln3         (bitconcatenate) [ 00]
+select_ln59    (select        ) [ 00]
+tmp_12         (bitselect     ) [ 01]
+tmp_s          (partselect    ) [ 00]
+trunc_ln60     (trunc         ) [ 00]
+or_ln4         (bitconcatenate) [ 00]
+select_ln60    (select        ) [ 00]
+tmp_13         (bitselect     ) [ 01]
+tmp_14         (bitselect     ) [ 00]
+trunc_ln61     (trunc         ) [ 00]
+or_ln5         (bitconcatenate) [ 00]
+select_ln61    (select        ) [ 00]
+or_ln62        (or            ) [ 00]
+or_ln62_1      (or            ) [ 00]
+or_ln62_2      (or            ) [ 00]
+or_ln62_3      (or            ) [ 00]
+or_ln62_5      (or            ) [ 00]
+select_ln62    (select        ) [ 00]
+tmp_15         (bitselect     ) [ 00]
+trunc_ln62     (trunc         ) [ 00]
+or_ln62_4      (bitconcatenate) [ 00]
+and_ln62       (and           ) [ 00]
+xor_ln55       (xor           ) [ 00]
+sel_tmp2       (bitconcatenate) [ 01]
+head_ctx_ref_1 (sparsemux     ) [ 00]
+tmp            (sparsemux     ) [ 00]
+trunc_ln9      (partselect    ) [ 01]
+switch_ln66    (switch        ) [ 00]
+tmp_26         (partselect    ) [ 00]
+trunc_ln178    (trunc         ) [ 00]
+or_ln11        (bitconcatenate) [ 00]
+br_ln179       (br            ) [ 00]
+tmp_27         (bitselect     ) [ 01]
+br_ln168       (br            ) [ 00]
+tmp_62         (bitselect     ) [ 01]
+br_ln168       (br            ) [ 00]
+tmp_48         (partselect    ) [ 00]
+tmp_49         (partselect    ) [ 00]
+trunc_ln169    (trunc         ) [ 00]
+or_ln19        (bitconcatenate) [ 00]
+br_ln172       (br            ) [ 00]
+tmp_65         (bitselect     ) [ 01]
+br_ln172       (br            ) [ 00]
+tmp_77         (bitselect     ) [ 01]
+br_ln172       (br            ) [ 00]
+tmp_69         (partselect    ) [ 00]
+tmp_70         (partselect    ) [ 00]
+trunc_ln173    (trunc         ) [ 00]
+or_ln26        (bitconcatenate) [ 00]
+br_ln175       (br            ) [ 00]
+tmp_25         (bitselect     ) [ 01]
+br_ln158       (br            ) [ 00]
+tmp_56         (bitselect     ) [ 01]
+br_ln158       (br            ) [ 00]
+tmp_45         (partselect    ) [ 00]
+tmp_46         (partselect    ) [ 00]
+trunc_ln159    (trunc         ) [ 00]
+or_ln18        (bitconcatenate) [ 00]
+br_ln162       (br            ) [ 00]
+tmp_59         (bitselect     ) [ 01]
+br_ln162       (br            ) [ 00]
+tmp_76         (bitselect     ) [ 01]
+br_ln162       (br            ) [ 00]
+tmp_66         (partselect    ) [ 00]
+tmp_67         (partselect    ) [ 00]
+trunc_ln163    (trunc         ) [ 00]
+or_ln25        (bitconcatenate) [ 00]
+br_ln165       (br            ) [ 00]
+tmp_24         (bitselect     ) [ 01]
+br_ln148       (br            ) [ 00]
+tmp_50         (bitselect     ) [ 01]
+br_ln148       (br            ) [ 00]
+tmp_42         (partselect    ) [ 00]
+tmp_43         (partselect    ) [ 00]
+trunc_ln149    (trunc         ) [ 00]
+or_ln17        (bitconcatenate) [ 00]
+br_ln152       (br            ) [ 00]
+tmp_53         (bitselect     ) [ 01]
+br_ln152       (br            ) [ 00]
+tmp_75         (bitselect     ) [ 01]
+br_ln152       (br            ) [ 00]
+tmp_63         (partselect    ) [ 00]
+tmp_64         (partselect    ) [ 00]
+trunc_ln153    (trunc         ) [ 00]
+or_ln24        (bitconcatenate) [ 00]
+br_ln155       (br            ) [ 00]
+tmp_23         (bitselect     ) [ 01]
+br_ln138       (br            ) [ 00]
+tmp_44         (bitselect     ) [ 01]
+br_ln138       (br            ) [ 00]
+tmp_39         (partselect    ) [ 00]
+tmp_40         (partselect    ) [ 00]
+trunc_ln139    (trunc         ) [ 00]
+or_ln16        (bitconcatenate) [ 00]
+br_ln142       (br            ) [ 00]
+tmp_47         (bitselect     ) [ 01]
+br_ln142       (br            ) [ 00]
+tmp_74         (bitselect     ) [ 01]
+br_ln142       (br            ) [ 00]
+tmp_60         (partselect    ) [ 00]
+tmp_61         (partselect    ) [ 00]
+trunc_ln143    (trunc         ) [ 00]
+or_ln23        (bitconcatenate) [ 00]
+br_ln145       (br            ) [ 00]
+tmp_22         (partselect    ) [ 00]
+trunc_ln135    (trunc         ) [ 00]
+or_ln10        (bitconcatenate) [ 00]
+br_ln136       (br            ) [ 00]
+tmp_20         (partselect    ) [ 00]
+trunc_ln132    (trunc         ) [ 00]
+or_ln9         (bitconcatenate) [ 00]
+br_ln133       (br            ) [ 00]
+tmp_18         (partselect    ) [ 00]
+trunc_ln129    (trunc         ) [ 00]
+or_ln8         (bitconcatenate) [ 00]
+br_ln130       (br            ) [ 00]
+tmp_21         (bitselect     ) [ 01]
+br_ln118       (br            ) [ 00]
+tmp_38         (bitselect     ) [ 01]
+br_ln118       (br            ) [ 00]
+tmp_36         (partselect    ) [ 00]
+tmp_37         (partselect    ) [ 00]
+trunc_ln119    (trunc         ) [ 00]
+or_ln15        (bitconcatenate) [ 00]
+br_ln122       (br            ) [ 00]
+tmp_41         (bitselect     ) [ 01]
+br_ln123       (br            ) [ 00]
+tmp_73         (bitselect     ) [ 01]
+br_ln123       (br            ) [ 00]
+tmp_57         (partselect    ) [ 00]
+tmp_58         (partselect    ) [ 00]
+trunc_ln124    (trunc         ) [ 00]
+or_ln22        (bitconcatenate) [ 00]
+br_ln126       (br            ) [ 00]
+tmp_16         (partselect    ) [ 00]
+trunc_ln115    (trunc         ) [ 00]
+or_ln7         (bitconcatenate) [ 00]
+br_ln116       (br            ) [ 00]
+tmp_11         (partselect    ) [ 00]
+trunc_ln112    (trunc         ) [ 00]
+or_ln6         (bitconcatenate) [ 00]
+br_ln113       (br            ) [ 00]
+tmp_19         (bitselect     ) [ 01]
+br_ln102       (br            ) [ 00]
+tmp_32         (bitselect     ) [ 01]
+br_ln102       (br            ) [ 00]
+tmp_33         (partselect    ) [ 00]
+tmp_34         (partselect    ) [ 00]
+trunc_ln103    (trunc         ) [ 00]
+or_ln14        (bitconcatenate) [ 00]
+br_ln106       (br            ) [ 00]
+tmp_35         (bitselect     ) [ 01]
+br_ln107       (br            ) [ 00]
+tmp_72         (bitselect     ) [ 01]
+br_ln107       (br            ) [ 00]
+tmp_54         (partselect    ) [ 00]
+tmp_55         (partselect    ) [ 00]
+trunc_ln108    (trunc         ) [ 00]
+or_ln21        (bitconcatenate) [ 00]
+br_ln109       (br            ) [ 00]
+tmp_17         (bitselect     ) [ 01]
+br_ln91        (br            ) [ 00]
+tmp_29         (bitselect     ) [ 01]
+br_ln91        (br            ) [ 00]
+tmp_30         (partselect    ) [ 00]
+tmp_68         (bitselect     ) [ 00]
+trunc_ln92     (trunc         ) [ 00]
+or_ln13        (bitconcatenate) [ 00]
+br_ln95        (br            ) [ 00]
+tmp_31         (bitselect     ) [ 01]
+br_ln96        (br            ) [ 00]
+tmp_71         (bitselect     ) [ 01]
+br_ln96        (br            ) [ 00]
+tmp_51         (partselect    ) [ 00]
+tmp_52         (partselect    ) [ 00]
+trunc_ln97     (trunc         ) [ 00]
+or_ln20        (bitconcatenate) [ 00]
+br_ln99        (br            ) [ 00]
+br_ln68        (br            ) [ 00]
+tmp_28         (partselect    ) [ 00]
+trunc_ln70     (trunc         ) [ 00]
+or_ln12        (bitconcatenate) [ 00]
+zext_ln88      (zext          ) [ 00]
+br_ln88        (br            ) [ 00]
+head_ctx_ref_2 (phi           ) [ 00]
+empty          (phi           ) [ 00]
+icmp_ln186     (icmp          ) [ 00]
+mrv            (insertvalue   ) [ 00]
+mrv_1          (insertvalue   ) [ 00]
+ret_ln186      (ret           ) [ 00]
 </LifeTime>
 
 <model>
@@ -1494,17 +1494,17 @@ ret_ln186        (ret           ) [ 00]
 </bind>
 </comp>
 
-<comp id="222" class="1005" name="head_ctx_ref_0_2_reg_222">
+<comp id="222" class="1005" name="head_ctx_ref_2_reg_222">
 <pin_list>
 <pin id="223" dir="0" index="0" bw="66" slack="2147483647"/>
 <pin id="224" dir="1" index="1" bw="66" slack="2147483647"/>
 </pin_list>
 <bind>
-<opset="head_ctx_ref_0_2 (phireg) "/>
+<opset="head_ctx_ref_2 (phireg) "/>
 </bind>
 </comp>
 
-<comp id="225" class="1004" name="head_ctx_ref_0_2_phi_fu_225">
+<comp id="225" class="1004" name="head_ctx_ref_2_phi_fu_225">
 <pin_list>
 <pin id="226" dir="0" index="0" bw="66" slack="0"/>
 <pin id="227" dir="0" index="1" bw="0" slack="0"/>
@@ -1584,7 +1584,7 @@ ret_ln186        (ret           ) [ 00]
 </pin_list>
 <bind>
 <opcode="phi(47) " fcode="phi"/>
-<opset="head_ctx_ref_0_2/1 "/>
+<opset="head_ctx_ref_2/1 "/>
 </bind>
 </comp>
 
@@ -2442,7 +2442,7 @@ ret_ln186        (ret           ) [ 00]
 </bind>
 </comp>
 
-<comp id="865" class="1004" name="head_ctx_ref_0_1_fu_865">
+<comp id="865" class="1004" name="head_ctx_ref_1_fu_865">
 <pin_list>
 <pin id="866" dir="0" index="0" bw="66" slack="0"/>
 <pin id="867" dir="0" index="1" bw="2" slack="0"/>
@@ -2457,7 +2457,7 @@ ret_ln186        (ret           ) [ 00]
 </pin_list>
 <bind>
 <opcode="sparsemux(1197) " fcode="sparsemux"/>
-<opset="head_ctx_ref_0_1/1 "/>
+<opset="head_ctx_ref_1/1 "/>
 </bind>
 </comp>
 
@@ -4765,7 +4765,7 @@ ret_ln186        (ret           ) [ 00]
 		and_ln62 : 22
 		xor_ln55 : 4
 		sel_tmp2 : 22
-		head_ctx_ref_0_1 : 23
+		head_ctx_ref_1 : 23
 		tmp : 23
 		trunc_ln9 : 24
 		switch_ln66 : 25
@@ -4903,7 +4903,7 @@ ret_ln186        (ret           ) [ 00]
 		trunc_ln70 : 24
 		or_ln12 : 25
 		zext_ln88 : 26
-		head_ctx_ref_0_2 : 27
+		head_ctx_ref_2 : 27
 		empty : 26
 		icmp_ln186 : 27
 		mrv : 28
@@ -4931,7 +4931,7 @@ ret_ln186        (ret           ) [ 00]
 |   icmp   |      icmp_ln50_fu_523      |    0    |    39   |
 |          |     icmp_ln186_fu_1666     |    0    |    15   |
 |----------|----------------------------|---------|---------|
-| sparsemux|   head_ctx_ref_0_1_fu_865  |    0    |    9    |
+| sparsemux|    head_ctx_ref_1_fu_865   |    0    |    9    |
 |          |         tmp_fu_901         |    0    |    9    |
 |----------|----------------------------|---------|---------|
 |          |       or_ln62_fu_787       |    0    |    2    |
@@ -5088,14 +5088,14 @@ Memories:
 N/A
 
 * Register list:
-+------------------------+--------+
-|                        |   FF   |
-+------------------------+--------+
-|      empty_reg_301     |    8   |
-|head_ctx_ref_0_2_reg_222|   66   |
-+------------------------+--------+
-|          Total         |   74   |
-+------------------------+--------+
++----------------------+--------+
+|                      |   FF   |
++----------------------+--------+
+|     empty_reg_301    |    8   |
+|head_ctx_ref_2_reg_222|   66   |
++----------------------+--------+
+|         Total        |   74   |
++----------------------+--------+
 
 * Multiplexer (MUX) list: 
 |--------|------|------|------|--------|

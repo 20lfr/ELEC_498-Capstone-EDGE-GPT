@@ -19,13 +19,13 @@ Pass:            inline
 Name:            NeverInline
 DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
                    Line: 207, Column: 36 }
-Function:        _Z22drive_group_head_phaseRA2_7HeadCtxiib
+Function:        _Z22drive_group_head_phaseRA1_7HeadCtxiib
 Args:            
   - Callee:          'run_single_head(HeadCtx&, int, bool)'
     DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
                        Line: 44, Column: 0 }
   - String:          ' not inlined into '
-  - Caller:          'drive_group_head_phase(HeadCtx (&) [2], int, int, bool)'
+  - Caller:          'drive_group_head_phase(HeadCtx (&) [1], int, int, bool)'
     DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
                        Line: 196, Column: 0 }
   - String:          ' because it should never be inlined (cost=never)'
@@ -35,7 +35,7 @@ Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
 DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
                    Line: 196, Column: 0 }
-Function:        _Z22drive_group_head_phaseRA2_7HeadCtxiib
+Function:        _Z22drive_group_head_phaseRA1_7HeadCtxiib
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        VITIS_LOOP_201_1
@@ -45,7 +45,7 @@ Args:
   - String:          'in function '''
   - String:          drive_group_head_phase
   - String:          ''' completely with a factor of '
-  - Factor:          '2'
+  - Factor:          '1'
 ...
 --- !Missed
 Pass:            inline
@@ -68,13 +68,13 @@ Pass:            inline
 Name:            NeverInline
 DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
                    Line: 207, Column: 36 }
-Function:        _Z22drive_group_head_phaseRA2_7HeadCtxiib
+Function:        _Z22drive_group_head_phaseRA1_7HeadCtxiib
 Args:            
   - Callee:          'run_single_head(HeadCtx&, int, bool)'
     DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
                        Line: 44, Column: 0 }
   - String:          ' not inlined into '
-  - Caller:          'drive_group_head_phase(HeadCtx (&) [2], int, int, bool)'
+  - Caller:          'drive_group_head_phase(HeadCtx (&) [1], int, int, bool)'
     DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
                        Line: 196, Column: 0 }
   - String:          ' because it should never be inlined (cost=never)'
@@ -84,7 +84,7 @@ Pass:            inline
 Name:            NeverInline
 Function:        apatb_drive_group_head_phase_ir
 Args:            
-  - Callee:          'drive_group_head_phase(HeadCtx (&) [2], int, int, bool)'
+  - Callee:          'drive_group_head_phase(HeadCtx (&) [1], int, int, bool)'
     DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
                        Line: 196, Column: 0 }
   - String:          ' not inlined into '
@@ -113,7 +113,7 @@ Pass:            reflow-array-partition
 Name:            ArrayXform
 DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
                    Line: 196, Column: 0 }
-Function:        _Z22drive_group_head_phaseRA2_7HeadCtxiib
+Function:        _Z22drive_group_head_phaseRA1_7HeadCtxiib
 Args:            
   - String:          'Applying '
   - String:          array_partition
@@ -132,29 +132,12 @@ Pass:            reflow-aggr
 Name:            AggrSucc
 DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
                    Line: 196, Column: 0 }
-Function:        _Z22drive_group_head_phaseRA2_7HeadCtxiib
+Function:        _Z22drive_group_head_phaseRA1_7HeadCtxiib
 Args:            
   - String:          'Aggregating '
   - HwTyName:        scalar
   - String:          ' variable '''
-  - Name:            head_ctx_ref_1
-  - String:          ''' with '
-  - AggregateTypeName: 'compact=bit'
-  - String:          ' mode in '
-  - Bitwidth:        '66'
-  - String:          '-bits'
-...
---- !Passed
-Pass:            reflow-aggr
-Name:            AggrSucc
-DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
-                   Line: 196, Column: 0 }
-Function:        _Z22drive_group_head_phaseRA2_7HeadCtxiib
-Args:            
-  - String:          'Aggregating '
-  - HwTyName:        scalar
-  - String:          ' variable '''
-  - Name:            head_ctx_ref_0
+  - Name:            head_ctx_ref
   - String:          ''' with '
   - AggregateTypeName: 'compact=bit'
   - String:          ' mode in '
@@ -166,13 +149,13 @@ Pass:            inline
 Name:            NeverInline
 DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
                    Line: 207, Column: 36 }
-Function:        _Z22drive_group_head_phaseRA2_7HeadCtxiib
+Function:        _Z22drive_group_head_phaseRA1_7HeadCtxiib
 Args:            
   - Callee:          'run_single_head(HeadCtx&, int, bool)'
     DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
                        Line: 44, Column: 0 }
   - String:          ' not inlined into '
-  - Caller:          'drive_group_head_phase(HeadCtx (&) [2], int, int, bool)'
+  - Caller:          'drive_group_head_phase(HeadCtx (&) [1], int, int, bool)'
     DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp, 
                        Line: 196, Column: 0 }
   - String:          ' because it should never be inlined (cost=never)'

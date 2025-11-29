@@ -2,8 +2,8 @@
 #pragma once
 #include <cstdint>
 
-constexpr int NUM_HEADS      = 8;
-constexpr int HEADS_PARALLEL = 4;
+constexpr int NUM_HEADS      = 4;
+constexpr int HEADS_PARALLEL = 1;
 
 enum class HeadPhase : uint8_t {
     IDLE = 0,          // 0

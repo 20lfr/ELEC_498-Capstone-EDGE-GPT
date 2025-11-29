@@ -476,7 +476,7 @@ namespace std
 # 4 "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.hpp" 2
 
 constexpr int NUM_HEADS = 4;
-constexpr int HEADS_PARALLEL = 2;
+constexpr int HEADS_PARALLEL = 1;
 
 enum class HeadPhase : uint8_t {
     IDLE = 0,
