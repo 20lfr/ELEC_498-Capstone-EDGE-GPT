@@ -5,286 +5,286 @@ cycle grp ret|    head0 rdy done strt op    qst qdn kst kdn vst vdn vld |    hea
 1   0 ret:x |           1   0    0          0   0   0   0   0   0  vld:0 |     IDLE  1   0    0       -  0   0   0   0   0   0  vld:0 |
 2   0 ret:x |           1   0    0          0   0   0   0   0   0  vld:0 |     IDLE  1   0    0       -  0   0   0   0   0   0  vld:0 |
 3   0 ret:x |           1   0    0          0   0   0   0   0   0  vld:0 |     IDLE  1   0    0       -  0   0   0   0   0   0  vld:1 |
-4   0 ret:0 |       't  1   0    0          0   0   0   0   0   0  vld:1 |        Q  1   0    0       -  0   0   0   0   0   0  vld:0 |
+4   0 ret:0 |       û|  1   0    0          0   0   0   0   0   0  vld:1 |        Q  1   0    0       -  0   0   0   0   0   0  vld:0 |
 5   0 ret:0 |        -  1   0    0          0   0   0   0   0   0  vld:0 |        Q  1   0    0       -  0   0   0   0   0   0  vld:0 |
 6   0 ret:0 |        -  1   0    0          0   0   0   0   0   0  vld:0 |        Q  1   0    0       -  0   0   0   0   0   0  vld:0 |
 7   0 ret:0 |        -  1   0    0          0   0   0   0   0   0  vld:0 |        Q  1   0    0       -  0   0   0   0   0   0  vld:0 |
 [TB-DBG] Time 115000: Head 1 compute_start detected! inflight=0 done_hold=0
 8   0 ret:0 |        -  1   0    0          0   0   0   0   0   0  vld:0 |        Q  1   0    0       -  0   0   0   0   0   0  vld:1 |
 [TB-DBG] Time 125000: Head 0 compute_start detected! inflight=0 done_hold=0
-9   0 ret:0 |           1   0    0      't  0   0   0   0   0   0  vld:1 |        Q  0   0    1   CMP_Q  1   0   0   0   0   0  vld:0 |
-10   0 ret:0 |       't  0   0    1          1   0   0   0   0   0  vld:0 |        Q  0   0    1   CMP_Q  1   0   0   0   0   0  vld:0 |
-11   0 ret:0 |       't  0   0    1          1   0   0   0   0   0  vld:0 |        Q  0   0    1   CMP_Q  1   0   0   0   0   0  vld:0 |
+9   0 ret:0 |           1   0    0      û|  0   0   0   0   0   0  vld:1 |        Q  0   0    1   CMP_Q  1   0   0   0   0   0  vld:0 |
+10   0 ret:0 |       û|  0   0    1          1   0   0   0   0   0  vld:0 |        Q  0   0    1   CMP_Q  1   0   0   0   0   0  vld:0 |
+11   0 ret:0 |       û|  0   0    1          1   0   0   0   0   0  vld:0 |        Q  0   0    1   CMP_Q  1   0   0   0   0   0  vld:0 |
 [TB-DBG] Time 155000: Head 1 compute DONE generated
-12   0 ret:0 |       't  0   0    1          1   0   0   0   0   0  vld:0 |        Q  0   1    1   CMP_Q  1   0   0   0   0   0  vld:0 |
+12   0 ret:0 |       û|  0   0    1          1   0   0   0   0   0  vld:0 |        Q  0   1    1   CMP_Q  1   0   0   0   0   0  vld:0 |
 [TB-DBG] Time 165000: Head 0 compute DONE generated
-13   0 ret:0 |       't  0   1    1          1   0   0   0   0   0  vld:0 |        Q  1   1    1   CMP_Q  1   0   0   0   0   0  vld:1 |
-14   0 ret:0 |        -  1   1    1      't  1   0   0   0   0   0  vld:1 |        K  1   1    0       -  0   1   0   0   0   0  vld:0 |
+13   0 ret:0 |       û|  0   1    1          1   0   0   0   0   0  vld:0 |        Q  1   1    1   CMP_Q  1   0   0   0   0   0  vld:1 |
+14   0 ret:0 |        -  1   1    1      û|  1   0   0   0   0   0  vld:1 |        K  1   1    0       -  0   1   0   0   0   0  vld:0 |
 15   0 ret:0 |        -  1   1    0          1   0   0   0   0   0  vld:0 |        K  1   0    0       -  0   1   0   0   0   0  vld:0 |
 16   0 ret:0 |        -  1   0    0          1   0   0   0   0   0  vld:0 |        K  1   0    0       -  0   1   0   0   0   0  vld:0 |
 17   0 ret:0 |        -  1   0    0          1   0   0   0   0   0  vld:0 |        K  1   0    0       -  0   1   0   0   0   0  vld:0 |
 [TB-DBG] Time 215000: Head 1 compute_start detected! inflight=0 done_hold=0
 18   0 ret:0 |        -  1   0    0          1   0   0   0   0   0  vld:0 |        K  1   0    0       -  0   1   0   0   0   0  vld:1 |
-19   0 ret:0 |           1   0    0      't  1   0   0   0   0   0  vld:1 |        K  0   0    1   CMP_K  0   1   1   0   0   0  vld:0 |
-20   0 ret:0 |           1   0    0      't  0   1   0   0   0   0  vld:0 |        K  0   0    1   CMP_K  0   1   1   0   0   0  vld:0 |
-21   0 ret:0 |           1   0    0      't  0   1   0   0   0   0  vld:0 |        K  0   0    1   CMP_K  0   1   1   0   0   0  vld:0 |
+19   0 ret:0 |           1   0    0      û|  1   0   0   0   0   0  vld:1 |        K  0   0    1   CMP_K  0   1   1   0   0   0  vld:0 |
+20   0 ret:0 |           1   0    0      û|  0   1   0   0   0   0  vld:0 |        K  0   0    1   CMP_K  0   1   1   0   0   0  vld:0 |
+21   0 ret:0 |           1   0    0      û|  0   1   0   0   0   0  vld:0 |        K  0   0    1   CMP_K  0   1   1   0   0   0  vld:0 |
 [TB-DBG] Time 255000: Head 1 compute DONE generated
-22   0 ret:0 |           1   0    0      't  0   1   0   0   0   0  vld:0 |        K  0   1    1   CMP_K  0   1   1   0   0   0  vld:0 |
-23   0 ret:0 |           1   0    0      't  0   1   0   0   0   0  vld:0 |        K  1   1    1   CMP_K  0   1   1   0   0   0  vld:1 |
+22   0 ret:0 |           1   0    0      û|  0   1   0   0   0   0  vld:0 |        K  0   1    1   CMP_K  0   1   1   0   0   0  vld:0 |
+23   0 ret:0 |           1   0    0      û|  0   1   0   0   0   0  vld:0 |        K  1   1    1   CMP_K  0   1   1   0   0   0  vld:1 |
 [TB-DBG] Time 275000: Head 0 compute_start detected! inflight=0 done_hold=0
-24   0 ret:0 |        -  1   0    0      't  0   1   0   0   0   0  vld:1 |     K_RQ  1   1    0       -  0   1   0   1   0   0  vld:0 |
+24   0 ret:0 |        -  1   0    0      û|  0   1   0   0   0   0  vld:1 |     K_RQ  1   1    0       -  0   1   0   1   0   0  vld:0 |
 25   0 ret:0 |        -  0   0    1          0   1   1   0   0   0  vld:0 |     K_RQ  1   0    0       -  0   1   0   1   0   0  vld:0 |
 26   0 ret:0 |        -  0   0    1          0   1   1   0   0   0  vld:0 |     K_RQ  1   0    0       -  0   1   0   1   0   0  vld:0 |
 27   0 ret:0 |        -  0   0    1          0   1   1   0   0   0  vld:0 |     K_RQ  1   0    0       -  0   1   0   1   0   0  vld:0 |
 [TB-DBG] Time 315000: Head 0 compute DONE generated
 28   0 ret:0 |        -  0   1    1          0   1   1   0   0   0  vld:0 |     K_RQ  1   0    0       -  0   1   0   1   0   0  vld:1 |
 29   0 ret:0 |        -  1   1    1          0   1   1   0   0   0  vld:1 |     K_WB  1   0    0       -  0   1   0   1   0   0  vld:0 |
-30   0 ret:0 |        -  1   1    0      't  0   1   1   0   0   0  vld:0 |     K_WB  1   0    0       -  0   1   0   1   0   0  vld:0 |
-31   0 ret:0 |        -  1   0    0      't  0   1   1   0   0   0  vld:0 |     K_WB  1   0    0       -  0   1   0   1   0   0  vld:0 |
-32   0 ret:0 |        -  1   0    0      't  0   1   1   0   0   0  vld:0 |     K_WB  1   0    0       -  0   1   0   1   0   0  vld:0 |
-33   0 ret:0 |        -  1   0    0      't  0   1   1   0   0   0  vld:0 |     K_WB  1   0    0       -  0   1   0   1   0   0  vld:1 |
+30   0 ret:0 |        -  1   1    0      û|  0   1   1   0   0   0  vld:0 |     K_WB  1   0    0       -  0   1   0   1   0   0  vld:0 |
+31   0 ret:0 |        -  1   0    0      û|  0   1   1   0   0   0  vld:0 |     K_WB  1   0    0       -  0   1   0   1   0   0  vld:0 |
+32   0 ret:0 |        -  1   0    0      û|  0   1   1   0   0   0  vld:0 |     K_WB  1   0    0       -  0   1   0   1   0   0  vld:0 |
+33   0 ret:0 |        -  1   0    0      û|  0   1   1   0   0   0  vld:0 |     K_WB  1   0    0       -  0   1   0   1   0   0  vld:1 |
 34   0 ret:0 |        -  1   0    0          0   1   1   0   0   0  vld:1 |        V  1   0    0       -  0   1   0   1   0   0  vld:0 |
-35   0 ret:0 |       't  1   0    0          0   1   0   1   0   0  vld:0 |        V  1   0    0       -  0   1   0   1   0   0  vld:0 |
-36   0 ret:0 |       't  1   0    0          0   1   0   1   0   0  vld:0 |        V  1   0    0       -  0   1   0   1   0   0  vld:0 |
-37   0 ret:0 |       't  1   0    0          0   1   0   1   0   0  vld:0 |        V  1   0    0       -  0   1   0   1   0   0  vld:0 |
+35   0 ret:0 |       û|  1   0    0          0   1   0   1   0   0  vld:0 |        V  1   0    0       -  0   1   0   1   0   0  vld:0 |
+36   0 ret:0 |       û|  1   0    0          0   1   0   1   0   0  vld:0 |        V  1   0    0       -  0   1   0   1   0   0  vld:0 |
+37   0 ret:0 |       û|  1   0    0          0   1   0   1   0   0  vld:0 |        V  1   0    0       -  0   1   0   1   0   0  vld:0 |
 [TB-DBG] Time 415000: Head 1 compute_start detected! inflight=0 done_hold=0
-38   0 ret:0 |       't  1   0    0          0   1   0   1   0   0  vld:0 |        V  1   0    0       -  0   1   0   1   0   0  vld:1 |
-39   0 ret:0 |    CMP_V  1   0    0      't  0   1   0   1   0   0  vld:1 |        V  0   0    1   CMP_V  0   1   0   1   1   0  vld:0 |
-40   0 ret:0 |    CMP_V  1   0    0      't  0   1   0   1   0   0  vld:0 |        V  0   0    1   CMP_V  0   1   0   1   1   0  vld:0 |
-41   0 ret:0 |    CMP_V  1   0    0      't  0   1   0   1   0   0  vld:0 |        V  0   0    1   CMP_V  0   1   0   1   1   0  vld:0 |
+38   0 ret:0 |       û|  1   0    0          0   1   0   1   0   0  vld:0 |        V  1   0    0       -  0   1   0   1   0   0  vld:1 |
+39   0 ret:0 |    CMP_V  1   0    0      û|  0   1   0   1   0   0  vld:1 |        V  0   0    1   CMP_V  0   1   0   1   1   0  vld:0 |
+40   0 ret:0 |    CMP_V  1   0    0      û|  0   1   0   1   0   0  vld:0 |        V  0   0    1   CMP_V  0   1   0   1   1   0  vld:0 |
+41   0 ret:0 |    CMP_V  1   0    0      û|  0   1   0   1   0   0  vld:0 |        V  0   0    1   CMP_V  0   1   0   1   1   0  vld:0 |
 [TB-DBG] Time 455000: Head 1 compute DONE generated
-42   0 ret:0 |    CMP_V  1   0    0      't  0   1   0   1   0   0  vld:0 |        V  0   1    1   CMP_V  0   1   0   1   1   0  vld:0 |
-43   0 ret:0 |    CMP_V  1   0    0      't  0   1   0   1   0   0  vld:0 |        V  1   1    1   CMP_V  0   1   0   1   1   0  vld:1 |
-44   0 ret:0 |           1   0    0      't  0   1   0   1   0   0  vld:1 |     V_RQ  1   1    0       -  0   1   0   1   0   1  vld:0 |
-45   0 ret:0 |        -  1   0    0      't  0   1   0   1   0   0  vld:0 |     V_RQ  1   0    0       -  0   1   0   1   0   1  vld:0 |
-46   0 ret:0 |        -  1   0    0      't  0   1   0   1   0   0  vld:0 |     V_RQ  1   0    0       -  0   1   0   1   0   1  vld:0 |
-47   0 ret:0 |        -  1   0    0      't  0   1   0   1   0   0  vld:0 |     V_RQ  1   0    0       -  0   1   0   1   0   1  vld:0 |
-48   0 ret:0 |        -  1   0    0      't  0   1   0   1   0   0  vld:0 |     V_RQ  1   0    0       -  0   1   0   1   0   1  vld:1 |
+42   0 ret:0 |    CMP_V  1   0    0      û|  0   1   0   1   0   0  vld:0 |        V  0   1    1   CMP_V  0   1   0   1   1   0  vld:0 |
+43   0 ret:0 |    CMP_V  1   0    0      û|  0   1   0   1   0   0  vld:0 |        V  1   1    1   CMP_V  0   1   0   1   1   0  vld:1 |
+44   0 ret:0 |           1   0    0      û|  0   1   0   1   0   0  vld:1 |     V_RQ  1   1    0       -  0   1   0   1   0   1  vld:0 |
+45   0 ret:0 |        -  1   0    0      û|  0   1   0   1   0   0  vld:0 |     V_RQ  1   0    0       -  0   1   0   1   0   1  vld:0 |
+46   0 ret:0 |        -  1   0    0      û|  0   1   0   1   0   0  vld:0 |     V_RQ  1   0    0       -  0   1   0   1   0   1  vld:0 |
+47   0 ret:0 |        -  1   0    0      û|  0   1   0   1   0   0  vld:0 |     V_RQ  1   0    0       -  0   1   0   1   0   1  vld:0 |
+48   0 ret:0 |        -  1   0    0      û|  0   1   0   1   0   0  vld:0 |     V_RQ  1   0    0       -  0   1   0   1   0   1  vld:1 |
 [TB-DBG] Time 525000: Head 0 compute_start detected! inflight=0 done_hold=0
-49   0 ret:0 |        -  1   0    0      't  0   1   0   1   0   0  vld:1 |     V_WB  1   0    0       -  0   1   0   1   0   1  vld:0 |
+49   0 ret:0 |        -  1   0    0      û|  0   1   0   1   0   0  vld:1 |     V_WB  1   0    0       -  0   1   0   1   0   1  vld:0 |
 50   0 ret:0 |        -  0   0    1          0   1   0   1   1   0  vld:0 |     V_WB  1   0    0       -  0   1   0   1   0   1  vld:0 |
 51   0 ret:0 |        -  0   0    1          0   1   0   1   1   0  vld:0 |     V_WB  1   0    0       -  0   1   0   1   0   1  vld:0 |
 52   0 ret:0 |        -  0   0    1          0   1   0   1   1   0  vld:0 |     V_WB  1   0    0       -  0   1   0   1   0   1  vld:0 |
 [TB-DBG] Time 565000: Head 0 compute DONE generated
 53   0 ret:0 |        -  0   1    1          0   1   0   1   1   0  vld:0 |     V_WB  1   0    0       -  0   1   0   1   0   1  vld:1 |
 54   0 ret:0 |        -  1   1    1          0   1   0   1   1   0  vld:1 |     RQ_Q  1   0    0       -  0   1   0   1   0   1  vld:0 |
-55   0 ret:0 |        -  1   1    0      't  0   1   0   1   1   0  vld:0 |     RQ_Q  1   0    0       -  0   1   0   1   0   1  vld:0 |
-56   0 ret:0 |        -  1   0    0      't  0   1   0   1   1   0  vld:0 |     RQ_Q  1   0    0       -  0   1   0   1   0   1  vld:0 |
-57   0 ret:0 |        -  1   0    0      't  0   1   0   1   1   0  vld:0 |     RQ_Q  1   0    0       -  0   1   0   1   0   1  vld:0 |
-58   0 ret:0 |        -  1   0    0      't  0   1   0   1   1   0  vld:0 |     RQ_Q  1   0    0       -  0   1   0   1   0   1  vld:1 |
-59   0 ret:0 |        -  1   0    0      't  0   1   0   1   1   0  vld:1 |  ATT_SCO  1   0    0       -  0   1   0   1   0   1  vld:0 |
-60   0 ret:0 |           1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_SCO  1   0    0       -  0   1   0   1   0   1  vld:0 |
-61   0 ret:0 |           1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_SCO  1   0    0       -  0   1   0   1   0   1  vld:0 |
-62   0 ret:0 |           1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_SCO  1   0    0       -  0   1   0   1   0   1  vld:0 |
+55   0 ret:0 |        -  1   1    0      û|  0   1   0   1   1   0  vld:0 |     RQ_Q  1   0    0       -  0   1   0   1   0   1  vld:0 |
+56   0 ret:0 |        -  1   0    0      û|  0   1   0   1   1   0  vld:0 |     RQ_Q  1   0    0       -  0   1   0   1   0   1  vld:0 |
+57   0 ret:0 |        -  1   0    0      û|  0   1   0   1   1   0  vld:0 |     RQ_Q  1   0    0       -  0   1   0   1   0   1  vld:0 |
+58   0 ret:0 |        -  1   0    0      û|  0   1   0   1   1   0  vld:0 |     RQ_Q  1   0    0       -  0   1   0   1   0   1  vld:1 |
+59   0 ret:0 |        -  1   0    0      û|  0   1   0   1   1   0  vld:1 |  ATT_SCO  1   0    0       -  0   1   0   1   0   1  vld:0 |
+60   0 ret:0 |           1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_SCO  1   0    0       -  0   1   0   1   0   1  vld:0 |
+61   0 ret:0 |           1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_SCO  1   0    0       -  0   1   0   1   0   1  vld:0 |
+62   0 ret:0 |           1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_SCO  1   0    0       -  0   1   0   1   0   1  vld:0 |
 [TB-DBG] Time 665000: Head 1 compute_start detected! inflight=0 done_hold=0
-63   0 ret:0 |           1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_SCO  1   0    0       -  0   1   0   1   0   1  vld:1 |
-64   0 ret:0 |  CMP_SCO  1   0    0      't  0   1   0   1   0   1  vld:1 |  ATT_SCO  0   0    1   CMP_SCO  0   1   0   1   0   1  vld:0 |
-65   0 ret:0 |  CMP_SCO  1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_SCO  0   0    1   CMP_SCO  0   1   0   1   0   1  vld:0 |
-66   0 ret:0 |  CMP_SCO  1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_SCO  0   0    1   CMP_SCO  0   1   0   1   0   1  vld:0 |
+63   0 ret:0 |           1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_SCO  1   0    0       -  0   1   0   1   0   1  vld:1 |
+64   0 ret:0 |  CMP_SCO  1   0    0      û|  0   1   0   1   0   1  vld:1 |  ATT_SCO  0   0    1   CMP_SCO  0   1   0   1   0   1  vld:0 |
+65   0 ret:0 |  CMP_SCO  1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_SCO  0   0    1   CMP_SCO  0   1   0   1   0   1  vld:0 |
+66   0 ret:0 |  CMP_SCO  1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_SCO  0   0    1   CMP_SCO  0   1   0   1   0   1  vld:0 |
 [TB-DBG] Time 705000: Head 1 compute DONE generated
-67   0 ret:0 |  CMP_SCO  1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_SCO  0   1    1   CMP_SCO  0   1   0   1   0   1  vld:0 |
-68   0 ret:0 |  CMP_SCO  1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_SCO  1   1    1   CMP_SCO  0   1   0   1   0   1  vld:1 |
-69   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:1 |  VAL_SCL  1   1    0       -  0   1   0   1   0   1  vld:0 |
-70   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |  VAL_SCL  1   0    0       -  0   1   0   1   0   1  vld:0 |
-71   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |  VAL_SCL  1   0    0       -  0   1   0   1   0   1  vld:0 |
-72   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |  VAL_SCL  1   0    0       -  0   1   0   1   0   1  vld:0 |
+67   0 ret:0 |  CMP_SCO  1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_SCO  0   1    1   CMP_SCO  0   1   0   1   0   1  vld:0 |
+68   0 ret:0 |  CMP_SCO  1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_SCO  1   1    1   CMP_SCO  0   1   0   1   0   1  vld:1 |
+69   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:1 |  VAL_SCL  1   1    0       -  0   1   0   1   0   1  vld:0 |
+70   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |  VAL_SCL  1   0    0       -  0   1   0   1   0   1  vld:0 |
+71   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |  VAL_SCL  1   0    0       -  0   1   0   1   0   1  vld:0 |
+72   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |  VAL_SCL  1   0    0       -  0   1   0   1   0   1  vld:0 |
 [TB-DBG] Time 765000: Head 1 compute_start detected! inflight=0 done_hold=0
-73   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |  VAL_SCL  1   0    0       -  0   1   0   1   0   1  vld:1 |
-74   0 ret:0 |  CMP_SCL  1   0    0      't  0   1   0   1   0   1  vld:1 |  VAL_SCL  0   0    1   CMP_SCL  0   1   0   1   0   1  vld:0 |
-75   0 ret:0 |  CMP_SCL  1   0    0      't  0   1   0   1   0   1  vld:0 |  VAL_SCL  0   0    1   CMP_SCL  0   1   0   1   0   1  vld:0 |
-76   0 ret:0 |  CMP_SCL  1   0    0      't  0   1   0   1   0   1  vld:0 |  VAL_SCL  0   0    1   CMP_SCL  0   1   0   1   0   1  vld:0 |
+73   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |  VAL_SCL  1   0    0       -  0   1   0   1   0   1  vld:1 |
+74   0 ret:0 |  CMP_SCL  1   0    0      û|  0   1   0   1   0   1  vld:1 |  VAL_SCL  0   0    1   CMP_SCL  0   1   0   1   0   1  vld:0 |
+75   0 ret:0 |  CMP_SCL  1   0    0      û|  0   1   0   1   0   1  vld:0 |  VAL_SCL  0   0    1   CMP_SCL  0   1   0   1   0   1  vld:0 |
+76   0 ret:0 |  CMP_SCL  1   0    0      û|  0   1   0   1   0   1  vld:0 |  VAL_SCL  0   0    1   CMP_SCL  0   1   0   1   0   1  vld:0 |
 [TB-DBG] Time 805000: Head 1 compute DONE generated
-77   0 ret:0 |  CMP_SCL  1   0    0      't  0   1   0   1   0   1  vld:0 |  VAL_SCL  0   1    1   CMP_SCL  0   1   0   1   0   1  vld:0 |
-78   0 ret:0 |  CMP_SCL  1   0    0      't  0   1   0   1   0   1  vld:0 |  VAL_SCL  1   1    1   CMP_SCL  0   1   0   1   0   1  vld:1 |
+77   0 ret:0 |  CMP_SCL  1   0    0      û|  0   1   0   1   0   1  vld:0 |  VAL_SCL  0   1    1   CMP_SCL  0   1   0   1   0   1  vld:0 |
+78   0 ret:0 |  CMP_SCL  1   0    0      û|  0   1   0   1   0   1  vld:0 |  VAL_SCL  1   1    1   CMP_SCL  0   1   0   1   0   1  vld:1 |
 [TB-DBG] Time 825000: Head 0 compute_start detected! inflight=0 done_hold=0
-79   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:1 |     SOFT  1   1    0       -  0   1   0   1   0   1  vld:0 |
-80   0 ret:0 |           0   0    1      't  0   1   0   1   0   1  vld:0 |     SOFT  1   0    0       -  0   1   0   1   0   1  vld:0 |
-81   0 ret:0 |           0   0    1      't  0   1   0   1   0   1  vld:0 |     SOFT  1   0    0       -  0   1   0   1   0   1  vld:0 |
-82   0 ret:0 |           0   0    1      't  0   1   0   1   0   1  vld:0 |     SOFT  1   0    0       -  0   1   0   1   0   1  vld:0 |
+79   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:1 |     SOFT  1   1    0       -  0   1   0   1   0   1  vld:0 |
+80   0 ret:0 |           0   0    1      û|  0   1   0   1   0   1  vld:0 |     SOFT  1   0    0       -  0   1   0   1   0   1  vld:0 |
+81   0 ret:0 |           0   0    1      û|  0   1   0   1   0   1  vld:0 |     SOFT  1   0    0       -  0   1   0   1   0   1  vld:0 |
+82   0 ret:0 |           0   0    1      û|  0   1   0   1   0   1  vld:0 |     SOFT  1   0    0       -  0   1   0   1   0   1  vld:0 |
 [TB-DBG] Time 865000: Head 0 compute DONE generated
 [TB-DBG] Time 865000: Head 1 compute_start detected! inflight=0 done_hold=0
-83   0 ret:0 |           0   1    1      't  0   1   0   1   0   1  vld:0 |     SOFT  1   0    0       -  0   1   0   1   0   1  vld:1 |
+83   0 ret:0 |           0   1    1      û|  0   1   0   1   0   1  vld:0 |     SOFT  1   0    0       -  0   1   0   1   0   1  vld:1 |
 84   0 ret:0 |  CMP_SFM  1   1    1          0   1   0   1   0   1  vld:1 |     SOFT  0   0    1   CMP_SFM  0   1   0   1   0   1  vld:0 |
-85   0 ret:0 |  CMP_SFM  1   1    0      't  0   1   0   1   0   1  vld:0 |     SOFT  0   0    1   CMP_SFM  0   1   0   1   0   1  vld:0 |
-86   0 ret:0 |  CMP_SFM  1   0    0      't  0   1   0   1   0   1  vld:0 |     SOFT  0   0    1   CMP_SFM  0   1   0   1   0   1  vld:0 |
+85   0 ret:0 |  CMP_SFM  1   1    0      û|  0   1   0   1   0   1  vld:0 |     SOFT  0   0    1   CMP_SFM  0   1   0   1   0   1  vld:0 |
+86   0 ret:0 |  CMP_SFM  1   0    0      û|  0   1   0   1   0   1  vld:0 |     SOFT  0   0    1   CMP_SFM  0   1   0   1   0   1  vld:0 |
 [TB-DBG] Time 905000: Head 1 compute DONE generated
-87   0 ret:0 |  CMP_SFM  1   0    0      't  0   1   0   1   0   1  vld:0 |     SOFT  0   1    1   CMP_SFM  0   1   0   1   0   1  vld:0 |
-88   0 ret:0 |  CMP_SFM  1   0    0      't  0   1   0   1   0   1  vld:0 |     SOFT  1   1    1   CMP_SFM  0   1   0   1   0   1  vld:1 |
-89   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:1 |  ATT_VAL  1   1    0       -  0   1   0   1   0   1  vld:0 |
-90   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_VAL  1   0    0       -  0   1   0   1   0   1  vld:0 |
-91   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_VAL  1   0    0       -  0   1   0   1   0   1  vld:0 |
-92   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_VAL  1   0    0       -  0   1   0   1   0   1  vld:0 |
+87   0 ret:0 |  CMP_SFM  1   0    0      û|  0   1   0   1   0   1  vld:0 |     SOFT  0   1    1   CMP_SFM  0   1   0   1   0   1  vld:0 |
+88   0 ret:0 |  CMP_SFM  1   0    0      û|  0   1   0   1   0   1  vld:0 |     SOFT  1   1    1   CMP_SFM  0   1   0   1   0   1  vld:1 |
+89   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:1 |  ATT_VAL  1   1    0       -  0   1   0   1   0   1  vld:0 |
+90   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_VAL  1   0    0       -  0   1   0   1   0   1  vld:0 |
+91   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_VAL  1   0    0       -  0   1   0   1   0   1  vld:0 |
+92   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_VAL  1   0    0       -  0   1   0   1   0   1  vld:0 |
 [TB-DBG] Time 965000: Head 1 compute_start detected! inflight=0 done_hold=0
-93   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_VAL  1   0    0       -  0   1   0   1   0   1  vld:1 |
+93   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_VAL  1   0    0       -  0   1   0   1   0   1  vld:1 |
 [TB-DBG] Time 975000: Head 0 compute_start detected! inflight=0 done_hold=0
-94   0 ret:0 |  CMP_VAL  1   0    0      't  0   1   0   1   0   1  vld:1 |  ATT_VAL  0   0    1   CMP_VAL  0   1   0   1   0   1  vld:0 |
+94   0 ret:0 |  CMP_VAL  1   0    0      û|  0   1   0   1   0   1  vld:1 |  ATT_VAL  0   0    1   CMP_VAL  0   1   0   1   0   1  vld:0 |
 95   0 ret:0 |  CMP_VAL  0   0    1          0   1   0   1   0   1  vld:0 |  ATT_VAL  0   0    1   CMP_VAL  0   1   0   1   0   1  vld:0 |
 96   0 ret:0 |  CMP_VAL  0   0    1          0   1   0   1   0   1  vld:0 |  ATT_VAL  0   0    1   CMP_VAL  0   1   0   1   0   1  vld:0 |
 cycle grp ret|    head0 rdy done strt op    qst qdn kst kdn vst vdn vld |    head1 rdy done strt op    qst qdn kst kdn vst vdn vld |
 ----------------------------------------------------------------------------------------------------------------------------------------------
-0   0 ret:x |           1   0    0      't  0   0   0   0   0   0  vld:0 |     IDLE  1   0    0       -  0   0   0   0   0   0  vld:0 |
-1   0 ret:x |           1   0    0      't  0   0   0   0   0   0  vld:0 |     IDLE  1   0    0       -  0   0   0   0   0   0  vld:0 |
-2   0 ret:x |           1   0    0      't  0   0   0   0   0   0  vld:0 |     IDLE  1   0    0       -  0   0   0   0   0   0  vld:0 |
-3   0 ret:x |           1   0    0      't  0   0   0   0   0   0  vld:0 |     IDLE  1   0    0       -  0   0   0   0   0   0  vld:1 |
-4   0 ret:0 |       't  1   0    0          0   0   0   0   0   0  vld:1 |        Q  1   0    0       -  0   0   0   0   0   0  vld:0 |
+0   0 ret:x |           1   0    0      û|  0   0   0   0   0   0  vld:0 |     IDLE  1   0    0       -  0   0   0   0   0   0  vld:0 |
+1   0 ret:x |           1   0    0      û|  0   0   0   0   0   0  vld:0 |     IDLE  1   0    0       -  0   0   0   0   0   0  vld:0 |
+2   0 ret:x |           1   0    0      û|  0   0   0   0   0   0  vld:0 |     IDLE  1   0    0       -  0   0   0   0   0   0  vld:0 |
+3   0 ret:x |           1   0    0      û|  0   0   0   0   0   0  vld:0 |     IDLE  1   0    0       -  0   0   0   0   0   0  vld:1 |
+4   0 ret:0 |       û|  1   0    0          0   0   0   0   0   0  vld:1 |        Q  1   0    0       -  0   0   0   0   0   0  vld:0 |
 5   0 ret:0 |        -  1   0    0          0   0   0   0   0   0  vld:0 |        Q  1   0    0       -  0   0   0   0   0   0  vld:0 |
 6   0 ret:0 |        -  1   0    0          0   0   0   0   0   0  vld:0 |        Q  1   0    0       -  0   0   0   0   0   0  vld:0 |
 7   0 ret:0 |        -  1   0    0          0   0   0   0   0   0  vld:0 |        Q  1   0    0       -  0   0   0   0   0   0  vld:0 |
 [TB-DBG] Time 115000: Head 1 compute_start detected! inflight=0 done_hold=0
 8   0 ret:0 |        -  1   0    0          0   0   0   0   0   0  vld:0 |        Q  1   0    0       -  0   0   0   0   0   0  vld:1 |
 [TB-DBG] Time 125000: Head 0 compute_start detected! inflight=0 done_hold=0
-9   0 ret:0 |           1   0    0      't  0   0   0   0   0   0  vld:1 |        Q  0   0    1   CMP_Q  1   0   0   0   0   0  vld:0 |
-10   0 ret:0 |       't  0   0    1          1   0   0   0   0   0  vld:0 |        Q  0   0    1   CMP_Q  1   0   0   0   0   0  vld:0 |
-11   0 ret:0 |       't  0   0    1          1   0   0   0   0   0  vld:0 |        Q  0   0    1   CMP_Q  1   0   0   0   0   0  vld:0 |
+9   0 ret:0 |           1   0    0      û|  0   0   0   0   0   0  vld:1 |        Q  0   0    1   CMP_Q  1   0   0   0   0   0  vld:0 |
+10   0 ret:0 |       û|  0   0    1          1   0   0   0   0   0  vld:0 |        Q  0   0    1   CMP_Q  1   0   0   0   0   0  vld:0 |
+11   0 ret:0 |       û|  0   0    1          1   0   0   0   0   0  vld:0 |        Q  0   0    1   CMP_Q  1   0   0   0   0   0  vld:0 |
 [TB-DBG] Time 155000: Head 1 compute DONE generated
-12   0 ret:0 |       't  0   0    1          1   0   0   0   0   0  vld:0 |        Q  0   1    1   CMP_Q  1   0   0   0   0   0  vld:0 |
+12   0 ret:0 |       û|  0   0    1          1   0   0   0   0   0  vld:0 |        Q  0   1    1   CMP_Q  1   0   0   0   0   0  vld:0 |
 [TB-DBG] Time 165000: Head 0 compute DONE generated
-13   0 ret:0 |       't  0   1    1          1   0   0   0   0   0  vld:0 |        Q  1   1    1   CMP_Q  1   0   0   0   0   0  vld:1 |
-14   0 ret:0 |        -  1   1    1      't  1   0   0   0   0   0  vld:1 |        K  1   1    0       -  0   1   0   0   0   0  vld:0 |
+13   0 ret:0 |       û|  0   1    1          1   0   0   0   0   0  vld:0 |        Q  1   1    1   CMP_Q  1   0   0   0   0   0  vld:1 |
+14   0 ret:0 |        -  1   1    1      û|  1   0   0   0   0   0  vld:1 |        K  1   1    0       -  0   1   0   0   0   0  vld:0 |
 15   0 ret:0 |        -  1   1    0          1   0   0   0   0   0  vld:0 |        K  1   0    0       -  0   1   0   0   0   0  vld:0 |
 16   0 ret:0 |        -  1   0    0          1   0   0   0   0   0  vld:0 |        K  1   0    0       -  0   1   0   0   0   0  vld:0 |
 17   0 ret:0 |        -  1   0    0          1   0   0   0   0   0  vld:0 |        K  1   0    0       -  0   1   0   0   0   0  vld:0 |
 [TB-DBG] Time 215000: Head 1 compute_start detected! inflight=0 done_hold=0
 18   0 ret:0 |        -  1   0    0          1   0   0   0   0   0  vld:0 |        K  1   0    0       -  0   1   0   0   0   0  vld:1 |
-19   0 ret:0 |           1   0    0      't  1   0   0   0   0   0  vld:1 |        K  0   0    1   CMP_K  0   1   1   0   0   0  vld:0 |
-20   0 ret:0 |           1   0    0      't  0   1   0   0   0   0  vld:0 |        K  0   0    1   CMP_K  0   1   1   0   0   0  vld:0 |
-21   0 ret:0 |           1   0    0      't  0   1   0   0   0   0  vld:0 |        K  0   0    1   CMP_K  0   1   1   0   0   0  vld:0 |
+19   0 ret:0 |           1   0    0      û|  1   0   0   0   0   0  vld:1 |        K  0   0    1   CMP_K  0   1   1   0   0   0  vld:0 |
+20   0 ret:0 |           1   0    0      û|  0   1   0   0   0   0  vld:0 |        K  0   0    1   CMP_K  0   1   1   0   0   0  vld:0 |
+21   0 ret:0 |           1   0    0      û|  0   1   0   0   0   0  vld:0 |        K  0   0    1   CMP_K  0   1   1   0   0   0  vld:0 |
 [TB-DBG] Time 255000: Head 1 compute DONE generated
-22   0 ret:0 |           1   0    0      't  0   1   0   0   0   0  vld:0 |        K  0   1    1   CMP_K  0   1   1   0   0   0  vld:0 |
-23   0 ret:0 |           1   0    0      't  0   1   0   0   0   0  vld:0 |        K  1   1    1   CMP_K  0   1   1   0   0   0  vld:1 |
+22   0 ret:0 |           1   0    0      û|  0   1   0   0   0   0  vld:0 |        K  0   1    1   CMP_K  0   1   1   0   0   0  vld:0 |
+23   0 ret:0 |           1   0    0      û|  0   1   0   0   0   0  vld:0 |        K  1   1    1   CMP_K  0   1   1   0   0   0  vld:1 |
 [TB-DBG] Time 275000: Head 0 compute_start detected! inflight=0 done_hold=0
-24   0 ret:0 |        -  1   0    0      't  0   1   0   0   0   0  vld:1 |     K_RQ  1   1    0       -  0   1   0   1   0   0  vld:0 |
+24   0 ret:0 |        -  1   0    0      û|  0   1   0   0   0   0  vld:1 |     K_RQ  1   1    0       -  0   1   0   1   0   0  vld:0 |
 25   0 ret:0 |        -  0   0    1          0   1   1   0   0   0  vld:0 |     K_RQ  1   0    0       -  0   1   0   1   0   0  vld:0 |
 26   0 ret:0 |        -  0   0    1          0   1   1   0   0   0  vld:0 |     K_RQ  1   0    0       -  0   1   0   1   0   0  vld:0 |
 27   0 ret:0 |        -  0   0    1          0   1   1   0   0   0  vld:0 |     K_RQ  1   0    0       -  0   1   0   1   0   0  vld:0 |
 [TB-DBG] Time 315000: Head 0 compute DONE generated
 28   0 ret:0 |        -  0   1    1          0   1   1   0   0   0  vld:0 |     K_RQ  1   0    0       -  0   1   0   1   0   0  vld:1 |
 29   0 ret:0 |        -  1   1    1          0   1   1   0   0   0  vld:1 |     K_WB  1   0    0       -  0   1   0   1   0   0  vld:0 |
-30   0 ret:0 |        -  1   1    0      't  0   1   1   0   0   0  vld:0 |     K_WB  1   0    0       -  0   1   0   1   0   0  vld:0 |
-31   0 ret:0 |        -  1   0    0      't  0   1   1   0   0   0  vld:0 |     K_WB  1   0    0       -  0   1   0   1   0   0  vld:0 |
-32   0 ret:0 |        -  1   0    0      't  0   1   1   0   0   0  vld:0 |     K_WB  1   0    0       -  0   1   0   1   0   0  vld:0 |
-33   0 ret:0 |        -  1   0    0      't  0   1   1   0   0   0  vld:0 |     K_WB  1   0    0       -  0   1   0   1   0   0  vld:1 |
+30   0 ret:0 |        -  1   1    0      û|  0   1   1   0   0   0  vld:0 |     K_WB  1   0    0       -  0   1   0   1   0   0  vld:0 |
+31   0 ret:0 |        -  1   0    0      û|  0   1   1   0   0   0  vld:0 |     K_WB  1   0    0       -  0   1   0   1   0   0  vld:0 |
+32   0 ret:0 |        -  1   0    0      û|  0   1   1   0   0   0  vld:0 |     K_WB  1   0    0       -  0   1   0   1   0   0  vld:0 |
+33   0 ret:0 |        -  1   0    0      û|  0   1   1   0   0   0  vld:0 |     K_WB  1   0    0       -  0   1   0   1   0   0  vld:1 |
 34   0 ret:0 |        -  1   0    0          0   1   1   0   0   0  vld:1 |        V  1   0    0       -  0   1   0   1   0   0  vld:0 |
-35   0 ret:0 |       't  1   0    0          0   1   0   1   0   0  vld:0 |        V  1   0    0       -  0   1   0   1   0   0  vld:0 |
-36   0 ret:0 |       't  1   0    0          0   1   0   1   0   0  vld:0 |        V  1   0    0       -  0   1   0   1   0   0  vld:0 |
-37   0 ret:0 |       't  1   0    0          0   1   0   1   0   0  vld:0 |        V  1   0    0       -  0   1   0   1   0   0  vld:0 |
+35   0 ret:0 |       û|  1   0    0          0   1   0   1   0   0  vld:0 |        V  1   0    0       -  0   1   0   1   0   0  vld:0 |
+36   0 ret:0 |       û|  1   0    0          0   1   0   1   0   0  vld:0 |        V  1   0    0       -  0   1   0   1   0   0  vld:0 |
+37   0 ret:0 |       û|  1   0    0          0   1   0   1   0   0  vld:0 |        V  1   0    0       -  0   1   0   1   0   0  vld:0 |
 [TB-DBG] Time 415000: Head 1 compute_start detected! inflight=0 done_hold=0
-38   0 ret:0 |       't  1   0    0          0   1   0   1   0   0  vld:0 |        V  1   0    0       -  0   1   0   1   0   0  vld:1 |
-39   0 ret:0 |    CMP_V  1   0    0      't  0   1   0   1   0   0  vld:1 |        V  0   0    1   CMP_V  0   1   0   1   1   0  vld:0 |
-40   0 ret:0 |    CMP_V  1   0    0      't  0   1   0   1   0   0  vld:0 |        V  0   0    1   CMP_V  0   1   0   1   1   0  vld:0 |
-41   0 ret:0 |    CMP_V  1   0    0      't  0   1   0   1   0   0  vld:0 |        V  0   0    1   CMP_V  0   1   0   1   1   0  vld:0 |
+38   0 ret:0 |       û|  1   0    0          0   1   0   1   0   0  vld:0 |        V  1   0    0       -  0   1   0   1   0   0  vld:1 |
+39   0 ret:0 |    CMP_V  1   0    0      û|  0   1   0   1   0   0  vld:1 |        V  0   0    1   CMP_V  0   1   0   1   1   0  vld:0 |
+40   0 ret:0 |    CMP_V  1   0    0      û|  0   1   0   1   0   0  vld:0 |        V  0   0    1   CMP_V  0   1   0   1   1   0  vld:0 |
+41   0 ret:0 |    CMP_V  1   0    0      û|  0   1   0   1   0   0  vld:0 |        V  0   0    1   CMP_V  0   1   0   1   1   0  vld:0 |
 [TB-DBG] Time 455000: Head 1 compute DONE generated
-42   0 ret:0 |    CMP_V  1   0    0      't  0   1   0   1   0   0  vld:0 |        V  0   1    1   CMP_V  0   1   0   1   1   0  vld:0 |
-43   0 ret:0 |    CMP_V  1   0    0      't  0   1   0   1   0   0  vld:0 |        V  1   1    1   CMP_V  0   1   0   1   1   0  vld:1 |
-44   0 ret:0 |           1   0    0      't  0   1   0   1   0   0  vld:1 |     V_RQ  1   1    0       -  0   1   0   1   0   1  vld:0 |
-45   0 ret:0 |        -  1   0    0      't  0   1   0   1   0   0  vld:0 |     V_RQ  1   0    0       -  0   1   0   1   0   1  vld:0 |
-46   0 ret:0 |        -  1   0    0      't  0   1   0   1   0   0  vld:0 |     V_RQ  1   0    0       -  0   1   0   1   0   1  vld:0 |
-47   0 ret:0 |        -  1   0    0      't  0   1   0   1   0   0  vld:0 |     V_RQ  1   0    0       -  0   1   0   1   0   1  vld:0 |
-48   0 ret:0 |        -  1   0    0      't  0   1   0   1   0   0  vld:0 |     V_RQ  1   0    0       -  0   1   0   1   0   1  vld:1 |
+42   0 ret:0 |    CMP_V  1   0    0      û|  0   1   0   1   0   0  vld:0 |        V  0   1    1   CMP_V  0   1   0   1   1   0  vld:0 |
+43   0 ret:0 |    CMP_V  1   0    0      û|  0   1   0   1   0   0  vld:0 |        V  1   1    1   CMP_V  0   1   0   1   1   0  vld:1 |
+44   0 ret:0 |           1   0    0      û|  0   1   0   1   0   0  vld:1 |     V_RQ  1   1    0       -  0   1   0   1   0   1  vld:0 |
+45   0 ret:0 |        -  1   0    0      û|  0   1   0   1   0   0  vld:0 |     V_RQ  1   0    0       -  0   1   0   1   0   1  vld:0 |
+46   0 ret:0 |        -  1   0    0      û|  0   1   0   1   0   0  vld:0 |     V_RQ  1   0    0       -  0   1   0   1   0   1  vld:0 |
+47   0 ret:0 |        -  1   0    0      û|  0   1   0   1   0   0  vld:0 |     V_RQ  1   0    0       -  0   1   0   1   0   1  vld:0 |
+48   0 ret:0 |        -  1   0    0      û|  0   1   0   1   0   0  vld:0 |     V_RQ  1   0    0       -  0   1   0   1   0   1  vld:1 |
 [TB-DBG] Time 525000: Head 0 compute_start detected! inflight=0 done_hold=0
-49   0 ret:0 |        -  1   0    0      't  0   1   0   1   0   0  vld:1 |     V_WB  1   0    0       -  0   1   0   1   0   1  vld:0 |
+49   0 ret:0 |        -  1   0    0      û|  0   1   0   1   0   0  vld:1 |     V_WB  1   0    0       -  0   1   0   1   0   1  vld:0 |
 50   0 ret:0 |        -  0   0    1          0   1   0   1   1   0  vld:0 |     V_WB  1   0    0       -  0   1   0   1   0   1  vld:0 |
 51   0 ret:0 |        -  0   0    1          0   1   0   1   1   0  vld:0 |     V_WB  1   0    0       -  0   1   0   1   0   1  vld:0 |
 52   0 ret:0 |        -  0   0    1          0   1   0   1   1   0  vld:0 |     V_WB  1   0    0       -  0   1   0   1   0   1  vld:0 |
 [TB-DBG] Time 565000: Head 0 compute DONE generated
 53   0 ret:0 |        -  0   1    1          0   1   0   1   1   0  vld:0 |     V_WB  1   0    0       -  0   1   0   1   0   1  vld:1 |
 54   0 ret:0 |        -  1   1    1          0   1   0   1   1   0  vld:1 |     RQ_Q  1   0    0       -  0   1   0   1   0   1  vld:0 |
-55   0 ret:0 |        -  1   1    0      't  0   1   0   1   1   0  vld:0 |     RQ_Q  1   0    0       -  0   1   0   1   0   1  vld:0 |
-56   0 ret:0 |        -  1   0    0      't  0   1   0   1   1   0  vld:0 |     RQ_Q  1   0    0       -  0   1   0   1   0   1  vld:0 |
-57   0 ret:0 |        -  1   0    0      't  0   1   0   1   1   0  vld:0 |     RQ_Q  1   0    0       -  0   1   0   1   0   1  vld:0 |
-58   0 ret:0 |        -  1   0    0      't  0   1   0   1   1   0  vld:0 |     RQ_Q  1   0    0       -  0   1   0   1   0   1  vld:1 |
-59   0 ret:0 |        -  1   0    0      't  0   1   0   1   1   0  vld:1 |  ATT_SCO  1   0    0       -  0   1   0   1   0   1  vld:0 |
-60   0 ret:0 |           1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_SCO  1   0    0       -  0   1   0   1   0   1  vld:0 |
-61   0 ret:0 |           1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_SCO  1   0    0       -  0   1   0   1   0   1  vld:0 |
-62   0 ret:0 |           1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_SCO  1   0    0       -  0   1   0   1   0   1  vld:0 |
+55   0 ret:0 |        -  1   1    0      û|  0   1   0   1   1   0  vld:0 |     RQ_Q  1   0    0       -  0   1   0   1   0   1  vld:0 |
+56   0 ret:0 |        -  1   0    0      û|  0   1   0   1   1   0  vld:0 |     RQ_Q  1   0    0       -  0   1   0   1   0   1  vld:0 |
+57   0 ret:0 |        -  1   0    0      û|  0   1   0   1   1   0  vld:0 |     RQ_Q  1   0    0       -  0   1   0   1   0   1  vld:0 |
+58   0 ret:0 |        -  1   0    0      û|  0   1   0   1   1   0  vld:0 |     RQ_Q  1   0    0       -  0   1   0   1   0   1  vld:1 |
+59   0 ret:0 |        -  1   0    0      û|  0   1   0   1   1   0  vld:1 |  ATT_SCO  1   0    0       -  0   1   0   1   0   1  vld:0 |
+60   0 ret:0 |           1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_SCO  1   0    0       -  0   1   0   1   0   1  vld:0 |
+61   0 ret:0 |           1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_SCO  1   0    0       -  0   1   0   1   0   1  vld:0 |
+62   0 ret:0 |           1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_SCO  1   0    0       -  0   1   0   1   0   1  vld:0 |
 [TB-DBG] Time 665000: Head 1 compute_start detected! inflight=0 done_hold=0
-63   0 ret:0 |           1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_SCO  1   0    0       -  0   1   0   1   0   1  vld:1 |
-64   0 ret:0 |  CMP_SCO  1   0    0      't  0   1   0   1   0   1  vld:1 |  ATT_SCO  0   0    1   CMP_SCO  0   1   0   1   0   1  vld:0 |
-65   0 ret:0 |  CMP_SCO  1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_SCO  0   0    1   CMP_SCO  0   1   0   1   0   1  vld:0 |
-66   0 ret:0 |  CMP_SCO  1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_SCO  0   0    1   CMP_SCO  0   1   0   1   0   1  vld:0 |
+63   0 ret:0 |           1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_SCO  1   0    0       -  0   1   0   1   0   1  vld:1 |
+64   0 ret:0 |  CMP_SCO  1   0    0      û|  0   1   0   1   0   1  vld:1 |  ATT_SCO  0   0    1   CMP_SCO  0   1   0   1   0   1  vld:0 |
+65   0 ret:0 |  CMP_SCO  1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_SCO  0   0    1   CMP_SCO  0   1   0   1   0   1  vld:0 |
+66   0 ret:0 |  CMP_SCO  1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_SCO  0   0    1   CMP_SCO  0   1   0   1   0   1  vld:0 |
 [TB-DBG] Time 705000: Head 1 compute DONE generated
-67   0 ret:0 |  CMP_SCO  1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_SCO  0   1    1   CMP_SCO  0   1   0   1   0   1  vld:0 |
-68   0 ret:0 |  CMP_SCO  1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_SCO  1   1    1   CMP_SCO  0   1   0   1   0   1  vld:1 |
-69   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:1 |  VAL_SCL  1   1    0       -  0   1   0   1   0   1  vld:0 |
-70   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |  VAL_SCL  1   0    0       -  0   1   0   1   0   1  vld:0 |
-71   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |  VAL_SCL  1   0    0       -  0   1   0   1   0   1  vld:0 |
-72   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |  VAL_SCL  1   0    0       -  0   1   0   1   0   1  vld:0 |
+67   0 ret:0 |  CMP_SCO  1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_SCO  0   1    1   CMP_SCO  0   1   0   1   0   1  vld:0 |
+68   0 ret:0 |  CMP_SCO  1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_SCO  1   1    1   CMP_SCO  0   1   0   1   0   1  vld:1 |
+69   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:1 |  VAL_SCL  1   1    0       -  0   1   0   1   0   1  vld:0 |
+70   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |  VAL_SCL  1   0    0       -  0   1   0   1   0   1  vld:0 |
+71   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |  VAL_SCL  1   0    0       -  0   1   0   1   0   1  vld:0 |
+72   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |  VAL_SCL  1   0    0       -  0   1   0   1   0   1  vld:0 |
 [TB-DBG] Time 765000: Head 1 compute_start detected! inflight=0 done_hold=0
-73   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |  VAL_SCL  1   0    0       -  0   1   0   1   0   1  vld:1 |
-74   0 ret:0 |  CMP_SCL  1   0    0      't  0   1   0   1   0   1  vld:1 |  VAL_SCL  0   0    1   CMP_SCL  0   1   0   1   0   1  vld:0 |
-75   0 ret:0 |  CMP_SCL  1   0    0      't  0   1   0   1   0   1  vld:0 |  VAL_SCL  0   0    1   CMP_SCL  0   1   0   1   0   1  vld:0 |
-76   0 ret:0 |  CMP_SCL  1   0    0      't  0   1   0   1   0   1  vld:0 |  VAL_SCL  0   0    1   CMP_SCL  0   1   0   1   0   1  vld:0 |
+73   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |  VAL_SCL  1   0    0       -  0   1   0   1   0   1  vld:1 |
+74   0 ret:0 |  CMP_SCL  1   0    0      û|  0   1   0   1   0   1  vld:1 |  VAL_SCL  0   0    1   CMP_SCL  0   1   0   1   0   1  vld:0 |
+75   0 ret:0 |  CMP_SCL  1   0    0      û|  0   1   0   1   0   1  vld:0 |  VAL_SCL  0   0    1   CMP_SCL  0   1   0   1   0   1  vld:0 |
+76   0 ret:0 |  CMP_SCL  1   0    0      û|  0   1   0   1   0   1  vld:0 |  VAL_SCL  0   0    1   CMP_SCL  0   1   0   1   0   1  vld:0 |
 [TB-DBG] Time 805000: Head 1 compute DONE generated
-77   0 ret:0 |  CMP_SCL  1   0    0      't  0   1   0   1   0   1  vld:0 |  VAL_SCL  0   1    1   CMP_SCL  0   1   0   1   0   1  vld:0 |
-78   0 ret:0 |  CMP_SCL  1   0    0      't  0   1   0   1   0   1  vld:0 |  VAL_SCL  1   1    1   CMP_SCL  0   1   0   1   0   1  vld:1 |
+77   0 ret:0 |  CMP_SCL  1   0    0      û|  0   1   0   1   0   1  vld:0 |  VAL_SCL  0   1    1   CMP_SCL  0   1   0   1   0   1  vld:0 |
+78   0 ret:0 |  CMP_SCL  1   0    0      û|  0   1   0   1   0   1  vld:0 |  VAL_SCL  1   1    1   CMP_SCL  0   1   0   1   0   1  vld:1 |
 [TB-DBG] Time 825000: Head 0 compute_start detected! inflight=0 done_hold=0
-79   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:1 |     SOFT  1   1    0       -  0   1   0   1   0   1  vld:0 |
-80   0 ret:0 |           0   0    1      't  0   1   0   1   0   1  vld:0 |     SOFT  1   0    0       -  0   1   0   1   0   1  vld:0 |
-81   0 ret:0 |           0   0    1      't  0   1   0   1   0   1  vld:0 |     SOFT  1   0    0       -  0   1   0   1   0   1  vld:0 |
-82   0 ret:0 |           0   0    1      't  0   1   0   1   0   1  vld:0 |     SOFT  1   0    0       -  0   1   0   1   0   1  vld:0 |
+79   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:1 |     SOFT  1   1    0       -  0   1   0   1   0   1  vld:0 |
+80   0 ret:0 |           0   0    1      û|  0   1   0   1   0   1  vld:0 |     SOFT  1   0    0       -  0   1   0   1   0   1  vld:0 |
+81   0 ret:0 |           0   0    1      û|  0   1   0   1   0   1  vld:0 |     SOFT  1   0    0       -  0   1   0   1   0   1  vld:0 |
+82   0 ret:0 |           0   0    1      û|  0   1   0   1   0   1  vld:0 |     SOFT  1   0    0       -  0   1   0   1   0   1  vld:0 |
 [TB-DBG] Time 865000: Head 0 compute DONE generated
 [TB-DBG] Time 865000: Head 1 compute_start detected! inflight=0 done_hold=0
-83   0 ret:0 |           0   1    1      't  0   1   0   1   0   1  vld:0 |     SOFT  1   0    0       -  0   1   0   1   0   1  vld:1 |
+83   0 ret:0 |           0   1    1      û|  0   1   0   1   0   1  vld:0 |     SOFT  1   0    0       -  0   1   0   1   0   1  vld:1 |
 84   0 ret:0 |  CMP_SFM  1   1    1          0   1   0   1   0   1  vld:1 |     SOFT  0   0    1   CMP_SFM  0   1   0   1   0   1  vld:0 |
-85   0 ret:0 |  CMP_SFM  1   1    0      't  0   1   0   1   0   1  vld:0 |     SOFT  0   0    1   CMP_SFM  0   1   0   1   0   1  vld:0 |
-86   0 ret:0 |  CMP_SFM  1   0    0      't  0   1   0   1   0   1  vld:0 |     SOFT  0   0    1   CMP_SFM  0   1   0   1   0   1  vld:0 |
+85   0 ret:0 |  CMP_SFM  1   1    0      û|  0   1   0   1   0   1  vld:0 |     SOFT  0   0    1   CMP_SFM  0   1   0   1   0   1  vld:0 |
+86   0 ret:0 |  CMP_SFM  1   0    0      û|  0   1   0   1   0   1  vld:0 |     SOFT  0   0    1   CMP_SFM  0   1   0   1   0   1  vld:0 |
 [TB-DBG] Time 905000: Head 1 compute DONE generated
-87   0 ret:0 |  CMP_SFM  1   0    0      't  0   1   0   1   0   1  vld:0 |     SOFT  0   1    1   CMP_SFM  0   1   0   1   0   1  vld:0 |
-88   0 ret:0 |  CMP_SFM  1   0    0      't  0   1   0   1   0   1  vld:0 |     SOFT  1   1    1   CMP_SFM  0   1   0   1   0   1  vld:1 |
-89   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:1 |  ATT_VAL  1   1    0       -  0   1   0   1   0   1  vld:0 |
-90   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_VAL  1   0    0       -  0   1   0   1   0   1  vld:0 |
-91   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_VAL  1   0    0       -  0   1   0   1   0   1  vld:0 |
-92   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_VAL  1   0    0       -  0   1   0   1   0   1  vld:0 |
+87   0 ret:0 |  CMP_SFM  1   0    0      û|  0   1   0   1   0   1  vld:0 |     SOFT  0   1    1   CMP_SFM  0   1   0   1   0   1  vld:0 |
+88   0 ret:0 |  CMP_SFM  1   0    0      û|  0   1   0   1   0   1  vld:0 |     SOFT  1   1    1   CMP_SFM  0   1   0   1   0   1  vld:1 |
+89   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:1 |  ATT_VAL  1   1    0       -  0   1   0   1   0   1  vld:0 |
+90   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_VAL  1   0    0       -  0   1   0   1   0   1  vld:0 |
+91   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_VAL  1   0    0       -  0   1   0   1   0   1  vld:0 |
+92   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_VAL  1   0    0       -  0   1   0   1   0   1  vld:0 |
 [TB-DBG] Time 965000: Head 1 compute_start detected! inflight=0 done_hold=0
-93   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |  ATT_VAL  1   0    0       -  0   1   0   1   0   1  vld:1 |
+93   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |  ATT_VAL  1   0    0       -  0   1   0   1   0   1  vld:1 |
 [TB-DBG] Time 975000: Head 0 compute_start detected! inflight=0 done_hold=0
-94   0 ret:0 |  CMP_VAL  1   0    0      't  0   1   0   1   0   1  vld:1 |  ATT_VAL  0   0    1   CMP_VAL  0   1   0   1   0   1  vld:0 |
+94   0 ret:0 |  CMP_VAL  1   0    0      û|  0   1   0   1   0   1  vld:1 |  ATT_VAL  0   0    1   CMP_VAL  0   1   0   1   0   1  vld:0 |
 95   0 ret:0 |  CMP_VAL  0   0    1          0   1   0   1   0   1  vld:0 |  ATT_VAL  0   0    1   CMP_VAL  0   1   0   1   0   1  vld:0 |
 96   0 ret:0 |  CMP_VAL  0   0    1          0   1   0   1   0   1  vld:0 |  ATT_VAL  0   0    1   CMP_VAL  0   1   0   1   0   1  vld:0 |
 [TB-DBG] Time 1005000: Head 1 compute DONE generated
 97   0 ret:0 |  CMP_VAL  0   0    1          0   1   0   1   0   1  vld:0 |  ATT_VAL  0   1    1   CMP_VAL  0   1   0   1   0   1  vld:0 |
 [TB-DBG] Time 1015000: Head 0 compute DONE generated
 98   0 ret:0 |  CMP_VAL  0   1    1          0   1   0   1   0   1  vld:0 |  ATT_VAL  1   1    1   CMP_VAL  0   1   0   1   0   1  vld:1 |
-99   0 ret:0 |       't  1   1    1      't  0   1   0   1   0   1  vld:1 |      RQ2  1   1    0       -  0   1   0   1   0   1  vld:0 |
-100   0 ret:0 |       't  1   1    0          0   1   0   1   0   1  vld:0 |      RQ2  1   0    0       -  0   1   0   1   0   1  vld:0 |
-101   0 ret:0 |       't  1   0    0          0   1   0   1   0   1  vld:0 |      RQ2  1   0    0       -  0   1   0   1   0   1  vld:0 |
-102   0 ret:0 |       't  1   0    0          0   1   0   1   0   1  vld:0 |      RQ2  1   0    0       -  0   1   0   1   0   1  vld:0 |
-103   0 ret:0 |       't  1   0    0          0   1   0   1   0   1  vld:0 |      RQ2  1   0    0       -  0   1   0   1   0   1  vld:1 |
-104   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:1 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-105   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-106   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-107   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+99   0 ret:0 |       û|  1   1    1      û|  0   1   0   1   0   1  vld:1 |      RQ2  1   1    0       -  0   1   0   1   0   1  vld:0 |
+100   0 ret:0 |       û|  1   1    0          0   1   0   1   0   1  vld:0 |      RQ2  1   0    0       -  0   1   0   1   0   1  vld:0 |
+101   0 ret:0 |       û|  1   0    0          0   1   0   1   0   1  vld:0 |      RQ2  1   0    0       -  0   1   0   1   0   1  vld:0 |
+102   0 ret:0 |       û|  1   0    0          0   1   0   1   0   1  vld:0 |      RQ2  1   0    0       -  0   1   0   1   0   1  vld:0 |
+103   0 ret:0 |       û|  1   0    0          0   1   0   1   0   1  vld:0 |      RQ2  1   0    0       -  0   1   0   1   0   1  vld:1 |
+104   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:1 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+105   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+106   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+107   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
 [TB-DBG] Time 1115000: Head 0 compute_start detected! inflight=0 done_hold=0
-108   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:1 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-109   0 ret:0 |           0   0    1      't  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-110   0 ret:0 |           0   0    1      't  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-111   0 ret:0 |           0   0    1      't  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+108   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:1 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+109   0 ret:0 |           0   0    1      û|  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+110   0 ret:0 |           0   0    1      û|  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+111   0 ret:0 |           0   0    1      û|  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
 [TB-DBG] Time 1155000: Head 0 compute DONE generated
-112   0 ret:0 |           0   1    1      't  0   1   0   1   0   1  vld:1 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-113   0 ret:0 |       't  1   1    0      't  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-114   0 ret:0 |       't  1   1    0      't  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-115   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-116   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:1 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-117   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-118   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-119   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+112   0 ret:0 |           0   1    1      û|  0   1   0   1   0   1  vld:1 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+113   0 ret:0 |       û|  1   1    0      û|  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+114   0 ret:0 |       û|  1   1    0      û|  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+115   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+116   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:1 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+117   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+118   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+119   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
 [TB-DBG] Time 1235000: Head 0 compute_start detected! inflight=0 done_hold=0
-120   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:1 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-121   0 ret:0 |           0   0    1      't  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-122   0 ret:0 |           0   0    1      't  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-123   0 ret:0 |           0   0    1      't  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+120   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:1 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+121   0 ret:0 |           0   0    1      û|  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+122   0 ret:0 |           0   0    1      û|  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+123   0 ret:0 |           0   0    1      û|  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
 [TB-DBG] Time 1275000: Head 0 compute DONE generated
-124   0 ret:0 |           0   1    1      't  0   1   0   1   0   1  vld:1 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-125   0 ret:0 |       't  1   1    0      't  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-126   0 ret:0 |       't  1   1    0      't  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-127   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-128   0 ret:0 |       't  1   0    0      't  0   1   0   1   0   1  vld:1 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-129   0 ret:0 |        -  1   0    0      't  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-130   0 ret:0 |        -  1   0    0      't  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-131   0 ret:0 |        -  1   0    0      't  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-132   0 ret:1 |        -  1   0    0      't  0   1   0   1   0   1  vld:1 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-133   0 ret:1 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
-134   0 ret:1 |       't  1   0    0      't  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+124   0 ret:0 |           0   1    1      û|  0   1   0   1   0   1  vld:1 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+125   0 ret:0 |       û|  1   1    0      û|  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+126   0 ret:0 |       û|  1   1    0      û|  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+127   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+128   0 ret:0 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:1 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+129   0 ret:0 |        -  1   0    0      û|  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+130   0 ret:0 |        -  1   0    0      û|  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+131   0 ret:0 |        -  1   0    0      û|  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+132   0 ret:1 |        -  1   0    0      û|  0   1   0   1   0   1  vld:1 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+133   0 ret:1 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
+134   0 ret:1 |       û|  1   0    0      û|  0   1   0   1   0   1  vld:0 |     DONE  1   0    0       -  0   1   0   1   0   1  vld:0 |
 
 === SUCCESS: All head groups completed by cycle 134 ===
-$finish called at time : 1375 ns : File "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_tb.sv" Line 409
+$finish called at time : 1375 ns : File "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_tb.sv" Line 408

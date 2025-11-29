@@ -7,6 +7,14 @@ WARNING: [XSIM 43-3431] One or more environment variables have been detected whi
 Starting static elaboration
 Pass Through NonSizing Optimizer
 WARNING: [VRFC 10-3818] variable 'cycle_count' is driven by invalid combination of procedural drivers [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_tb.sv:97]
-WARNING: [VRFC 10-2921] 'cycle_count' driven by this always_ff block should not be driven by any other process [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_tb.sv:365]
+WARNING: [VRFC 10-2921] 'cycle_count' driven by this always_ff block should not be driven by any other process [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_tb.sv:364]
 Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.drive_group_head_phase_sparsemux...
+Compiling module xil_defaultlib.drive_group_head_phase_run_singl...
+Compiling module xil_defaultlib.drive_group_head_phase
+Compiling module xil_defaultlib.drive_group_head_phase_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot drive_group_head_phase_tb_behav

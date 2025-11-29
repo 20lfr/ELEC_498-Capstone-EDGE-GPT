@@ -1,0 +1,277 @@
+
+
+================================================================
+== Synthesis Summary Report of 'scheduler_hls'
+================================================================
++ General Information: 
+    * Date:           Fri Nov 28 18:06:19 2025
+    * Version:        2025.1 (Build 6135595 on May 21 2025)
+    * Project:        scheduler_hls
+    * Solution:       hls (Vivado IP Flow Target)
+    * Product family: zynquplus
+    * Target device:  xck26-sfvc784-2LV-c
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +-----------------+------+------+---------+-------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+    |     Modules     | Issue|      |     Latency     | Iteration|         | Trip |          |      |    |           |           |     |
+    |     & Loops     | Type | Slack| (cycles)|  (ns) |  Latency | Interval| Count| Pipelined| BRAM | DSP|     FF    |    LUT    | URAM|
+    +-----------------+------+------+---------+-------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+    |+ scheduler_hls  |     -|  4.36|        0|  0.000|         -|        1|     -|        no|     -|   -|  160 (~0%)|  1551 (1%)|    -|
+    +-----------------+------+------+---------+-------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* Other Ports
++-----------------+---------+-----------+----------+
+| Port            | Mode    | Direction | Bitwidth |
++-----------------+---------+-----------+----------+
+| STATE           | ap_vld  | out       | 32       |
+| axis_in_last    | ap_none | in        | 1        |
+| axis_in_ready   | ap_vld  | out       | 1        |
+| axis_in_valid   | ap_none | in        | 1        |
+| cntrl_busy      | ap_vld  | out       | 1        |
+| cntrl_layer_idx | ap_vld  | out       | 32       |
+| cntrl_reset_n   | ap_none | in        | 1        |
+| cntrl_start     | ap_none | in        | 1        |
+| cntrl_start_out | ap_vld  | out       | 1        |
+| compute_done    | ap_none | in        | 1        |
+| compute_op      | ap_vld  | out       | 32       |
+| compute_ready   | ap_none | in        | 1        |
+| compute_start   | ap_vld  | out       | 1        |
+| dma_done        | ap_none | in        | 1        |
+| done            | ap_vld  | out       | 1        |
+| requant_done    | ap_none | in        | 1        |
+| requant_op      | ap_vld  | out       | 32       |
+| requant_ready   | ap_none | in        | 1        |
+| requant_start   | ap_vld  | out       | 1        |
+| stream_done     | ap_none | in        | 1        |
+| stream_ready    | ap_none | in        | 1        |
+| stream_start    | ap_vld  | out       | 1        |
+| wl_addr_sel     | ap_vld  | out       | 32       |
+| wl_head         | ap_vld  | out       | 32       |
+| wl_layer        | ap_vld  | out       | 32       |
+| wl_ready        | ap_none | in        | 1        |
+| wl_start        | ap_vld  | out       | 1        |
+| wl_tile         | ap_vld  | out       | 32       |
++-----------------+---------+-----------+----------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------------------------------+
+| Interface | Type       | Ports                             |
++-----------+------------+-----------------------------------+
+| ap_clk    | clock      | ap_clk                            |
+| ap_rst    | reset      | ap_rst                            |
+| ap_ctrl   | ap_ctrl_hs | ap_done ap_idle ap_ready ap_start |
++-----------+------------+-----------------------------------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++-----------------+-----------+---------------+
+| Argument        | Direction | Datatype      |
++-----------------+-----------+---------------+
+| cntrl_start     | in        | bool          |
+| cntrl_reset_n   | in        | bool          |
+| cntrl_layer_idx | out       | unsigned int& |
+| cntrl_busy      | out       | bool&         |
+| cntrl_start_out | out       | bool&         |
+| axis_in_valid   | in        | bool          |
+| axis_in_last    | in        | bool          |
+| axis_in_ready   | out       | bool&         |
+| wl_ready        | in        | bool          |
+| wl_start        | out       | bool&         |
+| wl_addr_sel     | out       | int&          |
+| wl_layer        | out       | int&          |
+| wl_head         | out       | int&          |
+| wl_tile         | out       | int&          |
+| dma_done        | in        | bool          |
+| compute_ready   | in        | bool          |
+| compute_done    | in        | bool          |
+| requant_ready   | in        | bool          |
+| requant_done    | in        | bool          |
+| compute_start   | out       | bool&         |
+| compute_op      | out       | int&          |
+| requant_start   | out       | bool&         |
+| requant_op      | out       | int&          |
+| stream_ready    | in        | bool          |
+| stream_start    | out       | bool&         |
+| stream_done     | in        | bool          |
+| done            | out       | bool&         |
+| STATE           | out       | SchedState&   |
++-----------------+-----------+---------------+
+
+* SW-to-HW Mapping
++-----------------+------------------------+---------+
+| Argument        | HW Interface           | HW Type |
++-----------------+------------------------+---------+
+| cntrl_start     | cntrl_start            | port    |
+| cntrl_reset_n   | cntrl_reset_n          | port    |
+| cntrl_layer_idx | cntrl_layer_idx        | port    |
+| cntrl_layer_idx | cntrl_layer_idx_ap_vld | port    |
+| cntrl_busy      | cntrl_busy             | port    |
+| cntrl_busy      | cntrl_busy_ap_vld      | port    |
+| cntrl_start_out | cntrl_start_out        | port    |
+| cntrl_start_out | cntrl_start_out_ap_vld | port    |
+| axis_in_valid   | axis_in_valid          | port    |
+| axis_in_last    | axis_in_last           | port    |
+| axis_in_ready   | axis_in_ready          | port    |
+| axis_in_ready   | axis_in_ready_ap_vld   | port    |
+| wl_ready        | wl_ready               | port    |
+| wl_start        | wl_start               | port    |
+| wl_start        | wl_start_ap_vld        | port    |
+| wl_addr_sel     | wl_addr_sel            | port    |
+| wl_addr_sel     | wl_addr_sel_ap_vld     | port    |
+| wl_layer        | wl_layer               | port    |
+| wl_layer        | wl_layer_ap_vld        | port    |
+| wl_head         | wl_head                | port    |
+| wl_head         | wl_head_ap_vld         | port    |
+| wl_tile         | wl_tile                | port    |
+| wl_tile         | wl_tile_ap_vld         | port    |
+| dma_done        | dma_done               | port    |
+| compute_ready   | compute_ready          | port    |
+| compute_done    | compute_done           | port    |
+| requant_ready   | requant_ready          | port    |
+| requant_done    | requant_done           | port    |
+| compute_start   | compute_start          | port    |
+| compute_start   | compute_start_ap_vld   | port    |
+| compute_op      | compute_op             | port    |
+| compute_op      | compute_op_ap_vld      | port    |
+| requant_start   | requant_start          | port    |
+| requant_start   | requant_start_ap_vld   | port    |
+| requant_op      | requant_op             | port    |
+| requant_op      | requant_op_ap_vld      | port    |
+| stream_ready    | stream_ready           | port    |
+| stream_start    | stream_start           | port    |
+| stream_start    | stream_start_ap_vld    | port    |
+| stream_done     | stream_done            | port    |
+| done            | done                   | port    |
+| done            | done_ap_vld            | port    |
+| STATE           | STATE                  | port    |
+| STATE           | STATE_ap_vld           | port    |
++-----------------+------------------------+---------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++-------------------------+-----+--------+--------------+--------+----------+---------+
+| Name                    | DSP | Pragma | Variable     | Op     | Impl     | Latency |
++-------------------------+-----+--------+--------------+--------+----------+---------+
+| + scheduler_hls         | 0   |        |              |        |          |         |
+|   or_ln241_fu_7328_p2   |     |        | or_ln241     | or     | auto     | 0       |
+|   or_ln239_fu_7335_p2   |     |        | or_ln239     | or     | auto     | 0       |
+|   or_ln229_fu_7374_p2   |     |        | or_ln229     | or     | auto     | 0       |
+|   or_ln227_fu_7381_p2   |     |        | or_ln227     | or     | auto     | 0       |
+|   or_ln225_fu_7388_p2   |     |        | or_ln225     | or     | auto     | 0       |
+|   or_ln223_fu_7395_p2   |     |        | or_ln223     | or     | auto     | 0       |
+|   or_ln221_fu_7402_p2   |     |        | or_ln221     | or     | auto     | 0       |
+|   add_ln540_fu_7437_p2  |     |        | add_ln540    | add    | fabric   | 0       |
+|   icmp_ln540_fu_7453_p2 |     |        | icmp_ln540   | setlt  | auto     | 0       |
+|   xor_ln527_fu_7483_p2  |     |        | xor_ln527    | xor    | auto     | 0       |
+|   or_ln527_fu_7489_p2   |     |        | or_ln527     | or     | auto     | 0       |
+|   xor_ln514_fu_7513_p2  |     |        | xor_ln514    | xor    | auto     | 0       |
+|   or_ln514_fu_7519_p2   |     |        | or_ln514     | or     | auto     | 0       |
+|   xor_ln469_fu_7551_p2  |     |        | xor_ln469    | xor    | auto     | 0       |
+|   or_ln469_fu_7557_p2   |     |        | or_ln469     | or     | auto     | 0       |
+|   and_ln474_fu_7569_p2  |     |        | and_ln474    | and    | auto     | 0       |
+|   icmp_ln481_fu_7602_p2 |     |        | icmp_ln481   | setgt  | auto     | 0       |
+|   xor_ln488_fu_7608_p2  |     |        | xor_ln488    | xor    | auto     | 0       |
+|   or_ln488_fu_7614_p2   |     |        | or_ln488     | or     | auto     | 0       |
+|   and_ln495_fu_7636_p2  |     |        | and_ln495    | and    | auto     | 0       |
+|   and_ln498_fu_7646_p2  |     |        | and_ln498    | and    | auto     | 0       |
+|   xor_ln503_fu_7652_p2  |     |        | xor_ln503    | xor    | auto     | 0       |
+|   or_ln503_fu_7658_p2   |     |        | or_ln503     | or     | auto     | 0       |
+|   or_ln503_1_fu_7664_p2 |     |        | or_ln503_1   | or     | auto     | 0       |
+|   add_ln507_fu_7676_p2  |     |        | add_ln507    | add    | fabric   | 0       |
+|   icmp_ln440_fu_7739_p2 |     |        | icmp_ln440   | setgt  | auto     | 0       |
+|   xor_ln446_fu_7745_p2  |     |        | xor_ln446    | xor    | auto     | 0       |
+|   or_ln446_fu_7751_p2   |     |        | or_ln446     | or     | auto     | 0       |
+|   and_ln453_fu_7773_p2  |     |        | and_ln453    | and    | auto     | 0       |
+|   and_ln456_fu_7783_p2  |     |        | and_ln456    | and    | auto     | 0       |
+|   xor_ln461_fu_7789_p2  |     |        | xor_ln461    | xor    | auto     | 0       |
+|   or_ln461_fu_7795_p2   |     |        | or_ln461     | or     | auto     | 0       |
+|   or_ln461_1_fu_7801_p2 |     |        | or_ln461_1   | or     | auto     | 0       |
+|   add_ln465_fu_7813_p2  |     |        | add_ln465    | add    | fabric   | 0       |
+|   xor_ln424_fu_7855_p2  |     |        | xor_ln424    | xor    | auto     | 0       |
+|   or_ln424_fu_7861_p2   |     |        | or_ln424     | or     | auto     | 0       |
+|   xor_ln411_fu_7885_p2  |     |        | xor_ln411    | xor    | auto     | 0       |
+|   or_ln411_fu_7891_p2   |     |        | or_ln411     | or     | auto     | 0       |
+|   icmp_ln381_fu_7930_p2 |     |        | icmp_ln381   | setgt  | auto     | 0       |
+|   xor_ln387_fu_7936_p2  |     |        | xor_ln387    | xor    | auto     | 0       |
+|   or_ln387_fu_7942_p2   |     |        | or_ln387     | or     | auto     | 0       |
+|   and_ln394_fu_7964_p2  |     |        | and_ln394    | and    | auto     | 0       |
+|   and_ln397_fu_7974_p2  |     |        | and_ln397    | and    | auto     | 0       |
+|   xor_ln402_fu_7980_p2  |     |        | xor_ln402    | xor    | auto     | 0       |
+|   or_ln402_fu_7986_p2   |     |        | or_ln402     | or     | auto     | 0       |
+|   or_ln402_1_fu_7992_p2 |     |        | or_ln402_1   | or     | auto     | 0       |
+|   add_ln406_fu_8004_p2  |     |        | add_ln406    | add    | fabric   | 0       |
+|   xor_ln368_fu_8046_p2  |     |        | xor_ln368    | xor    | auto     | 0       |
+|   or_ln368_fu_8052_p2   |     |        | or_ln368     | or     | auto     | 0       |
+|   xor_ln355_fu_8076_p2  |     |        | xor_ln355    | xor    | auto     | 0       |
+|   or_ln355_fu_8082_p2   |     |        | or_ln355     | or     | auto     | 0       |
+|   and_ln299_fu_8220_p2  |     |        | and_ln299    | and    | auto     | 0       |
+|   xor_ln550_fu_8236_p2  |     |        | xor_ln550    | xor    | auto     | 0       |
+|   or_ln550_fu_8242_p2   |     |        | or_ln550     | or     | auto     | 0       |
+|   and_ln553_fu_8254_p2  |     |        | and_ln553    | and    | auto     | 0       |
+|   wl_head               |     |        | select_ln197 | select | auto_sel | 0       |
++-------------------------+-----+--------+--------------+--------+----------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
+  No bind storage info in design
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------------+--------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
+| Type            | Options                              | Location                                                                                                                |
++-----------------+--------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
+| INLINE          | off                                  | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:45 in run_single_head                       |
+| ARRAY_PARTITION | variable=head_ctx_ref complete dim=1 | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:206 in drive_group_head_phase, head_ctx_ref |
+| UNROLL          |                                      | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:210 in drive_group_head_phase               |
+| RESET           | variable = st                        | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:74 in scheduler_hls                                     |
+| RESET           | variable = layer_idx                 | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:76 in scheduler_hls                                     |
+| RESET           | variable = attn_started              | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:80 in scheduler_hls                                     |
+| RESET           | variable = attn_done                 | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:82 in scheduler_hls                                     |
+| RESET           | variable = attn_compute_done         | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:84 in scheduler_hls                                     |
+| RESET           | variable = concat_compute_done       | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:86 in scheduler_hls                                     |
+| RESET           | variable = outproj_compute_done      | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:88 in scheduler_hls                                     |
+| RESET           | variable = resid0_compute_done       | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:90 in scheduler_hls                                     |
+| RESET           | variable = ln0_compute_done          | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:92 in scheduler_hls                                     |
+| RESET           | variable = ffn_w1_compute_done       | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:94 in scheduler_hls                                     |
+| RESET           | variable = ffn_act_compute_done      | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:96 in scheduler_hls                                     |
+| RESET           | variable = ffn_w2_compute_done       | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:98 in scheduler_hls                                     |
+| RESET           | variable = resid1_compute_done       | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:100 in scheduler_hls                                    |
+| RESET           | variable = ln1_compute_done          | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:102 in scheduler_hls                                    |
+| RESET           | variable = attn_group_done           | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:105 in scheduler_hls                                    |
+| RESET           | variable = concat_started            | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:108 in scheduler_hls                                    |
+| RESET           | variable = outproj_started           | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:110 in scheduler_hls                                    |
+| RESET           | variable = resid0_started            | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:112 in scheduler_hls                                    |
+| RESET           | variable = ln0_started               | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:114 in scheduler_hls                                    |
+| RESET           | variable = ffn_stage                 | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:117 in scheduler_hls                                    |
+| RESET           | variable = ffn_started               | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:119 in scheduler_hls                                    |
+| RESET           | variable = resid1_started            | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:121 in scheduler_hls                                    |
+| RESET           | variable = ln1_started               | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:123 in scheduler_hls                                    |
+| RESET           | variable = stream_started            | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:125 in scheduler_hls                                    |
+| RESET           | variable = wo_tile                   | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:127 in scheduler_hls                                    |
+| RESET           | variable = wo_dma_busy               | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:129 in scheduler_hls                                    |
+| RESET           | variable = wo_comp_busy              | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:131 in scheduler_hls                                    |
+| RESET           | variable = w1_tile                   | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:133 in scheduler_hls                                    |
+| RESET           | variable = w1_dma_busy               | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:135 in scheduler_hls                                    |
+| RESET           | variable = w1_comp_busy              | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:137 in scheduler_hls                                    |
+| RESET           | variable = w2_tile                   | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:139 in scheduler_hls                                    |
+| RESET           | variable = w2_dma_busy               | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:141 in scheduler_hls                                    |
+| RESET           | variable = w2_comp_busy              | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:143 in scheduler_hls                                    |
++-----------------+--------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
+
+

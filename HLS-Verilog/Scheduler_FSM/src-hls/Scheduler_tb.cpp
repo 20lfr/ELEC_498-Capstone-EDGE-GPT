@@ -28,7 +28,7 @@ static const char *state_name(SchedState st) {
 static const char *op_name(int op_raw) {
     const ComputeOp op = static_cast<ComputeOp>(op_raw);
     switch (op) {
-    case CMP_NONE:         return "NONE";
+    case CMP_NONE:         return "-";
     case CMP_Q:            return "Q";
     case CMP_K:            return "K";
     case CMP_V:            return "V";
@@ -68,6 +68,27 @@ static const char *dma_name(int sel_raw) {
     }
 }
 
+static const char *phase_name(HeadPhase ph) {
+    switch (ph) {
+    case HeadPhase::IDLE:              return "IDLE";
+    case HeadPhase::Q:                 return "Q";
+    case HeadPhase::K:                 return "K";
+    case HeadPhase::K_REQUANT:         return "K_RQ";
+    case HeadPhase::K_WRITEBACK:       return "K_WR";
+    case HeadPhase::V:                 return "V";
+    case HeadPhase::V_REQUANT:         return "V_RQ";
+    case HeadPhase::V_WRITEBACK:       return "V_WR";
+    case HeadPhase::REQUANT_Q:         return "Q_RQ";
+    case HeadPhase::ATT_SCORES:        return "ATT";
+    case HeadPhase::VALUE_SCALE_CLAMP: return "SCL";
+    case HeadPhase::ATT_SOFTMAX:       return "SMX";
+    case HeadPhase::ATT_VALUE:         return "VAL";
+    case HeadPhase::REQUANT2:          return "RQ2";
+    case HeadPhase::DONE:              return "DONE";
+    default:                           return "UNK";
+    }
+}
+
 int main() {
     const int MAX_CYCLES = 600;
     const int COMP_LAT   = 3;
@@ -86,6 +107,7 @@ int main() {
     int  wl_layer        = 0;
     int  wl_head         = 0;
     int  wl_tile         = 0;
+    HeadCtx head_ctx_ref[NUM_HEADS];
     bool dma_done        = false;
 
     bool axis_in_valid   = false;
@@ -99,6 +121,13 @@ int main() {
     bool compute_done    = false;
     bool compute_start   = false;
     int  compute_op      = CMP_NONE;
+
+    bool head_lane_busy[HEADS_PARALLEL] = {false};
+    int  head_lane_timer[HEADS_PARALLEL] = {0};
+    int  head_lane_active_idx[HEADS_PARALLEL] = {0};
+    for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
+        head_lane_active_idx[lane] = -1;
+    }
 
     bool requant_ready   = true;
     bool requant_done    = false;
@@ -124,11 +153,10 @@ int main() {
     bool seen_attn       = false;
     bool seen_concat     = false;
 
-    std::printf("%-8s %-6s %-6s %-8s | %-16s %-10s %-10s %-10s | %-8s %-8s %-8s %-8s %-8s | %-10s %-10s %-10s %-s\n",
+    std::printf("%-8s %-6s %-6s %-8s | %-16s | %-10s %-10s %-10s %-10s | %s\n",
                 "Cycle", "Start", "Reset", "Busy", "State",
-                "AXIS_v", "AXIS_r", "AXIS_last",
-                "WL_ready", "WL_start", "WL_addr", "WL_head", "WL_tile",
-                "CmpStart", "CmpReady", "CmpDone", "CmpOp");
+                "CmpStart", "CmpReady", "CmpDone", "CmpOp",
+                "Heads{idx:ph/cs/cd/op}");
 
     auto dash_or = [](bool v) { return v ? "1" : "-"; };
 
@@ -143,7 +171,28 @@ int main() {
             cntrl_start = false;
         }
 
-        // Complete outstanding compute operations
+        // Clear per-head compute_done pulse
+        for (int i = 0; i < NUM_HEADS; ++i) {
+            head_ctx_ref[i].compute_done = false;
+        }
+
+        // Complete outstanding per-head compute operations
+        for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
+            if (head_lane_busy[lane]) {
+                if (head_lane_timer[lane] == 0) {
+                    int idx = head_lane_active_idx[lane];
+                    if (idx >= 0 && idx < NUM_HEADS) {
+                        head_ctx_ref[idx].compute_done = true;
+                    }
+                    head_lane_busy[lane] = false;
+                    head_lane_active_idx[lane] = -1;
+                } else {
+                    --head_lane_timer[lane];
+                }
+            }
+        }
+
+        // Complete outstanding main compute operations
         compute_done = false;
         if (comp_busy) {
             if (comp_timer == 0) {
@@ -174,6 +223,10 @@ int main() {
 
         // Ready signals depend on busy flags
         compute_ready = !comp_busy && !compute_done;
+        for (int i = 0; i < NUM_HEADS; ++i) {
+            int lane = i % HEADS_PARALLEL;
+            head_ctx_ref[i].compute_ready = !head_lane_busy[lane];
+        }
         stream_ready  = !stream_busy;
         wl_ready      = !dma_busy;
         requant_ready = true;
@@ -210,6 +263,7 @@ int main() {
             compute_done,
             requant_ready,
             requant_done,
+            head_ctx_ref,
             compute_start,
             compute_op,
             requant_start,
@@ -220,31 +274,46 @@ int main() {
             done,
             STATE);
 
-        std::printf("%-8d %-6d %-6d %-8s | %-16s %-10s %-10s %-10s | %-8s %-8s %-8s %-8d %-8d | %-10s %-10s %-10s %-s\n",
+        std::printf("%-8d %-6d %-6d %-8s | %-16s | %-10s %-10s %-10s %-10s | ",
                     cycle,
                     cntrl_start ? 1 : 0,
                     cntrl_reset_n ? 1 : 0,
                     dash_or(cntrl_busy),
                     state_name(STATE),
-                    dash_or(axis_in_valid),
-                    dash_or(axis_in_ready),
-                    dash_or(axis_in_last),
-                    dash_or(wl_ready),
-                    dash_or(wl_start),
-                    dma_name(wl_addr_sel),
-                    wl_head,
-                    wl_tile,
                     dash_or(compute_start),
                     dash_or(compute_ready),
                     dash_or(compute_done),
                     (compute_op == CMP_NONE ? "-" : op_name(compute_op)));
 
-        // Latch starts into busy trackers
-        if (compute_start) {
+        for (int i = 0; i < NUM_HEADS; ++i) {
+            char buf[64];
+            std::snprintf(buf, sizeof(buf), "%d:%-6s %-2s %-2s %-8s",
+                          i,
+                          phase_name(head_ctx_ref[i].phase),
+                          dash_or(head_ctx_ref[i].compute_start),
+                          dash_or(head_ctx_ref[i].compute_done),
+                          op_name(head_ctx_ref[i].compute_op));
+            std::printf("%-28s", buf);
+        }
+        std::printf("\n");
+
+        // Launch head compute requests onto their dedicated lanes
+        for (int i = 0; i < NUM_HEADS; ++i) {
+            int lane = i % HEADS_PARALLEL;
+            if (head_ctx_ref[i].compute_start && !head_lane_busy[lane]) {
+                head_lane_busy[lane] = true;
+                head_lane_timer[lane] = COMP_LAT - 1;
+                head_lane_active_idx[lane] = i;
+                int launched_op = static_cast<int>(head_ctx_ref[i].compute_op);
+                if (launched_op == CMP_ATT_SCORES) seen_attn = true;
+            }
+        }
+
+        // Launch main compute request (non-head)
+        if (!comp_busy && compute_start) {
             comp_busy  = true;
             comp_timer = COMP_LAT - 1;
-            if (compute_op == CMP_ATT_SCORES) seen_attn = true;
-            if (compute_op == CMP_CONCAT)     seen_concat = true;
+            if (compute_op == CMP_CONCAT) seen_concat = true;
         }
         if (wl_start && wl_ready && !dma_busy) {
             dma_busy  = true;

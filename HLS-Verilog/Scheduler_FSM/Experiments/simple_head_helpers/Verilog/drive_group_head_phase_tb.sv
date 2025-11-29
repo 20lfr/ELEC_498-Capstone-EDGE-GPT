@@ -5,7 +5,7 @@ module drive_group_head_phase_tb;
 
   localparam int CLK_PERIOD  = 10;
   localparam int MAX_CYCLES  = 1024;
-  localparam int HEADS_TOTAL = 2;
+  localparam int HEADS_TOTAL = 4;
   localparam int HEADS_PAR   = 2;
   localparam int GROUPS      = (HEADS_TOTAL + HEADS_PAR - 1) / HEADS_PAR;
 
