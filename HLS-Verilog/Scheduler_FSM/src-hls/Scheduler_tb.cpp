@@ -139,6 +139,7 @@ int main() {
     bool stream_done     = false;
 
     bool done            = false;
+    uint32_t debug_compute_done = 0;
     SchedState STATE     = S_IDLE;
 
     bool comp_busy       = false;
@@ -272,6 +273,7 @@ int main() {
             stream_start,
             stream_done,
             done,
+            debug_compute_done,
             STATE);
 
         std::printf("%-8d %-6d %-6d %-8s | %-16s | %-10s %-10s %-10s %-10s | ",

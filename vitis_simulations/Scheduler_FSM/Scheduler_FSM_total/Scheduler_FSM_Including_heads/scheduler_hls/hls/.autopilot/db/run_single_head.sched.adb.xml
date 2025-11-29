@@ -17,12 +17,12 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="22" bw="32" op_0_bw="32" op_1_bw="32">
+<Node id="24" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:0 %ctx_layer_stamp_write_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %ctx_layer_stamp_write
+entry_ifconv:0 %start_read = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %start_r
 
 ]]></Node>
-<StgValue><ssdm name="ctx_layer_stamp_write_read"/></StgValue>
+<StgValue><ssdm name="start_read"/></StgValue>
 </operation>
 
 <operation id="3" st_id="1" stage="1" lat="1">
@@ -32,12 +32,12 @@ entry_ifconv:0 %ctx_layer_stamp_write_read = read i32 @_ssdm_op_Read.ap_auto.i32
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="23" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="25" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-entry_ifconv:1 %ctx_att_value_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_att_value_compute_done_read
+entry_ifconv:1 %layer_idx_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %layer_idx
 
 ]]></Node>
-<StgValue><ssdm name="ctx_att_value_compute_done_read_1"/></StgValue>
+<StgValue><ssdm name="layer_idx_read"/></StgValue>
 </operation>
 
 <operation id="4" st_id="1" stage="1" lat="1">
@@ -47,12 +47,12 @@ entry_ifconv:1 %ctx_att_value_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_au
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="24" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="26" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:2 %ctx_softmax_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_softmax_compute_done_read
+entry_ifconv:2 %ctx_att_value_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_att_value_compute_done_read
 
 ]]></Node>
-<StgValue><ssdm name="ctx_softmax_compute_done_read_1"/></StgValue>
+<StgValue><ssdm name="ctx_att_value_compute_done_read_1"/></StgValue>
 </operation>
 
 <operation id="5" st_id="1" stage="1" lat="1">
@@ -62,12 +62,12 @@ entry_ifconv:2 %ctx_softmax_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_auto
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="25" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="27" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:3 %ctx_val_scale_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_val_scale_compute_done_read
+entry_ifconv:3 %ctx_softmax_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_softmax_compute_done_read
 
 ]]></Node>
-<StgValue><ssdm name="ctx_val_scale_compute_done_read_1"/></StgValue>
+<StgValue><ssdm name="ctx_softmax_compute_done_read_1"/></StgValue>
 </operation>
 
 <operation id="6" st_id="1" stage="1" lat="1">
@@ -77,12 +77,12 @@ entry_ifconv:3 %ctx_val_scale_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_au
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="26" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="28" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:4 %ctx_att_scores_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_att_scores_compute_done_read
+entry_ifconv:4 %ctx_val_scale_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_val_scale_compute_done_read
 
 ]]></Node>
-<StgValue><ssdm name="ctx_att_scores_compute_done_read_1"/></StgValue>
+<StgValue><ssdm name="ctx_val_scale_compute_done_read_1"/></StgValue>
 </operation>
 
 <operation id="7" st_id="1" stage="1" lat="1">
@@ -92,12 +92,12 @@ entry_ifconv:4 %ctx_att_scores_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_a
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="27" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="29" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:5 %ctx_v_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_v_compute_done_read
+entry_ifconv:5 %ctx_att_scores_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_att_scores_compute_done_read
 
 ]]></Node>
-<StgValue><ssdm name="ctx_v_compute_done_read_1"/></StgValue>
+<StgValue><ssdm name="ctx_att_scores_compute_done_read_1"/></StgValue>
 </operation>
 
 <operation id="8" st_id="1" stage="1" lat="1">
@@ -107,12 +107,12 @@ entry_ifconv:5 %ctx_v_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="28" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="30" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:6 %ctx_k_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_k_compute_done_read
+entry_ifconv:6 %ctx_v_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_v_compute_done_read
 
 ]]></Node>
-<StgValue><ssdm name="ctx_k_compute_done_read_1"/></StgValue>
+<StgValue><ssdm name="ctx_v_compute_done_read_1"/></StgValue>
 </operation>
 
 <operation id="9" st_id="1" stage="1" lat="1">
@@ -122,12 +122,12 @@ entry_ifconv:6 %ctx_k_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="29" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="31" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:7 %ctx_q_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_q_compute_done_read
+entry_ifconv:7 %ctx_k_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_k_compute_done_read
 
 ]]></Node>
-<StgValue><ssdm name="ctx_q_compute_done_read_1"/></StgValue>
+<StgValue><ssdm name="ctx_k_compute_done_read_1"/></StgValue>
 </operation>
 
 <operation id="10" st_id="1" stage="1" lat="1">
@@ -137,12 +137,12 @@ entry_ifconv:7 %ctx_q_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="30" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="32" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:8 %ctx_att_value_started_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_att_value_started_read
+entry_ifconv:8 %ctx_q_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_q_compute_done_read
 
 ]]></Node>
-<StgValue><ssdm name="ctx_att_value_started_read_1"/></StgValue>
+<StgValue><ssdm name="ctx_q_compute_done_read_1"/></StgValue>
 </operation>
 
 <operation id="11" st_id="1" stage="1" lat="1">
@@ -152,12 +152,12 @@ entry_ifconv:8 %ctx_att_value_started_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="31" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="33" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:9 %ctx_softmax_started_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_softmax_started_read
+entry_ifconv:9 %ctx_att_value_started_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_att_value_started_read
 
 ]]></Node>
-<StgValue><ssdm name="ctx_softmax_started_read_1"/></StgValue>
+<StgValue><ssdm name="ctx_att_value_started_read_1"/></StgValue>
 </operation>
 
 <operation id="12" st_id="1" stage="1" lat="1">
@@ -167,12 +167,12 @@ entry_ifconv:9 %ctx_softmax_started_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, 
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="32" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="34" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:10 %ctx_val_scale_started_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_val_scale_started_read
+entry_ifconv:10 %ctx_softmax_started_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_softmax_started_read
 
 ]]></Node>
-<StgValue><ssdm name="ctx_val_scale_started_read_1"/></StgValue>
+<StgValue><ssdm name="ctx_softmax_started_read_1"/></StgValue>
 </operation>
 
 <operation id="13" st_id="1" stage="1" lat="1">
@@ -182,12 +182,12 @@ entry_ifconv:10 %ctx_val_scale_started_read_1 = read i1 @_ssdm_op_Read.ap_auto.i
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="33" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="35" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:11 %ctx_att_scores_started_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_att_scores_started_read
+entry_ifconv:11 %ctx_val_scale_started_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_val_scale_started_read
 
 ]]></Node>
-<StgValue><ssdm name="ctx_att_scores_started_read_1"/></StgValue>
+<StgValue><ssdm name="ctx_val_scale_started_read_1"/></StgValue>
 </operation>
 
 <operation id="14" st_id="1" stage="1" lat="1">
@@ -197,12 +197,12 @@ entry_ifconv:11 %ctx_att_scores_started_read_1 = read i1 @_ssdm_op_Read.ap_auto.
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="34" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="36" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:12 %ctx_v_started_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_v_started_read
+entry_ifconv:12 %ctx_att_scores_started_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_att_scores_started_read
 
 ]]></Node>
-<StgValue><ssdm name="ctx_v_started_read_1"/></StgValue>
+<StgValue><ssdm name="ctx_att_scores_started_read_1"/></StgValue>
 </operation>
 
 <operation id="15" st_id="1" stage="1" lat="1">
@@ -212,12 +212,12 @@ entry_ifconv:12 %ctx_v_started_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %c
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="35" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="37" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:13 %ctx_k_started_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_k_started_read
+entry_ifconv:13 %ctx_v_started_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_v_started_read
 
 ]]></Node>
-<StgValue><ssdm name="ctx_k_started_read_1"/></StgValue>
+<StgValue><ssdm name="ctx_v_started_read_1"/></StgValue>
 </operation>
 
 <operation id="16" st_id="1" stage="1" lat="1">
@@ -227,12 +227,12 @@ entry_ifconv:13 %ctx_k_started_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %c
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="36" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="38" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:14 %ctx_q_started_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_q_started_read
+entry_ifconv:14 %ctx_k_started_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_k_started_read
 
 ]]></Node>
-<StgValue><ssdm name="ctx_q_started_read_1"/></StgValue>
+<StgValue><ssdm name="ctx_k_started_read_1"/></StgValue>
 </operation>
 
 <operation id="17" st_id="1" stage="1" lat="1">
@@ -242,12 +242,12 @@ entry_ifconv:14 %ctx_q_started_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %c
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="37" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="39" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:15 %ctx_start_head_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_start_head_read
+entry_ifconv:15 %ctx_q_started_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_q_started_read
 
 ]]></Node>
-<StgValue><ssdm name="ctx_start_head_read_1"/></StgValue>
+<StgValue><ssdm name="ctx_q_started_read_1"/></StgValue>
 </operation>
 
 <operation id="18" st_id="1" stage="1" lat="1">
@@ -257,12 +257,12 @@ entry_ifconv:15 %ctx_start_head_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="38" bw="5" op_0_bw="5" op_1_bw="5">
+<Node id="40" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:16 %ctx_compute_op_read_1 = read i5 @_ssdm_op_Read.ap_auto.i5, i5 %ctx_compute_op_read
+entry_ifconv:16 %ctx_start_head_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_start_head_read
 
 ]]></Node>
-<StgValue><ssdm name="ctx_compute_op_read_1"/></StgValue>
+<StgValue><ssdm name="ctx_start_head_read_1"/></StgValue>
 </operation>
 
 <operation id="19" st_id="1" stage="1" lat="1">
@@ -272,12 +272,12 @@ entry_ifconv:16 %ctx_compute_op_read_1 = read i5 @_ssdm_op_Read.ap_auto.i5, i5 %
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="39" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="41" bw="5" op_0_bw="5" op_1_bw="5">
 <![CDATA[
-entry_ifconv:17 %ctx_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_compute_done_read
+entry_ifconv:17 %ctx_compute_op_read_1 = read i5 @_ssdm_op_Read.ap_auto.i5, i5 %ctx_compute_op_read
 
 ]]></Node>
-<StgValue><ssdm name="ctx_compute_done_read_1"/></StgValue>
+<StgValue><ssdm name="ctx_compute_op_read_1"/></StgValue>
 </operation>
 
 <operation id="20" st_id="1" stage="1" lat="1">
@@ -287,12 +287,12 @@ entry_ifconv:17 %ctx_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="40" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="42" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:18 %ctx_compute_ready_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_compute_ready_read
+entry_ifconv:18 %ctx_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_compute_done_read
 
 ]]></Node>
-<StgValue><ssdm name="ctx_compute_ready_read_1"/></StgValue>
+<StgValue><ssdm name="ctx_compute_done_read_1"/></StgValue>
 </operation>
 
 <operation id="21" st_id="1" stage="1" lat="1">
@@ -302,12 +302,12 @@ entry_ifconv:18 %ctx_compute_ready_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="41" bw="4" op_0_bw="4" op_1_bw="4">
+<Node id="43" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:19 %ctx_phase_read_1 = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %ctx_phase_read
+entry_ifconv:19 %ctx_compute_ready_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_compute_ready_read
 
 ]]></Node>
-<StgValue><ssdm name="ctx_phase_read_1"/></StgValue>
+<StgValue><ssdm name="ctx_compute_ready_read_1"/></StgValue>
 </operation>
 
 <operation id="22" st_id="1" stage="1" lat="1">
@@ -317,57 +317,57 @@ entry_ifconv:19 %ctx_phase_read_1 = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %ctx_p
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="42" bw="32" op_0_bw="32" op_1_bw="32">
+<Node id="44" bw="4" op_0_bw="4" op_1_bw="4">
 <![CDATA[
-entry_ifconv:20 %ctx_layer_stamp_read_1 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %ctx_layer_stamp_read
+entry_ifconv:20 %ctx_phase_read_1 = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %ctx_phase_read
+
+]]></Node>
+<StgValue><ssdm name="ctx_phase_read_1"/></StgValue>
+</operation>
+
+<operation id="23" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="45" bw="32" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+entry_ifconv:21 %ctx_layer_stamp_read_1 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %ctx_layer_stamp_read
 
 ]]></Node>
 <StgValue><ssdm name="ctx_layer_stamp_read_1"/></StgValue>
 </operation>
 
-<operation id="23" st_id="1" stage="1" lat="1">
+<operation id="24" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="46" bw="32" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+entry_ifconv:22 %ctx_layer_stamp_read_3 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %ctx_layer_stamp_read_5
+
+]]></Node>
+<StgValue><ssdm name="ctx_layer_stamp_read_3"/></StgValue>
+</operation>
+
+<operation id="25" st_id="1" stage="1" lat="1">
 <core>Cmp</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="43" bw="1" op_0_bw="32" op_1_bw="32">
+<Node id="47" bw="1" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-entry_ifconv:21 %icmp_ln50 = icmp_eq  i32 %ctx_layer_stamp_read_1, i32 %ctx_layer_stamp_write_read
+entry_ifconv:23 %icmp_ln50 = icmp_eq  i32 %ctx_layer_stamp_read_1, i32 %layer_idx_read
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln50"/></StgValue>
-</operation>
-
-<operation id="24" st_id="1" stage="1" lat="1">
-<core>LogicGate</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="44" bw="1" op_0_bw="1" op_1_bw="1">
-<![CDATA[
-entry_ifconv:22 %and_ln50 = and i1 %icmp_ln50, i1 %ctx_compute_done_read_1
-
-]]></Node>
-<StgValue><ssdm name="and_ln50"/></StgValue>
-</operation>
-
-<operation id="25" st_id="1" stage="1" lat="1">
-<core>LogicGate</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="45" bw="1" op_0_bw="1" op_1_bw="1">
-<![CDATA[
-entry_ifconv:23 %and_ln50_1 = and i1 %icmp_ln50, i1 %ctx_q_started_read_1
-
-]]></Node>
-<StgValue><ssdm name="and_ln50_1"/></StgValue>
 </operation>
 
 <operation id="26" st_id="1" stage="1" lat="1">
@@ -377,12 +377,12 @@ entry_ifconv:23 %and_ln50_1 = and i1 %icmp_ln50, i1 %ctx_q_started_read_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="46" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="48" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:24 %and_ln50_2 = and i1 %icmp_ln50, i1 %ctx_k_started_read_1
+entry_ifconv:24 %and_ln50 = and i1 %icmp_ln50, i1 %ctx_compute_done_read_1
 
 ]]></Node>
-<StgValue><ssdm name="and_ln50_2"/></StgValue>
+<StgValue><ssdm name="and_ln50"/></StgValue>
 </operation>
 
 <operation id="27" st_id="1" stage="1" lat="1">
@@ -392,12 +392,12 @@ entry_ifconv:24 %and_ln50_2 = and i1 %icmp_ln50, i1 %ctx_k_started_read_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="47" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="49" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:25 %and_ln50_3 = and i1 %icmp_ln50, i1 %ctx_v_started_read_1
+entry_ifconv:25 %and_ln50_1 = and i1 %icmp_ln50, i1 %ctx_q_started_read_1
 
 ]]></Node>
-<StgValue><ssdm name="and_ln50_3"/></StgValue>
+<StgValue><ssdm name="and_ln50_1"/></StgValue>
 </operation>
 
 <operation id="28" st_id="1" stage="1" lat="1">
@@ -407,12 +407,12 @@ entry_ifconv:25 %and_ln50_3 = and i1 %icmp_ln50, i1 %ctx_v_started_read_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="48" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="50" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:26 %and_ln50_4 = and i1 %icmp_ln50, i1 %ctx_att_scores_started_read_1
+entry_ifconv:26 %and_ln50_2 = and i1 %icmp_ln50, i1 %ctx_k_started_read_1
 
 ]]></Node>
-<StgValue><ssdm name="and_ln50_4"/></StgValue>
+<StgValue><ssdm name="and_ln50_2"/></StgValue>
 </operation>
 
 <operation id="29" st_id="1" stage="1" lat="1">
@@ -422,12 +422,12 @@ entry_ifconv:26 %and_ln50_4 = and i1 %icmp_ln50, i1 %ctx_att_scores_started_read
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="49" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="51" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:27 %and_ln50_5 = and i1 %icmp_ln50, i1 %ctx_val_scale_started_read_1
+entry_ifconv:27 %and_ln50_3 = and i1 %icmp_ln50, i1 %ctx_v_started_read_1
 
 ]]></Node>
-<StgValue><ssdm name="and_ln50_5"/></StgValue>
+<StgValue><ssdm name="and_ln50_3"/></StgValue>
 </operation>
 
 <operation id="30" st_id="1" stage="1" lat="1">
@@ -437,12 +437,12 @@ entry_ifconv:27 %and_ln50_5 = and i1 %icmp_ln50, i1 %ctx_val_scale_started_read_
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="50" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="52" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:28 %and_ln50_6 = and i1 %icmp_ln50, i1 %ctx_softmax_started_read_1
+entry_ifconv:28 %and_ln50_4 = and i1 %icmp_ln50, i1 %ctx_att_scores_started_read_1
 
 ]]></Node>
-<StgValue><ssdm name="and_ln50_6"/></StgValue>
+<StgValue><ssdm name="and_ln50_4"/></StgValue>
 </operation>
 
 <operation id="31" st_id="1" stage="1" lat="1">
@@ -452,12 +452,12 @@ entry_ifconv:28 %and_ln50_6 = and i1 %icmp_ln50, i1 %ctx_softmax_started_read_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="51" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="53" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:29 %and_ln50_7 = and i1 %icmp_ln50, i1 %ctx_att_value_started_read_1
+entry_ifconv:29 %and_ln50_5 = and i1 %icmp_ln50, i1 %ctx_val_scale_started_read_1
 
 ]]></Node>
-<StgValue><ssdm name="and_ln50_7"/></StgValue>
+<StgValue><ssdm name="and_ln50_5"/></StgValue>
 </operation>
 
 <operation id="32" st_id="1" stage="1" lat="1">
@@ -467,12 +467,12 @@ entry_ifconv:29 %and_ln50_7 = and i1 %icmp_ln50, i1 %ctx_att_value_started_read_
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="52" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="54" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:30 %and_ln50_8 = and i1 %icmp_ln50, i1 %ctx_q_compute_done_read_1
+entry_ifconv:30 %and_ln50_6 = and i1 %icmp_ln50, i1 %ctx_softmax_started_read_1
 
 ]]></Node>
-<StgValue><ssdm name="and_ln50_8"/></StgValue>
+<StgValue><ssdm name="and_ln50_6"/></StgValue>
 </operation>
 
 <operation id="33" st_id="1" stage="1" lat="1">
@@ -482,12 +482,12 @@ entry_ifconv:30 %and_ln50_8 = and i1 %icmp_ln50, i1 %ctx_q_compute_done_read_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="53" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="55" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:31 %and_ln50_9 = and i1 %icmp_ln50, i1 %ctx_k_compute_done_read_1
+entry_ifconv:31 %and_ln50_7 = and i1 %icmp_ln50, i1 %ctx_att_value_started_read_1
 
 ]]></Node>
-<StgValue><ssdm name="and_ln50_9"/></StgValue>
+<StgValue><ssdm name="and_ln50_7"/></StgValue>
 </operation>
 
 <operation id="34" st_id="1" stage="1" lat="1">
@@ -497,12 +497,12 @@ entry_ifconv:31 %and_ln50_9 = and i1 %icmp_ln50, i1 %ctx_k_compute_done_read_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="54" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="56" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:32 %and_ln50_10 = and i1 %icmp_ln50, i1 %ctx_v_compute_done_read_1
+entry_ifconv:32 %and_ln50_8 = and i1 %icmp_ln50, i1 %ctx_q_compute_done_read_1
 
 ]]></Node>
-<StgValue><ssdm name="and_ln50_10"/></StgValue>
+<StgValue><ssdm name="and_ln50_8"/></StgValue>
 </operation>
 
 <operation id="35" st_id="1" stage="1" lat="1">
@@ -512,12 +512,12 @@ entry_ifconv:32 %and_ln50_10 = and i1 %icmp_ln50, i1 %ctx_v_compute_done_read_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="55" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="57" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:33 %and_ln50_11 = and i1 %icmp_ln50, i1 %ctx_att_scores_compute_done_read_1
+entry_ifconv:33 %and_ln50_9 = and i1 %icmp_ln50, i1 %ctx_k_compute_done_read_1
 
 ]]></Node>
-<StgValue><ssdm name="and_ln50_11"/></StgValue>
+<StgValue><ssdm name="and_ln50_9"/></StgValue>
 </operation>
 
 <operation id="36" st_id="1" stage="1" lat="1">
@@ -527,12 +527,12 @@ entry_ifconv:33 %and_ln50_11 = and i1 %icmp_ln50, i1 %ctx_att_scores_compute_don
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="56" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="58" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:34 %and_ln50_12 = and i1 %icmp_ln50, i1 %ctx_val_scale_compute_done_read_1
+entry_ifconv:34 %and_ln50_10 = and i1 %icmp_ln50, i1 %ctx_v_compute_done_read_1
 
 ]]></Node>
-<StgValue><ssdm name="and_ln50_12"/></StgValue>
+<StgValue><ssdm name="and_ln50_10"/></StgValue>
 </operation>
 
 <operation id="37" st_id="1" stage="1" lat="1">
@@ -542,12 +542,12 @@ entry_ifconv:34 %and_ln50_12 = and i1 %icmp_ln50, i1 %ctx_val_scale_compute_done
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="57" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="59" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:35 %and_ln50_13 = and i1 %icmp_ln50, i1 %ctx_softmax_compute_done_read_1
+entry_ifconv:35 %and_ln50_11 = and i1 %icmp_ln50, i1 %ctx_att_scores_compute_done_read_1
 
 ]]></Node>
-<StgValue><ssdm name="and_ln50_13"/></StgValue>
+<StgValue><ssdm name="and_ln50_11"/></StgValue>
 </operation>
 
 <operation id="38" st_id="1" stage="1" lat="1">
@@ -557,12 +557,12 @@ entry_ifconv:35 %and_ln50_13 = and i1 %icmp_ln50, i1 %ctx_softmax_compute_done_r
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="58" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="60" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:36 %and_ln50_14 = and i1 %icmp_ln50, i1 %ctx_att_value_compute_done_read_1
+entry_ifconv:36 %and_ln50_12 = and i1 %icmp_ln50, i1 %ctx_val_scale_compute_done_read_1
 
 ]]></Node>
-<StgValue><ssdm name="and_ln50_14"/></StgValue>
+<StgValue><ssdm name="and_ln50_12"/></StgValue>
 </operation>
 
 <operation id="39" st_id="1" stage="1" lat="1">
@@ -572,42 +572,42 @@ entry_ifconv:36 %and_ln50_14 = and i1 %icmp_ln50, i1 %ctx_att_value_compute_done
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="59" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="61" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:37 %and_ln50_15 = and i1 %icmp_ln50, i1 %ctx_compute_ready_read_1
+entry_ifconv:37 %and_ln50_13 = and i1 %icmp_ln50, i1 %ctx_softmax_compute_done_read_1
 
 ]]></Node>
-<StgValue><ssdm name="and_ln50_15"/></StgValue>
+<StgValue><ssdm name="and_ln50_13"/></StgValue>
 </operation>
 
 <operation id="40" st_id="1" stage="1" lat="1">
-<core>Sel</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="60" bw="4" op_0_bw="1" op_1_bw="4" op_2_bw="4">
-<![CDATA[
-entry_ifconv:38 %select_ln50 = select i1 %icmp_ln50, i4 %ctx_phase_read_1, i4 0
-
-]]></Node>
-<StgValue><ssdm name="select_ln50"/></StgValue>
-</operation>
-
-<operation id="41" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="61" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="62" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:39 %or_ln56 = and i1 %and_ln50, i1 %ctx_q_started_read_1
+entry_ifconv:38 %and_ln50_14 = and i1 %icmp_ln50, i1 %ctx_att_value_compute_done_read_1
 
 ]]></Node>
-<StgValue><ssdm name="or_ln56"/></StgValue>
+<StgValue><ssdm name="and_ln50_14"/></StgValue>
+</operation>
+
+<operation id="41" st_id="1" stage="1" lat="1">
+<core>Sel</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="63" bw="32" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+entry_ifconv:39 %select_ln50 = select i1 %icmp_ln50, i32 %ctx_layer_stamp_read_3, i32 %layer_idx_read
+
+]]></Node>
+<StgValue><ssdm name="select_ln50"/></StgValue>
 </operation>
 
 <operation id="42" st_id="1" stage="1" lat="1">
@@ -617,27 +617,27 @@ entry_ifconv:39 %or_ln56 = and i1 %and_ln50, i1 %ctx_q_started_read_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="62" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="64" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:40 %ctx_q_compute_done_2 = or i1 %and_ln50_8, i1 %or_ln56
+entry_ifconv:40 %and_ln50_15 = and i1 %icmp_ln50, i1 %ctx_compute_ready_read_1
 
 ]]></Node>
-<StgValue><ssdm name="ctx_q_compute_done_2"/></StgValue>
+<StgValue><ssdm name="and_ln50_15"/></StgValue>
 </operation>
 
 <operation id="43" st_id="1" stage="1" lat="1">
-<core>LogicGate</core>
+<core>Sel</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="63" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="65" bw="4" op_0_bw="1" op_1_bw="4" op_2_bw="4">
 <![CDATA[
-entry_ifconv:41 %or_ln57 = and i1 %and_ln50, i1 %ctx_k_started_read_1
+entry_ifconv:41 %select_ln50_1 = select i1 %icmp_ln50, i4 %ctx_phase_read_1, i4 0
 
 ]]></Node>
-<StgValue><ssdm name="or_ln57"/></StgValue>
+<StgValue><ssdm name="select_ln50_1"/></StgValue>
 </operation>
 
 <operation id="44" st_id="1" stage="1" lat="1">
@@ -647,12 +647,12 @@ entry_ifconv:41 %or_ln57 = and i1 %and_ln50, i1 %ctx_k_started_read_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="64" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="66" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:42 %ctx_k_compute_done_2 = or i1 %and_ln50_9, i1 %or_ln57
+entry_ifconv:42 %or_ln56 = and i1 %and_ln50, i1 %ctx_q_started_read_1
 
 ]]></Node>
-<StgValue><ssdm name="ctx_k_compute_done_2"/></StgValue>
+<StgValue><ssdm name="or_ln56"/></StgValue>
 </operation>
 
 <operation id="45" st_id="1" stage="1" lat="1">
@@ -662,12 +662,12 @@ entry_ifconv:42 %ctx_k_compute_done_2 = or i1 %and_ln50_9, i1 %or_ln57
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="65" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="67" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:43 %or_ln58 = and i1 %and_ln50, i1 %ctx_v_started_read_1
+entry_ifconv:43 %ctx_q_compute_done_2 = or i1 %and_ln50_8, i1 %or_ln56
 
 ]]></Node>
-<StgValue><ssdm name="or_ln58"/></StgValue>
+<StgValue><ssdm name="ctx_q_compute_done_2"/></StgValue>
 </operation>
 
 <operation id="46" st_id="1" stage="1" lat="1">
@@ -677,12 +677,12 @@ entry_ifconv:43 %or_ln58 = and i1 %and_ln50, i1 %ctx_v_started_read_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="66" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="68" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:44 %ctx_v_compute_done_2 = or i1 %and_ln50_10, i1 %or_ln58
+entry_ifconv:44 %or_ln57 = and i1 %and_ln50, i1 %ctx_k_started_read_1
 
 ]]></Node>
-<StgValue><ssdm name="ctx_v_compute_done_2"/></StgValue>
+<StgValue><ssdm name="or_ln57"/></StgValue>
 </operation>
 
 <operation id="47" st_id="1" stage="1" lat="1">
@@ -692,12 +692,12 @@ entry_ifconv:44 %ctx_v_compute_done_2 = or i1 %and_ln50_10, i1 %or_ln58
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="67" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="69" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:45 %or_ln59 = and i1 %and_ln50, i1 %ctx_att_scores_started_read_1
+entry_ifconv:45 %ctx_k_compute_done_2 = or i1 %and_ln50_9, i1 %or_ln57
 
 ]]></Node>
-<StgValue><ssdm name="or_ln59"/></StgValue>
+<StgValue><ssdm name="ctx_k_compute_done_2"/></StgValue>
 </operation>
 
 <operation id="48" st_id="1" stage="1" lat="1">
@@ -707,12 +707,12 @@ entry_ifconv:45 %or_ln59 = and i1 %and_ln50, i1 %ctx_att_scores_started_read_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="68" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="70" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:46 %ctx_att_scores_compute_done_2 = or i1 %and_ln50_11, i1 %or_ln59
+entry_ifconv:46 %or_ln58 = and i1 %and_ln50, i1 %ctx_v_started_read_1
 
 ]]></Node>
-<StgValue><ssdm name="ctx_att_scores_compute_done_2"/></StgValue>
+<StgValue><ssdm name="or_ln58"/></StgValue>
 </operation>
 
 <operation id="49" st_id="1" stage="1" lat="1">
@@ -722,12 +722,12 @@ entry_ifconv:46 %ctx_att_scores_compute_done_2 = or i1 %and_ln50_11, i1 %or_ln59
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="69" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="71" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:47 %or_ln60 = and i1 %and_ln50, i1 %ctx_val_scale_started_read_1
+entry_ifconv:47 %ctx_v_compute_done_2 = or i1 %and_ln50_10, i1 %or_ln58
 
 ]]></Node>
-<StgValue><ssdm name="or_ln60"/></StgValue>
+<StgValue><ssdm name="ctx_v_compute_done_2"/></StgValue>
 </operation>
 
 <operation id="50" st_id="1" stage="1" lat="1">
@@ -737,12 +737,12 @@ entry_ifconv:47 %or_ln60 = and i1 %and_ln50, i1 %ctx_val_scale_started_read_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="70" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="72" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:48 %ctx_val_scale_compute_done_2 = or i1 %and_ln50_12, i1 %or_ln60
+entry_ifconv:48 %or_ln59 = and i1 %and_ln50, i1 %ctx_att_scores_started_read_1
 
 ]]></Node>
-<StgValue><ssdm name="ctx_val_scale_compute_done_2"/></StgValue>
+<StgValue><ssdm name="or_ln59"/></StgValue>
 </operation>
 
 <operation id="51" st_id="1" stage="1" lat="1">
@@ -752,12 +752,12 @@ entry_ifconv:48 %ctx_val_scale_compute_done_2 = or i1 %and_ln50_12, i1 %or_ln60
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="71" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="73" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:49 %or_ln61 = and i1 %and_ln50, i1 %ctx_softmax_started_read_1
+entry_ifconv:49 %ctx_att_scores_compute_done_2 = or i1 %and_ln50_11, i1 %or_ln59
 
 ]]></Node>
-<StgValue><ssdm name="or_ln61"/></StgValue>
+<StgValue><ssdm name="ctx_att_scores_compute_done_2"/></StgValue>
 </operation>
 
 <operation id="52" st_id="1" stage="1" lat="1">
@@ -767,12 +767,12 @@ entry_ifconv:49 %or_ln61 = and i1 %and_ln50, i1 %ctx_softmax_started_read_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="72" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="74" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:50 %ctx_softmax_compute_done_2 = or i1 %and_ln50_13, i1 %or_ln61
+entry_ifconv:50 %or_ln60 = and i1 %and_ln50, i1 %ctx_val_scale_started_read_1
 
 ]]></Node>
-<StgValue><ssdm name="ctx_softmax_compute_done_2"/></StgValue>
+<StgValue><ssdm name="or_ln60"/></StgValue>
 </operation>
 
 <operation id="53" st_id="1" stage="1" lat="1">
@@ -782,12 +782,12 @@ entry_ifconv:50 %ctx_softmax_compute_done_2 = or i1 %and_ln50_13, i1 %or_ln61
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="73" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="75" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:51 %or_ln62 = and i1 %and_ln50, i1 %ctx_att_value_started_read_1
+entry_ifconv:51 %ctx_val_scale_compute_done_2 = or i1 %and_ln50_12, i1 %or_ln60
 
 ]]></Node>
-<StgValue><ssdm name="or_ln62"/></StgValue>
+<StgValue><ssdm name="ctx_val_scale_compute_done_2"/></StgValue>
 </operation>
 
 <operation id="54" st_id="1" stage="1" lat="1">
@@ -797,38 +797,83 @@ entry_ifconv:51 %or_ln62 = and i1 %and_ln50, i1 %ctx_att_value_started_read_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="74" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="76" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:52 %ctx_att_value_compute_done_2 = or i1 %and_ln50_14, i1 %or_ln62
+entry_ifconv:52 %or_ln61 = and i1 %and_ln50, i1 %ctx_softmax_started_read_1
 
 ]]></Node>
-<StgValue><ssdm name="ctx_att_value_compute_done_2"/></StgValue>
+<StgValue><ssdm name="or_ln61"/></StgValue>
 </operation>
 
 <operation id="55" st_id="1" stage="1" lat="1">
-<core>NULL</core>
+<core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="75" bw="0" op_0_bw="4" op_1_bw="0" op_2_bw="4" op_3_bw="0" op_4_bw="4" op_5_bw="0" op_6_bw="4" op_7_bw="0" op_8_bw="4" op_9_bw="0" op_10_bw="4" op_11_bw="0" op_12_bw="4" op_13_bw="0" op_14_bw="4" op_15_bw="0" op_16_bw="4" op_17_bw="0" op_18_bw="4" op_19_bw="0" op_20_bw="4" op_21_bw="0" op_22_bw="4" op_23_bw="0" op_24_bw="4" op_25_bw="0" op_26_bw="4" op_27_bw="0">
+<Node id="77" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-entry_ifconv:53 %switch_ln66 = switch i4 %select_ln50, void %sw.bb, i4 13, void %sw.bb163, i4 1, void %sw.bb36, i4 2, void %sw.bb51, i4 3, void %sw.epilog, i4 4, void %sw.bb70, i4 5, void %sw.bb72, i4 6, void %sw.bb89, i4 7, void %sw.bb91, i4 8, void %sw.bb93, i4 9, void %sw.bb95, i4 10, void %sw.bb112, i4 11, void %sw.bb129, i4 12, void %sw.bb146
+entry_ifconv:53 %ctx_softmax_compute_done_2 = or i1 %and_ln50_13, i1 %or_ln61
 
 ]]></Node>
-<StgValue><ssdm name="switch_ln66"/></StgValue>
+<StgValue><ssdm name="ctx_softmax_compute_done_2"/></StgValue>
 </operation>
 
 <operation id="56" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-4"/>
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="78" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+entry_ifconv:54 %or_ln62 = and i1 %and_ln50, i1 %ctx_att_value_started_read_1
+
+]]></Node>
+<StgValue><ssdm name="or_ln62"/></StgValue>
+</operation>
+
+<operation id="57" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="79" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+entry_ifconv:55 %ctx_att_value_compute_done_2 = or i1 %and_ln50_14, i1 %or_ln62
+
+]]></Node>
+<StgValue><ssdm name="ctx_att_value_compute_done_2"/></StgValue>
+</operation>
+
+<operation id="58" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="80" bw="0" op_0_bw="4" op_1_bw="0" op_2_bw="4" op_3_bw="0" op_4_bw="4" op_5_bw="0" op_6_bw="4" op_7_bw="0" op_8_bw="4" op_9_bw="0" op_10_bw="4" op_11_bw="0" op_12_bw="4" op_13_bw="0" op_14_bw="4" op_15_bw="0" op_16_bw="4" op_17_bw="0" op_18_bw="4" op_19_bw="0" op_20_bw="4" op_21_bw="0" op_22_bw="4" op_23_bw="0" op_24_bw="4" op_25_bw="0" op_26_bw="4" op_27_bw="0">
+<![CDATA[
+entry_ifconv:56 %switch_ln66 = switch i4 %select_ln50_1, void %sw.bb, i4 13, void %sw.bb163, i4 1, void %sw.bb36, i4 2, void %sw.bb51, i4 3, void %sw.epilog, i4 4, void %sw.bb70, i4 5, void %sw.bb72, i4 6, void %sw.bb89, i4 7, void %sw.bb91, i4 8, void %sw.bb93, i4 9, void %sw.bb95, i4 10, void %sw.bb112, i4 11, void %sw.bb129, i4 12, void %sw.bb146
+
+]]></Node>
+<StgValue><ssdm name="switch_ln66"/></StgValue>
+</operation>
+
+<operation id="59" st_id="1" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="select_ln50_1" val="-4"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="77" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="82" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb146:0 %xor_ln168 = xor i1 %and_ln50_15, i1 1
 
@@ -836,15 +881,15 @@ sw.bb146:0 %xor_ln168 = xor i1 %and_ln50_15, i1 1
 <StgValue><ssdm name="xor_ln168"/></StgValue>
 </operation>
 
-<operation id="57" st_id="1" stage="1" lat="1">
+<operation id="60" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-4"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-4"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="78" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="83" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb146:1 %or_ln168 = or i1 %and_ln50_7, i1 %xor_ln168
 
@@ -852,15 +897,15 @@ sw.bb146:1 %or_ln168 = or i1 %and_ln50_7, i1 %xor_ln168
 <StgValue><ssdm name="or_ln168"/></StgValue>
 </operation>
 
-<operation id="58" st_id="1" stage="1" lat="1">
+<operation id="61" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-4"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-4"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="79" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="84" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
 sw.bb146:2 %br_ln168 = br i1 %or_ln168, void %sw.epilog, void %if.else154
 
@@ -868,16 +913,16 @@ sw.bb146:2 %br_ln168 = br i1 %or_ln168, void %sw.epilog, void %if.else154
 <StgValue><ssdm name="br_ln168"/></StgValue>
 </operation>
 
-<operation id="59" st_id="1" stage="1" lat="1">
+<operation id="62" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-4"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-4"/>
 <literal name="or_ln168" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="81" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="86" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
 if.else154:0 %br_ln172 = br i1 %ctx_att_value_compute_done_2, void %sw.epilog, void %land.lhs.true156
 
@@ -885,17 +930,17 @@ if.else154:0 %br_ln172 = br i1 %ctx_att_value_compute_done_2, void %sw.epilog, v
 <StgValue><ssdm name="br_ln172"/></StgValue>
 </operation>
 
-<operation id="60" st_id="1" stage="1" lat="1">
+<operation id="63" st_id="1" stage="1" lat="1">
 <core>Sel</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-4"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-4"/>
 <literal name="or_ln168" val="1"/>
 <literal name="ctx_att_value_compute_done_2" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="83" bw="4" op_0_bw="1" op_1_bw="4" op_2_bw="4">
+<Node id="88" bw="4" op_0_bw="1" op_1_bw="4" op_2_bw="4">
 <![CDATA[
 land.lhs.true156:0 %select_ln172 = select i1 %and_ln50_7, i4 13, i4 12
 
@@ -903,17 +948,17 @@ land.lhs.true156:0 %select_ln172 = select i1 %and_ln50_7, i4 13, i4 12
 <StgValue><ssdm name="select_ln172"/></StgValue>
 </operation>
 
-<operation id="61" st_id="1" stage="1" lat="1">
+<operation id="64" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-4"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-4"/>
 <literal name="or_ln168" val="1"/>
 <literal name="ctx_att_value_compute_done_2" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="84" bw="0" op_0_bw="0">
+<Node id="89" bw="0" op_0_bw="0">
 <![CDATA[
 land.lhs.true156:1 %br_ln172 = br void %sw.epilog
 
@@ -921,15 +966,15 @@ land.lhs.true156:1 %br_ln172 = br void %sw.epilog
 <StgValue><ssdm name="br_ln172"/></StgValue>
 </operation>
 
-<operation id="62" st_id="1" stage="1" lat="1">
+<operation id="65" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-5"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-5"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="86" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="91" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb129:0 %xor_ln158 = xor i1 %and_ln50_15, i1 1
 
@@ -937,15 +982,15 @@ sw.bb129:0 %xor_ln158 = xor i1 %and_ln50_15, i1 1
 <StgValue><ssdm name="xor_ln158"/></StgValue>
 </operation>
 
-<operation id="63" st_id="1" stage="1" lat="1">
+<operation id="66" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-5"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-5"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="87" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="92" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb129:1 %or_ln158 = or i1 %and_ln50_6, i1 %xor_ln158
 
@@ -953,15 +998,15 @@ sw.bb129:1 %or_ln158 = or i1 %and_ln50_6, i1 %xor_ln158
 <StgValue><ssdm name="or_ln158"/></StgValue>
 </operation>
 
-<operation id="64" st_id="1" stage="1" lat="1">
+<operation id="67" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-5"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-5"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="88" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="93" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
 sw.bb129:2 %br_ln158 = br i1 %or_ln158, void %sw.epilog, void %if.else137
 
@@ -969,16 +1014,16 @@ sw.bb129:2 %br_ln158 = br i1 %or_ln158, void %sw.epilog, void %if.else137
 <StgValue><ssdm name="br_ln158"/></StgValue>
 </operation>
 
-<operation id="65" st_id="1" stage="1" lat="1">
+<operation id="68" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-5"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-5"/>
 <literal name="or_ln158" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="90" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="95" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
 if.else137:0 %br_ln162 = br i1 %ctx_softmax_compute_done_2, void %sw.epilog, void %land.lhs.true139
 
@@ -986,17 +1031,17 @@ if.else137:0 %br_ln162 = br i1 %ctx_softmax_compute_done_2, void %sw.epilog, voi
 <StgValue><ssdm name="br_ln162"/></StgValue>
 </operation>
 
-<operation id="66" st_id="1" stage="1" lat="1">
+<operation id="69" st_id="1" stage="1" lat="1">
 <core>Sel</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-5"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-5"/>
 <literal name="or_ln158" val="1"/>
 <literal name="ctx_softmax_compute_done_2" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="92" bw="4" op_0_bw="1" op_1_bw="4" op_2_bw="4">
+<Node id="97" bw="4" op_0_bw="1" op_1_bw="4" op_2_bw="4">
 <![CDATA[
 land.lhs.true139:0 %select_ln162 = select i1 %and_ln50_6, i4 12, i4 11
 
@@ -1004,17 +1049,17 @@ land.lhs.true139:0 %select_ln162 = select i1 %and_ln50_6, i4 12, i4 11
 <StgValue><ssdm name="select_ln162"/></StgValue>
 </operation>
 
-<operation id="67" st_id="1" stage="1" lat="1">
+<operation id="70" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-5"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-5"/>
 <literal name="or_ln158" val="1"/>
 <literal name="ctx_softmax_compute_done_2" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="93" bw="0" op_0_bw="0">
+<Node id="98" bw="0" op_0_bw="0">
 <![CDATA[
 land.lhs.true139:1 %br_ln162 = br void %sw.epilog
 
@@ -1022,15 +1067,15 @@ land.lhs.true139:1 %br_ln162 = br void %sw.epilog
 <StgValue><ssdm name="br_ln162"/></StgValue>
 </operation>
 
-<operation id="68" st_id="1" stage="1" lat="1">
+<operation id="71" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-6"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-6"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="95" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="100" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb112:0 %xor_ln148 = xor i1 %and_ln50_15, i1 1
 
@@ -1038,15 +1083,15 @@ sw.bb112:0 %xor_ln148 = xor i1 %and_ln50_15, i1 1
 <StgValue><ssdm name="xor_ln148"/></StgValue>
 </operation>
 
-<operation id="69" st_id="1" stage="1" lat="1">
+<operation id="72" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-6"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-6"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="96" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="101" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb112:1 %or_ln148 = or i1 %and_ln50_5, i1 %xor_ln148
 
@@ -1054,15 +1099,15 @@ sw.bb112:1 %or_ln148 = or i1 %and_ln50_5, i1 %xor_ln148
 <StgValue><ssdm name="or_ln148"/></StgValue>
 </operation>
 
-<operation id="70" st_id="1" stage="1" lat="1">
+<operation id="73" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-6"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-6"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="97" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="102" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
 sw.bb112:2 %br_ln148 = br i1 %or_ln148, void %sw.epilog, void %if.else120
 
@@ -1070,16 +1115,16 @@ sw.bb112:2 %br_ln148 = br i1 %or_ln148, void %sw.epilog, void %if.else120
 <StgValue><ssdm name="br_ln148"/></StgValue>
 </operation>
 
-<operation id="71" st_id="1" stage="1" lat="1">
+<operation id="74" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-6"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-6"/>
 <literal name="or_ln148" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="99" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="104" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
 if.else120:0 %br_ln152 = br i1 %ctx_val_scale_compute_done_2, void %sw.epilog, void %land.lhs.true122
 
@@ -1087,17 +1132,17 @@ if.else120:0 %br_ln152 = br i1 %ctx_val_scale_compute_done_2, void %sw.epilog, v
 <StgValue><ssdm name="br_ln152"/></StgValue>
 </operation>
 
-<operation id="72" st_id="1" stage="1" lat="1">
+<operation id="75" st_id="1" stage="1" lat="1">
 <core>Sel</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-6"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-6"/>
 <literal name="or_ln148" val="1"/>
 <literal name="ctx_val_scale_compute_done_2" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="101" bw="4" op_0_bw="1" op_1_bw="4" op_2_bw="4">
+<Node id="106" bw="4" op_0_bw="1" op_1_bw="4" op_2_bw="4">
 <![CDATA[
 land.lhs.true122:0 %select_ln152 = select i1 %and_ln50_5, i4 11, i4 10
 
@@ -1105,17 +1150,17 @@ land.lhs.true122:0 %select_ln152 = select i1 %and_ln50_5, i4 11, i4 10
 <StgValue><ssdm name="select_ln152"/></StgValue>
 </operation>
 
-<operation id="73" st_id="1" stage="1" lat="1">
+<operation id="76" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-6"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-6"/>
 <literal name="or_ln148" val="1"/>
 <literal name="ctx_val_scale_compute_done_2" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="102" bw="0" op_0_bw="0">
+<Node id="107" bw="0" op_0_bw="0">
 <![CDATA[
 land.lhs.true122:1 %br_ln152 = br void %sw.epilog
 
@@ -1123,15 +1168,15 @@ land.lhs.true122:1 %br_ln152 = br void %sw.epilog
 <StgValue><ssdm name="br_ln152"/></StgValue>
 </operation>
 
-<operation id="74" st_id="1" stage="1" lat="1">
+<operation id="77" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-7"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-7"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="104" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="109" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb95:0 %xor_ln138 = xor i1 %and_ln50_15, i1 1
 
@@ -1139,15 +1184,15 @@ sw.bb95:0 %xor_ln138 = xor i1 %and_ln50_15, i1 1
 <StgValue><ssdm name="xor_ln138"/></StgValue>
 </operation>
 
-<operation id="75" st_id="1" stage="1" lat="1">
+<operation id="78" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-7"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-7"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="105" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="110" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb95:1 %or_ln138 = or i1 %and_ln50_4, i1 %xor_ln138
 
@@ -1155,15 +1200,15 @@ sw.bb95:1 %or_ln138 = or i1 %and_ln50_4, i1 %xor_ln138
 <StgValue><ssdm name="or_ln138"/></StgValue>
 </operation>
 
-<operation id="76" st_id="1" stage="1" lat="1">
+<operation id="79" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-7"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-7"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="106" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="111" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
 sw.bb95:2 %br_ln138 = br i1 %or_ln138, void %sw.epilog, void %if.else103
 
@@ -1171,16 +1216,16 @@ sw.bb95:2 %br_ln138 = br i1 %or_ln138, void %sw.epilog, void %if.else103
 <StgValue><ssdm name="br_ln138"/></StgValue>
 </operation>
 
-<operation id="77" st_id="1" stage="1" lat="1">
+<operation id="80" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-7"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-7"/>
 <literal name="or_ln138" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="108" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="113" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
 if.else103:0 %br_ln142 = br i1 %ctx_att_scores_compute_done_2, void %sw.epilog, void %land.lhs.true105
 
@@ -1188,17 +1233,17 @@ if.else103:0 %br_ln142 = br i1 %ctx_att_scores_compute_done_2, void %sw.epilog, 
 <StgValue><ssdm name="br_ln142"/></StgValue>
 </operation>
 
-<operation id="78" st_id="1" stage="1" lat="1">
+<operation id="81" st_id="1" stage="1" lat="1">
 <core>Sel</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-7"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-7"/>
 <literal name="or_ln138" val="1"/>
 <literal name="ctx_att_scores_compute_done_2" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="110" bw="4" op_0_bw="1" op_1_bw="4" op_2_bw="4">
+<Node id="115" bw="4" op_0_bw="1" op_1_bw="4" op_2_bw="4">
 <![CDATA[
 land.lhs.true105:0 %select_ln142 = select i1 %and_ln50_4, i4 10, i4 9
 
@@ -1206,17 +1251,17 @@ land.lhs.true105:0 %select_ln142 = select i1 %and_ln50_4, i4 10, i4 9
 <StgValue><ssdm name="select_ln142"/></StgValue>
 </operation>
 
-<operation id="79" st_id="1" stage="1" lat="1">
+<operation id="82" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-7"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-7"/>
 <literal name="or_ln138" val="1"/>
 <literal name="ctx_att_scores_compute_done_2" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="111" bw="0" op_0_bw="0">
+<Node id="116" bw="0" op_0_bw="0">
 <![CDATA[
 land.lhs.true105:1 %br_ln142 = br void %sw.epilog
 
@@ -1224,15 +1269,15 @@ land.lhs.true105:1 %br_ln142 = br void %sw.epilog
 <StgValue><ssdm name="br_ln142"/></StgValue>
 </operation>
 
-<operation id="80" st_id="1" stage="1" lat="1">
+<operation id="83" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-8"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-8"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="113" bw="0" op_0_bw="0">
+<Node id="118" bw="0" op_0_bw="0">
 <![CDATA[
 sw.bb93:0 %br_ln136 = br void %sw.epilog
 
@@ -1240,15 +1285,15 @@ sw.bb93:0 %br_ln136 = br void %sw.epilog
 <StgValue><ssdm name="br_ln136"/></StgValue>
 </operation>
 
-<operation id="81" st_id="1" stage="1" lat="1">
+<operation id="84" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="7"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="7"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="115" bw="0" op_0_bw="0">
+<Node id="120" bw="0" op_0_bw="0">
 <![CDATA[
 sw.bb91:0 %br_ln133 = br void %sw.epilog
 
@@ -1256,15 +1301,15 @@ sw.bb91:0 %br_ln133 = br void %sw.epilog
 <StgValue><ssdm name="br_ln133"/></StgValue>
 </operation>
 
-<operation id="82" st_id="1" stage="1" lat="1">
+<operation id="85" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="6"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="6"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="117" bw="0" op_0_bw="0">
+<Node id="122" bw="0" op_0_bw="0">
 <![CDATA[
 sw.bb89:0 %br_ln130 = br void %sw.epilog
 
@@ -1272,15 +1317,15 @@ sw.bb89:0 %br_ln130 = br void %sw.epilog
 <StgValue><ssdm name="br_ln130"/></StgValue>
 </operation>
 
-<operation id="83" st_id="1" stage="1" lat="1">
+<operation id="86" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="5"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="5"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="119" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="124" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb72:0 %xor_ln118 = xor i1 %and_ln50_15, i1 1
 
@@ -1288,15 +1333,15 @@ sw.bb72:0 %xor_ln118 = xor i1 %and_ln50_15, i1 1
 <StgValue><ssdm name="xor_ln118"/></StgValue>
 </operation>
 
-<operation id="84" st_id="1" stage="1" lat="1">
+<operation id="87" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="5"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="5"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="120" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="125" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb72:1 %or_ln118 = or i1 %and_ln50_3, i1 %xor_ln118
 
@@ -1304,15 +1349,15 @@ sw.bb72:1 %or_ln118 = or i1 %and_ln50_3, i1 %xor_ln118
 <StgValue><ssdm name="or_ln118"/></StgValue>
 </operation>
 
-<operation id="85" st_id="1" stage="1" lat="1">
+<operation id="88" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="5"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="5"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="121" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="126" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
 sw.bb72:2 %br_ln118 = br i1 %or_ln118, void %sw.epilog, void %if.else80
 
@@ -1320,16 +1365,16 @@ sw.bb72:2 %br_ln118 = br i1 %or_ln118, void %sw.epilog, void %if.else80
 <StgValue><ssdm name="br_ln118"/></StgValue>
 </operation>
 
-<operation id="86" st_id="1" stage="1" lat="1">
+<operation id="89" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="5"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="5"/>
 <literal name="or_ln118" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="123" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="128" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
 if.else80:0 %br_ln123 = br i1 %ctx_v_compute_done_2, void %sw.epilog, void %land.lhs.true82
 
@@ -1337,17 +1382,17 @@ if.else80:0 %br_ln123 = br i1 %ctx_v_compute_done_2, void %sw.epilog, void %land
 <StgValue><ssdm name="br_ln123"/></StgValue>
 </operation>
 
-<operation id="87" st_id="1" stage="1" lat="1">
+<operation id="90" st_id="1" stage="1" lat="1">
 <core>Sel</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="5"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="5"/>
 <literal name="or_ln118" val="1"/>
 <literal name="ctx_v_compute_done_2" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="125" bw="4" op_0_bw="1" op_1_bw="4" op_2_bw="4">
+<Node id="130" bw="4" op_0_bw="1" op_1_bw="4" op_2_bw="4">
 <![CDATA[
 land.lhs.true82:0 %select_ln123 = select i1 %and_ln50_3, i4 6, i4 5
 
@@ -1355,17 +1400,17 @@ land.lhs.true82:0 %select_ln123 = select i1 %and_ln50_3, i4 6, i4 5
 <StgValue><ssdm name="select_ln123"/></StgValue>
 </operation>
 
-<operation id="88" st_id="1" stage="1" lat="1">
+<operation id="91" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="5"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="5"/>
 <literal name="or_ln118" val="1"/>
 <literal name="ctx_v_compute_done_2" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="126" bw="0" op_0_bw="0">
+<Node id="131" bw="0" op_0_bw="0">
 <![CDATA[
 land.lhs.true82:1 %br_ln123 = br void %sw.epilog
 
@@ -1373,15 +1418,15 @@ land.lhs.true82:1 %br_ln123 = br void %sw.epilog
 <StgValue><ssdm name="br_ln123"/></StgValue>
 </operation>
 
-<operation id="89" st_id="1" stage="1" lat="1">
+<operation id="92" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="4"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="4"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="128" bw="0" op_0_bw="0">
+<Node id="133" bw="0" op_0_bw="0">
 <![CDATA[
 sw.bb70:0 %br_ln116 = br void %sw.epilog
 
@@ -1389,15 +1434,15 @@ sw.bb70:0 %br_ln116 = br void %sw.epilog
 <StgValue><ssdm name="br_ln116"/></StgValue>
 </operation>
 
-<operation id="90" st_id="1" stage="1" lat="1">
+<operation id="93" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="2"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="2"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="130" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="135" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb51:0 %xor_ln102 = xor i1 %and_ln50_15, i1 1
 
@@ -1405,15 +1450,15 @@ sw.bb51:0 %xor_ln102 = xor i1 %and_ln50_15, i1 1
 <StgValue><ssdm name="xor_ln102"/></StgValue>
 </operation>
 
-<operation id="91" st_id="1" stage="1" lat="1">
+<operation id="94" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="2"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="2"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="131" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="136" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb51:1 %or_ln102 = or i1 %and_ln50_2, i1 %xor_ln102
 
@@ -1421,15 +1466,15 @@ sw.bb51:1 %or_ln102 = or i1 %and_ln50_2, i1 %xor_ln102
 <StgValue><ssdm name="or_ln102"/></StgValue>
 </operation>
 
-<operation id="92" st_id="1" stage="1" lat="1">
+<operation id="95" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="2"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="2"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="132" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="137" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
 sw.bb51:2 %br_ln102 = br i1 %or_ln102, void %sw.epilog, void %if.else59
 
@@ -1437,16 +1482,16 @@ sw.bb51:2 %br_ln102 = br i1 %or_ln102, void %sw.epilog, void %if.else59
 <StgValue><ssdm name="br_ln102"/></StgValue>
 </operation>
 
-<operation id="93" st_id="1" stage="1" lat="1">
+<operation id="96" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="2"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="2"/>
 <literal name="or_ln102" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="134" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="139" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
 if.else59:0 %br_ln107 = br i1 %ctx_k_compute_done_2, void %sw.epilog, void %land.lhs.true61
 
@@ -1454,17 +1499,17 @@ if.else59:0 %br_ln107 = br i1 %ctx_k_compute_done_2, void %sw.epilog, void %land
 <StgValue><ssdm name="br_ln107"/></StgValue>
 </operation>
 
-<operation id="94" st_id="1" stage="1" lat="1">
+<operation id="97" st_id="1" stage="1" lat="1">
 <core>Sel</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="2"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="2"/>
 <literal name="or_ln102" val="1"/>
 <literal name="ctx_k_compute_done_2" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="136" bw="4" op_0_bw="1" op_1_bw="4" op_2_bw="4">
+<Node id="141" bw="4" op_0_bw="1" op_1_bw="4" op_2_bw="4">
 <![CDATA[
 land.lhs.true61:0 %select_ln107 = select i1 %and_ln50_2, i4 3, i4 2
 
@@ -1472,17 +1517,17 @@ land.lhs.true61:0 %select_ln107 = select i1 %and_ln50_2, i4 3, i4 2
 <StgValue><ssdm name="select_ln107"/></StgValue>
 </operation>
 
-<operation id="95" st_id="1" stage="1" lat="1">
+<operation id="98" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="2"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="2"/>
 <literal name="or_ln102" val="1"/>
 <literal name="ctx_k_compute_done_2" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="137" bw="0" op_0_bw="0">
+<Node id="142" bw="0" op_0_bw="0">
 <![CDATA[
 land.lhs.true61:1 %br_ln107 = br void %sw.epilog
 
@@ -1490,15 +1535,15 @@ land.lhs.true61:1 %br_ln107 = br void %sw.epilog
 <StgValue><ssdm name="br_ln107"/></StgValue>
 </operation>
 
-<operation id="96" st_id="1" stage="1" lat="1">
+<operation id="99" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="1"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="139" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="144" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb36:0 %xor_ln91 = xor i1 %and_ln50_15, i1 1
 
@@ -1506,15 +1551,15 @@ sw.bb36:0 %xor_ln91 = xor i1 %and_ln50_15, i1 1
 <StgValue><ssdm name="xor_ln91"/></StgValue>
 </operation>
 
-<operation id="97" st_id="1" stage="1" lat="1">
+<operation id="100" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="1"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="140" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="145" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb36:1 %or_ln91 = or i1 %and_ln50_1, i1 %xor_ln91
 
@@ -1522,15 +1567,15 @@ sw.bb36:1 %or_ln91 = or i1 %and_ln50_1, i1 %xor_ln91
 <StgValue><ssdm name="or_ln91"/></StgValue>
 </operation>
 
-<operation id="98" st_id="1" stage="1" lat="1">
+<operation id="101" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="1"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="141" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="146" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
 sw.bb36:2 %br_ln91 = br i1 %or_ln91, void %sw.epilog, void %if.else
 
@@ -1538,16 +1583,16 @@ sw.bb36:2 %br_ln91 = br i1 %or_ln91, void %sw.epilog, void %if.else
 <StgValue><ssdm name="br_ln91"/></StgValue>
 </operation>
 
-<operation id="99" st_id="1" stage="1" lat="1">
+<operation id="102" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="1"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="1"/>
 <literal name="or_ln91" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="143" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="148" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
 if.else:0 %br_ln96 = br i1 %ctx_q_compute_done_2, void %sw.epilog, void %land.lhs.true44
 
@@ -1555,17 +1600,17 @@ if.else:0 %br_ln96 = br i1 %ctx_q_compute_done_2, void %sw.epilog, void %land.lh
 <StgValue><ssdm name="br_ln96"/></StgValue>
 </operation>
 
-<operation id="100" st_id="1" stage="1" lat="1">
+<operation id="103" st_id="1" stage="1" lat="1">
 <core>Sel</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="1"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="1"/>
 <literal name="or_ln91" val="1"/>
 <literal name="ctx_q_compute_done_2" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="145" bw="4" op_0_bw="1" op_1_bw="4" op_2_bw="4">
+<Node id="150" bw="4" op_0_bw="1" op_1_bw="4" op_2_bw="4">
 <![CDATA[
 land.lhs.true44:0 %select_ln96 = select i1 %and_ln50_1, i4 2, i4 1
 
@@ -1573,17 +1618,17 @@ land.lhs.true44:0 %select_ln96 = select i1 %and_ln50_1, i4 2, i4 1
 <StgValue><ssdm name="select_ln96"/></StgValue>
 </operation>
 
-<operation id="101" st_id="1" stage="1" lat="1">
+<operation id="104" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="1"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="1"/>
 <literal name="or_ln91" val="1"/>
 <literal name="ctx_q_compute_done_2" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="146" bw="0" op_0_bw="0">
+<Node id="151" bw="0" op_0_bw="0">
 <![CDATA[
 land.lhs.true44:1 %br_ln96 = br void %sw.epilog
 
@@ -1591,15 +1636,15 @@ land.lhs.true44:1 %br_ln96 = br void %sw.epilog
 <StgValue><ssdm name="br_ln96"/></StgValue>
 </operation>
 
-<operation id="102" st_id="1" stage="1" lat="1">
+<operation id="105" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-3"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-3"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="148" bw="0" op_0_bw="0">
+<Node id="153" bw="0" op_0_bw="0">
 <![CDATA[
 sw.bb163:0 %br_ln179 = br void %sw.epilog
 
@@ -1607,35 +1652,35 @@ sw.bb163:0 %br_ln179 = br void %sw.epilog
 <StgValue><ssdm name="br_ln179"/></StgValue>
 </operation>
 
-<operation id="103" st_id="1" stage="1" lat="1">
+<operation id="106" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-1"/>
-</and_exp><and_exp><literal name="select_ln50" val="-2"/>
-</and_exp><and_exp><literal name="select_ln50" val="0"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-1"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="-2"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="150" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="155" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-sw.bb:0 %xor_ln68 = xor i1 %ctx_start_head_read_1, i1 1
+sw.bb:0 %xor_ln68 = xor i1 %start_read, i1 1
 
 ]]></Node>
 <StgValue><ssdm name="xor_ln68"/></StgValue>
 </operation>
 
-<operation id="104" st_id="1" stage="1" lat="1">
+<operation id="107" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-1"/>
-</and_exp><and_exp><literal name="select_ln50" val="-2"/>
-</and_exp><and_exp><literal name="select_ln50" val="0"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-1"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="-2"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="151" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="156" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb:1 %and_ln68 = and i1 %and_ln50, i1 %xor_ln68
 
@@ -1643,17 +1688,17 @@ sw.bb:1 %and_ln68 = and i1 %and_ln50, i1 %xor_ln68
 <StgValue><ssdm name="and_ln68"/></StgValue>
 </operation>
 
-<operation id="105" st_id="1" stage="1" lat="1">
+<operation id="108" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-1"/>
-</and_exp><and_exp><literal name="select_ln50" val="-2"/>
-</and_exp><and_exp><literal name="select_ln50" val="0"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-1"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="-2"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="152" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="157" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb:2 %and_ln68_1 = and i1 %and_ln50_1, i1 %xor_ln68
 
@@ -1661,17 +1706,17 @@ sw.bb:2 %and_ln68_1 = and i1 %and_ln50_1, i1 %xor_ln68
 <StgValue><ssdm name="and_ln68_1"/></StgValue>
 </operation>
 
-<operation id="106" st_id="1" stage="1" lat="1">
+<operation id="109" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-1"/>
-</and_exp><and_exp><literal name="select_ln50" val="-2"/>
-</and_exp><and_exp><literal name="select_ln50" val="0"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-1"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="-2"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="153" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="158" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb:3 %and_ln68_2 = and i1 %and_ln50_2, i1 %xor_ln68
 
@@ -1679,17 +1724,17 @@ sw.bb:3 %and_ln68_2 = and i1 %and_ln50_2, i1 %xor_ln68
 <StgValue><ssdm name="and_ln68_2"/></StgValue>
 </operation>
 
-<operation id="107" st_id="1" stage="1" lat="1">
+<operation id="110" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-1"/>
-</and_exp><and_exp><literal name="select_ln50" val="-2"/>
-</and_exp><and_exp><literal name="select_ln50" val="0"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-1"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="-2"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="154" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="159" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb:4 %and_ln68_3 = and i1 %and_ln50_3, i1 %xor_ln68
 
@@ -1697,17 +1742,17 @@ sw.bb:4 %and_ln68_3 = and i1 %and_ln50_3, i1 %xor_ln68
 <StgValue><ssdm name="and_ln68_3"/></StgValue>
 </operation>
 
-<operation id="108" st_id="1" stage="1" lat="1">
+<operation id="111" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-1"/>
-</and_exp><and_exp><literal name="select_ln50" val="-2"/>
-</and_exp><and_exp><literal name="select_ln50" val="0"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-1"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="-2"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="155" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="160" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb:5 %and_ln68_4 = and i1 %and_ln50_4, i1 %xor_ln68
 
@@ -1715,17 +1760,17 @@ sw.bb:5 %and_ln68_4 = and i1 %and_ln50_4, i1 %xor_ln68
 <StgValue><ssdm name="and_ln68_4"/></StgValue>
 </operation>
 
-<operation id="109" st_id="1" stage="1" lat="1">
+<operation id="112" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-1"/>
-</and_exp><and_exp><literal name="select_ln50" val="-2"/>
-</and_exp><and_exp><literal name="select_ln50" val="0"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-1"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="-2"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="156" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="161" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb:6 %and_ln68_5 = and i1 %and_ln50_5, i1 %xor_ln68
 
@@ -1733,17 +1778,17 @@ sw.bb:6 %and_ln68_5 = and i1 %and_ln50_5, i1 %xor_ln68
 <StgValue><ssdm name="and_ln68_5"/></StgValue>
 </operation>
 
-<operation id="110" st_id="1" stage="1" lat="1">
+<operation id="113" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-1"/>
-</and_exp><and_exp><literal name="select_ln50" val="-2"/>
-</and_exp><and_exp><literal name="select_ln50" val="0"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-1"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="-2"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="157" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="162" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb:7 %and_ln68_6 = and i1 %and_ln50_6, i1 %xor_ln68
 
@@ -1751,17 +1796,17 @@ sw.bb:7 %and_ln68_6 = and i1 %and_ln50_6, i1 %xor_ln68
 <StgValue><ssdm name="and_ln68_6"/></StgValue>
 </operation>
 
-<operation id="111" st_id="1" stage="1" lat="1">
+<operation id="114" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-1"/>
-</and_exp><and_exp><literal name="select_ln50" val="-2"/>
-</and_exp><and_exp><literal name="select_ln50" val="0"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-1"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="-2"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="158" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="163" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb:8 %and_ln68_7 = and i1 %and_ln50_7, i1 %xor_ln68
 
@@ -1769,17 +1814,17 @@ sw.bb:8 %and_ln68_7 = and i1 %and_ln50_7, i1 %xor_ln68
 <StgValue><ssdm name="and_ln68_7"/></StgValue>
 </operation>
 
-<operation id="112" st_id="1" stage="1" lat="1">
+<operation id="115" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-1"/>
-</and_exp><and_exp><literal name="select_ln50" val="-2"/>
-</and_exp><and_exp><literal name="select_ln50" val="0"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-1"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="-2"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="159" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="164" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb:9 %and_ln68_8 = and i1 %ctx_q_compute_done_2, i1 %xor_ln68
 
@@ -1787,17 +1832,17 @@ sw.bb:9 %and_ln68_8 = and i1 %ctx_q_compute_done_2, i1 %xor_ln68
 <StgValue><ssdm name="and_ln68_8"/></StgValue>
 </operation>
 
-<operation id="113" st_id="1" stage="1" lat="1">
+<operation id="116" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-1"/>
-</and_exp><and_exp><literal name="select_ln50" val="-2"/>
-</and_exp><and_exp><literal name="select_ln50" val="0"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-1"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="-2"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="160" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="165" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb:10 %and_ln68_9 = and i1 %ctx_k_compute_done_2, i1 %xor_ln68
 
@@ -1805,17 +1850,17 @@ sw.bb:10 %and_ln68_9 = and i1 %ctx_k_compute_done_2, i1 %xor_ln68
 <StgValue><ssdm name="and_ln68_9"/></StgValue>
 </operation>
 
-<operation id="114" st_id="1" stage="1" lat="1">
+<operation id="117" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-1"/>
-</and_exp><and_exp><literal name="select_ln50" val="-2"/>
-</and_exp><and_exp><literal name="select_ln50" val="0"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-1"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="-2"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="161" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="166" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb:11 %and_ln68_10 = and i1 %ctx_v_compute_done_2, i1 %xor_ln68
 
@@ -1823,17 +1868,17 @@ sw.bb:11 %and_ln68_10 = and i1 %ctx_v_compute_done_2, i1 %xor_ln68
 <StgValue><ssdm name="and_ln68_10"/></StgValue>
 </operation>
 
-<operation id="115" st_id="1" stage="1" lat="1">
+<operation id="118" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-1"/>
-</and_exp><and_exp><literal name="select_ln50" val="-2"/>
-</and_exp><and_exp><literal name="select_ln50" val="0"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-1"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="-2"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="162" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="167" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb:12 %and_ln68_11 = and i1 %ctx_att_scores_compute_done_2, i1 %xor_ln68
 
@@ -1841,17 +1886,17 @@ sw.bb:12 %and_ln68_11 = and i1 %ctx_att_scores_compute_done_2, i1 %xor_ln68
 <StgValue><ssdm name="and_ln68_11"/></StgValue>
 </operation>
 
-<operation id="116" st_id="1" stage="1" lat="1">
+<operation id="119" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-1"/>
-</and_exp><and_exp><literal name="select_ln50" val="-2"/>
-</and_exp><and_exp><literal name="select_ln50" val="0"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-1"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="-2"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="163" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="168" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb:13 %and_ln68_12 = and i1 %ctx_val_scale_compute_done_2, i1 %xor_ln68
 
@@ -1859,17 +1904,17 @@ sw.bb:13 %and_ln68_12 = and i1 %ctx_val_scale_compute_done_2, i1 %xor_ln68
 <StgValue><ssdm name="and_ln68_12"/></StgValue>
 </operation>
 
-<operation id="117" st_id="1" stage="1" lat="1">
+<operation id="120" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-1"/>
-</and_exp><and_exp><literal name="select_ln50" val="-2"/>
-</and_exp><and_exp><literal name="select_ln50" val="0"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-1"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="-2"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="164" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="169" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb:14 %and_ln68_13 = and i1 %ctx_softmax_compute_done_2, i1 %xor_ln68
 
@@ -1877,17 +1922,17 @@ sw.bb:14 %and_ln68_13 = and i1 %ctx_softmax_compute_done_2, i1 %xor_ln68
 <StgValue><ssdm name="and_ln68_13"/></StgValue>
 </operation>
 
-<operation id="118" st_id="1" stage="1" lat="1">
+<operation id="121" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-1"/>
-</and_exp><and_exp><literal name="select_ln50" val="-2"/>
-</and_exp><and_exp><literal name="select_ln50" val="0"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-1"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="-2"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="165" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="170" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb:15 %and_ln68_14 = and i1 %ctx_att_value_compute_done_2, i1 %xor_ln68
 
@@ -1895,17 +1940,17 @@ sw.bb:15 %and_ln68_14 = and i1 %ctx_att_value_compute_done_2, i1 %xor_ln68
 <StgValue><ssdm name="and_ln68_14"/></StgValue>
 </operation>
 
-<operation id="119" st_id="1" stage="1" lat="1">
+<operation id="122" st_id="1" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-1"/>
-</and_exp><and_exp><literal name="select_ln50" val="-2"/>
-</and_exp><and_exp><literal name="select_ln50" val="0"/>
+<or_exp><and_exp><literal name="select_ln50_1" val="-1"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="-2"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="166" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="171" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
 sw.bb:16 %and_ln68_15 = and i1 %and_ln50_15, i1 %xor_ln68
 
@@ -1913,85 +1958,40 @@ sw.bb:16 %and_ln68_15 = and i1 %and_ln50_15, i1 %xor_ln68
 <StgValue><ssdm name="and_ln68_15"/></StgValue>
 </operation>
 
-<operation id="120" st_id="1" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-1"/>
-</and_exp><and_exp><literal name="select_ln50" val="-2"/>
-</and_exp><and_exp><literal name="select_ln50" val="0"/>
-</and_exp></or_exp>
-</condition>
-
-<Node id="167" bw="4" op_0_bw="1">
-<![CDATA[
-sw.bb:17 %zext_ln68 = zext i1 %ctx_start_head_read_1
-
-]]></Node>
-<StgValue><ssdm name="zext_ln68"/></StgValue>
-</operation>
-
-<operation id="121" st_id="1" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp><literal name="select_ln50" val="-1"/>
-</and_exp><and_exp><literal name="select_ln50" val="-2"/>
-</and_exp><and_exp><literal name="select_ln50" val="0"/>
-</and_exp></or_exp>
-</condition>
-
-<Node id="168" bw="0" op_0_bw="0">
-<![CDATA[
-sw.bb:18 %br_ln68 = br void %sw.epilog
-
-]]></Node>
-<StgValue><ssdm name="br_ln68"/></StgValue>
-</operation>
-
-<operation id="122" st_id="1" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="170" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
-<![CDATA[
-sw.epilog:0 %ctx_compute_start_write_assign = phi i1 0, void %sw.bb163, i1 0, void %if.else154, i1 0, void %if.else137, i1 0, void %if.else120, i1 0, void %if.else103, i1 0, void %sw.bb93, i1 0, void %sw.bb91, i1 0, void %sw.bb89, i1 0, void %if.else80, i1 0, void %sw.bb70, i1 0, void %if.else59, i1 0, void %if.else, i1 0, void %sw.bb, i1 1, void %sw.bb36, i1 0, void %land.lhs.true44, i1 1, void %sw.bb51, i1 0, void %land.lhs.true61, i1 0, void %entry_ifconv, i1 1, void %sw.bb72, i1 0, void %land.lhs.true82, i1 1, void %sw.bb95, i1 0, void %land.lhs.true105, i1 1, void %sw.bb112, i1 0, void %land.lhs.true122, i1 1, void %sw.bb129, i1 0, void %land.lhs.true139, i1 1, void %sw.bb146, i1 0, void %land.lhs.true156
-
-]]></Node>
-<StgValue><ssdm name="ctx_compute_start_write_assign"/></StgValue>
-</operation>
-
 <operation id="123" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
+<or_exp><and_exp><literal name="select_ln50_1" val="-1"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="-2"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="0"/>
+</and_exp></or_exp>
 </condition>
 
-<Node id="171" bw="3" op_0_bw="3" op_1_bw="0" op_2_bw="3" op_3_bw="0" op_4_bw="3" op_5_bw="0" op_6_bw="3" op_7_bw="0" op_8_bw="3" op_9_bw="0" op_10_bw="3" op_11_bw="0" op_12_bw="3" op_13_bw="0" op_14_bw="3" op_15_bw="0" op_16_bw="3" op_17_bw="0" op_18_bw="3" op_19_bw="0" op_20_bw="3" op_21_bw="0" op_22_bw="3" op_23_bw="0" op_24_bw="3" op_25_bw="0" op_26_bw="3" op_27_bw="0" op_28_bw="3" op_29_bw="0" op_30_bw="3" op_31_bw="0" op_32_bw="3" op_33_bw="0" op_34_bw="3" op_35_bw="0" op_36_bw="3" op_37_bw="0" op_38_bw="3" op_39_bw="0" op_40_bw="3" op_41_bw="0" op_42_bw="3" op_43_bw="0" op_44_bw="3" op_45_bw="0" op_46_bw="3" op_47_bw="0" op_48_bw="3" op_49_bw="0" op_50_bw="3" op_51_bw="0" op_52_bw="3" op_53_bw="0" op_54_bw="3" op_55_bw="0">
+<Node id="172" bw="4" op_0_bw="1">
 <![CDATA[
-sw.epilog:1 %ctx_compute_op_write_assign = phi i3 0, void %sw.bb163, i3 0, void %if.else154, i3 0, void %if.else137, i3 0, void %if.else120, i3 0, void %if.else103, i3 0, void %sw.bb93, i3 0, void %sw.bb91, i3 0, void %sw.bb89, i3 0, void %if.else80, i3 0, void %sw.bb70, i3 0, void %if.else59, i3 0, void %if.else, i3 0, void %sw.bb, i3 1, void %sw.bb36, i3 0, void %land.lhs.true44, i3 2, void %sw.bb51, i3 0, void %land.lhs.true61, i3 0, void %entry_ifconv, i3 3, void %sw.bb72, i3 0, void %land.lhs.true82, i3 4, void %sw.bb95, i3 0, void %land.lhs.true105, i3 5, void %sw.bb112, i3 0, void %land.lhs.true122, i3 6, void %sw.bb129, i3 0, void %land.lhs.true139, i3 7, void %sw.bb146, i3 0, void %land.lhs.true156
+sw.bb:17 %zext_ln68 = zext i1 %start_read
 
 ]]></Node>
-<StgValue><ssdm name="ctx_compute_op_write_assign"/></StgValue>
+<StgValue><ssdm name="zext_ln68"/></StgValue>
 </operation>
 
 <operation id="124" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
+<or_exp><and_exp><literal name="select_ln50_1" val="-1"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="-2"/>
+</and_exp><and_exp><literal name="select_ln50_1" val="0"/>
+</and_exp></or_exp>
 </condition>
 
-<Node id="172" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
+<Node id="173" bw="0" op_0_bw="0">
 <![CDATA[
-sw.epilog:2 %ctx_compute_done_1 = phi i1 %and_ln50, void %sw.bb163, i1 %and_ln50, void %if.else154, i1 %and_ln50, void %if.else137, i1 %and_ln50, void %if.else120, i1 %and_ln50, void %if.else103, i1 %and_ln50, void %sw.bb93, i1 %and_ln50, void %sw.bb91, i1 %and_ln50, void %sw.bb89, i1 %and_ln50, void %if.else80, i1 %and_ln50, void %sw.bb70, i1 %and_ln50, void %if.else59, i1 %and_ln50, void %if.else, i1 %and_ln68, void %sw.bb, i1 %and_ln50, void %sw.bb36, i1 %and_ln50, void %land.lhs.true44, i1 %and_ln50, void %sw.bb51, i1 %and_ln50, void %land.lhs.true61, i1 %and_ln50, void %entry_ifconv, i1 %and_ln50, void %sw.bb72, i1 %and_ln50, void %land.lhs.true82, i1 %and_ln50, void %sw.bb95, i1 %and_ln50, void %land.lhs.true105, i1 %and_ln50, void %sw.bb112, i1 %and_ln50, void %land.lhs.true122, i1 %and_ln50, void %sw.bb129, i1 %and_ln50, void %land.lhs.true139, i1 %and_ln50, void %sw.bb146, i1 %and_ln50, void %land.lhs.true156
+sw.bb:18 %br_ln68 = br void %sw.epilog
 
 ]]></Node>
-<StgValue><ssdm name="ctx_compute_done_1"/></StgValue>
+<StgValue><ssdm name="br_ln68"/></StgValue>
 </operation>
 
 <operation id="125" st_id="1" stage="1" lat="1">
@@ -2001,12 +2001,12 @@ sw.epilog:2 %ctx_compute_done_1 = phi i1 %and_ln50, void %sw.bb163, i1 %and_ln50
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="173" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
+<Node id="175" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
 <![CDATA[
-sw.epilog:3 %ctx_q_started_1 = phi i1 %and_ln50_1, void %sw.bb163, i1 %and_ln50_1, void %if.else154, i1 %and_ln50_1, void %if.else137, i1 %and_ln50_1, void %if.else120, i1 %and_ln50_1, void %if.else103, i1 %and_ln50_1, void %sw.bb93, i1 %and_ln50_1, void %sw.bb91, i1 %and_ln50_1, void %sw.bb89, i1 %and_ln50_1, void %if.else80, i1 %and_ln50_1, void %sw.bb70, i1 %and_ln50_1, void %if.else59, i1 %and_ln50_1, void %if.else, i1 %and_ln68_1, void %sw.bb, i1 1, void %sw.bb36, i1 0, void %land.lhs.true44, i1 %and_ln50_1, void %sw.bb51, i1 %and_ln50_1, void %land.lhs.true61, i1 %and_ln50_1, void %entry_ifconv, i1 %and_ln50_1, void %sw.bb72, i1 %and_ln50_1, void %land.lhs.true82, i1 %and_ln50_1, void %sw.bb95, i1 %and_ln50_1, void %land.lhs.true105, i1 %and_ln50_1, void %sw.bb112, i1 %and_ln50_1, void %land.lhs.true122, i1 %and_ln50_1, void %sw.bb129, i1 %and_ln50_1, void %land.lhs.true139, i1 %and_ln50_1, void %sw.bb146, i1 %and_ln50_1, void %land.lhs.true156
+sw.epilog:0 %ctx_compute_start_write_assign = phi i1 0, void %sw.bb163, i1 0, void %if.else154, i1 0, void %if.else137, i1 0, void %if.else120, i1 0, void %if.else103, i1 0, void %sw.bb93, i1 0, void %sw.bb91, i1 0, void %sw.bb89, i1 0, void %if.else80, i1 0, void %sw.bb70, i1 0, void %if.else59, i1 0, void %if.else, i1 0, void %sw.bb, i1 1, void %sw.bb36, i1 0, void %land.lhs.true44, i1 1, void %sw.bb51, i1 0, void %land.lhs.true61, i1 0, void %entry_ifconv, i1 1, void %sw.bb72, i1 0, void %land.lhs.true82, i1 1, void %sw.bb95, i1 0, void %land.lhs.true105, i1 1, void %sw.bb112, i1 0, void %land.lhs.true122, i1 1, void %sw.bb129, i1 0, void %land.lhs.true139, i1 1, void %sw.bb146, i1 0, void %land.lhs.true156
 
 ]]></Node>
-<StgValue><ssdm name="ctx_q_started_1"/></StgValue>
+<StgValue><ssdm name="ctx_compute_start_write_assign"/></StgValue>
 </operation>
 
 <operation id="126" st_id="1" stage="1" lat="1">
@@ -2016,12 +2016,12 @@ sw.epilog:3 %ctx_q_started_1 = phi i1 %and_ln50_1, void %sw.bb163, i1 %and_ln50_
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="174" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
+<Node id="176" bw="3" op_0_bw="3" op_1_bw="0" op_2_bw="3" op_3_bw="0" op_4_bw="3" op_5_bw="0" op_6_bw="3" op_7_bw="0" op_8_bw="3" op_9_bw="0" op_10_bw="3" op_11_bw="0" op_12_bw="3" op_13_bw="0" op_14_bw="3" op_15_bw="0" op_16_bw="3" op_17_bw="0" op_18_bw="3" op_19_bw="0" op_20_bw="3" op_21_bw="0" op_22_bw="3" op_23_bw="0" op_24_bw="3" op_25_bw="0" op_26_bw="3" op_27_bw="0" op_28_bw="3" op_29_bw="0" op_30_bw="3" op_31_bw="0" op_32_bw="3" op_33_bw="0" op_34_bw="3" op_35_bw="0" op_36_bw="3" op_37_bw="0" op_38_bw="3" op_39_bw="0" op_40_bw="3" op_41_bw="0" op_42_bw="3" op_43_bw="0" op_44_bw="3" op_45_bw="0" op_46_bw="3" op_47_bw="0" op_48_bw="3" op_49_bw="0" op_50_bw="3" op_51_bw="0" op_52_bw="3" op_53_bw="0" op_54_bw="3" op_55_bw="0">
 <![CDATA[
-sw.epilog:4 %ctx_k_started_1 = phi i1 %and_ln50_2, void %sw.bb163, i1 %and_ln50_2, void %if.else154, i1 %and_ln50_2, void %if.else137, i1 %and_ln50_2, void %if.else120, i1 %and_ln50_2, void %if.else103, i1 %and_ln50_2, void %sw.bb93, i1 %and_ln50_2, void %sw.bb91, i1 %and_ln50_2, void %sw.bb89, i1 %and_ln50_2, void %if.else80, i1 %and_ln50_2, void %sw.bb70, i1 %and_ln50_2, void %if.else59, i1 %and_ln50_2, void %if.else, i1 %and_ln68_2, void %sw.bb, i1 %and_ln50_2, void %sw.bb36, i1 %and_ln50_2, void %land.lhs.true44, i1 1, void %sw.bb51, i1 0, void %land.lhs.true61, i1 %and_ln50_2, void %entry_ifconv, i1 %and_ln50_2, void %sw.bb72, i1 %and_ln50_2, void %land.lhs.true82, i1 %and_ln50_2, void %sw.bb95, i1 %and_ln50_2, void %land.lhs.true105, i1 %and_ln50_2, void %sw.bb112, i1 %and_ln50_2, void %land.lhs.true122, i1 %and_ln50_2, void %sw.bb129, i1 %and_ln50_2, void %land.lhs.true139, i1 %and_ln50_2, void %sw.bb146, i1 %and_ln50_2, void %land.lhs.true156
+sw.epilog:1 %ctx_compute_op_write_assign = phi i3 0, void %sw.bb163, i3 0, void %if.else154, i3 0, void %if.else137, i3 0, void %if.else120, i3 0, void %if.else103, i3 0, void %sw.bb93, i3 0, void %sw.bb91, i3 0, void %sw.bb89, i3 0, void %if.else80, i3 0, void %sw.bb70, i3 0, void %if.else59, i3 0, void %if.else, i3 0, void %sw.bb, i3 1, void %sw.bb36, i3 0, void %land.lhs.true44, i3 2, void %sw.bb51, i3 0, void %land.lhs.true61, i3 0, void %entry_ifconv, i3 3, void %sw.bb72, i3 0, void %land.lhs.true82, i3 4, void %sw.bb95, i3 0, void %land.lhs.true105, i3 5, void %sw.bb112, i3 0, void %land.lhs.true122, i3 6, void %sw.bb129, i3 0, void %land.lhs.true139, i3 7, void %sw.bb146, i3 0, void %land.lhs.true156
 
 ]]></Node>
-<StgValue><ssdm name="ctx_k_started_1"/></StgValue>
+<StgValue><ssdm name="ctx_compute_op_write_assign"/></StgValue>
 </operation>
 
 <operation id="127" st_id="1" stage="1" lat="1">
@@ -2031,12 +2031,12 @@ sw.epilog:4 %ctx_k_started_1 = phi i1 %and_ln50_2, void %sw.bb163, i1 %and_ln50_
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="175" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
+<Node id="177" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
 <![CDATA[
-sw.epilog:5 %ctx_v_started_1 = phi i1 %and_ln50_3, void %sw.bb163, i1 %and_ln50_3, void %if.else154, i1 %and_ln50_3, void %if.else137, i1 %and_ln50_3, void %if.else120, i1 %and_ln50_3, void %if.else103, i1 %and_ln50_3, void %sw.bb93, i1 %and_ln50_3, void %sw.bb91, i1 %and_ln50_3, void %sw.bb89, i1 %and_ln50_3, void %if.else80, i1 %and_ln50_3, void %sw.bb70, i1 %and_ln50_3, void %if.else59, i1 %and_ln50_3, void %if.else, i1 %and_ln68_3, void %sw.bb, i1 %and_ln50_3, void %sw.bb36, i1 %and_ln50_3, void %land.lhs.true44, i1 %and_ln50_3, void %sw.bb51, i1 %and_ln50_3, void %land.lhs.true61, i1 %and_ln50_3, void %entry_ifconv, i1 1, void %sw.bb72, i1 0, void %land.lhs.true82, i1 %and_ln50_3, void %sw.bb95, i1 %and_ln50_3, void %land.lhs.true105, i1 %and_ln50_3, void %sw.bb112, i1 %and_ln50_3, void %land.lhs.true122, i1 %and_ln50_3, void %sw.bb129, i1 %and_ln50_3, void %land.lhs.true139, i1 %and_ln50_3, void %sw.bb146, i1 %and_ln50_3, void %land.lhs.true156
+sw.epilog:2 %ctx_compute_done_1 = phi i1 %and_ln50, void %sw.bb163, i1 %and_ln50, void %if.else154, i1 %and_ln50, void %if.else137, i1 %and_ln50, void %if.else120, i1 %and_ln50, void %if.else103, i1 %and_ln50, void %sw.bb93, i1 %and_ln50, void %sw.bb91, i1 %and_ln50, void %sw.bb89, i1 %and_ln50, void %if.else80, i1 %and_ln50, void %sw.bb70, i1 %and_ln50, void %if.else59, i1 %and_ln50, void %if.else, i1 %and_ln68, void %sw.bb, i1 %and_ln50, void %sw.bb36, i1 %and_ln50, void %land.lhs.true44, i1 %and_ln50, void %sw.bb51, i1 %and_ln50, void %land.lhs.true61, i1 %and_ln50, void %entry_ifconv, i1 %and_ln50, void %sw.bb72, i1 %and_ln50, void %land.lhs.true82, i1 %and_ln50, void %sw.bb95, i1 %and_ln50, void %land.lhs.true105, i1 %and_ln50, void %sw.bb112, i1 %and_ln50, void %land.lhs.true122, i1 %and_ln50, void %sw.bb129, i1 %and_ln50, void %land.lhs.true139, i1 %and_ln50, void %sw.bb146, i1 %and_ln50, void %land.lhs.true156
 
 ]]></Node>
-<StgValue><ssdm name="ctx_v_started_1"/></StgValue>
+<StgValue><ssdm name="ctx_compute_done_1"/></StgValue>
 </operation>
 
 <operation id="128" st_id="1" stage="1" lat="1">
@@ -2046,12 +2046,12 @@ sw.epilog:5 %ctx_v_started_1 = phi i1 %and_ln50_3, void %sw.bb163, i1 %and_ln50_
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="176" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
+<Node id="178" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
 <![CDATA[
-sw.epilog:6 %ctx_att_scores_started_1 = phi i1 %and_ln50_4, void %sw.bb163, i1 %and_ln50_4, void %if.else154, i1 %and_ln50_4, void %if.else137, i1 %and_ln50_4, void %if.else120, i1 %and_ln50_4, void %if.else103, i1 %and_ln50_4, void %sw.bb93, i1 %and_ln50_4, void %sw.bb91, i1 %and_ln50_4, void %sw.bb89, i1 %and_ln50_4, void %if.else80, i1 %and_ln50_4, void %sw.bb70, i1 %and_ln50_4, void %if.else59, i1 %and_ln50_4, void %if.else, i1 %and_ln68_4, void %sw.bb, i1 %and_ln50_4, void %sw.bb36, i1 %and_ln50_4, void %land.lhs.true44, i1 %and_ln50_4, void %sw.bb51, i1 %and_ln50_4, void %land.lhs.true61, i1 %and_ln50_4, void %entry_ifconv, i1 %and_ln50_4, void %sw.bb72, i1 %and_ln50_4, void %land.lhs.true82, i1 1, void %sw.bb95, i1 0, void %land.lhs.true105, i1 %and_ln50_4, void %sw.bb112, i1 %and_ln50_4, void %land.lhs.true122, i1 %and_ln50_4, void %sw.bb129, i1 %and_ln50_4, void %land.lhs.true139, i1 %and_ln50_4, void %sw.bb146, i1 %and_ln50_4, void %land.lhs.true156
+sw.epilog:3 %ctx_q_started_1 = phi i1 %and_ln50_1, void %sw.bb163, i1 %and_ln50_1, void %if.else154, i1 %and_ln50_1, void %if.else137, i1 %and_ln50_1, void %if.else120, i1 %and_ln50_1, void %if.else103, i1 %and_ln50_1, void %sw.bb93, i1 %and_ln50_1, void %sw.bb91, i1 %and_ln50_1, void %sw.bb89, i1 %and_ln50_1, void %if.else80, i1 %and_ln50_1, void %sw.bb70, i1 %and_ln50_1, void %if.else59, i1 %and_ln50_1, void %if.else, i1 %and_ln68_1, void %sw.bb, i1 1, void %sw.bb36, i1 0, void %land.lhs.true44, i1 %and_ln50_1, void %sw.bb51, i1 %and_ln50_1, void %land.lhs.true61, i1 %and_ln50_1, void %entry_ifconv, i1 %and_ln50_1, void %sw.bb72, i1 %and_ln50_1, void %land.lhs.true82, i1 %and_ln50_1, void %sw.bb95, i1 %and_ln50_1, void %land.lhs.true105, i1 %and_ln50_1, void %sw.bb112, i1 %and_ln50_1, void %land.lhs.true122, i1 %and_ln50_1, void %sw.bb129, i1 %and_ln50_1, void %land.lhs.true139, i1 %and_ln50_1, void %sw.bb146, i1 %and_ln50_1, void %land.lhs.true156
 
 ]]></Node>
-<StgValue><ssdm name="ctx_att_scores_started_1"/></StgValue>
+<StgValue><ssdm name="ctx_q_started_1"/></StgValue>
 </operation>
 
 <operation id="129" st_id="1" stage="1" lat="1">
@@ -2061,12 +2061,12 @@ sw.epilog:6 %ctx_att_scores_started_1 = phi i1 %and_ln50_4, void %sw.bb163, i1 %
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="177" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
+<Node id="179" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
 <![CDATA[
-sw.epilog:7 %ctx_val_scale_started_1 = phi i1 %and_ln50_5, void %sw.bb163, i1 %and_ln50_5, void %if.else154, i1 %and_ln50_5, void %if.else137, i1 %and_ln50_5, void %if.else120, i1 %and_ln50_5, void %if.else103, i1 %and_ln50_5, void %sw.bb93, i1 %and_ln50_5, void %sw.bb91, i1 %and_ln50_5, void %sw.bb89, i1 %and_ln50_5, void %if.else80, i1 %and_ln50_5, void %sw.bb70, i1 %and_ln50_5, void %if.else59, i1 %and_ln50_5, void %if.else, i1 %and_ln68_5, void %sw.bb, i1 %and_ln50_5, void %sw.bb36, i1 %and_ln50_5, void %land.lhs.true44, i1 %and_ln50_5, void %sw.bb51, i1 %and_ln50_5, void %land.lhs.true61, i1 %and_ln50_5, void %entry_ifconv, i1 %and_ln50_5, void %sw.bb72, i1 %and_ln50_5, void %land.lhs.true82, i1 %and_ln50_5, void %sw.bb95, i1 %and_ln50_5, void %land.lhs.true105, i1 1, void %sw.bb112, i1 0, void %land.lhs.true122, i1 %and_ln50_5, void %sw.bb129, i1 %and_ln50_5, void %land.lhs.true139, i1 %and_ln50_5, void %sw.bb146, i1 %and_ln50_5, void %land.lhs.true156
+sw.epilog:4 %ctx_k_started_1 = phi i1 %and_ln50_2, void %sw.bb163, i1 %and_ln50_2, void %if.else154, i1 %and_ln50_2, void %if.else137, i1 %and_ln50_2, void %if.else120, i1 %and_ln50_2, void %if.else103, i1 %and_ln50_2, void %sw.bb93, i1 %and_ln50_2, void %sw.bb91, i1 %and_ln50_2, void %sw.bb89, i1 %and_ln50_2, void %if.else80, i1 %and_ln50_2, void %sw.bb70, i1 %and_ln50_2, void %if.else59, i1 %and_ln50_2, void %if.else, i1 %and_ln68_2, void %sw.bb, i1 %and_ln50_2, void %sw.bb36, i1 %and_ln50_2, void %land.lhs.true44, i1 1, void %sw.bb51, i1 0, void %land.lhs.true61, i1 %and_ln50_2, void %entry_ifconv, i1 %and_ln50_2, void %sw.bb72, i1 %and_ln50_2, void %land.lhs.true82, i1 %and_ln50_2, void %sw.bb95, i1 %and_ln50_2, void %land.lhs.true105, i1 %and_ln50_2, void %sw.bb112, i1 %and_ln50_2, void %land.lhs.true122, i1 %and_ln50_2, void %sw.bb129, i1 %and_ln50_2, void %land.lhs.true139, i1 %and_ln50_2, void %sw.bb146, i1 %and_ln50_2, void %land.lhs.true156
 
 ]]></Node>
-<StgValue><ssdm name="ctx_val_scale_started_1"/></StgValue>
+<StgValue><ssdm name="ctx_k_started_1"/></StgValue>
 </operation>
 
 <operation id="130" st_id="1" stage="1" lat="1">
@@ -2076,12 +2076,12 @@ sw.epilog:7 %ctx_val_scale_started_1 = phi i1 %and_ln50_5, void %sw.bb163, i1 %a
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="178" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
+<Node id="180" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
 <![CDATA[
-sw.epilog:8 %ctx_softmax_started_1 = phi i1 %and_ln50_6, void %sw.bb163, i1 %and_ln50_6, void %if.else154, i1 %and_ln50_6, void %if.else137, i1 %and_ln50_6, void %if.else120, i1 %and_ln50_6, void %if.else103, i1 %and_ln50_6, void %sw.bb93, i1 %and_ln50_6, void %sw.bb91, i1 %and_ln50_6, void %sw.bb89, i1 %and_ln50_6, void %if.else80, i1 %and_ln50_6, void %sw.bb70, i1 %and_ln50_6, void %if.else59, i1 %and_ln50_6, void %if.else, i1 %and_ln68_6, void %sw.bb, i1 %and_ln50_6, void %sw.bb36, i1 %and_ln50_6, void %land.lhs.true44, i1 %and_ln50_6, void %sw.bb51, i1 %and_ln50_6, void %land.lhs.true61, i1 %and_ln50_6, void %entry_ifconv, i1 %and_ln50_6, void %sw.bb72, i1 %and_ln50_6, void %land.lhs.true82, i1 %and_ln50_6, void %sw.bb95, i1 %and_ln50_6, void %land.lhs.true105, i1 %and_ln50_6, void %sw.bb112, i1 %and_ln50_6, void %land.lhs.true122, i1 1, void %sw.bb129, i1 0, void %land.lhs.true139, i1 %and_ln50_6, void %sw.bb146, i1 %and_ln50_6, void %land.lhs.true156
+sw.epilog:5 %ctx_v_started_1 = phi i1 %and_ln50_3, void %sw.bb163, i1 %and_ln50_3, void %if.else154, i1 %and_ln50_3, void %if.else137, i1 %and_ln50_3, void %if.else120, i1 %and_ln50_3, void %if.else103, i1 %and_ln50_3, void %sw.bb93, i1 %and_ln50_3, void %sw.bb91, i1 %and_ln50_3, void %sw.bb89, i1 %and_ln50_3, void %if.else80, i1 %and_ln50_3, void %sw.bb70, i1 %and_ln50_3, void %if.else59, i1 %and_ln50_3, void %if.else, i1 %and_ln68_3, void %sw.bb, i1 %and_ln50_3, void %sw.bb36, i1 %and_ln50_3, void %land.lhs.true44, i1 %and_ln50_3, void %sw.bb51, i1 %and_ln50_3, void %land.lhs.true61, i1 %and_ln50_3, void %entry_ifconv, i1 1, void %sw.bb72, i1 0, void %land.lhs.true82, i1 %and_ln50_3, void %sw.bb95, i1 %and_ln50_3, void %land.lhs.true105, i1 %and_ln50_3, void %sw.bb112, i1 %and_ln50_3, void %land.lhs.true122, i1 %and_ln50_3, void %sw.bb129, i1 %and_ln50_3, void %land.lhs.true139, i1 %and_ln50_3, void %sw.bb146, i1 %and_ln50_3, void %land.lhs.true156
 
 ]]></Node>
-<StgValue><ssdm name="ctx_softmax_started_1"/></StgValue>
+<StgValue><ssdm name="ctx_v_started_1"/></StgValue>
 </operation>
 
 <operation id="131" st_id="1" stage="1" lat="1">
@@ -2091,12 +2091,12 @@ sw.epilog:8 %ctx_softmax_started_1 = phi i1 %and_ln50_6, void %sw.bb163, i1 %and
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="179" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
+<Node id="181" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
 <![CDATA[
-sw.epilog:9 %ctx_att_value_started_1 = phi i1 %and_ln50_7, void %sw.bb163, i1 %and_ln50_7, void %if.else154, i1 %and_ln50_7, void %if.else137, i1 %and_ln50_7, void %if.else120, i1 %and_ln50_7, void %if.else103, i1 %and_ln50_7, void %sw.bb93, i1 %and_ln50_7, void %sw.bb91, i1 %and_ln50_7, void %sw.bb89, i1 %and_ln50_7, void %if.else80, i1 %and_ln50_7, void %sw.bb70, i1 %and_ln50_7, void %if.else59, i1 %and_ln50_7, void %if.else, i1 %and_ln68_7, void %sw.bb, i1 %and_ln50_7, void %sw.bb36, i1 %and_ln50_7, void %land.lhs.true44, i1 %and_ln50_7, void %sw.bb51, i1 %and_ln50_7, void %land.lhs.true61, i1 %and_ln50_7, void %entry_ifconv, i1 %and_ln50_7, void %sw.bb72, i1 %and_ln50_7, void %land.lhs.true82, i1 %and_ln50_7, void %sw.bb95, i1 %and_ln50_7, void %land.lhs.true105, i1 %and_ln50_7, void %sw.bb112, i1 %and_ln50_7, void %land.lhs.true122, i1 %and_ln50_7, void %sw.bb129, i1 %and_ln50_7, void %land.lhs.true139, i1 1, void %sw.bb146, i1 0, void %land.lhs.true156
+sw.epilog:6 %ctx_att_scores_started_1 = phi i1 %and_ln50_4, void %sw.bb163, i1 %and_ln50_4, void %if.else154, i1 %and_ln50_4, void %if.else137, i1 %and_ln50_4, void %if.else120, i1 %and_ln50_4, void %if.else103, i1 %and_ln50_4, void %sw.bb93, i1 %and_ln50_4, void %sw.bb91, i1 %and_ln50_4, void %sw.bb89, i1 %and_ln50_4, void %if.else80, i1 %and_ln50_4, void %sw.bb70, i1 %and_ln50_4, void %if.else59, i1 %and_ln50_4, void %if.else, i1 %and_ln68_4, void %sw.bb, i1 %and_ln50_4, void %sw.bb36, i1 %and_ln50_4, void %land.lhs.true44, i1 %and_ln50_4, void %sw.bb51, i1 %and_ln50_4, void %land.lhs.true61, i1 %and_ln50_4, void %entry_ifconv, i1 %and_ln50_4, void %sw.bb72, i1 %and_ln50_4, void %land.lhs.true82, i1 1, void %sw.bb95, i1 0, void %land.lhs.true105, i1 %and_ln50_4, void %sw.bb112, i1 %and_ln50_4, void %land.lhs.true122, i1 %and_ln50_4, void %sw.bb129, i1 %and_ln50_4, void %land.lhs.true139, i1 %and_ln50_4, void %sw.bb146, i1 %and_ln50_4, void %land.lhs.true156
 
 ]]></Node>
-<StgValue><ssdm name="ctx_att_value_started_1"/></StgValue>
+<StgValue><ssdm name="ctx_att_scores_started_1"/></StgValue>
 </operation>
 
 <operation id="132" st_id="1" stage="1" lat="1">
@@ -2106,12 +2106,12 @@ sw.epilog:9 %ctx_att_value_started_1 = phi i1 %and_ln50_7, void %sw.bb163, i1 %a
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="180" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
+<Node id="182" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
 <![CDATA[
-sw.epilog:10 %ctx_q_compute_done_3 = phi i1 %ctx_q_compute_done_2, void %sw.bb163, i1 %ctx_q_compute_done_2, void %if.else154, i1 %ctx_q_compute_done_2, void %if.else137, i1 %ctx_q_compute_done_2, void %if.else120, i1 %ctx_q_compute_done_2, void %if.else103, i1 %ctx_q_compute_done_2, void %sw.bb93, i1 %ctx_q_compute_done_2, void %sw.bb91, i1 %ctx_q_compute_done_2, void %sw.bb89, i1 %ctx_q_compute_done_2, void %if.else80, i1 %ctx_q_compute_done_2, void %sw.bb70, i1 %ctx_q_compute_done_2, void %if.else59, i1 %ctx_q_compute_done_2, void %if.else, i1 %and_ln68_8, void %sw.bb, i1 %ctx_q_compute_done_2, void %sw.bb36, i1 1, void %land.lhs.true44, i1 %ctx_q_compute_done_2, void %sw.bb51, i1 %ctx_q_compute_done_2, void %land.lhs.true61, i1 %ctx_q_compute_done_2, void %entry_ifconv, i1 %ctx_q_compute_done_2, void %sw.bb72, i1 %ctx_q_compute_done_2, void %land.lhs.true82, i1 %ctx_q_compute_done_2, void %sw.bb95, i1 %ctx_q_compute_done_2, void %land.lhs.true105, i1 %ctx_q_compute_done_2, void %sw.bb112, i1 %ctx_q_compute_done_2, void %land.lhs.true122, i1 %ctx_q_compute_done_2, void %sw.bb129, i1 %ctx_q_compute_done_2, void %land.lhs.true139, i1 %ctx_q_compute_done_2, void %sw.bb146, i1 %ctx_q_compute_done_2, void %land.lhs.true156
+sw.epilog:7 %ctx_val_scale_started_1 = phi i1 %and_ln50_5, void %sw.bb163, i1 %and_ln50_5, void %if.else154, i1 %and_ln50_5, void %if.else137, i1 %and_ln50_5, void %if.else120, i1 %and_ln50_5, void %if.else103, i1 %and_ln50_5, void %sw.bb93, i1 %and_ln50_5, void %sw.bb91, i1 %and_ln50_5, void %sw.bb89, i1 %and_ln50_5, void %if.else80, i1 %and_ln50_5, void %sw.bb70, i1 %and_ln50_5, void %if.else59, i1 %and_ln50_5, void %if.else, i1 %and_ln68_5, void %sw.bb, i1 %and_ln50_5, void %sw.bb36, i1 %and_ln50_5, void %land.lhs.true44, i1 %and_ln50_5, void %sw.bb51, i1 %and_ln50_5, void %land.lhs.true61, i1 %and_ln50_5, void %entry_ifconv, i1 %and_ln50_5, void %sw.bb72, i1 %and_ln50_5, void %land.lhs.true82, i1 %and_ln50_5, void %sw.bb95, i1 %and_ln50_5, void %land.lhs.true105, i1 1, void %sw.bb112, i1 0, void %land.lhs.true122, i1 %and_ln50_5, void %sw.bb129, i1 %and_ln50_5, void %land.lhs.true139, i1 %and_ln50_5, void %sw.bb146, i1 %and_ln50_5, void %land.lhs.true156
 
 ]]></Node>
-<StgValue><ssdm name="ctx_q_compute_done_3"/></StgValue>
+<StgValue><ssdm name="ctx_val_scale_started_1"/></StgValue>
 </operation>
 
 <operation id="133" st_id="1" stage="1" lat="1">
@@ -2121,12 +2121,12 @@ sw.epilog:10 %ctx_q_compute_done_3 = phi i1 %ctx_q_compute_done_2, void %sw.bb16
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="181" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
+<Node id="183" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
 <![CDATA[
-sw.epilog:11 %ctx_k_compute_done_3 = phi i1 %ctx_k_compute_done_2, void %sw.bb163, i1 %ctx_k_compute_done_2, void %if.else154, i1 %ctx_k_compute_done_2, void %if.else137, i1 %ctx_k_compute_done_2, void %if.else120, i1 %ctx_k_compute_done_2, void %if.else103, i1 %ctx_k_compute_done_2, void %sw.bb93, i1 %ctx_k_compute_done_2, void %sw.bb91, i1 %ctx_k_compute_done_2, void %sw.bb89, i1 %ctx_k_compute_done_2, void %if.else80, i1 %ctx_k_compute_done_2, void %sw.bb70, i1 %ctx_k_compute_done_2, void %if.else59, i1 %ctx_k_compute_done_2, void %if.else, i1 %and_ln68_9, void %sw.bb, i1 %ctx_k_compute_done_2, void %sw.bb36, i1 %ctx_k_compute_done_2, void %land.lhs.true44, i1 %ctx_k_compute_done_2, void %sw.bb51, i1 1, void %land.lhs.true61, i1 %ctx_k_compute_done_2, void %entry_ifconv, i1 %ctx_k_compute_done_2, void %sw.bb72, i1 %ctx_k_compute_done_2, void %land.lhs.true82, i1 %ctx_k_compute_done_2, void %sw.bb95, i1 %ctx_k_compute_done_2, void %land.lhs.true105, i1 %ctx_k_compute_done_2, void %sw.bb112, i1 %ctx_k_compute_done_2, void %land.lhs.true122, i1 %ctx_k_compute_done_2, void %sw.bb129, i1 %ctx_k_compute_done_2, void %land.lhs.true139, i1 %ctx_k_compute_done_2, void %sw.bb146, i1 %ctx_k_compute_done_2, void %land.lhs.true156
+sw.epilog:8 %ctx_softmax_started_1 = phi i1 %and_ln50_6, void %sw.bb163, i1 %and_ln50_6, void %if.else154, i1 %and_ln50_6, void %if.else137, i1 %and_ln50_6, void %if.else120, i1 %and_ln50_6, void %if.else103, i1 %and_ln50_6, void %sw.bb93, i1 %and_ln50_6, void %sw.bb91, i1 %and_ln50_6, void %sw.bb89, i1 %and_ln50_6, void %if.else80, i1 %and_ln50_6, void %sw.bb70, i1 %and_ln50_6, void %if.else59, i1 %and_ln50_6, void %if.else, i1 %and_ln68_6, void %sw.bb, i1 %and_ln50_6, void %sw.bb36, i1 %and_ln50_6, void %land.lhs.true44, i1 %and_ln50_6, void %sw.bb51, i1 %and_ln50_6, void %land.lhs.true61, i1 %and_ln50_6, void %entry_ifconv, i1 %and_ln50_6, void %sw.bb72, i1 %and_ln50_6, void %land.lhs.true82, i1 %and_ln50_6, void %sw.bb95, i1 %and_ln50_6, void %land.lhs.true105, i1 %and_ln50_6, void %sw.bb112, i1 %and_ln50_6, void %land.lhs.true122, i1 1, void %sw.bb129, i1 0, void %land.lhs.true139, i1 %and_ln50_6, void %sw.bb146, i1 %and_ln50_6, void %land.lhs.true156
 
 ]]></Node>
-<StgValue><ssdm name="ctx_k_compute_done_3"/></StgValue>
+<StgValue><ssdm name="ctx_softmax_started_1"/></StgValue>
 </operation>
 
 <operation id="134" st_id="1" stage="1" lat="1">
@@ -2136,12 +2136,12 @@ sw.epilog:11 %ctx_k_compute_done_3 = phi i1 %ctx_k_compute_done_2, void %sw.bb16
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="182" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
+<Node id="184" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
 <![CDATA[
-sw.epilog:12 %ctx_v_compute_done_3 = phi i1 %ctx_v_compute_done_2, void %sw.bb163, i1 %ctx_v_compute_done_2, void %if.else154, i1 %ctx_v_compute_done_2, void %if.else137, i1 %ctx_v_compute_done_2, void %if.else120, i1 %ctx_v_compute_done_2, void %if.else103, i1 %ctx_v_compute_done_2, void %sw.bb93, i1 %ctx_v_compute_done_2, void %sw.bb91, i1 %ctx_v_compute_done_2, void %sw.bb89, i1 %ctx_v_compute_done_2, void %if.else80, i1 %ctx_v_compute_done_2, void %sw.bb70, i1 %ctx_v_compute_done_2, void %if.else59, i1 %ctx_v_compute_done_2, void %if.else, i1 %and_ln68_10, void %sw.bb, i1 %ctx_v_compute_done_2, void %sw.bb36, i1 %ctx_v_compute_done_2, void %land.lhs.true44, i1 %ctx_v_compute_done_2, void %sw.bb51, i1 %ctx_v_compute_done_2, void %land.lhs.true61, i1 %ctx_v_compute_done_2, void %entry_ifconv, i1 %ctx_v_compute_done_2, void %sw.bb72, i1 1, void %land.lhs.true82, i1 %ctx_v_compute_done_2, void %sw.bb95, i1 %ctx_v_compute_done_2, void %land.lhs.true105, i1 %ctx_v_compute_done_2, void %sw.bb112, i1 %ctx_v_compute_done_2, void %land.lhs.true122, i1 %ctx_v_compute_done_2, void %sw.bb129, i1 %ctx_v_compute_done_2, void %land.lhs.true139, i1 %ctx_v_compute_done_2, void %sw.bb146, i1 %ctx_v_compute_done_2, void %land.lhs.true156
+sw.epilog:9 %ctx_att_value_started_1 = phi i1 %and_ln50_7, void %sw.bb163, i1 %and_ln50_7, void %if.else154, i1 %and_ln50_7, void %if.else137, i1 %and_ln50_7, void %if.else120, i1 %and_ln50_7, void %if.else103, i1 %and_ln50_7, void %sw.bb93, i1 %and_ln50_7, void %sw.bb91, i1 %and_ln50_7, void %sw.bb89, i1 %and_ln50_7, void %if.else80, i1 %and_ln50_7, void %sw.bb70, i1 %and_ln50_7, void %if.else59, i1 %and_ln50_7, void %if.else, i1 %and_ln68_7, void %sw.bb, i1 %and_ln50_7, void %sw.bb36, i1 %and_ln50_7, void %land.lhs.true44, i1 %and_ln50_7, void %sw.bb51, i1 %and_ln50_7, void %land.lhs.true61, i1 %and_ln50_7, void %entry_ifconv, i1 %and_ln50_7, void %sw.bb72, i1 %and_ln50_7, void %land.lhs.true82, i1 %and_ln50_7, void %sw.bb95, i1 %and_ln50_7, void %land.lhs.true105, i1 %and_ln50_7, void %sw.bb112, i1 %and_ln50_7, void %land.lhs.true122, i1 %and_ln50_7, void %sw.bb129, i1 %and_ln50_7, void %land.lhs.true139, i1 1, void %sw.bb146, i1 0, void %land.lhs.true156
 
 ]]></Node>
-<StgValue><ssdm name="ctx_v_compute_done_3"/></StgValue>
+<StgValue><ssdm name="ctx_att_value_started_1"/></StgValue>
 </operation>
 
 <operation id="135" st_id="1" stage="1" lat="1">
@@ -2151,12 +2151,12 @@ sw.epilog:12 %ctx_v_compute_done_3 = phi i1 %ctx_v_compute_done_2, void %sw.bb16
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="183" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
+<Node id="185" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
 <![CDATA[
-sw.epilog:13 %ctx_att_scores_compute_done_3 = phi i1 %ctx_att_scores_compute_done_2, void %sw.bb163, i1 %ctx_att_scores_compute_done_2, void %if.else154, i1 %ctx_att_scores_compute_done_2, void %if.else137, i1 %ctx_att_scores_compute_done_2, void %if.else120, i1 %ctx_att_scores_compute_done_2, void %if.else103, i1 %ctx_att_scores_compute_done_2, void %sw.bb93, i1 %ctx_att_scores_compute_done_2, void %sw.bb91, i1 %ctx_att_scores_compute_done_2, void %sw.bb89, i1 %ctx_att_scores_compute_done_2, void %if.else80, i1 %ctx_att_scores_compute_done_2, void %sw.bb70, i1 %ctx_att_scores_compute_done_2, void %if.else59, i1 %ctx_att_scores_compute_done_2, void %if.else, i1 %and_ln68_11, void %sw.bb, i1 %ctx_att_scores_compute_done_2, void %sw.bb36, i1 %ctx_att_scores_compute_done_2, void %land.lhs.true44, i1 %ctx_att_scores_compute_done_2, void %sw.bb51, i1 %ctx_att_scores_compute_done_2, void %land.lhs.true61, i1 %ctx_att_scores_compute_done_2, void %entry_ifconv, i1 %ctx_att_scores_compute_done_2, void %sw.bb72, i1 %ctx_att_scores_compute_done_2, void %land.lhs.true82, i1 %ctx_att_scores_compute_done_2, void %sw.bb95, i1 1, void %land.lhs.true105, i1 %ctx_att_scores_compute_done_2, void %sw.bb112, i1 %ctx_att_scores_compute_done_2, void %land.lhs.true122, i1 %ctx_att_scores_compute_done_2, void %sw.bb129, i1 %ctx_att_scores_compute_done_2, void %land.lhs.true139, i1 %ctx_att_scores_compute_done_2, void %sw.bb146, i1 %ctx_att_scores_compute_done_2, void %land.lhs.true156
+sw.epilog:10 %ctx_q_compute_done_3 = phi i1 %ctx_q_compute_done_2, void %sw.bb163, i1 %ctx_q_compute_done_2, void %if.else154, i1 %ctx_q_compute_done_2, void %if.else137, i1 %ctx_q_compute_done_2, void %if.else120, i1 %ctx_q_compute_done_2, void %if.else103, i1 %ctx_q_compute_done_2, void %sw.bb93, i1 %ctx_q_compute_done_2, void %sw.bb91, i1 %ctx_q_compute_done_2, void %sw.bb89, i1 %ctx_q_compute_done_2, void %if.else80, i1 %ctx_q_compute_done_2, void %sw.bb70, i1 %ctx_q_compute_done_2, void %if.else59, i1 %ctx_q_compute_done_2, void %if.else, i1 %and_ln68_8, void %sw.bb, i1 %ctx_q_compute_done_2, void %sw.bb36, i1 1, void %land.lhs.true44, i1 %ctx_q_compute_done_2, void %sw.bb51, i1 %ctx_q_compute_done_2, void %land.lhs.true61, i1 %ctx_q_compute_done_2, void %entry_ifconv, i1 %ctx_q_compute_done_2, void %sw.bb72, i1 %ctx_q_compute_done_2, void %land.lhs.true82, i1 %ctx_q_compute_done_2, void %sw.bb95, i1 %ctx_q_compute_done_2, void %land.lhs.true105, i1 %ctx_q_compute_done_2, void %sw.bb112, i1 %ctx_q_compute_done_2, void %land.lhs.true122, i1 %ctx_q_compute_done_2, void %sw.bb129, i1 %ctx_q_compute_done_2, void %land.lhs.true139, i1 %ctx_q_compute_done_2, void %sw.bb146, i1 %ctx_q_compute_done_2, void %land.lhs.true156
 
 ]]></Node>
-<StgValue><ssdm name="ctx_att_scores_compute_done_3"/></StgValue>
+<StgValue><ssdm name="ctx_q_compute_done_3"/></StgValue>
 </operation>
 
 <operation id="136" st_id="1" stage="1" lat="1">
@@ -2166,12 +2166,12 @@ sw.epilog:13 %ctx_att_scores_compute_done_3 = phi i1 %ctx_att_scores_compute_don
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="184" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
+<Node id="186" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
 <![CDATA[
-sw.epilog:14 %ctx_val_scale_compute_done_3 = phi i1 %ctx_val_scale_compute_done_2, void %sw.bb163, i1 %ctx_val_scale_compute_done_2, void %if.else154, i1 %ctx_val_scale_compute_done_2, void %if.else137, i1 %ctx_val_scale_compute_done_2, void %if.else120, i1 %ctx_val_scale_compute_done_2, void %if.else103, i1 %ctx_val_scale_compute_done_2, void %sw.bb93, i1 %ctx_val_scale_compute_done_2, void %sw.bb91, i1 %ctx_val_scale_compute_done_2, void %sw.bb89, i1 %ctx_val_scale_compute_done_2, void %if.else80, i1 %ctx_val_scale_compute_done_2, void %sw.bb70, i1 %ctx_val_scale_compute_done_2, void %if.else59, i1 %ctx_val_scale_compute_done_2, void %if.else, i1 %and_ln68_12, void %sw.bb, i1 %ctx_val_scale_compute_done_2, void %sw.bb36, i1 %ctx_val_scale_compute_done_2, void %land.lhs.true44, i1 %ctx_val_scale_compute_done_2, void %sw.bb51, i1 %ctx_val_scale_compute_done_2, void %land.lhs.true61, i1 %ctx_val_scale_compute_done_2, void %entry_ifconv, i1 %ctx_val_scale_compute_done_2, void %sw.bb72, i1 %ctx_val_scale_compute_done_2, void %land.lhs.true82, i1 %ctx_val_scale_compute_done_2, void %sw.bb95, i1 %ctx_val_scale_compute_done_2, void %land.lhs.true105, i1 %ctx_val_scale_compute_done_2, void %sw.bb112, i1 1, void %land.lhs.true122, i1 %ctx_val_scale_compute_done_2, void %sw.bb129, i1 %ctx_val_scale_compute_done_2, void %land.lhs.true139, i1 %ctx_val_scale_compute_done_2, void %sw.bb146, i1 %ctx_val_scale_compute_done_2, void %land.lhs.true156
+sw.epilog:11 %ctx_k_compute_done_3 = phi i1 %ctx_k_compute_done_2, void %sw.bb163, i1 %ctx_k_compute_done_2, void %if.else154, i1 %ctx_k_compute_done_2, void %if.else137, i1 %ctx_k_compute_done_2, void %if.else120, i1 %ctx_k_compute_done_2, void %if.else103, i1 %ctx_k_compute_done_2, void %sw.bb93, i1 %ctx_k_compute_done_2, void %sw.bb91, i1 %ctx_k_compute_done_2, void %sw.bb89, i1 %ctx_k_compute_done_2, void %if.else80, i1 %ctx_k_compute_done_2, void %sw.bb70, i1 %ctx_k_compute_done_2, void %if.else59, i1 %ctx_k_compute_done_2, void %if.else, i1 %and_ln68_9, void %sw.bb, i1 %ctx_k_compute_done_2, void %sw.bb36, i1 %ctx_k_compute_done_2, void %land.lhs.true44, i1 %ctx_k_compute_done_2, void %sw.bb51, i1 1, void %land.lhs.true61, i1 %ctx_k_compute_done_2, void %entry_ifconv, i1 %ctx_k_compute_done_2, void %sw.bb72, i1 %ctx_k_compute_done_2, void %land.lhs.true82, i1 %ctx_k_compute_done_2, void %sw.bb95, i1 %ctx_k_compute_done_2, void %land.lhs.true105, i1 %ctx_k_compute_done_2, void %sw.bb112, i1 %ctx_k_compute_done_2, void %land.lhs.true122, i1 %ctx_k_compute_done_2, void %sw.bb129, i1 %ctx_k_compute_done_2, void %land.lhs.true139, i1 %ctx_k_compute_done_2, void %sw.bb146, i1 %ctx_k_compute_done_2, void %land.lhs.true156
 
 ]]></Node>
-<StgValue><ssdm name="ctx_val_scale_compute_done_3"/></StgValue>
+<StgValue><ssdm name="ctx_k_compute_done_3"/></StgValue>
 </operation>
 
 <operation id="137" st_id="1" stage="1" lat="1">
@@ -2181,12 +2181,12 @@ sw.epilog:14 %ctx_val_scale_compute_done_3 = phi i1 %ctx_val_scale_compute_done_
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="185" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
+<Node id="187" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
 <![CDATA[
-sw.epilog:15 %ctx_softmax_compute_done_3 = phi i1 %ctx_softmax_compute_done_2, void %sw.bb163, i1 %ctx_softmax_compute_done_2, void %if.else154, i1 %ctx_softmax_compute_done_2, void %if.else137, i1 %ctx_softmax_compute_done_2, void %if.else120, i1 %ctx_softmax_compute_done_2, void %if.else103, i1 %ctx_softmax_compute_done_2, void %sw.bb93, i1 %ctx_softmax_compute_done_2, void %sw.bb91, i1 %ctx_softmax_compute_done_2, void %sw.bb89, i1 %ctx_softmax_compute_done_2, void %if.else80, i1 %ctx_softmax_compute_done_2, void %sw.bb70, i1 %ctx_softmax_compute_done_2, void %if.else59, i1 %ctx_softmax_compute_done_2, void %if.else, i1 %and_ln68_13, void %sw.bb, i1 %ctx_softmax_compute_done_2, void %sw.bb36, i1 %ctx_softmax_compute_done_2, void %land.lhs.true44, i1 %ctx_softmax_compute_done_2, void %sw.bb51, i1 %ctx_softmax_compute_done_2, void %land.lhs.true61, i1 %ctx_softmax_compute_done_2, void %entry_ifconv, i1 %ctx_softmax_compute_done_2, void %sw.bb72, i1 %ctx_softmax_compute_done_2, void %land.lhs.true82, i1 %ctx_softmax_compute_done_2, void %sw.bb95, i1 %ctx_softmax_compute_done_2, void %land.lhs.true105, i1 %ctx_softmax_compute_done_2, void %sw.bb112, i1 %ctx_softmax_compute_done_2, void %land.lhs.true122, i1 %ctx_softmax_compute_done_2, void %sw.bb129, i1 1, void %land.lhs.true139, i1 %ctx_softmax_compute_done_2, void %sw.bb146, i1 %ctx_softmax_compute_done_2, void %land.lhs.true156
+sw.epilog:12 %ctx_v_compute_done_3 = phi i1 %ctx_v_compute_done_2, void %sw.bb163, i1 %ctx_v_compute_done_2, void %if.else154, i1 %ctx_v_compute_done_2, void %if.else137, i1 %ctx_v_compute_done_2, void %if.else120, i1 %ctx_v_compute_done_2, void %if.else103, i1 %ctx_v_compute_done_2, void %sw.bb93, i1 %ctx_v_compute_done_2, void %sw.bb91, i1 %ctx_v_compute_done_2, void %sw.bb89, i1 %ctx_v_compute_done_2, void %if.else80, i1 %ctx_v_compute_done_2, void %sw.bb70, i1 %ctx_v_compute_done_2, void %if.else59, i1 %ctx_v_compute_done_2, void %if.else, i1 %and_ln68_10, void %sw.bb, i1 %ctx_v_compute_done_2, void %sw.bb36, i1 %ctx_v_compute_done_2, void %land.lhs.true44, i1 %ctx_v_compute_done_2, void %sw.bb51, i1 %ctx_v_compute_done_2, void %land.lhs.true61, i1 %ctx_v_compute_done_2, void %entry_ifconv, i1 %ctx_v_compute_done_2, void %sw.bb72, i1 1, void %land.lhs.true82, i1 %ctx_v_compute_done_2, void %sw.bb95, i1 %ctx_v_compute_done_2, void %land.lhs.true105, i1 %ctx_v_compute_done_2, void %sw.bb112, i1 %ctx_v_compute_done_2, void %land.lhs.true122, i1 %ctx_v_compute_done_2, void %sw.bb129, i1 %ctx_v_compute_done_2, void %land.lhs.true139, i1 %ctx_v_compute_done_2, void %sw.bb146, i1 %ctx_v_compute_done_2, void %land.lhs.true156
 
 ]]></Node>
-<StgValue><ssdm name="ctx_softmax_compute_done_3"/></StgValue>
+<StgValue><ssdm name="ctx_v_compute_done_3"/></StgValue>
 </operation>
 
 <operation id="138" st_id="1" stage="1" lat="1">
@@ -2196,12 +2196,12 @@ sw.epilog:15 %ctx_softmax_compute_done_3 = phi i1 %ctx_softmax_compute_done_2, v
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="186" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
+<Node id="188" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
 <![CDATA[
-sw.epilog:16 %ctx_att_value_compute_done_3 = phi i1 %ctx_att_value_compute_done_2, void %sw.bb163, i1 %ctx_att_value_compute_done_2, void %if.else154, i1 %ctx_att_value_compute_done_2, void %if.else137, i1 %ctx_att_value_compute_done_2, void %if.else120, i1 %ctx_att_value_compute_done_2, void %if.else103, i1 %ctx_att_value_compute_done_2, void %sw.bb93, i1 %ctx_att_value_compute_done_2, void %sw.bb91, i1 %ctx_att_value_compute_done_2, void %sw.bb89, i1 %ctx_att_value_compute_done_2, void %if.else80, i1 %ctx_att_value_compute_done_2, void %sw.bb70, i1 %ctx_att_value_compute_done_2, void %if.else59, i1 %ctx_att_value_compute_done_2, void %if.else, i1 %and_ln68_14, void %sw.bb, i1 %ctx_att_value_compute_done_2, void %sw.bb36, i1 %ctx_att_value_compute_done_2, void %land.lhs.true44, i1 %ctx_att_value_compute_done_2, void %sw.bb51, i1 %ctx_att_value_compute_done_2, void %land.lhs.true61, i1 %ctx_att_value_compute_done_2, void %entry_ifconv, i1 %ctx_att_value_compute_done_2, void %sw.bb72, i1 %ctx_att_value_compute_done_2, void %land.lhs.true82, i1 %ctx_att_value_compute_done_2, void %sw.bb95, i1 %ctx_att_value_compute_done_2, void %land.lhs.true105, i1 %ctx_att_value_compute_done_2, void %sw.bb112, i1 %ctx_att_value_compute_done_2, void %land.lhs.true122, i1 %ctx_att_value_compute_done_2, void %sw.bb129, i1 %ctx_att_value_compute_done_2, void %land.lhs.true139, i1 %ctx_att_value_compute_done_2, void %sw.bb146, i1 1, void %land.lhs.true156
+sw.epilog:13 %ctx_att_scores_compute_done_3 = phi i1 %ctx_att_scores_compute_done_2, void %sw.bb163, i1 %ctx_att_scores_compute_done_2, void %if.else154, i1 %ctx_att_scores_compute_done_2, void %if.else137, i1 %ctx_att_scores_compute_done_2, void %if.else120, i1 %ctx_att_scores_compute_done_2, void %if.else103, i1 %ctx_att_scores_compute_done_2, void %sw.bb93, i1 %ctx_att_scores_compute_done_2, void %sw.bb91, i1 %ctx_att_scores_compute_done_2, void %sw.bb89, i1 %ctx_att_scores_compute_done_2, void %if.else80, i1 %ctx_att_scores_compute_done_2, void %sw.bb70, i1 %ctx_att_scores_compute_done_2, void %if.else59, i1 %ctx_att_scores_compute_done_2, void %if.else, i1 %and_ln68_11, void %sw.bb, i1 %ctx_att_scores_compute_done_2, void %sw.bb36, i1 %ctx_att_scores_compute_done_2, void %land.lhs.true44, i1 %ctx_att_scores_compute_done_2, void %sw.bb51, i1 %ctx_att_scores_compute_done_2, void %land.lhs.true61, i1 %ctx_att_scores_compute_done_2, void %entry_ifconv, i1 %ctx_att_scores_compute_done_2, void %sw.bb72, i1 %ctx_att_scores_compute_done_2, void %land.lhs.true82, i1 %ctx_att_scores_compute_done_2, void %sw.bb95, i1 1, void %land.lhs.true105, i1 %ctx_att_scores_compute_done_2, void %sw.bb112, i1 %ctx_att_scores_compute_done_2, void %land.lhs.true122, i1 %ctx_att_scores_compute_done_2, void %sw.bb129, i1 %ctx_att_scores_compute_done_2, void %land.lhs.true139, i1 %ctx_att_scores_compute_done_2, void %sw.bb146, i1 %ctx_att_scores_compute_done_2, void %land.lhs.true156
 
 ]]></Node>
-<StgValue><ssdm name="ctx_att_value_compute_done_3"/></StgValue>
+<StgValue><ssdm name="ctx_att_scores_compute_done_3"/></StgValue>
 </operation>
 
 <operation id="139" st_id="1" stage="1" lat="1">
@@ -2211,12 +2211,12 @@ sw.epilog:16 %ctx_att_value_compute_done_3 = phi i1 %ctx_att_value_compute_done_
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="187" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
+<Node id="189" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
 <![CDATA[
-sw.epilog:17 %ctx_compute_ready_1 = phi i1 %and_ln50_15, void %sw.bb163, i1 %and_ln50_15, void %if.else154, i1 %and_ln50_15, void %if.else137, i1 %and_ln50_15, void %if.else120, i1 %and_ln50_15, void %if.else103, i1 %and_ln50_15, void %sw.bb93, i1 %and_ln50_15, void %sw.bb91, i1 %and_ln50_15, void %sw.bb89, i1 %and_ln50_15, void %if.else80, i1 %and_ln50_15, void %sw.bb70, i1 %and_ln50_15, void %if.else59, i1 %and_ln50_15, void %if.else, i1 %and_ln68_15, void %sw.bb, i1 1, void %sw.bb36, i1 %and_ln50_15, void %land.lhs.true44, i1 1, void %sw.bb51, i1 %and_ln50_15, void %land.lhs.true61, i1 %and_ln50_15, void %entry_ifconv, i1 1, void %sw.bb72, i1 %and_ln50_15, void %land.lhs.true82, i1 1, void %sw.bb95, i1 %and_ln50_15, void %land.lhs.true105, i1 1, void %sw.bb112, i1 %and_ln50_15, void %land.lhs.true122, i1 1, void %sw.bb129, i1 %and_ln50_15, void %land.lhs.true139, i1 1, void %sw.bb146, i1 %and_ln50_15, void %land.lhs.true156
+sw.epilog:14 %ctx_val_scale_compute_done_3 = phi i1 %ctx_val_scale_compute_done_2, void %sw.bb163, i1 %ctx_val_scale_compute_done_2, void %if.else154, i1 %ctx_val_scale_compute_done_2, void %if.else137, i1 %ctx_val_scale_compute_done_2, void %if.else120, i1 %ctx_val_scale_compute_done_2, void %if.else103, i1 %ctx_val_scale_compute_done_2, void %sw.bb93, i1 %ctx_val_scale_compute_done_2, void %sw.bb91, i1 %ctx_val_scale_compute_done_2, void %sw.bb89, i1 %ctx_val_scale_compute_done_2, void %if.else80, i1 %ctx_val_scale_compute_done_2, void %sw.bb70, i1 %ctx_val_scale_compute_done_2, void %if.else59, i1 %ctx_val_scale_compute_done_2, void %if.else, i1 %and_ln68_12, void %sw.bb, i1 %ctx_val_scale_compute_done_2, void %sw.bb36, i1 %ctx_val_scale_compute_done_2, void %land.lhs.true44, i1 %ctx_val_scale_compute_done_2, void %sw.bb51, i1 %ctx_val_scale_compute_done_2, void %land.lhs.true61, i1 %ctx_val_scale_compute_done_2, void %entry_ifconv, i1 %ctx_val_scale_compute_done_2, void %sw.bb72, i1 %ctx_val_scale_compute_done_2, void %land.lhs.true82, i1 %ctx_val_scale_compute_done_2, void %sw.bb95, i1 %ctx_val_scale_compute_done_2, void %land.lhs.true105, i1 %ctx_val_scale_compute_done_2, void %sw.bb112, i1 1, void %land.lhs.true122, i1 %ctx_val_scale_compute_done_2, void %sw.bb129, i1 %ctx_val_scale_compute_done_2, void %land.lhs.true139, i1 %ctx_val_scale_compute_done_2, void %sw.bb146, i1 %ctx_val_scale_compute_done_2, void %land.lhs.true156
 
 ]]></Node>
-<StgValue><ssdm name="ctx_compute_ready_1"/></StgValue>
+<StgValue><ssdm name="ctx_val_scale_compute_done_3"/></StgValue>
 </operation>
 
 <operation id="140" st_id="1" stage="1" lat="1">
@@ -2226,12 +2226,12 @@ sw.epilog:17 %ctx_compute_ready_1 = phi i1 %and_ln50_15, void %sw.bb163, i1 %and
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="188" bw="4" op_0_bw="4" op_1_bw="0" op_2_bw="4" op_3_bw="0" op_4_bw="4" op_5_bw="0" op_6_bw="4" op_7_bw="0" op_8_bw="4" op_9_bw="0" op_10_bw="4" op_11_bw="0" op_12_bw="4" op_13_bw="0" op_14_bw="4" op_15_bw="0" op_16_bw="4" op_17_bw="0" op_18_bw="4" op_19_bw="0" op_20_bw="4" op_21_bw="0" op_22_bw="4" op_23_bw="0" op_24_bw="4" op_25_bw="0" op_26_bw="4" op_27_bw="0" op_28_bw="4" op_29_bw="0" op_30_bw="4" op_31_bw="0" op_32_bw="4" op_33_bw="0" op_34_bw="4" op_35_bw="0" op_36_bw="4" op_37_bw="0" op_38_bw="4" op_39_bw="0" op_40_bw="4" op_41_bw="0" op_42_bw="4" op_43_bw="0" op_44_bw="4" op_45_bw="0" op_46_bw="4" op_47_bw="0" op_48_bw="4" op_49_bw="0" op_50_bw="4" op_51_bw="0" op_52_bw="4" op_53_bw="0" op_54_bw="4" op_55_bw="0">
+<Node id="190" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
 <![CDATA[
-sw.epilog:18 %ctx_phase_1 = phi i4 14, void %sw.bb163, i4 12, void %if.else154, i4 11, void %if.else137, i4 10, void %if.else120, i4 9, void %if.else103, i4 9, void %sw.bb93, i4 8, void %sw.bb91, i4 7, void %sw.bb89, i4 5, void %if.else80, i4 5, void %sw.bb70, i4 2, void %if.else59, i4 1, void %if.else, i4 %zext_ln68, void %sw.bb, i4 1, void %sw.bb36, i4 %select_ln96, void %land.lhs.true44, i4 2, void %sw.bb51, i4 %select_ln107, void %land.lhs.true61, i4 4, void %entry_ifconv, i4 5, void %sw.bb72, i4 %select_ln123, void %land.lhs.true82, i4 9, void %sw.bb95, i4 %select_ln142, void %land.lhs.true105, i4 10, void %sw.bb112, i4 %select_ln152, void %land.lhs.true122, i4 11, void %sw.bb129, i4 %select_ln162, void %land.lhs.true139, i4 12, void %sw.bb146, i4 %select_ln172, void %land.lhs.true156
+sw.epilog:15 %ctx_softmax_compute_done_3 = phi i1 %ctx_softmax_compute_done_2, void %sw.bb163, i1 %ctx_softmax_compute_done_2, void %if.else154, i1 %ctx_softmax_compute_done_2, void %if.else137, i1 %ctx_softmax_compute_done_2, void %if.else120, i1 %ctx_softmax_compute_done_2, void %if.else103, i1 %ctx_softmax_compute_done_2, void %sw.bb93, i1 %ctx_softmax_compute_done_2, void %sw.bb91, i1 %ctx_softmax_compute_done_2, void %sw.bb89, i1 %ctx_softmax_compute_done_2, void %if.else80, i1 %ctx_softmax_compute_done_2, void %sw.bb70, i1 %ctx_softmax_compute_done_2, void %if.else59, i1 %ctx_softmax_compute_done_2, void %if.else, i1 %and_ln68_13, void %sw.bb, i1 %ctx_softmax_compute_done_2, void %sw.bb36, i1 %ctx_softmax_compute_done_2, void %land.lhs.true44, i1 %ctx_softmax_compute_done_2, void %sw.bb51, i1 %ctx_softmax_compute_done_2, void %land.lhs.true61, i1 %ctx_softmax_compute_done_2, void %entry_ifconv, i1 %ctx_softmax_compute_done_2, void %sw.bb72, i1 %ctx_softmax_compute_done_2, void %land.lhs.true82, i1 %ctx_softmax_compute_done_2, void %sw.bb95, i1 %ctx_softmax_compute_done_2, void %land.lhs.true105, i1 %ctx_softmax_compute_done_2, void %sw.bb112, i1 %ctx_softmax_compute_done_2, void %land.lhs.true122, i1 %ctx_softmax_compute_done_2, void %sw.bb129, i1 1, void %land.lhs.true139, i1 %ctx_softmax_compute_done_2, void %sw.bb146, i1 %ctx_softmax_compute_done_2, void %land.lhs.true156
 
 ]]></Node>
-<StgValue><ssdm name="ctx_phase_1"/></StgValue>
+<StgValue><ssdm name="ctx_softmax_compute_done_3"/></StgValue>
 </operation>
 
 <operation id="141" st_id="1" stage="1" lat="1">
@@ -2241,12 +2241,12 @@ sw.epilog:18 %ctx_phase_1 = phi i4 14, void %sw.bb163, i4 12, void %if.else154, 
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="189" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
+<Node id="191" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
 <![CDATA[
-sw.epilog:19 %phi_ln186 = phi i1 1, void %sw.bb163, i1 0, void %if.else154, i1 0, void %if.else137, i1 0, void %if.else120, i1 0, void %if.else103, i1 0, void %sw.bb93, i1 0, void %sw.bb91, i1 0, void %sw.bb89, i1 0, void %if.else80, i1 0, void %sw.bb70, i1 0, void %if.else59, i1 0, void %if.else, i1 0, void %sw.bb, i1 0, void %sw.bb36, i1 0, void %land.lhs.true44, i1 0, void %sw.bb51, i1 0, void %land.lhs.true61, i1 0, void %entry_ifconv, i1 0, void %sw.bb72, i1 0, void %land.lhs.true82, i1 0, void %sw.bb95, i1 0, void %land.lhs.true105, i1 0, void %sw.bb112, i1 0, void %land.lhs.true122, i1 0, void %sw.bb129, i1 0, void %land.lhs.true139, i1 0, void %sw.bb146, i1 0, void %land.lhs.true156
+sw.epilog:16 %ctx_att_value_compute_done_3 = phi i1 %ctx_att_value_compute_done_2, void %sw.bb163, i1 %ctx_att_value_compute_done_2, void %if.else154, i1 %ctx_att_value_compute_done_2, void %if.else137, i1 %ctx_att_value_compute_done_2, void %if.else120, i1 %ctx_att_value_compute_done_2, void %if.else103, i1 %ctx_att_value_compute_done_2, void %sw.bb93, i1 %ctx_att_value_compute_done_2, void %sw.bb91, i1 %ctx_att_value_compute_done_2, void %sw.bb89, i1 %ctx_att_value_compute_done_2, void %if.else80, i1 %ctx_att_value_compute_done_2, void %sw.bb70, i1 %ctx_att_value_compute_done_2, void %if.else59, i1 %ctx_att_value_compute_done_2, void %if.else, i1 %and_ln68_14, void %sw.bb, i1 %ctx_att_value_compute_done_2, void %sw.bb36, i1 %ctx_att_value_compute_done_2, void %land.lhs.true44, i1 %ctx_att_value_compute_done_2, void %sw.bb51, i1 %ctx_att_value_compute_done_2, void %land.lhs.true61, i1 %ctx_att_value_compute_done_2, void %entry_ifconv, i1 %ctx_att_value_compute_done_2, void %sw.bb72, i1 %ctx_att_value_compute_done_2, void %land.lhs.true82, i1 %ctx_att_value_compute_done_2, void %sw.bb95, i1 %ctx_att_value_compute_done_2, void %land.lhs.true105, i1 %ctx_att_value_compute_done_2, void %sw.bb112, i1 %ctx_att_value_compute_done_2, void %land.lhs.true122, i1 %ctx_att_value_compute_done_2, void %sw.bb129, i1 %ctx_att_value_compute_done_2, void %land.lhs.true139, i1 %ctx_att_value_compute_done_2, void %sw.bb146, i1 1, void %land.lhs.true156
 
 ]]></Node>
-<StgValue><ssdm name="phi_ln186"/></StgValue>
+<StgValue><ssdm name="ctx_att_value_compute_done_3"/></StgValue>
 </operation>
 
 <operation id="142" st_id="1" stage="1" lat="1">
@@ -2256,12 +2256,12 @@ sw.epilog:19 %phi_ln186 = phi i1 1, void %sw.bb163, i1 0, void %if.else154, i1 0
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="190" bw="8" op_0_bw="4">
+<Node id="192" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
 <![CDATA[
-sw.epilog:20 %zext_ln40 = zext i4 %ctx_phase_1
+sw.epilog:17 %ctx_compute_ready_1 = phi i1 %and_ln50_15, void %sw.bb163, i1 %and_ln50_15, void %if.else154, i1 %and_ln50_15, void %if.else137, i1 %and_ln50_15, void %if.else120, i1 %and_ln50_15, void %if.else103, i1 %and_ln50_15, void %sw.bb93, i1 %and_ln50_15, void %sw.bb91, i1 %and_ln50_15, void %sw.bb89, i1 %and_ln50_15, void %if.else80, i1 %and_ln50_15, void %sw.bb70, i1 %and_ln50_15, void %if.else59, i1 %and_ln50_15, void %if.else, i1 %and_ln68_15, void %sw.bb, i1 1, void %sw.bb36, i1 %and_ln50_15, void %land.lhs.true44, i1 1, void %sw.bb51, i1 %and_ln50_15, void %land.lhs.true61, i1 %and_ln50_15, void %entry_ifconv, i1 1, void %sw.bb72, i1 %and_ln50_15, void %land.lhs.true82, i1 1, void %sw.bb95, i1 %and_ln50_15, void %land.lhs.true105, i1 1, void %sw.bb112, i1 %and_ln50_15, void %land.lhs.true122, i1 1, void %sw.bb129, i1 %and_ln50_15, void %land.lhs.true139, i1 1, void %sw.bb146, i1 %and_ln50_15, void %land.lhs.true156
 
 ]]></Node>
-<StgValue><ssdm name="zext_ln40"/></StgValue>
+<StgValue><ssdm name="ctx_compute_ready_1"/></StgValue>
 </operation>
 
 <operation id="143" st_id="1" stage="1" lat="1">
@@ -2271,27 +2271,27 @@ sw.epilog:20 %zext_ln40 = zext i4 %ctx_phase_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="191" bw="8" op_0_bw="3">
+<Node id="193" bw="4" op_0_bw="4" op_1_bw="0" op_2_bw="4" op_3_bw="0" op_4_bw="4" op_5_bw="0" op_6_bw="4" op_7_bw="0" op_8_bw="4" op_9_bw="0" op_10_bw="4" op_11_bw="0" op_12_bw="4" op_13_bw="0" op_14_bw="4" op_15_bw="0" op_16_bw="4" op_17_bw="0" op_18_bw="4" op_19_bw="0" op_20_bw="4" op_21_bw="0" op_22_bw="4" op_23_bw="0" op_24_bw="4" op_25_bw="0" op_26_bw="4" op_27_bw="0" op_28_bw="4" op_29_bw="0" op_30_bw="4" op_31_bw="0" op_32_bw="4" op_33_bw="0" op_34_bw="4" op_35_bw="0" op_36_bw="4" op_37_bw="0" op_38_bw="4" op_39_bw="0" op_40_bw="4" op_41_bw="0" op_42_bw="4" op_43_bw="0" op_44_bw="4" op_45_bw="0" op_46_bw="4" op_47_bw="0" op_48_bw="4" op_49_bw="0" op_50_bw="4" op_51_bw="0" op_52_bw="4" op_53_bw="0" op_54_bw="4" op_55_bw="0">
 <![CDATA[
-sw.epilog:21 %zext_ln40_1 = zext i3 %ctx_compute_op_write_assign
+sw.epilog:18 %ctx_phase_1 = phi i4 14, void %sw.bb163, i4 12, void %if.else154, i4 11, void %if.else137, i4 10, void %if.else120, i4 9, void %if.else103, i4 9, void %sw.bb93, i4 8, void %sw.bb91, i4 7, void %sw.bb89, i4 5, void %if.else80, i4 5, void %sw.bb70, i4 2, void %if.else59, i4 1, void %if.else, i4 %zext_ln68, void %sw.bb, i4 1, void %sw.bb36, i4 %select_ln96, void %land.lhs.true44, i4 2, void %sw.bb51, i4 %select_ln107, void %land.lhs.true61, i4 4, void %entry_ifconv, i4 5, void %sw.bb72, i4 %select_ln123, void %land.lhs.true82, i4 9, void %sw.bb95, i4 %select_ln142, void %land.lhs.true105, i4 10, void %sw.bb112, i4 %select_ln152, void %land.lhs.true122, i4 11, void %sw.bb129, i4 %select_ln162, void %land.lhs.true139, i4 12, void %sw.bb146, i4 %select_ln172, void %land.lhs.true156
 
 ]]></Node>
-<StgValue><ssdm name="zext_ln40_1"/></StgValue>
+<StgValue><ssdm name="ctx_phase_1"/></StgValue>
 </operation>
 
 <operation id="144" st_id="1" stage="1" lat="1">
-<core>LogicGate</core>
+<core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="192" bw="1" op_0_bw="1" op_1_bw="1">
+<Node id="194" bw="1" op_0_bw="1" op_1_bw="0" op_2_bw="1" op_3_bw="0" op_4_bw="1" op_5_bw="0" op_6_bw="1" op_7_bw="0" op_8_bw="1" op_9_bw="0" op_10_bw="1" op_11_bw="0" op_12_bw="1" op_13_bw="0" op_14_bw="1" op_15_bw="0" op_16_bw="1" op_17_bw="0" op_18_bw="1" op_19_bw="0" op_20_bw="1" op_21_bw="0" op_22_bw="1" op_23_bw="0" op_24_bw="1" op_25_bw="0" op_26_bw="1" op_27_bw="0" op_28_bw="1" op_29_bw="0" op_30_bw="1" op_31_bw="0" op_32_bw="1" op_33_bw="0" op_34_bw="1" op_35_bw="0" op_36_bw="1" op_37_bw="0" op_38_bw="1" op_39_bw="0" op_40_bw="1" op_41_bw="0" op_42_bw="1" op_43_bw="0" op_44_bw="1" op_45_bw="0" op_46_bw="1" op_47_bw="0" op_48_bw="1" op_49_bw="0" op_50_bw="1" op_51_bw="0" op_52_bw="1" op_53_bw="0" op_54_bw="1" op_55_bw="0">
 <![CDATA[
-sw.epilog:22 %and_ln186 = and i1 %icmp_ln50, i1 %ctx_start_head_read_1
+sw.epilog:19 %phi_ln186 = phi i1 1, void %sw.bb163, i1 0, void %if.else154, i1 0, void %if.else137, i1 0, void %if.else120, i1 0, void %if.else103, i1 0, void %sw.bb93, i1 0, void %sw.bb91, i1 0, void %sw.bb89, i1 0, void %if.else80, i1 0, void %sw.bb70, i1 0, void %if.else59, i1 0, void %if.else, i1 0, void %sw.bb, i1 0, void %sw.bb36, i1 0, void %land.lhs.true44, i1 0, void %sw.bb51, i1 0, void %land.lhs.true61, i1 0, void %entry_ifconv, i1 0, void %sw.bb72, i1 0, void %land.lhs.true82, i1 0, void %sw.bb95, i1 0, void %land.lhs.true105, i1 0, void %sw.bb112, i1 0, void %land.lhs.true122, i1 0, void %sw.bb129, i1 0, void %land.lhs.true139, i1 0, void %sw.bb146, i1 0, void %land.lhs.true156
 
 ]]></Node>
-<StgValue><ssdm name="and_ln186"/></StgValue>
+<StgValue><ssdm name="phi_ln186"/></StgValue>
 </operation>
 
 <operation id="145" st_id="1" stage="1" lat="1">
@@ -2301,12 +2301,12 @@ sw.epilog:22 %and_ln186 = and i1 %icmp_ln50, i1 %ctx_start_head_read_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="193" bw="67" op_0_bw="67" op_1_bw="1">
+<Node id="195" bw="8" op_0_bw="4">
 <![CDATA[
-sw.epilog:23 %mrv_s = insertvalue i67 <undef>, i1 %phi_ln186
+sw.epilog:20 %zext_ln40 = zext i4 %ctx_phase_1
 
 ]]></Node>
-<StgValue><ssdm name="mrv_s"/></StgValue>
+<StgValue><ssdm name="zext_ln40"/></StgValue>
 </operation>
 
 <operation id="146" st_id="1" stage="1" lat="1">
@@ -2316,27 +2316,27 @@ sw.epilog:23 %mrv_s = insertvalue i67 <undef>, i1 %phi_ln186
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="194" bw="67" op_0_bw="67" op_1_bw="8">
+<Node id="196" bw="8" op_0_bw="3">
 <![CDATA[
-sw.epilog:24 %mrv_1 = insertvalue i67 %mrv_s, i8 %zext_ln40
+sw.epilog:21 %zext_ln40_1 = zext i3 %ctx_compute_op_write_assign
 
 ]]></Node>
-<StgValue><ssdm name="mrv_1"/></StgValue>
+<StgValue><ssdm name="zext_ln40_1"/></StgValue>
 </operation>
 
 <operation id="147" st_id="1" stage="1" lat="1">
-<core>NULL</core>
+<core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="195" bw="67" op_0_bw="67" op_1_bw="1">
+<Node id="197" bw="1" op_0_bw="1" op_1_bw="1">
 <![CDATA[
-sw.epilog:25 %mrv_2 = insertvalue i67 %mrv_1, i1 %ctx_compute_ready_1
+sw.epilog:22 %and_ln186 = and i1 %icmp_ln50, i1 %ctx_start_head_read_1
 
 ]]></Node>
-<StgValue><ssdm name="mrv_2"/></StgValue>
+<StgValue><ssdm name="and_ln186"/></StgValue>
 </operation>
 
 <operation id="148" st_id="1" stage="1" lat="1">
@@ -2346,12 +2346,12 @@ sw.epilog:25 %mrv_2 = insertvalue i67 %mrv_1, i1 %ctx_compute_ready_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="196" bw="67" op_0_bw="67" op_1_bw="1">
+<Node id="198" bw="67" op_0_bw="67" op_1_bw="1">
 <![CDATA[
-sw.epilog:26 %mrv_3 = insertvalue i67 %mrv_2, i1 %ctx_compute_done_1
+sw.epilog:23 %mrv_s = insertvalue i67 <undef>, i1 %phi_ln186
 
 ]]></Node>
-<StgValue><ssdm name="mrv_3"/></StgValue>
+<StgValue><ssdm name="mrv_s"/></StgValue>
 </operation>
 
 <operation id="149" st_id="1" stage="1" lat="1">
@@ -2361,12 +2361,12 @@ sw.epilog:26 %mrv_3 = insertvalue i67 %mrv_2, i1 %ctx_compute_done_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="197" bw="67" op_0_bw="67" op_1_bw="1">
+<Node id="199" bw="67" op_0_bw="67" op_1_bw="8">
 <![CDATA[
-sw.epilog:27 %mrv_4 = insertvalue i67 %mrv_3, i1 %ctx_compute_start_write_assign
+sw.epilog:24 %mrv_1 = insertvalue i67 %mrv_s, i8 %zext_ln40
 
 ]]></Node>
-<StgValue><ssdm name="mrv_4"/></StgValue>
+<StgValue><ssdm name="mrv_1"/></StgValue>
 </operation>
 
 <operation id="150" st_id="1" stage="1" lat="1">
@@ -2376,12 +2376,12 @@ sw.epilog:27 %mrv_4 = insertvalue i67 %mrv_3, i1 %ctx_compute_start_write_assign
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="198" bw="67" op_0_bw="67" op_1_bw="8">
+<Node id="200" bw="67" op_0_bw="67" op_1_bw="1">
 <![CDATA[
-sw.epilog:28 %mrv_5 = insertvalue i67 %mrv_4, i8 %zext_ln40_1
+sw.epilog:25 %mrv_2 = insertvalue i67 %mrv_1, i1 %ctx_compute_ready_1
 
 ]]></Node>
-<StgValue><ssdm name="mrv_5"/></StgValue>
+<StgValue><ssdm name="mrv_2"/></StgValue>
 </operation>
 
 <operation id="151" st_id="1" stage="1" lat="1">
@@ -2391,12 +2391,12 @@ sw.epilog:28 %mrv_5 = insertvalue i67 %mrv_4, i8 %zext_ln40_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="199" bw="67" op_0_bw="67" op_1_bw="1">
+<Node id="201" bw="67" op_0_bw="67" op_1_bw="1">
 <![CDATA[
-sw.epilog:29 %mrv_6 = insertvalue i67 %mrv_5, i1 %and_ln186
+sw.epilog:26 %mrv_3 = insertvalue i67 %mrv_2, i1 %ctx_compute_done_1
 
 ]]></Node>
-<StgValue><ssdm name="mrv_6"/></StgValue>
+<StgValue><ssdm name="mrv_3"/></StgValue>
 </operation>
 
 <operation id="152" st_id="1" stage="1" lat="1">
@@ -2406,12 +2406,12 @@ sw.epilog:29 %mrv_6 = insertvalue i67 %mrv_5, i1 %and_ln186
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="200" bw="67" op_0_bw="67" op_1_bw="1">
+<Node id="202" bw="67" op_0_bw="67" op_1_bw="1">
 <![CDATA[
-sw.epilog:30 %mrv_7 = insertvalue i67 %mrv_6, i1 %ctx_q_started_1
+sw.epilog:27 %mrv_4 = insertvalue i67 %mrv_3, i1 %ctx_compute_start_write_assign
 
 ]]></Node>
-<StgValue><ssdm name="mrv_7"/></StgValue>
+<StgValue><ssdm name="mrv_4"/></StgValue>
 </operation>
 
 <operation id="153" st_id="1" stage="1" lat="1">
@@ -2421,12 +2421,12 @@ sw.epilog:30 %mrv_7 = insertvalue i67 %mrv_6, i1 %ctx_q_started_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="201" bw="67" op_0_bw="67" op_1_bw="1">
+<Node id="203" bw="67" op_0_bw="67" op_1_bw="8">
 <![CDATA[
-sw.epilog:31 %mrv_8 = insertvalue i67 %mrv_7, i1 %ctx_k_started_1
+sw.epilog:28 %mrv_5 = insertvalue i67 %mrv_4, i8 %zext_ln40_1
 
 ]]></Node>
-<StgValue><ssdm name="mrv_8"/></StgValue>
+<StgValue><ssdm name="mrv_5"/></StgValue>
 </operation>
 
 <operation id="154" st_id="1" stage="1" lat="1">
@@ -2436,12 +2436,12 @@ sw.epilog:31 %mrv_8 = insertvalue i67 %mrv_7, i1 %ctx_k_started_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="202" bw="67" op_0_bw="67" op_1_bw="1">
+<Node id="204" bw="67" op_0_bw="67" op_1_bw="1">
 <![CDATA[
-sw.epilog:32 %mrv_9 = insertvalue i67 %mrv_8, i1 %ctx_v_started_1
+sw.epilog:29 %mrv_6 = insertvalue i67 %mrv_5, i1 %and_ln186
 
 ]]></Node>
-<StgValue><ssdm name="mrv_9"/></StgValue>
+<StgValue><ssdm name="mrv_6"/></StgValue>
 </operation>
 
 <operation id="155" st_id="1" stage="1" lat="1">
@@ -2451,12 +2451,12 @@ sw.epilog:32 %mrv_9 = insertvalue i67 %mrv_8, i1 %ctx_v_started_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="203" bw="67" op_0_bw="67" op_1_bw="1">
+<Node id="205" bw="67" op_0_bw="67" op_1_bw="1">
 <![CDATA[
-sw.epilog:33 %mrv_10 = insertvalue i67 %mrv_9, i1 %ctx_att_scores_started_1
+sw.epilog:30 %mrv_7 = insertvalue i67 %mrv_6, i1 %ctx_q_started_1
 
 ]]></Node>
-<StgValue><ssdm name="mrv_10"/></StgValue>
+<StgValue><ssdm name="mrv_7"/></StgValue>
 </operation>
 
 <operation id="156" st_id="1" stage="1" lat="1">
@@ -2466,12 +2466,12 @@ sw.epilog:33 %mrv_10 = insertvalue i67 %mrv_9, i1 %ctx_att_scores_started_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="204" bw="67" op_0_bw="67" op_1_bw="1">
+<Node id="206" bw="67" op_0_bw="67" op_1_bw="1">
 <![CDATA[
-sw.epilog:34 %mrv_11 = insertvalue i67 %mrv_10, i1 %ctx_val_scale_started_1
+sw.epilog:31 %mrv_8 = insertvalue i67 %mrv_7, i1 %ctx_k_started_1
 
 ]]></Node>
-<StgValue><ssdm name="mrv_11"/></StgValue>
+<StgValue><ssdm name="mrv_8"/></StgValue>
 </operation>
 
 <operation id="157" st_id="1" stage="1" lat="1">
@@ -2481,12 +2481,12 @@ sw.epilog:34 %mrv_11 = insertvalue i67 %mrv_10, i1 %ctx_val_scale_started_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="205" bw="67" op_0_bw="67" op_1_bw="1">
+<Node id="207" bw="67" op_0_bw="67" op_1_bw="1">
 <![CDATA[
-sw.epilog:35 %mrv_12 = insertvalue i67 %mrv_11, i1 %ctx_softmax_started_1
+sw.epilog:32 %mrv_9 = insertvalue i67 %mrv_8, i1 %ctx_v_started_1
 
 ]]></Node>
-<StgValue><ssdm name="mrv_12"/></StgValue>
+<StgValue><ssdm name="mrv_9"/></StgValue>
 </operation>
 
 <operation id="158" st_id="1" stage="1" lat="1">
@@ -2496,12 +2496,12 @@ sw.epilog:35 %mrv_12 = insertvalue i67 %mrv_11, i1 %ctx_softmax_started_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="206" bw="67" op_0_bw="67" op_1_bw="1">
+<Node id="208" bw="67" op_0_bw="67" op_1_bw="1">
 <![CDATA[
-sw.epilog:36 %mrv_13 = insertvalue i67 %mrv_12, i1 %ctx_att_value_started_1
+sw.epilog:33 %mrv_10 = insertvalue i67 %mrv_9, i1 %ctx_att_scores_started_1
 
 ]]></Node>
-<StgValue><ssdm name="mrv_13"/></StgValue>
+<StgValue><ssdm name="mrv_10"/></StgValue>
 </operation>
 
 <operation id="159" st_id="1" stage="1" lat="1">
@@ -2511,12 +2511,12 @@ sw.epilog:36 %mrv_13 = insertvalue i67 %mrv_12, i1 %ctx_att_value_started_1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="207" bw="67" op_0_bw="67" op_1_bw="1">
+<Node id="209" bw="67" op_0_bw="67" op_1_bw="1">
 <![CDATA[
-sw.epilog:37 %mrv_14 = insertvalue i67 %mrv_13, i1 %ctx_q_compute_done_3
+sw.epilog:34 %mrv_11 = insertvalue i67 %mrv_10, i1 %ctx_val_scale_started_1
 
 ]]></Node>
-<StgValue><ssdm name="mrv_14"/></StgValue>
+<StgValue><ssdm name="mrv_11"/></StgValue>
 </operation>
 
 <operation id="160" st_id="1" stage="1" lat="1">
@@ -2526,12 +2526,12 @@ sw.epilog:37 %mrv_14 = insertvalue i67 %mrv_13, i1 %ctx_q_compute_done_3
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="208" bw="67" op_0_bw="67" op_1_bw="1">
+<Node id="210" bw="67" op_0_bw="67" op_1_bw="1">
 <![CDATA[
-sw.epilog:38 %mrv_15 = insertvalue i67 %mrv_14, i1 %ctx_k_compute_done_3
+sw.epilog:35 %mrv_12 = insertvalue i67 %mrv_11, i1 %ctx_softmax_started_1
 
 ]]></Node>
-<StgValue><ssdm name="mrv_15"/></StgValue>
+<StgValue><ssdm name="mrv_12"/></StgValue>
 </operation>
 
 <operation id="161" st_id="1" stage="1" lat="1">
@@ -2541,12 +2541,12 @@ sw.epilog:38 %mrv_15 = insertvalue i67 %mrv_14, i1 %ctx_k_compute_done_3
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="209" bw="67" op_0_bw="67" op_1_bw="1">
+<Node id="211" bw="67" op_0_bw="67" op_1_bw="1">
 <![CDATA[
-sw.epilog:39 %mrv_16 = insertvalue i67 %mrv_15, i1 %ctx_v_compute_done_3
+sw.epilog:36 %mrv_13 = insertvalue i67 %mrv_12, i1 %ctx_att_value_started_1
 
 ]]></Node>
-<StgValue><ssdm name="mrv_16"/></StgValue>
+<StgValue><ssdm name="mrv_13"/></StgValue>
 </operation>
 
 <operation id="162" st_id="1" stage="1" lat="1">
@@ -2556,12 +2556,12 @@ sw.epilog:39 %mrv_16 = insertvalue i67 %mrv_15, i1 %ctx_v_compute_done_3
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="210" bw="67" op_0_bw="67" op_1_bw="1">
+<Node id="212" bw="67" op_0_bw="67" op_1_bw="1">
 <![CDATA[
-sw.epilog:40 %mrv_17 = insertvalue i67 %mrv_16, i1 %ctx_att_scores_compute_done_3
+sw.epilog:37 %mrv_14 = insertvalue i67 %mrv_13, i1 %ctx_q_compute_done_3
 
 ]]></Node>
-<StgValue><ssdm name="mrv_17"/></StgValue>
+<StgValue><ssdm name="mrv_14"/></StgValue>
 </operation>
 
 <operation id="163" st_id="1" stage="1" lat="1">
@@ -2571,12 +2571,12 @@ sw.epilog:40 %mrv_17 = insertvalue i67 %mrv_16, i1 %ctx_att_scores_compute_done_
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="211" bw="67" op_0_bw="67" op_1_bw="1">
+<Node id="213" bw="67" op_0_bw="67" op_1_bw="1">
 <![CDATA[
-sw.epilog:41 %mrv_18 = insertvalue i67 %mrv_17, i1 %ctx_val_scale_compute_done_3
+sw.epilog:38 %mrv_15 = insertvalue i67 %mrv_14, i1 %ctx_k_compute_done_3
 
 ]]></Node>
-<StgValue><ssdm name="mrv_18"/></StgValue>
+<StgValue><ssdm name="mrv_15"/></StgValue>
 </operation>
 
 <operation id="164" st_id="1" stage="1" lat="1">
@@ -2586,12 +2586,12 @@ sw.epilog:41 %mrv_18 = insertvalue i67 %mrv_17, i1 %ctx_val_scale_compute_done_3
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="212" bw="67" op_0_bw="67" op_1_bw="1">
+<Node id="214" bw="67" op_0_bw="67" op_1_bw="1">
 <![CDATA[
-sw.epilog:42 %mrv_19 = insertvalue i67 %mrv_18, i1 %ctx_softmax_compute_done_3
+sw.epilog:39 %mrv_16 = insertvalue i67 %mrv_15, i1 %ctx_v_compute_done_3
 
 ]]></Node>
-<StgValue><ssdm name="mrv_19"/></StgValue>
+<StgValue><ssdm name="mrv_16"/></StgValue>
 </operation>
 
 <operation id="165" st_id="1" stage="1" lat="1">
@@ -2601,12 +2601,12 @@ sw.epilog:42 %mrv_19 = insertvalue i67 %mrv_18, i1 %ctx_softmax_compute_done_3
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="213" bw="67" op_0_bw="67" op_1_bw="1">
+<Node id="215" bw="67" op_0_bw="67" op_1_bw="1">
 <![CDATA[
-sw.epilog:43 %mrv_20 = insertvalue i67 %mrv_19, i1 %ctx_att_value_compute_done_3
+sw.epilog:40 %mrv_17 = insertvalue i67 %mrv_16, i1 %ctx_att_scores_compute_done_3
 
 ]]></Node>
-<StgValue><ssdm name="mrv_20"/></StgValue>
+<StgValue><ssdm name="mrv_17"/></StgValue>
 </operation>
 
 <operation id="166" st_id="1" stage="1" lat="1">
@@ -2616,12 +2616,12 @@ sw.epilog:43 %mrv_20 = insertvalue i67 %mrv_19, i1 %ctx_att_value_compute_done_3
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="214" bw="67" op_0_bw="67" op_1_bw="32">
+<Node id="216" bw="67" op_0_bw="67" op_1_bw="1">
 <![CDATA[
-sw.epilog:44 %mrv_21 = insertvalue i67 %mrv_20, i32 %ctx_layer_stamp_write_read
+sw.epilog:41 %mrv_18 = insertvalue i67 %mrv_17, i1 %ctx_val_scale_compute_done_3
 
 ]]></Node>
-<StgValue><ssdm name="mrv_21"/></StgValue>
+<StgValue><ssdm name="mrv_18"/></StgValue>
 </operation>
 
 <operation id="167" st_id="1" stage="1" lat="1">
@@ -2631,7 +2631,52 @@ sw.epilog:44 %mrv_21 = insertvalue i67 %mrv_20, i32 %ctx_layer_stamp_write_read
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="215" bw="0" op_0_bw="67">
+<Node id="217" bw="67" op_0_bw="67" op_1_bw="1">
+<![CDATA[
+sw.epilog:42 %mrv_19 = insertvalue i67 %mrv_18, i1 %ctx_softmax_compute_done_3
+
+]]></Node>
+<StgValue><ssdm name="mrv_19"/></StgValue>
+</operation>
+
+<operation id="168" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="218" bw="67" op_0_bw="67" op_1_bw="1">
+<![CDATA[
+sw.epilog:43 %mrv_20 = insertvalue i67 %mrv_19, i1 %ctx_att_value_compute_done_3
+
+]]></Node>
+<StgValue><ssdm name="mrv_20"/></StgValue>
+</operation>
+
+<operation id="169" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="219" bw="67" op_0_bw="67" op_1_bw="32">
+<![CDATA[
+sw.epilog:44 %mrv_21 = insertvalue i67 %mrv_20, i32 %select_ln50
+
+]]></Node>
+<StgValue><ssdm name="mrv_21"/></StgValue>
+</operation>
+
+<operation id="170" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="220" bw="0" op_0_bw="67">
 <![CDATA[
 sw.epilog:45 %ret_ln186 = ret i67 %mrv_21
 

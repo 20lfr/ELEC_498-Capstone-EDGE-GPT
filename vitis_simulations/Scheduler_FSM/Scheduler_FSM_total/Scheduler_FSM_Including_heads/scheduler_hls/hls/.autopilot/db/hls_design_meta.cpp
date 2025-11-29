@@ -60,7 +60,9 @@ const Port_Property HLS_Design_Meta::port_props[]={
 	Port_Property("stream_done", 1, hls_in, 29, "ap_none", "in_data", 1),
 	Port_Property("done", 1, hls_out, 30, "ap_vld", "out_data", 1),
 	Port_Property("done_ap_vld", 1, hls_out, 30, "ap_vld", "out_vld", 1),
-	Port_Property("STATE", 32, hls_out, 31, "ap_vld", "out_data", 1),
-	Port_Property("STATE_ap_vld", 1, hls_out, 31, "ap_vld", "out_vld", 1),
+	Port_Property("debug_compute_done", 32, hls_out, 31, "ap_vld", "out_data", 1),
+	Port_Property("debug_compute_done_ap_vld", 1, hls_out, 31, "ap_vld", "out_vld", 1),
+	Port_Property("STATE", 32, hls_out, 32, "ap_vld", "out_data", 1),
+	Port_Property("STATE_ap_vld", 1, hls_out, 32, "ap_vld", "out_vld", 1),
 };
 const char* HLS_Design_Meta::dut_name = "scheduler_hls";

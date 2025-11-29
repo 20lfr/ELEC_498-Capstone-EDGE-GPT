@@ -1,45 +1,27 @@
 {
   "0": {
-    "basicblocks": 139,
-    "calls": "3 3 3 3 4 2 5 3 3 3 3",
+    "basicblocks": 140,
+    "calls": "3 3 3 3 4 1 1 2 3 3 3 3",
     "control_depth": 0,
-    "def_use_depth": 3,
+    "def_use_depth": 11,
     "file": "Scheduler_FSM.cpp",
     "fileloc": 10,
-    "instructions": 806,
+    "instructions": 1118,
     "loads": {
-      "G": 42,
-      "L": 21,
-      "T": 21
+      "G": 44,
+      "L": 42,
+      "T": 42
     },
-    "memory_accesses": 0,
+    "memory_accesses": 1,
     "name": "scheduler_hls",
     "stores": {
-      "G": 186,
-      "L": 22,
-      "T": 70
+      "G": 190,
+      "L": 44,
+      "T": 93
     },
-    "total_instructions": 1428
+    "total_instructions": 1995
   },
   "1": {
-    "basicblocks": 70,
-    "calls": "2",
-    "control_depth": 0,
-    "def_use_depth": 2,
-    "file": "head_helpers.cpp",
-    "fileloc": 39,
-    "instructions": 180,
-    "loads": {
-      "L": 38
-    },
-    "memory_accesses": 0,
-    "name": "run_single_head",
-    "stores": {
-      "L": 68
-    },
-    "total_instructions": 202
-  },
-  "2": {
     "basicblocks": 1,
     "calls": "",
     "control_depth": 0,
@@ -53,6 +35,24 @@
       "L": 21
     },
     "total_instructions": 22
+  },
+  "2": {
+    "basicblocks": 5,
+    "calls": "5 5",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "head_helpers.cpp",
+    "fileloc": 191,
+    "instructions": 63,
+    "loads": {
+      "L": 2
+    },
+    "memory_accesses": 0,
+    "name": "drive_group_head_phase",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 467
   },
   "3": {
     "basicblocks": 1,
@@ -85,21 +85,21 @@
     "total_instructions": 22
   },
   "5": {
-    "basicblocks": 3,
+    "basicblocks": 70,
     "calls": "1",
     "control_depth": 0,
-    "def_use_depth": 3,
+    "def_use_depth": 2,
     "file": "head_helpers.cpp",
-    "fileloc": 191,
-    "instructions": 32,
+    "fileloc": 39,
+    "instructions": 180,
     "loads": {
-      "L": 1
+      "L": 38
     },
     "memory_accesses": 0,
-    "name": "drive_group_head_phase",
+    "name": "run_single_head",
     "stores": {
-      "L": 1
+      "L": 68
     },
-    "total_instructions": 234
+    "total_instructions": 202
   }
 }

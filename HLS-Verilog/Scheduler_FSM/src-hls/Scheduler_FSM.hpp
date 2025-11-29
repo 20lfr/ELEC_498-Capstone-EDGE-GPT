@@ -197,5 +197,6 @@ void scheduler_hls(
     bool &stream_start,
     bool stream_done,
     bool &done,
+    uint32_t &debug_compute_done,
     SchedState &STATE
 );

@@ -150,7 +150,12 @@
           <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
         </hw>
       </arg>
-      <arg id="28" access_type="w" src_name="STATE" src_type="SchedState&amp;" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+      <arg id="28" access_type="w" src_name="debug_compute_done" src_type="unsigned int&amp;" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="debug_compute_done" hw_bitwidth="32" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="29" access_type="w" src_name="STATE" src_type="SchedState&amp;" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
         <hw hw_usage="data" hw_interface="Register" hw_name="STATE" hw_bitwidth="32" hw_size_or_depth="1" hw_kernel_support="false">
           <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
         </hw>

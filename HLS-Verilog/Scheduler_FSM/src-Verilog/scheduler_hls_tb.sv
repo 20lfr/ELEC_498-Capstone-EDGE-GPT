@@ -64,6 +64,7 @@ module scheduler_hls_tb;
   logic done_ap_vld;
   logic [31:0] STATE;
   logic STATE_ap_vld;
+  logic [31:0] debug_compute_done;
   // Head context interfaces (4 lanes)
   logic [65:0] head_ctx_ref_0_i, head_ctx_ref_0_o;
   logic        head_ctx_ref_0_o_ap_vld;
@@ -126,6 +127,15 @@ module scheduler_hls_tb;
   logic [2:0] head_done_ctr    [0:HEADS_TOTAL-1];
   logic       head_compute_ready [0:HEADS_TOTAL-1];
   logic       head_compute_done  [0:HEADS_TOTAL-1];
+  // Main compute done hold
+  logic       comp_done_hold;
+  logic [2:0] comp_done_ctr;
+  // DMA done hold
+  logic       dma_done_hold;
+  logic [2:0] dma_done_ctr;
+  // Stream done hold
+  logic       stream_done_hold;
+  logic [2:0] stream_done_ctr;
   
 
   // Helper to decode DMA select
@@ -154,15 +164,27 @@ module scheduler_hls_tb;
       comp_busy    <= 1'b0;
       comp_timer   <= 0;
       compute_done <= 1'b0;
+      comp_done_hold <= 1'b0;
+      comp_done_ctr <= 0;
       compute_ready<= 1'b0;
     end else begin
       compute_done <= 1'b0;
       if (comp_busy) begin
         if (comp_timer == 0) begin
-          compute_done <= 1'b1;
+          comp_done_hold <= 1'b1;
+          comp_done_ctr  <= 3'd2;
           comp_busy <= 1'b0;
         end else begin
           comp_timer <= comp_timer - 1;
+        end
+      end
+      // Hold compute_done for a few cycles
+      if (comp_done_hold) begin
+        compute_done <= 1'b1;
+        if (comp_done_ctr == 0) begin
+          comp_done_hold <= 1'b0;
+        end else begin
+          comp_done_ctr <= comp_done_ctr - 1;
         end
       end
 
@@ -182,12 +204,23 @@ module scheduler_hls_tb;
     if (ap_rst) begin
       stream_busy  <= 1'b0;
       stream_done  <= 1'b0;
+      stream_done_hold <= 1'b0;
+      stream_done_ctr  <= 0;
       stream_ready <= 1'b0;
     end else begin
       stream_done <= 1'b0;
       if (stream_busy) begin
-        stream_done <= 1'b1;
         stream_busy <= 1'b0;
+        stream_done_hold <= 1'b1;
+        stream_done_ctr  <= 3'd2; // hold done high for a couple extra cycles
+      end
+      if (stream_done_hold) begin
+        stream_done <= 1'b1;
+        if (stream_done_ctr == 0) begin
+          stream_done_hold <= 1'b0;
+        end else begin
+          stream_done_ctr <= stream_done_ctr - 1;
+        end
       end
       if (stream_start && stream_start_ap_vld && !stream_busy) begin
         stream_busy <= 1'b1;
@@ -202,15 +235,26 @@ module scheduler_hls_tb;
       dma_busy  <= 1'b0;
       dma_timer <= 0;
       dma_done  <= 1'b0;
+      dma_done_hold <= 1'b0;
+      dma_done_ctr  <= 0;
       wl_ready  <= 1'b0;
     end else begin
       dma_done <= 1'b0;
       if (dma_busy) begin
         if (dma_timer == 0) begin
-          dma_done <= 1'b1;
           dma_busy <= 1'b0;
+          dma_done_hold <= 1'b1;
+          dma_done_ctr  <= 3'd2; // hold done high for a couple of extra cycles
         end else begin
           dma_timer <= dma_timer - 1;
+        end
+      end
+      if (dma_done_hold) begin
+        dma_done <= 1'b1;
+        if (dma_done_ctr == 0) begin
+          dma_done_hold <= 1'b0;
+        end else begin
+          dma_done_ctr <= dma_done_ctr - 1;
         end
       end
       if (wl_start && wl_start_ap_vld && wl_ready && !dma_busy) begin
@@ -526,6 +570,7 @@ module scheduler_hls_tb;
     .stream_done(stream_done),
     .done(done),
     .done_ap_vld(done_ap_vld),
+    .debug_compute_done(debug_compute_done),
     .STATE(STATE),
     .STATE_ap_vld(STATE_ap_vld)
   );

@@ -478,7 +478,7 @@ namespace std
 
 
 constexpr int NUM_HEADS = 4;
-constexpr int HEADS_PARALLEL = 1;
+constexpr int HEADS_PARALLEL = 2;
 
 enum class HeadPhase : uint8_t {
     IDLE = 0,
@@ -652,6 +652,7 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
     bool &stream_start,
     bool stream_done,
     bool &done,
+    uint32_t &debug_compute_done,
     SchedState &STATE
 );
 # 2 "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp" 2
@@ -723,11 +724,16 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
 
 
 
+    uint32_t &debug_compute_done,
+
+
+
+
     SchedState &STATE
 ) {
 #line 1 "directive"
 #pragma HLSDIRECTIVE TOP name=scheduler_hls
-# 71 "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp"
+# 76 "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp"
 
 
 #pragma HLS array_partition variable = head_ctx_ref complete dim = 1
@@ -827,7 +833,7 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
     group_idx = 0;
 
     start_head_group = false;
-    VITIS_LOOP_170_1: for (int i = 0; i < NUM_HEADS; ++i){
+    VITIS_LOOP_175_1: for (int i = 0; i < NUM_HEADS; ++i){
 #pragma HLS UNROLL
  init_head_ctx(head_ctx_ref[i], -1);
     }
@@ -888,6 +894,7 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
   requant_op = RQ_NONE;
   stream_start = 0;
   done = 0;
+  debug_compute_done = 0;
   cntrl_busy = (st != S_IDLE);
 
   cntrl_start_out = (st == S_IDLE) ? cntrl_start : false;
@@ -921,6 +928,18 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
     if (st == S_LAYER_NORM_2 && ln1_started)
       ln1_compute_done = true;
   }
+
+
+  debug_compute_done = (attn_compute_done ? (1u << 0) : 0) |
+                       (concat_compute_done ? (1u << 1) : 0) |
+                       (outproj_compute_done ? (1u << 2) : 0) |
+                       (resid0_compute_done ? (1u << 3) : 0) |
+                       (ln0_compute_done ? (1u << 4) : 0) |
+                       (ffn_w1_compute_done ? (1u << 5) : 0) |
+                       (ffn_act_compute_done ? (1u << 6) : 0) |
+                       (ffn_w2_compute_done ? (1u << 7) : 0) |
+                       (resid1_compute_done ? (1u << 8) : 0) |
+                       (ln1_compute_done ? (1u << 9) : 0);
 
   switch (st) {
   case S_IDLE:
@@ -993,7 +1012,7 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
     group_idx = 0;
 
     start_head_group = true;
-    VITIS_LOOP_336_2: for (int i = 0; i < NUM_HEADS; ++i){
+    VITIS_LOOP_354_2: for (int i = 0; i < NUM_HEADS; ++i){
 #pragma HLS UNROLL
  init_head_ctx(head_ctx_ref[i], layer_idx);
     }
@@ -1047,7 +1066,7 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
 #pragma HLS ARRAY_PARTITION variable = head_group complete dim = 1
 
 
- VITIS_LOOP_390_3: for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
+ VITIS_LOOP_408_3: for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
 #pragma HLS UNROLL
  const int h = group_base + lane;
       if (h < NUM_HEADS) {
@@ -1063,7 +1082,7 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
         drive_group_head_phase(head_group, group_base, layer_idx, start_head_group);
 
 
-    VITIS_LOOP_406_4: for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
+    VITIS_LOOP_424_4: for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
 #pragma HLS UNROLL
  const int h = group_base + lane;
         if (h < NUM_HEADS) {

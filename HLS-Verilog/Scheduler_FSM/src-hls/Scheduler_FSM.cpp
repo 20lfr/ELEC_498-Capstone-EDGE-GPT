@@ -65,6 +65,11 @@ void scheduler_hls(
     bool &done, // [OUTPUT] Inference pipeline fully complete
 
     // ------------------------------------------------------------
+    // DEBUG COMPUTE-DONE BUS
+    // ------------------------------------------------------------
+    uint32_t &debug_compute_done, // [OUTPUT] Bitfield of stage compute_done latches
+
+    // ------------------------------------------------------------
     // DEBUG STATE OUTPUT
     // ------------------------------------------------------------
     SchedState &STATE // [OUTPUT] Current scheduler state
@@ -228,6 +233,7 @@ void scheduler_hls(
   requant_op = RQ_NONE;
   stream_start = 0;
   done = 0;
+  debug_compute_done = 0;
   cntrl_busy = (st != S_IDLE);
   // Expose a start bit that auto-clears once we leave IDLE
   cntrl_start_out = (st == S_IDLE) ? cntrl_start : false;
@@ -261,6 +267,18 @@ void scheduler_hls(
     if (st == S_LAYER_NORM_2 && ln1_started)
       ln1_compute_done = true;
   }
+
+  // Expose debug compute-done bitfield (sticky within state)
+  debug_compute_done = (attn_compute_done     ? (1u << 0)  : 0) | // bit0: attention
+                       (concat_compute_done   ? (1u << 1)  : 0) | // bit1: head concat
+                       (outproj_compute_done  ? (1u << 2)  : 0) | // bit2: output proj
+                       (resid0_compute_done   ? (1u << 3)  : 0) | // bit3: resid add 0
+                       (ln0_compute_done      ? (1u << 4)  : 0) | // bit4: layer norm 0
+                       (ffn_w1_compute_done   ? (1u << 5)  : 0) | // bit5: FFN W1
+                       (ffn_act_compute_done  ? (1u << 6)  : 0) | // bit6: FFN ACT
+                       (ffn_w2_compute_done   ? (1u << 7)  : 0) | // bit7: FFN W2
+                       (resid1_compute_done   ? (1u << 8)  : 0) | // bit8: resid add 1
+                       (ln1_compute_done      ? (1u << 9)  : 0);  // bit9: layer norm 1
 
   switch (st) {
   case S_IDLE:

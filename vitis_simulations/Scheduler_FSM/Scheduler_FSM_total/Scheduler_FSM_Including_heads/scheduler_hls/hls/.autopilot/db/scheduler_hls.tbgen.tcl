@@ -6,7 +6,7 @@ set isPipelined 0
 set isPipelined_legacy 0
 set pipeline_type none
 set FunctionProtocol ap_ctrl_hs
-set isOneStateSeq 1
+set isOneStateSeq 0
 set ProfileFlag 0
 set StallSigGenFlag 0
 set isEnableWaveformDebug 1
@@ -50,6 +50,7 @@ set C_modelArgList {
 	{ stream_start int 1 regular {pointer 1}  }
 	{ stream_done uint 1 regular  }
 	{ done int 1 regular {pointer 1}  }
+	{ debug_compute_done int 32 regular {pointer 1}  }
 	{ STATE int 32 regular {pointer 1}  }
 }
 set hasAXIMCache 0
@@ -87,9 +88,10 @@ set C_modelArgMapList {[
  	{ "Name" : "stream_start", "interface" : "wire", "bitwidth" : 1, "direction" : "WRITEONLY"} , 
  	{ "Name" : "stream_done", "interface" : "wire", "bitwidth" : 1, "direction" : "READONLY"} , 
  	{ "Name" : "done", "interface" : "wire", "bitwidth" : 1, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "debug_compute_done", "interface" : "wire", "bitwidth" : 32, "direction" : "WRITEONLY"} , 
  	{ "Name" : "STATE", "interface" : "wire", "bitwidth" : 32, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
-set portNum 62
+set portNum 64
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -151,8 +153,10 @@ set portList {
 	{ stream_done sc_in sc_lv 1 signal 29 } 
 	{ done sc_out sc_lv 1 signal 30 } 
 	{ done_ap_vld sc_out sc_logic 1 outvld 30 } 
-	{ STATE sc_out sc_lv 32 signal 31 } 
-	{ STATE_ap_vld sc_out sc_logic 1 outvld 31 } 
+	{ debug_compute_done sc_out sc_lv 32 signal 31 } 
+	{ debug_compute_done_ap_vld sc_out sc_logic 1 outvld 31 } 
+	{ STATE sc_out sc_lv 32 signal 32 } 
+	{ STATE_ap_vld sc_out sc_logic 1 outvld 32 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -215,6 +219,8 @@ set NewPortList {[
  	{ "name": "stream_done", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "stream_done", "role": "default" }} , 
  	{ "name": "done", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "done", "role": "default" }} , 
  	{ "name": "done_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "done", "role": "ap_vld" }} , 
+ 	{ "name": "debug_compute_done", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "debug_compute_done", "role": "default" }} , 
+ 	{ "name": "debug_compute_done_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "debug_compute_done", "role": "ap_vld" }} , 
  	{ "name": "STATE", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "STATE", "role": "default" }} , 
  	{ "name": "STATE_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "STATE", "role": "ap_vld" }}  ]}
 
@@ -222,18 +228,18 @@ set ArgLastReadFirstWriteLatency {
 	scheduler_hls {
 		cntrl_start {Type I LastRead 0 FirstWrite -1}
 		cntrl_reset_n {Type I LastRead 0 FirstWrite -1}
-		cntrl_layer_idx {Type O LastRead -1 FirstWrite 0}
-		cntrl_busy {Type O LastRead -1 FirstWrite 0}
-		cntrl_start_out {Type O LastRead -1 FirstWrite 0}
+		cntrl_layer_idx {Type O LastRead -1 FirstWrite 1}
+		cntrl_busy {Type O LastRead -1 FirstWrite 1}
+		cntrl_start_out {Type O LastRead -1 FirstWrite 1}
 		axis_in_valid {Type I LastRead 0 FirstWrite -1}
 		axis_in_last {Type I LastRead 0 FirstWrite -1}
-		axis_in_ready {Type O LastRead -1 FirstWrite 0}
+		axis_in_ready {Type O LastRead -1 FirstWrite 1}
 		wl_ready {Type I LastRead 0 FirstWrite -1}
-		wl_start {Type O LastRead -1 FirstWrite 0}
-		wl_addr_sel {Type O LastRead -1 FirstWrite 0}
-		wl_layer {Type O LastRead -1 FirstWrite 0}
-		wl_head {Type O LastRead -1 FirstWrite 0}
-		wl_tile {Type O LastRead -1 FirstWrite 0}
+		wl_start {Type O LastRead -1 FirstWrite 1}
+		wl_addr_sel {Type O LastRead -1 FirstWrite 1}
+		wl_layer {Type O LastRead -1 FirstWrite 1}
+		wl_head {Type O LastRead -1 FirstWrite 1}
+		wl_tile {Type O LastRead -1 FirstWrite 1}
 		dma_done {Type I LastRead 0 FirstWrite -1}
 		compute_ready {Type I LastRead 0 FirstWrite -1}
 		compute_done {Type I LastRead 0 FirstWrite -1}
@@ -243,16 +249,18 @@ set ArgLastReadFirstWriteLatency {
 		head_ctx_ref_1 {Type IO LastRead 0 FirstWrite 0}
 		head_ctx_ref_2 {Type IO LastRead 0 FirstWrite 0}
 		head_ctx_ref_3 {Type IO LastRead 0 FirstWrite 0}
-		compute_start {Type O LastRead -1 FirstWrite 0}
-		compute_op {Type O LastRead -1 FirstWrite 0}
+		compute_start {Type O LastRead -1 FirstWrite 1}
+		compute_op {Type O LastRead -1 FirstWrite 1}
 		requant_start {Type O LastRead -1 FirstWrite 0}
 		requant_op {Type O LastRead -1 FirstWrite 0}
 		stream_ready {Type I LastRead 0 FirstWrite -1}
-		stream_start {Type O LastRead -1 FirstWrite 0}
+		stream_start {Type O LastRead -1 FirstWrite 1}
 		stream_done {Type I LastRead 0 FirstWrite -1}
-		done {Type O LastRead -1 FirstWrite 0}
-		STATE {Type O LastRead -1 FirstWrite 0}
+		done {Type O LastRead -1 FirstWrite 1}
+		debug_compute_done {Type O LastRead -1 FirstWrite 1}
+		STATE {Type O LastRead -1 FirstWrite 1}
 		attn_started {Type IO LastRead -1 FirstWrite -1}
+		attn_compute_done {Type IO LastRead -1 FirstWrite -1}
 		group_idx {Type IO LastRead -1 FirstWrite -1}
 		start_head_group {Type IO LastRead -1 FirstWrite -1}
 		concat_compute_done {Type IO LastRead -1 FirstWrite -1}
@@ -285,6 +293,7 @@ set ArgLastReadFirstWriteLatency {
 		w2_dma_busy {Type IO LastRead -1 FirstWrite -1}
 		w2_comp_busy {Type IO LastRead -1 FirstWrite -1}}
 	run_single_head {
+		ctx_layer_stamp_read_5 {Type I LastRead 0 FirstWrite -1}
 		ctx_layer_stamp_read {Type I LastRead 0 FirstWrite -1}
 		ctx_phase_read {Type I LastRead 0 FirstWrite -1}
 		ctx_compute_ready_read {Type I LastRead 0 FirstWrite -1}
@@ -305,13 +314,14 @@ set ArgLastReadFirstWriteLatency {
 		ctx_val_scale_compute_done_read {Type I LastRead 0 FirstWrite -1}
 		ctx_softmax_compute_done_read {Type I LastRead 0 FirstWrite -1}
 		ctx_att_value_compute_done_read {Type I LastRead 0 FirstWrite -1}
-		ctx_layer_stamp_write {Type I LastRead 0 FirstWrite -1}}}
+		layer_idx {Type I LastRead 0 FirstWrite -1}
+		start_r {Type I LastRead 0 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "0", "Max" : "0"}
-	, {"Name" : "Interval", "Min" : "1", "Max" : "1"}
+	{"Name" : "Latency", "Min" : "1", "Max" : "1"}
+	, {"Name" : "Interval", "Min" : "2", "Max" : "2"}
 ]}
 
 set PipelineEnableSignalInfo {[
@@ -349,6 +359,7 @@ set Spec2ImplPortList {
 	stream_start { ap_vld {  { stream_start out_data 1 1 }  { stream_start_ap_vld out_vld 1 1 } } }
 	stream_done { ap_none {  { stream_done in_data 0 1 } } }
 	done { ap_vld {  { done out_data 1 1 }  { done_ap_vld out_vld 1 1 } } }
+	debug_compute_done { ap_vld {  { debug_compute_done out_data 1 32 }  { debug_compute_done_ap_vld out_vld 1 1 } } }
 	STATE { ap_vld {  { STATE out_data 1 32 }  { STATE_ap_vld out_vld 1 1 } } }
 }
 
