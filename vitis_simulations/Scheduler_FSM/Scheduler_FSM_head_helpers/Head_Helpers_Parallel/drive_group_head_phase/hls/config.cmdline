@@ -1,0 +1,3 @@
+relativeroot=/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers_Parallel
+original_argv=--mode hls --csim --config /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_Helpers_Parallel/hls_config.cfg --work_dir drive_group_head_phase 
+

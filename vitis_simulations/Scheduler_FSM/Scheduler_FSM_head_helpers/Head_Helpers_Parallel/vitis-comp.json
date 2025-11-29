@@ -1,0 +1,13 @@
+{
+  "name": "Head_Helpers_Parallel",
+  "type": "HLS",
+  "configuration": {
+    "componentType": "HLS",
+    "configFiles": [
+      "hls_config.cfg"
+    ],
+    "work_dir": "drive_group_head_phase"
+  },
+  "useSysrootToolchain": false,
+  "template": "empty_hls_component"
+}

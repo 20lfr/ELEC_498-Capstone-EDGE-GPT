@@ -1,7 +1,6 @@
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_tb.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module drive_group_head_phase_tb
-WARNING: [VRFC 10-3824] variable 'h' must explicitly be declared as automatic or static [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_tb.sv:211]
-WARNING: [VRFC 10-3824] variable 'group_base' must explicitly be declared as automatic or static [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_tb.sv:282]
-WARNING: [VRFC 10-3824] variable 'group_base' must explicitly be declared as automatic or static [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_tb.sv:339]
-WARNING: [VRFC 10-3824] variable 'gd' must explicitly be declared as automatic or static [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_tb.sv:340]
-WARNING: [VRFC 10-3824] variable 'h' must explicitly be declared as automatic or static [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_tb.sv:343]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module drive_group_head_phase
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_run_single_head.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module drive_group_head_phase_run_single_head
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_sparsemux_7_2_66_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module drive_group_head_phase_sparsemux_7_2_66_1_1

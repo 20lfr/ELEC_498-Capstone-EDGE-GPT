@@ -1,5 +1,0 @@
-/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_helpers_parallel/drive_group_head_phase/hls/.autopilot/db/simple_head_helpers.pp.0.cpp:757:5: warning: Added loop label VITIS_LOOP_209_1:   [xilinx-label-all-loops]
-    for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
-    ^~~
-    VITIS_LOOP_209_1: 
-/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_head_helpers/Head_helpers_parallel/drive_group_head_phase/hls/.autopilot/db/simple_head_helpers.pp.0.cpp:757:5: note: FIX-IT applied suggested code changes
