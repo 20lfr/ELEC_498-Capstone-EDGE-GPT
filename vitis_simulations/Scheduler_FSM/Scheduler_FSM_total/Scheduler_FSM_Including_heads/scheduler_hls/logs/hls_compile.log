@@ -26,38 +26,37 @@ INFO: [HLS 200-1465] Applying config ini 'clock=10ns' from /home/luka/Scripting/
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
 INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/hls_config.cfg(5)
 INFO: [HLS 200-2176] Writing Vitis IDE component file /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/vitis-comp.json
-INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 2.26 seconds. CPU system time: 0.57 seconds. Elapsed time: 2.82 seconds; current allocated memory: 445.172 MB.
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 2.26 seconds. CPU system time: 0.53 seconds. Elapsed time: 2.77 seconds; current allocated memory: 445.168 MB.
 INFO: [HLS 200-10] Analyzing design file '/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp' ... 
 INFO: [HLS 200-10] Analyzing design file '/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp' ... 
 WARNING: [HLS 207-5292] unused parameter 'requant_ready' (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:46:10)
 WARNING: [HLS 207-5292] unused parameter 'requant_done' (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:47:10)
-INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0.43 seconds. CPU system time: 0.67 seconds. Elapsed time: 1.1 seconds; current allocated memory: 447.527 MB.
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0.41 seconds. CPU system time: 0.66 seconds. Elapsed time: 1.08 seconds; current allocated memory: 447.523 MB.
 INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
 INFO: [HLS 200-1995] There were 1,274 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 2,157 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 1,995 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 1,968 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 1,844 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 2,523 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 2,107 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 3,871 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 2,719 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 2,887 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 1,997 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 1,997 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 1,997 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 1,853 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 1,871 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
-INFO: [HLS 200-1995] There were 1,754 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 3,123 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,905 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,872 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,704 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 3,883 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,864 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 4,628 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 3,344 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 3,680 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,623 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,619 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,619 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,619 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,683 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,445 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/syn/report/csynth_design_size.rpt:2)
 INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_354_2' (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:354:23) in function 'scheduler_hls' completely with a factor of 4 (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:76:0)
-INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_424_4' (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:424:23) in function 'scheduler_hls' completely with a factor of 2 (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:76:0)
-INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_408_3' (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:408:20) in function 'scheduler_hls' completely with a factor of 2 (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:76:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_424_4' (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:424:23) in function 'scheduler_hls' completely with a factor of 4 (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:76:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_408_3' (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:408:20) in function 'scheduler_hls' completely with a factor of 4 (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:76:0)
 INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_175_1' (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:175:23) in function 'scheduler_hls' completely with a factor of 4 (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:76:0)
-INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_201_1' (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:201:23) in function 'drive_group_head_phase' completely with a factor of 2 (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:196:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_201_1' (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:201:23) in function 'drive_group_head_phase' completely with a factor of 4 (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:196:0)
 INFO: [HLS 214-178] Inlining function 'init_head_ctx(HeadCtx&, int) (.5)' into 'run_single_head(HeadCtx&, int, bool)' (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:44:0)
 INFO: [HLS 214-178] Inlining function 'HeadCtx::HeadCtx()' into 'scheduler_hls(bool, bool, unsigned int&, bool&, bool&, bool, bool, bool&, bool, bool&, int&, int&, int&, int&, bool, bool, bool, bool, bool, HeadCtx (&) [4], bool&, int&, bool&, int&, bool, bool&, bool, bool&, unsigned int&, SchedState&)' (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:76:0)
 INFO: [HLS 214-178] Inlining function 'init_head_ctx(HeadCtx&, int) (.5)' into 'scheduler_hls(bool, bool, unsigned int&, bool&, bool&, bool, bool, bool&, bool, bool&, int&, int&, int&, int&, bool, bool, bool, bool, bool, HeadCtx (&) [4], bool&, int&, bool&, int&, bool, bool&, bool, bool&, unsigned int&, SchedState&)' (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:76:0)
-INFO: [HLS 214-178] Inlining function 'drive_group_head_phase(HeadCtx (&) [2], int, int, bool)' into 'scheduler_hls(bool, bool, unsigned int&, bool&, bool&, bool, bool, bool&, bool, bool&, int&, int&, int&, int&, bool, bool, bool, bool, bool, HeadCtx (&) [4], bool&, int&, bool&, int&, bool, bool&, bool, bool&, unsigned int&, SchedState&)' (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:76:0)
 INFO: [HLS 214-248] Applying array_partition to 'head_group.layer_stamp': Complete partitioning on dimension 1. (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:404:13)
 INFO: [HLS 214-248] Applying array_partition to 'head_group.phase': Complete partitioning on dimension 1. (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:404:13)
 INFO: [HLS 214-248] Applying array_partition to 'head_group.compute_ready': Complete partitioning on dimension 1. (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:404:13)
@@ -85,21 +84,20 @@ INFO: [HLS 214-241] Aggregating scalar variable 'head_ctx_ref_2' with compact=bi
 INFO: [HLS 214-241] Aggregating scalar variable 'head_ctx_ref_1' with compact=bit mode in 66-bits (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:76:0)
 INFO: [HLS 214-241] Aggregating scalar variable 'head_ctx_ref_0' with compact=bit mode in 66-bits (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:76:0)
 INFO: [HLS 214-376] automatically set the pipeline for Loop< unknown> at /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:404:13 
-INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 2.62 seconds. CPU system time: 0.55 seconds. Elapsed time: 6.78 seconds; current allocated memory: 449.598 MB.
-INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 449.598 MB.
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 2.86 seconds. CPU system time: 0.56 seconds. Elapsed time: 6.89 seconds; current allocated memory: 449.617 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 449.617 MB.
 INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 451.340 MB.
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 452.031 MB.
 INFO: [HLS 200-10] Checking synthesizability ...
 INFO: [XFORM 203-602] Inlining function 'init_head_ctx' into 'scheduler_hls' (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:177) automatically.
-INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 452.539 MB.
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 453.312 MB.
 INFO: [XFORM 203-602] Inlining function 'init_head_ctx' into 'scheduler_hls' (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:177) automatically.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:404:13) to (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:404:13) in function 'scheduler_hls'... converting 3 basic blocks.
 INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:223:21) to (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:283:3) in function 'scheduler_hls'... converting 14 basic blocks.
-INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:403:38) to (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:205:13) in function 'scheduler_hls'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:403:15) to (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:427:13) in function 'scheduler_hls'... converting 9 basic blocks.
 INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:45:9) to (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:66:5) in function 'run_single_head'... converting 3 basic blocks.
 INFO: [XFORM 203-11] Balancing expressions in function 'scheduler_hls' (/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:5:1)...9 expression(s) balanced.
-INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.23 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.24 seconds; current allocated memory: 475.816 MB.
-INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.17 seconds. CPU system time: 0 seconds. Elapsed time: 0.18 seconds; current allocated memory: 481.824 MB.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.27 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.29 seconds; current allocated memory: 476.973 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.21 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.22 seconds; current allocated memory: 496.344 MB.
 INFO: [HLS 200-10] Starting hardware synthesis ...
 INFO: [HLS 200-10] Synthesizing 'scheduler_hls' ...
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -107,30 +105,47 @@ INFO: [HLS 200-42] -- Implementing module 'run_single_head'
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.11 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.14 seconds; current allocated memory: 484.953 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.11 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.13 seconds; current allocated memory: 499.473 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 484.953 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 499.473 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'drive_group_head_phase' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.14 seconds; current allocated memory: 503.246 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 503.246 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'scheduler_hls' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.44 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.45 seconds; current allocated memory: 500.969 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.46 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.48 seconds; current allocated memory: 519.406 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.29 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.28 seconds; current allocated memory: 500.969 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.2 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.2 seconds; current allocated memory: 519.406 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'run_single_head' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'run_single_head'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.12 seconds. CPU system time: 0 seconds. Elapsed time: 0.13 seconds; current allocated memory: 500.969 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.12 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.14 seconds; current allocated memory: 519.406 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'drive_group_head_phase' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'drive_group_head_phase'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.28 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.31 seconds; current allocated memory: 547.668 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'scheduler_hls' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -206,11 +221,11 @@ WARNING: [RTGEN 206-101] Port 'scheduler_hls/requant_ready' has no fanin or fano
 WARNING: [RTGEN 206-101] Port 'scheduler_hls/requant_done' has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'scheduler_hls'.
-INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.4 seconds. CPU system time: 0.04 seconds. Elapsed time: 0.44 seconds; current allocated memory: 517.199 MB.
-INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0.37 seconds. CPU system time: 0.06 seconds. Elapsed time: 0.43 seconds; current allocated memory: 540.695 MB.
-INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.52 seconds. CPU system time: 0.07 seconds. Elapsed time: 0.58 seconds; current allocated memory: 542.508 MB.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.51 seconds. CPU system time: 0.05 seconds. Elapsed time: 0.56 seconds; current allocated memory: 575.582 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0.38 seconds. CPU system time: 0.07 seconds. Elapsed time: 0.45 seconds; current allocated memory: 595.836 MB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.57 seconds. CPU system time: 0.07 seconds. Elapsed time: 0.64 seconds; current allocated memory: 599.559 MB.
 INFO: [VHDL 208-304] Generating VHDL RTL for scheduler_hls.
 INFO: [VLOG 209-307] Generating Verilog RTL for scheduler_hls.
-INFO: [HLS 200-789] **** Estimated Fmax: 172.15 MHz
-INFO: [HLS 200-112] Total CPU user time: 8.15 seconds. Total CPU system time: 2.03 seconds. Total elapsed time: 13.79 seconds; peak allocated memory: 542.508 MB.
-INFO: [v++ 60-791] Total elapsed time: 0h 0m 17s
+INFO: [HLS 200-789] **** Estimated Fmax: 152.02 MHz
+INFO: [HLS 200-112] Total CPU user time: 9.05 seconds. Total CPU system time: 2.07 seconds. Total elapsed time: 14.59 seconds; peak allocated memory: 599.559 MB.
+INFO: [v++ 60-791] Total elapsed time: 0h 0m 18s

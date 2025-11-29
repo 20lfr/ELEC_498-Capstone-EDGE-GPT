@@ -93,7 +93,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_ctx_compute_op_read \
     op interface \
-    ports { ctx_compute_op_read { I 5 vector } } \
+    ports { ctx_compute_op_read { I 4 vector } } \
 } "
 }
 

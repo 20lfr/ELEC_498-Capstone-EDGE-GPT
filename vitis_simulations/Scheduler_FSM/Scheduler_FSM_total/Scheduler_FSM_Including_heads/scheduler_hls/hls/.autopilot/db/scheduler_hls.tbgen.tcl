@@ -14,7 +14,7 @@ set hasInterrupt 0
 set DLRegFirstOffset 0
 set DLRegItemOffset 0
 set svuvm_can_support 1
-set cdfgNum 3
+set cdfgNum 4
 set C_modelName {scheduler_hls}
 set C_modelType { void 0 }
 set ap_memory_interface_dict [dict create]
@@ -292,6 +292,165 @@ set ArgLastReadFirstWriteLatency {
 		w2_tile {Type IO LastRead -1 FirstWrite -1}
 		w2_dma_busy {Type IO LastRead -1 FirstWrite -1}
 		w2_comp_busy {Type IO LastRead -1 FirstWrite -1}}
+	drive_group_head_phase {
+		p_read {Type I LastRead 0 FirstWrite -1}
+		p_read1 {Type I LastRead 0 FirstWrite -1}
+		p_read2 {Type I LastRead 0 FirstWrite -1}
+		p_read3 {Type I LastRead 0 FirstWrite -1}
+		head_ctx_ref_phase_read {Type I LastRead 0 FirstWrite -1}
+		head_ctx_ref_phase_read_7 {Type I LastRead 0 FirstWrite -1}
+		head_ctx_ref_phase_read_8 {Type I LastRead 0 FirstWrite -1}
+		head_ctx_ref_phase_read_9 {Type I LastRead 0 FirstWrite -1}
+		p_read8 {Type I LastRead 0 FirstWrite -1}
+		p_read9 {Type I LastRead 0 FirstWrite -1}
+		p_read10 {Type I LastRead 0 FirstWrite -1}
+		p_read11 {Type I LastRead 0 FirstWrite -1}
+		p_read12 {Type I LastRead 0 FirstWrite -1}
+		p_read13 {Type I LastRead 0 FirstWrite -1}
+		p_read14 {Type I LastRead 0 FirstWrite -1}
+		p_read15 {Type I LastRead 0 FirstWrite -1}
+		p_read16 {Type I LastRead 0 FirstWrite -1}
+		p_read17 {Type I LastRead 0 FirstWrite -1}
+		p_read18 {Type I LastRead 0 FirstWrite -1}
+		p_read19 {Type I LastRead 0 FirstWrite -1}
+		head_ctx_ref_compute_op_read {Type I LastRead 0 FirstWrite -1}
+		head_ctx_ref_compute_op_read_11 {Type I LastRead 0 FirstWrite -1}
+		head_ctx_ref_compute_op_read_12 {Type I LastRead 0 FirstWrite -1}
+		head_ctx_ref_compute_op_read_13 {Type I LastRead 0 FirstWrite -1}
+		p_read24 {Type I LastRead 0 FirstWrite -1}
+		p_read25 {Type I LastRead 0 FirstWrite -1}
+		p_read26 {Type I LastRead 0 FirstWrite -1}
+		p_read27 {Type I LastRead 0 FirstWrite -1}
+		p_read28 {Type I LastRead 0 FirstWrite -1}
+		p_read29 {Type I LastRead 0 FirstWrite -1}
+		p_read30 {Type I LastRead 0 FirstWrite -1}
+		p_read31 {Type I LastRead 0 FirstWrite -1}
+		p_read32 {Type I LastRead 0 FirstWrite -1}
+		p_read33 {Type I LastRead 0 FirstWrite -1}
+		p_read34 {Type I LastRead 0 FirstWrite -1}
+		p_read35 {Type I LastRead 0 FirstWrite -1}
+		p_read36 {Type I LastRead 0 FirstWrite -1}
+		p_read37 {Type I LastRead 0 FirstWrite -1}
+		p_read38 {Type I LastRead 0 FirstWrite -1}
+		p_read39 {Type I LastRead 0 FirstWrite -1}
+		p_read40 {Type I LastRead 0 FirstWrite -1}
+		p_read41 {Type I LastRead 0 FirstWrite -1}
+		p_read42 {Type I LastRead 0 FirstWrite -1}
+		p_read43 {Type I LastRead 0 FirstWrite -1}
+		p_read44 {Type I LastRead 0 FirstWrite -1}
+		p_read45 {Type I LastRead 0 FirstWrite -1}
+		p_read46 {Type I LastRead 0 FirstWrite -1}
+		p_read47 {Type I LastRead 0 FirstWrite -1}
+		p_read48 {Type I LastRead 0 FirstWrite -1}
+		p_read49 {Type I LastRead 0 FirstWrite -1}
+		p_read50 {Type I LastRead 0 FirstWrite -1}
+		p_read51 {Type I LastRead 0 FirstWrite -1}
+		p_read52 {Type I LastRead 0 FirstWrite -1}
+		p_read53 {Type I LastRead 0 FirstWrite -1}
+		p_read54 {Type I LastRead 0 FirstWrite -1}
+		p_read55 {Type I LastRead 0 FirstWrite -1}
+		p_read56 {Type I LastRead 0 FirstWrite -1}
+		p_read57 {Type I LastRead 0 FirstWrite -1}
+		p_read58 {Type I LastRead 0 FirstWrite -1}
+		p_read59 {Type I LastRead 0 FirstWrite -1}
+		p_read60 {Type I LastRead 0 FirstWrite -1}
+		p_read61 {Type I LastRead 0 FirstWrite -1}
+		p_read62 {Type I LastRead 0 FirstWrite -1}
+		p_read63 {Type I LastRead 0 FirstWrite -1}
+		p_read64 {Type I LastRead 0 FirstWrite -1}
+		p_read65 {Type I LastRead 0 FirstWrite -1}
+		p_read66 {Type I LastRead 0 FirstWrite -1}
+		p_read67 {Type I LastRead 0 FirstWrite -1}
+		p_read68 {Type I LastRead 0 FirstWrite -1}
+		p_read69 {Type I LastRead 0 FirstWrite -1}
+		p_read70 {Type I LastRead 0 FirstWrite -1}
+		p_read71 {Type I LastRead 0 FirstWrite -1}
+		p_read72 {Type I LastRead 0 FirstWrite -1}
+		p_read73 {Type I LastRead 0 FirstWrite -1}
+		p_read74 {Type I LastRead 0 FirstWrite -1}
+		p_read75 {Type I LastRead 0 FirstWrite -1}
+		p_read76 {Type I LastRead 0 FirstWrite -1}
+		p_read77 {Type I LastRead 0 FirstWrite -1}
+		p_read78 {Type I LastRead 0 FirstWrite -1}
+		p_read79 {Type I LastRead 0 FirstWrite -1}
+		p_read80 {Type I LastRead 0 FirstWrite -1}
+		p_read81 {Type I LastRead 0 FirstWrite -1}
+		p_read82 {Type I LastRead 0 FirstWrite -1}
+		p_read83 {Type I LastRead 0 FirstWrite -1}
+		layer_idx {Type I LastRead 0 FirstWrite -1}
+		start_r {Type I LastRead 0 FirstWrite -1}}
+	run_single_head {
+		ctx_layer_stamp_read_5 {Type I LastRead 0 FirstWrite -1}
+		ctx_layer_stamp_read {Type I LastRead 0 FirstWrite -1}
+		ctx_phase_read {Type I LastRead 0 FirstWrite -1}
+		ctx_compute_ready_read {Type I LastRead 0 FirstWrite -1}
+		ctx_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		ctx_compute_op_read {Type I LastRead 0 FirstWrite -1}
+		ctx_start_head_read {Type I LastRead 0 FirstWrite -1}
+		ctx_q_started_read {Type I LastRead 0 FirstWrite -1}
+		ctx_k_started_read {Type I LastRead 0 FirstWrite -1}
+		ctx_v_started_read {Type I LastRead 0 FirstWrite -1}
+		ctx_att_scores_started_read {Type I LastRead 0 FirstWrite -1}
+		ctx_val_scale_started_read {Type I LastRead 0 FirstWrite -1}
+		ctx_softmax_started_read {Type I LastRead 0 FirstWrite -1}
+		ctx_att_value_started_read {Type I LastRead 0 FirstWrite -1}
+		ctx_q_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		ctx_k_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		ctx_v_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		ctx_att_scores_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		ctx_val_scale_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		ctx_softmax_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		ctx_att_value_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		layer_idx {Type I LastRead 0 FirstWrite -1}
+		start_r {Type I LastRead 0 FirstWrite -1}}
+	run_single_head {
+		ctx_layer_stamp_read_5 {Type I LastRead 0 FirstWrite -1}
+		ctx_layer_stamp_read {Type I LastRead 0 FirstWrite -1}
+		ctx_phase_read {Type I LastRead 0 FirstWrite -1}
+		ctx_compute_ready_read {Type I LastRead 0 FirstWrite -1}
+		ctx_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		ctx_compute_op_read {Type I LastRead 0 FirstWrite -1}
+		ctx_start_head_read {Type I LastRead 0 FirstWrite -1}
+		ctx_q_started_read {Type I LastRead 0 FirstWrite -1}
+		ctx_k_started_read {Type I LastRead 0 FirstWrite -1}
+		ctx_v_started_read {Type I LastRead 0 FirstWrite -1}
+		ctx_att_scores_started_read {Type I LastRead 0 FirstWrite -1}
+		ctx_val_scale_started_read {Type I LastRead 0 FirstWrite -1}
+		ctx_softmax_started_read {Type I LastRead 0 FirstWrite -1}
+		ctx_att_value_started_read {Type I LastRead 0 FirstWrite -1}
+		ctx_q_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		ctx_k_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		ctx_v_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		ctx_att_scores_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		ctx_val_scale_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		ctx_softmax_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		ctx_att_value_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		layer_idx {Type I LastRead 0 FirstWrite -1}
+		start_r {Type I LastRead 0 FirstWrite -1}}
+	run_single_head {
+		ctx_layer_stamp_read_5 {Type I LastRead 0 FirstWrite -1}
+		ctx_layer_stamp_read {Type I LastRead 0 FirstWrite -1}
+		ctx_phase_read {Type I LastRead 0 FirstWrite -1}
+		ctx_compute_ready_read {Type I LastRead 0 FirstWrite -1}
+		ctx_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		ctx_compute_op_read {Type I LastRead 0 FirstWrite -1}
+		ctx_start_head_read {Type I LastRead 0 FirstWrite -1}
+		ctx_q_started_read {Type I LastRead 0 FirstWrite -1}
+		ctx_k_started_read {Type I LastRead 0 FirstWrite -1}
+		ctx_v_started_read {Type I LastRead 0 FirstWrite -1}
+		ctx_att_scores_started_read {Type I LastRead 0 FirstWrite -1}
+		ctx_val_scale_started_read {Type I LastRead 0 FirstWrite -1}
+		ctx_softmax_started_read {Type I LastRead 0 FirstWrite -1}
+		ctx_att_value_started_read {Type I LastRead 0 FirstWrite -1}
+		ctx_q_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		ctx_k_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		ctx_v_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		ctx_att_scores_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		ctx_val_scale_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		ctx_softmax_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		ctx_att_value_compute_done_read {Type I LastRead 0 FirstWrite -1}
+		layer_idx {Type I LastRead 0 FirstWrite -1}
+		start_r {Type I LastRead 0 FirstWrite -1}}
 	run_single_head {
 		ctx_layer_stamp_read_5 {Type I LastRead 0 FirstWrite -1}
 		ctx_layer_stamp_read {Type I LastRead 0 FirstWrite -1}

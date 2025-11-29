@@ -19,13 +19,13 @@ Pass:            inline
 Name:            NeverInline
 DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp, 
                    Line: 207, Column: 36 }
-Function:        _Z22drive_group_head_phaseRA2_7HeadCtxiib
+Function:        _Z22drive_group_head_phaseRA4_7HeadCtxiib
 Args:            
   - Callee:          'run_single_head(HeadCtx&, int, bool)'
     DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp, 
                        Line: 44, Column: 0 }
   - String:          ' not inlined into '
-  - Caller:          'drive_group_head_phase(HeadCtx (&) [2], int, int, bool)'
+  - Caller:          'drive_group_head_phase(HeadCtx (&) [4], int, int, bool)'
     DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp, 
                        Line: 196, Column: 0 }
   - String:          ' because it should never be inlined (cost=never)'
@@ -69,7 +69,7 @@ DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Veril
                    Line: 421, Column: 9 }
 Function:        _Z13scheduler_hlsbbRjRbS0_bbS0_bS0_RiS1_S1_S1_bbbbbRA4_7HeadCtxS0_S1_S0_S1_bS0_bS0_S_R10SchedState
 Args:            
-  - Callee:          'drive_group_head_phase(HeadCtx (&) [2], int, int, bool)'
+  - Callee:          'drive_group_head_phase(HeadCtx (&) [4], int, int, bool)'
     DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp, 
                        Line: 196, Column: 0 }
   - String:          ' not inlined into '
@@ -110,7 +110,7 @@ Args:
   - String:          'in function '''
   - String:          scheduler_hls
   - String:          ''' completely with a factor of '
-  - Factor:          '2'
+  - Factor:          '4'
 ...
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
@@ -127,7 +127,7 @@ Args:
   - String:          'in function '''
   - String:          scheduler_hls
   - String:          ''' completely with a factor of '
-  - Factor:          '2'
+  - Factor:          '4'
 ...
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
@@ -151,7 +151,7 @@ Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
 DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp, 
                    Line: 196, Column: 0 }
-Function:        _Z22drive_group_head_phaseRA2_7HeadCtxiib
+Function:        _Z22drive_group_head_phaseRA4_7HeadCtxiib
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        VITIS_LOOP_201_1
@@ -161,7 +161,7 @@ Args:
   - String:          'in function '''
   - String:          drive_group_head_phase
   - String:          ''' completely with a factor of '
-  - Factor:          '2'
+  - Factor:          '4'
 ...
 --- !Missed
 Pass:            inline
@@ -184,13 +184,13 @@ Pass:            inline
 Name:            NeverInline
 DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp, 
                    Line: 207, Column: 36 }
-Function:        _Z22drive_group_head_phaseRA2_7HeadCtxiib
+Function:        _Z22drive_group_head_phaseRA4_7HeadCtxiib
 Args:            
   - Callee:          'run_single_head(HeadCtx&, int, bool)'
     DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp, 
                        Line: 44, Column: 0 }
   - String:          ' not inlined into '
-  - Caller:          'drive_group_head_phase(HeadCtx (&) [2], int, int, bool)'
+  - Caller:          'drive_group_head_phase(HeadCtx (&) [4], int, int, bool)'
     DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp, 
                        Line: 196, Column: 0 }
   - String:          ' because it should never be inlined (cost=never)'
@@ -250,7 +250,7 @@ DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Veril
                    Line: 421, Column: 9 }
 Function:        _Z13scheduler_hlsbbRjRbS0_bbS0_bS0_RiS1_S1_S1_bbbbbRA4_7HeadCtxS0_S1_S0_S1_bS0_bS0_S_R10SchedState
 Args:            
-  - Callee:          'drive_group_head_phase(HeadCtx (&) [2], int, int, bool)'
+  - Callee:          'drive_group_head_phase(HeadCtx (&) [4], int, int, bool)'
     DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp, 
                        Line: 196, Column: 0 }
   - String:          ' not inlined into '
@@ -316,23 +316,6 @@ Args:
   - Callee:          'init_head_ctx(HeadCtx&, int) (.5)'
     DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp, 
                        Line: 5, Column: 0 }
-  - String:          ''' into '''
-  - Caller:          'scheduler_hls(bool, bool, unsigned int&, bool&, bool&, bool, bool, bool&, bool, bool&, int&, int&, int&, int&, bool, bool, bool, bool, bool, HeadCtx (&) [4], bool&, int&, bool&, int&, bool, bool&, bool, bool&, unsigned int&, SchedState&)'
-    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp, 
-                       Line: 76, Column: 0 }
-  - String:          ''''
-...
---- !Passed
-Pass:            reflow-inliner
-Name:            Inline
-DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp, 
-                   Line: 76, Column: 0 }
-Function:        _Z13scheduler_hlsbbRjRbS0_bbS0_bS0_RiS1_S1_S1_bbbbbRA4_7HeadCtxS0_S1_S0_S1_bS0_bS0_S_R10SchedState
-Args:            
-  - String:          'Inlining function '''
-  - Callee:          'drive_group_head_phase(HeadCtx (&) [2], int, int, bool)'
-    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp, 
-                       Line: 196, Column: 0 }
   - String:          ''' into '''
   - Caller:          'scheduler_hls(bool, bool, unsigned int&, bool&, bool&, bool, bool, bool&, bool, bool&, int&, int&, int&, int&, bool, bool, bool, bool, bool, HeadCtx (&) [4], bool&, int&, bool&, int&, bool, bool&, bool, bool&, unsigned int&, SchedState&)'
     DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp, 
@@ -838,6 +821,22 @@ Args:
 --- !Missed
 Pass:            inline
 Name:            NeverInline
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp, 
+                   Line: 207, Column: 36 }
+Function:        _Z22drive_group_head_phaseRA4_7HeadCtxiib
+Args:            
+  - Callee:          'run_single_head(HeadCtx&, int, bool)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp, 
+                       Line: 44, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'drive_group_head_phase(HeadCtx (&) [4], int, int, bool)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp, 
+                       Line: 196, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
 DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp, 
                    Line: 177, Column: 2 }
 Function:        _Z13scheduler_hlsbbRjRbS0_bbS0_bS0_RiS1_S1_S1_bbbbbRA4_7HeadCtxS0_S1_S0_S1_bS0_bS0_S_R10SchedState
@@ -854,13 +853,13 @@ Args:
 --- !Missed
 Pass:            inline
 Name:            NeverInline
-DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp, 
-                   Line: 207, Column: 36 }
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp, 
+                   Line: 421, Column: 9 }
 Function:        _Z13scheduler_hlsbbRjRbS0_bbS0_bS0_RiS1_S1_S1_bbbbbRA4_7HeadCtxS0_S1_S0_S1_bS0_bS0_S_R10SchedState
 Args:            
-  - Callee:          'run_single_head(HeadCtx&, int, bool)'
+  - Callee:          'drive_group_head_phase(HeadCtx (&) [4], int, int, bool)'
     DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp, 
-                       Line: 44, Column: 0 }
+                       Line: 196, Column: 0 }
   - String:          ' not inlined into '
   - Caller:          'scheduler_hls(bool, bool, unsigned int&, bool&, bool&, bool, bool, bool&, bool, bool&, int&, int&, int&, int&, bool, bool, bool, bool, bool, HeadCtx (&) [4], bool&, int&, bool&, int&, bool, bool&, bool, bool&, unsigned int&, SchedState&)'
     DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp, 

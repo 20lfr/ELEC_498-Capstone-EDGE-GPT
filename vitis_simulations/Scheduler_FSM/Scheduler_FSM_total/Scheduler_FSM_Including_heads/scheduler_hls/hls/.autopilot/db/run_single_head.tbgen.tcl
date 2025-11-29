@@ -14,7 +14,7 @@ set hasInterrupt 0
 set DLRegFirstOffset 0
 set DLRegItemOffset 0
 set svuvm_can_support 1
-set cdfgNum 3
+set cdfgNum 4
 set C_modelName {run_single_head}
 set C_modelType { int 67 }
 set ap_memory_interface_dict [dict create]
@@ -24,7 +24,7 @@ set C_modelArgList {
 	{ ctx_phase_read int 4 regular  }
 	{ ctx_compute_ready_read int 1 regular  }
 	{ ctx_compute_done_read int 1 regular  }
-	{ ctx_compute_op_read int 5 regular  }
+	{ ctx_compute_op_read int 4 regular  }
 	{ ctx_start_head_read int 1 regular  }
 	{ ctx_q_started_read int 1 regular  }
 	{ ctx_k_started_read int 1 regular  }
@@ -52,7 +52,7 @@ set C_modelArgMapList {[
  	{ "Name" : "ctx_phase_read", "interface" : "wire", "bitwidth" : 4, "direction" : "READONLY"} , 
  	{ "Name" : "ctx_compute_ready_read", "interface" : "wire", "bitwidth" : 1, "direction" : "READONLY"} , 
  	{ "Name" : "ctx_compute_done_read", "interface" : "wire", "bitwidth" : 1, "direction" : "READONLY"} , 
- 	{ "Name" : "ctx_compute_op_read", "interface" : "wire", "bitwidth" : 5, "direction" : "READONLY"} , 
+ 	{ "Name" : "ctx_compute_op_read", "interface" : "wire", "bitwidth" : 4, "direction" : "READONLY"} , 
  	{ "Name" : "ctx_start_head_read", "interface" : "wire", "bitwidth" : 1, "direction" : "READONLY"} , 
  	{ "Name" : "ctx_q_started_read", "interface" : "wire", "bitwidth" : 1, "direction" : "READONLY"} , 
  	{ "Name" : "ctx_k_started_read", "interface" : "wire", "bitwidth" : 1, "direction" : "READONLY"} , 
@@ -80,7 +80,7 @@ set portList {
 	{ ctx_phase_read sc_in sc_lv 4 signal 2 } 
 	{ ctx_compute_ready_read sc_in sc_lv 1 signal 3 } 
 	{ ctx_compute_done_read sc_in sc_lv 1 signal 4 } 
-	{ ctx_compute_op_read sc_in sc_lv 5 signal 5 } 
+	{ ctx_compute_op_read sc_in sc_lv 4 signal 5 } 
 	{ ctx_start_head_read sc_in sc_lv 1 signal 6 } 
 	{ ctx_q_started_read sc_in sc_lv 1 signal 7 } 
 	{ ctx_k_started_read sc_in sc_lv 1 signal 8 } 
@@ -129,7 +129,7 @@ set NewPortList {[
  	{ "name": "ctx_phase_read", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "ctx_phase_read", "role": "default" }} , 
  	{ "name": "ctx_compute_ready_read", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "ctx_compute_ready_read", "role": "default" }} , 
  	{ "name": "ctx_compute_done_read", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "ctx_compute_done_read", "role": "default" }} , 
- 	{ "name": "ctx_compute_op_read", "direction": "in", "datatype": "sc_lv", "bitwidth":5, "type": "signal", "bundle":{"name": "ctx_compute_op_read", "role": "default" }} , 
+ 	{ "name": "ctx_compute_op_read", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "ctx_compute_op_read", "role": "default" }} , 
  	{ "name": "ctx_start_head_read", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "ctx_start_head_read", "role": "default" }} , 
  	{ "name": "ctx_q_started_read", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "ctx_q_started_read", "role": "default" }} , 
  	{ "name": "ctx_k_started_read", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "ctx_k_started_read", "role": "default" }} , 
@@ -213,7 +213,7 @@ set Spec2ImplPortList {
 	ctx_phase_read { ap_none {  { ctx_phase_read in_data 0 4 } } }
 	ctx_compute_ready_read { ap_none {  { ctx_compute_ready_read in_data 0 1 } } }
 	ctx_compute_done_read { ap_none {  { ctx_compute_done_read in_data 0 1 } } }
-	ctx_compute_op_read { ap_none {  { ctx_compute_op_read in_data 0 5 } } }
+	ctx_compute_op_read { ap_none {  { ctx_compute_op_read in_data 0 4 } } }
 	ctx_start_head_read { ap_none {  { ctx_start_head_read in_data 0 1 } } }
 	ctx_q_started_read { ap_none {  { ctx_q_started_read in_data 0 1 } } }
 	ctx_k_started_read { ap_none {  { ctx_k_started_read in_data 0 1 } } }

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'scheduler_hls'" level="0">
-<item name = "Date">Sat Nov 29 02:11:04 2025
+<item name = "Date">Sat Nov 29 03:04:54 2025
 </item>
 <item name = "Version">2025.1 (Build 6135595 on May 21 2025)</item>
 <item name = "Project">scheduler_hls</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 5.809 ns, 2.70 ns</column>
+<column name="ap_clk">10.00 ns, 6.578 ns, 2.70 ns</column>
 </table>
 </item>
 </section>
@@ -31,7 +31,7 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_run_single_head_fu_8068">run_single_head, 0, 0, 0 ns, 0 ns, 0, 0, no</column>
+<column name="call_ret_drive_group_head_phase_fu_7665">drive_group_head_phase, 0, 0, 0 ns, 0 ns, 0, 0, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
