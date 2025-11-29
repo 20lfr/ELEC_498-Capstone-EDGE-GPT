@@ -77,4 +77,4 @@ cycle grp ret|    head0 rdy done strt op    qst qdn kst kdn vst vdn vld |    hea
 [TB-DBG] Time 3325000: Head 3 compute DONE generated
 
 === SUCCESS: All head groups completed by cycle 336 ===
-$finish called at time : 3395 ns : File "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_tb.sv" Line 359
+$finish called at time : 3395 ns : File "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/_Golden-runs/Scheduler_FSM/simple_head_helpers/Single-HEADED/Verilog/drive_group_head_phase_tb.sv" Line 359

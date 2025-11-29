@@ -4,7 +4,7 @@
 == Synthesis Summary Report of 'scheduler_hls'
 ================================================================
 + General Information: 
-    * Date:           Fri Nov 28 18:06:19 2025
+    * Date:           Fri Nov 28 22:41:50 2025
     * Version:        2025.1 (Build 6135595 on May 21 2025)
     * Project:        scheduler_hls
     * Solution:       hls (Vivado IP Flow Target)
@@ -15,50 +15,59 @@
 + Performance & Resource Estimates: 
     
     PS: '+' for module; 'o' for loop; '*' for dataflow
-    +-----------------+------+------+---------+-------+----------+---------+------+----------+------+----+-----------+-----------+-----+
-    |     Modules     | Issue|      |     Latency     | Iteration|         | Trip |          |      |    |           |           |     |
-    |     & Loops     | Type | Slack| (cycles)|  (ns) |  Latency | Interval| Count| Pipelined| BRAM | DSP|     FF    |    LUT    | URAM|
-    +-----------------+------+------+---------+-------+----------+---------+------+----------+------+----+-----------+-----------+-----+
-    |+ scheduler_hls  |     -|  4.36|        0|  0.000|         -|        1|     -|        no|     -|   -|  160 (~0%)|  1551 (1%)|    -|
-    +-----------------+------+------+---------+-------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+    +--------------------+------+------+---------+-------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+    |       Modules      | Issue|      |     Latency     | Iteration|         | Trip |          |      |    |           |           |     |
+    |       & Loops      | Type | Slack| (cycles)|  (ns) |  Latency | Interval| Count| Pipelined| BRAM | DSP|     FF    |    LUT    | URAM|
+    +--------------------+------+------+---------+-------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+    |+ scheduler_hls     |     -|  0.25|        0|  0.000|         -|        1|     -|        no|     -|   -|  192 (~0%)|  3346 (2%)|    -|
+    | + run_single_head  |     -|  4.38|        0|  0.000|         -|        0|     -|        no|     -|   -|          -|  724 (~0%)|    -|
+    +--------------------+------+------+---------+-------+----------+---------+------+----------+------+----+-----------+-----------+-----+
 
 
 ================================================================
 == HW Interfaces
 ================================================================
 * Other Ports
-+-----------------+---------+-----------+----------+
-| Port            | Mode    | Direction | Bitwidth |
-+-----------------+---------+-----------+----------+
-| STATE           | ap_vld  | out       | 32       |
-| axis_in_last    | ap_none | in        | 1        |
-| axis_in_ready   | ap_vld  | out       | 1        |
-| axis_in_valid   | ap_none | in        | 1        |
-| cntrl_busy      | ap_vld  | out       | 1        |
-| cntrl_layer_idx | ap_vld  | out       | 32       |
-| cntrl_reset_n   | ap_none | in        | 1        |
-| cntrl_start     | ap_none | in        | 1        |
-| cntrl_start_out | ap_vld  | out       | 1        |
-| compute_done    | ap_none | in        | 1        |
-| compute_op      | ap_vld  | out       | 32       |
-| compute_ready   | ap_none | in        | 1        |
-| compute_start   | ap_vld  | out       | 1        |
-| dma_done        | ap_none | in        | 1        |
-| done            | ap_vld  | out       | 1        |
-| requant_done    | ap_none | in        | 1        |
-| requant_op      | ap_vld  | out       | 32       |
-| requant_ready   | ap_none | in        | 1        |
-| requant_start   | ap_vld  | out       | 1        |
-| stream_done     | ap_none | in        | 1        |
-| stream_ready    | ap_none | in        | 1        |
-| stream_start    | ap_vld  | out       | 1        |
-| wl_addr_sel     | ap_vld  | out       | 32       |
-| wl_head         | ap_vld  | out       | 32       |
-| wl_layer        | ap_vld  | out       | 32       |
-| wl_ready        | ap_none | in        | 1        |
-| wl_start        | ap_vld  | out       | 1        |
-| wl_tile         | ap_vld  | out       | 32       |
-+-----------------+---------+-----------+----------+
++------------------+---------+-----------+----------+
+| Port             | Mode    | Direction | Bitwidth |
++------------------+---------+-----------+----------+
+| STATE            | ap_vld  | out       | 32       |
+| axis_in_last     | ap_none | in        | 1        |
+| axis_in_ready    | ap_vld  | out       | 1        |
+| axis_in_valid    | ap_none | in        | 1        |
+| cntrl_busy       | ap_vld  | out       | 1        |
+| cntrl_layer_idx  | ap_vld  | out       | 32       |
+| cntrl_reset_n    | ap_none | in        | 1        |
+| cntrl_start      | ap_none | in        | 1        |
+| cntrl_start_out  | ap_vld  | out       | 1        |
+| compute_done     | ap_none | in        | 1        |
+| compute_op       | ap_vld  | out       | 32       |
+| compute_ready    | ap_none | in        | 1        |
+| compute_start    | ap_vld  | out       | 1        |
+| dma_done         | ap_none | in        | 1        |
+| done             | ap_vld  | out       | 1        |
+| head_ctx_ref_0_i | ap_ovld | in        | 66       |
+| head_ctx_ref_0_o | ap_ovld | out       | 66       |
+| head_ctx_ref_1_i | ap_ovld | in        | 66       |
+| head_ctx_ref_1_o | ap_ovld | out       | 66       |
+| head_ctx_ref_2_i | ap_ovld | in        | 66       |
+| head_ctx_ref_2_o | ap_ovld | out       | 66       |
+| head_ctx_ref_3_i | ap_ovld | in        | 66       |
+| head_ctx_ref_3_o | ap_ovld | out       | 66       |
+| requant_done     | ap_none | in        | 1        |
+| requant_op       | ap_vld  | out       | 32       |
+| requant_ready    | ap_none | in        | 1        |
+| requant_start    | ap_vld  | out       | 1        |
+| stream_done      | ap_none | in        | 1        |
+| stream_ready     | ap_none | in        | 1        |
+| stream_start     | ap_vld  | out       | 1        |
+| wl_addr_sel      | ap_vld  | out       | 32       |
+| wl_head          | ap_vld  | out       | 32       |
+| wl_layer         | ap_vld  | out       | 32       |
+| wl_ready         | ap_none | in        | 1        |
+| wl_start         | ap_vld  | out       | 1        |
+| wl_tile          | ap_vld  | out       | 32       |
++------------------+---------+-----------+----------+
 
 * TOP LEVEL CONTROL
 +-----------+------------+-----------------------------------+
@@ -96,6 +105,7 @@
 | compute_done    | in        | bool          |
 | requant_ready   | in        | bool          |
 | requant_done    | in        | bool          |
+| head_ctx_ref    | inout     | HeadCtx&      |
 | compute_start   | out       | bool&         |
 | compute_op      | out       | int&          |
 | requant_start   | out       | bool&         |
@@ -108,120 +118,250 @@
 +-----------------+-----------+---------------+
 
 * SW-to-HW Mapping
-+-----------------+------------------------+---------+
-| Argument        | HW Interface           | HW Type |
-+-----------------+------------------------+---------+
-| cntrl_start     | cntrl_start            | port    |
-| cntrl_reset_n   | cntrl_reset_n          | port    |
-| cntrl_layer_idx | cntrl_layer_idx        | port    |
-| cntrl_layer_idx | cntrl_layer_idx_ap_vld | port    |
-| cntrl_busy      | cntrl_busy             | port    |
-| cntrl_busy      | cntrl_busy_ap_vld      | port    |
-| cntrl_start_out | cntrl_start_out        | port    |
-| cntrl_start_out | cntrl_start_out_ap_vld | port    |
-| axis_in_valid   | axis_in_valid          | port    |
-| axis_in_last    | axis_in_last           | port    |
-| axis_in_ready   | axis_in_ready          | port    |
-| axis_in_ready   | axis_in_ready_ap_vld   | port    |
-| wl_ready        | wl_ready               | port    |
-| wl_start        | wl_start               | port    |
-| wl_start        | wl_start_ap_vld        | port    |
-| wl_addr_sel     | wl_addr_sel            | port    |
-| wl_addr_sel     | wl_addr_sel_ap_vld     | port    |
-| wl_layer        | wl_layer               | port    |
-| wl_layer        | wl_layer_ap_vld        | port    |
-| wl_head         | wl_head                | port    |
-| wl_head         | wl_head_ap_vld         | port    |
-| wl_tile         | wl_tile                | port    |
-| wl_tile         | wl_tile_ap_vld         | port    |
-| dma_done        | dma_done               | port    |
-| compute_ready   | compute_ready          | port    |
-| compute_done    | compute_done           | port    |
-| requant_ready   | requant_ready          | port    |
-| requant_done    | requant_done           | port    |
-| compute_start   | compute_start          | port    |
-| compute_start   | compute_start_ap_vld   | port    |
-| compute_op      | compute_op             | port    |
-| compute_op      | compute_op_ap_vld      | port    |
-| requant_start   | requant_start          | port    |
-| requant_start   | requant_start_ap_vld   | port    |
-| requant_op      | requant_op             | port    |
-| requant_op      | requant_op_ap_vld      | port    |
-| stream_ready    | stream_ready           | port    |
-| stream_start    | stream_start           | port    |
-| stream_start    | stream_start_ap_vld    | port    |
-| stream_done     | stream_done            | port    |
-| done            | done                   | port    |
-| done            | done_ap_vld            | port    |
-| STATE           | STATE                  | port    |
-| STATE           | STATE_ap_vld           | port    |
-+-----------------+------------------------+---------+
++-----------------+-------------------------+---------+
+| Argument        | HW Interface            | HW Type |
++-----------------+-------------------------+---------+
+| cntrl_start     | cntrl_start             | port    |
+| cntrl_reset_n   | cntrl_reset_n           | port    |
+| cntrl_layer_idx | cntrl_layer_idx         | port    |
+| cntrl_layer_idx | cntrl_layer_idx_ap_vld  | port    |
+| cntrl_busy      | cntrl_busy              | port    |
+| cntrl_busy      | cntrl_busy_ap_vld       | port    |
+| cntrl_start_out | cntrl_start_out         | port    |
+| cntrl_start_out | cntrl_start_out_ap_vld  | port    |
+| axis_in_valid   | axis_in_valid           | port    |
+| axis_in_last    | axis_in_last            | port    |
+| axis_in_ready   | axis_in_ready           | port    |
+| axis_in_ready   | axis_in_ready_ap_vld    | port    |
+| wl_ready        | wl_ready                | port    |
+| wl_start        | wl_start                | port    |
+| wl_start        | wl_start_ap_vld         | port    |
+| wl_addr_sel     | wl_addr_sel             | port    |
+| wl_addr_sel     | wl_addr_sel_ap_vld      | port    |
+| wl_layer        | wl_layer                | port    |
+| wl_layer        | wl_layer_ap_vld         | port    |
+| wl_head         | wl_head                 | port    |
+| wl_head         | wl_head_ap_vld          | port    |
+| wl_tile         | wl_tile                 | port    |
+| wl_tile         | wl_tile_ap_vld          | port    |
+| dma_done        | dma_done                | port    |
+| compute_ready   | compute_ready           | port    |
+| compute_done    | compute_done            | port    |
+| requant_ready   | requant_ready           | port    |
+| requant_done    | requant_done            | port    |
+| head_ctx_ref    | head_ctx_ref_0_i        | port    |
+| head_ctx_ref    | head_ctx_ref_0_o        | port    |
+| head_ctx_ref    | head_ctx_ref_0_o_ap_vld | port    |
+| head_ctx_ref    | head_ctx_ref_1_i        | port    |
+| head_ctx_ref    | head_ctx_ref_1_o        | port    |
+| head_ctx_ref    | head_ctx_ref_1_o_ap_vld | port    |
+| head_ctx_ref    | head_ctx_ref_2_i        | port    |
+| head_ctx_ref    | head_ctx_ref_2_o        | port    |
+| head_ctx_ref    | head_ctx_ref_2_o_ap_vld | port    |
+| head_ctx_ref    | head_ctx_ref_3_i        | port    |
+| head_ctx_ref    | head_ctx_ref_3_o        | port    |
+| head_ctx_ref    | head_ctx_ref_3_o_ap_vld | port    |
+| compute_start   | compute_start           | port    |
+| compute_start   | compute_start_ap_vld    | port    |
+| compute_op      | compute_op              | port    |
+| compute_op      | compute_op_ap_vld       | port    |
+| requant_start   | requant_start           | port    |
+| requant_start   | requant_start_ap_vld    | port    |
+| requant_op      | requant_op              | port    |
+| requant_op      | requant_op_ap_vld       | port    |
+| stream_ready    | stream_ready            | port    |
+| stream_start    | stream_start            | port    |
+| stream_start    | stream_start_ap_vld     | port    |
+| stream_done     | stream_done             | port    |
+| done            | done                    | port    |
+| done            | done_ap_vld             | port    |
+| STATE           | STATE                   | port    |
+| STATE           | STATE_ap_vld            | port    |
++-----------------+-------------------------+---------+
 
 
 ================================================================
 == Bind Op Report
 ================================================================
-+-------------------------+-----+--------+--------------+--------+----------+---------+
-| Name                    | DSP | Pragma | Variable     | Op     | Impl     | Latency |
-+-------------------------+-----+--------+--------------+--------+----------+---------+
-| + scheduler_hls         | 0   |        |              |        |          |         |
-|   or_ln241_fu_7328_p2   |     |        | or_ln241     | or     | auto     | 0       |
-|   or_ln239_fu_7335_p2   |     |        | or_ln239     | or     | auto     | 0       |
-|   or_ln229_fu_7374_p2   |     |        | or_ln229     | or     | auto     | 0       |
-|   or_ln227_fu_7381_p2   |     |        | or_ln227     | or     | auto     | 0       |
-|   or_ln225_fu_7388_p2   |     |        | or_ln225     | or     | auto     | 0       |
-|   or_ln223_fu_7395_p2   |     |        | or_ln223     | or     | auto     | 0       |
-|   or_ln221_fu_7402_p2   |     |        | or_ln221     | or     | auto     | 0       |
-|   add_ln540_fu_7437_p2  |     |        | add_ln540    | add    | fabric   | 0       |
-|   icmp_ln540_fu_7453_p2 |     |        | icmp_ln540   | setlt  | auto     | 0       |
-|   xor_ln527_fu_7483_p2  |     |        | xor_ln527    | xor    | auto     | 0       |
-|   or_ln527_fu_7489_p2   |     |        | or_ln527     | or     | auto     | 0       |
-|   xor_ln514_fu_7513_p2  |     |        | xor_ln514    | xor    | auto     | 0       |
-|   or_ln514_fu_7519_p2   |     |        | or_ln514     | or     | auto     | 0       |
-|   xor_ln469_fu_7551_p2  |     |        | xor_ln469    | xor    | auto     | 0       |
-|   or_ln469_fu_7557_p2   |     |        | or_ln469     | or     | auto     | 0       |
-|   and_ln474_fu_7569_p2  |     |        | and_ln474    | and    | auto     | 0       |
-|   icmp_ln481_fu_7602_p2 |     |        | icmp_ln481   | setgt  | auto     | 0       |
-|   xor_ln488_fu_7608_p2  |     |        | xor_ln488    | xor    | auto     | 0       |
-|   or_ln488_fu_7614_p2   |     |        | or_ln488     | or     | auto     | 0       |
-|   and_ln495_fu_7636_p2  |     |        | and_ln495    | and    | auto     | 0       |
-|   and_ln498_fu_7646_p2  |     |        | and_ln498    | and    | auto     | 0       |
-|   xor_ln503_fu_7652_p2  |     |        | xor_ln503    | xor    | auto     | 0       |
-|   or_ln503_fu_7658_p2   |     |        | or_ln503     | or     | auto     | 0       |
-|   or_ln503_1_fu_7664_p2 |     |        | or_ln503_1   | or     | auto     | 0       |
-|   add_ln507_fu_7676_p2  |     |        | add_ln507    | add    | fabric   | 0       |
-|   icmp_ln440_fu_7739_p2 |     |        | icmp_ln440   | setgt  | auto     | 0       |
-|   xor_ln446_fu_7745_p2  |     |        | xor_ln446    | xor    | auto     | 0       |
-|   or_ln446_fu_7751_p2   |     |        | or_ln446     | or     | auto     | 0       |
-|   and_ln453_fu_7773_p2  |     |        | and_ln453    | and    | auto     | 0       |
-|   and_ln456_fu_7783_p2  |     |        | and_ln456    | and    | auto     | 0       |
-|   xor_ln461_fu_7789_p2  |     |        | xor_ln461    | xor    | auto     | 0       |
-|   or_ln461_fu_7795_p2   |     |        | or_ln461     | or     | auto     | 0       |
-|   or_ln461_1_fu_7801_p2 |     |        | or_ln461_1   | or     | auto     | 0       |
-|   add_ln465_fu_7813_p2  |     |        | add_ln465    | add    | fabric   | 0       |
-|   xor_ln424_fu_7855_p2  |     |        | xor_ln424    | xor    | auto     | 0       |
-|   or_ln424_fu_7861_p2   |     |        | or_ln424     | or     | auto     | 0       |
-|   xor_ln411_fu_7885_p2  |     |        | xor_ln411    | xor    | auto     | 0       |
-|   or_ln411_fu_7891_p2   |     |        | or_ln411     | or     | auto     | 0       |
-|   icmp_ln381_fu_7930_p2 |     |        | icmp_ln381   | setgt  | auto     | 0       |
-|   xor_ln387_fu_7936_p2  |     |        | xor_ln387    | xor    | auto     | 0       |
-|   or_ln387_fu_7942_p2   |     |        | or_ln387     | or     | auto     | 0       |
-|   and_ln394_fu_7964_p2  |     |        | and_ln394    | and    | auto     | 0       |
-|   and_ln397_fu_7974_p2  |     |        | and_ln397    | and    | auto     | 0       |
-|   xor_ln402_fu_7980_p2  |     |        | xor_ln402    | xor    | auto     | 0       |
-|   or_ln402_fu_7986_p2   |     |        | or_ln402     | or     | auto     | 0       |
-|   or_ln402_1_fu_7992_p2 |     |        | or_ln402_1   | or     | auto     | 0       |
-|   add_ln406_fu_8004_p2  |     |        | add_ln406    | add    | fabric   | 0       |
-|   xor_ln368_fu_8046_p2  |     |        | xor_ln368    | xor    | auto     | 0       |
-|   or_ln368_fu_8052_p2   |     |        | or_ln368     | or     | auto     | 0       |
-|   xor_ln355_fu_8076_p2  |     |        | xor_ln355    | xor    | auto     | 0       |
-|   or_ln355_fu_8082_p2   |     |        | or_ln355     | or     | auto     | 0       |
-|   and_ln299_fu_8220_p2  |     |        | and_ln299    | and    | auto     | 0       |
-|   xor_ln550_fu_8236_p2  |     |        | xor_ln550    | xor    | auto     | 0       |
-|   or_ln550_fu_8242_p2   |     |        | or_ln550     | or     | auto     | 0       |
-|   and_ln553_fu_8254_p2  |     |        | and_ln553    | and    | auto     | 0       |
-|   wl_head               |     |        | select_ln197 | select | auto_sel | 0       |
-+-------------------------+-----+--------+--------------+--------+----------+---------+
++--------------------------------------------------------+-----+--------+--------------------------------------+-----------+--------------------------+---------+
+| Name                                                   | DSP | Pragma | Variable                             | Op        | Impl                     | Latency |
++--------------------------------------------------------+-----+--------+--------------------------------------+-----------+--------------------------+---------+
+| + scheduler_hls                                        | 0   |        |                                      |           |                          |         |
+|   or_ln261_fu_8177_p2                                  |     |        | or_ln261                             | or        | auto                     | 0       |
+|   or_ln259_fu_8184_p2                                  |     |        | or_ln259                             | or        | auto                     | 0       |
+|   or_ln249_fu_8221_p2                                  |     |        | or_ln249                             | or        | auto                     | 0       |
+|   or_ln247_fu_8228_p2                                  |     |        | or_ln247                             | or        | auto                     | 0       |
+|   or_ln245_fu_8235_p2                                  |     |        | or_ln245                             | or        | auto                     | 0       |
+|   or_ln243_fu_8242_p2                                  |     |        | or_ln243                             | or        | auto                     | 0       |
+|   add_ln613_fu_8277_p2                                 |     |        | add_ln613                            | add       | fabric                   | 0       |
+|   icmp_ln613_fu_8293_p2                                |     |        | icmp_ln613                           | setlt     | auto                     | 0       |
+|   xor_ln600_fu_8323_p2                                 |     |        | xor_ln600                            | xor       | auto                     | 0       |
+|   or_ln600_fu_8329_p2                                  |     |        | or_ln600                             | or        | auto                     | 0       |
+|   xor_ln587_fu_8353_p2                                 |     |        | xor_ln587                            | xor       | auto                     | 0       |
+|   or_ln587_fu_8359_p2                                  |     |        | or_ln587                             | or        | auto                     | 0       |
+|   xor_ln542_fu_8391_p2                                 |     |        | xor_ln542                            | xor       | auto                     | 0       |
+|   or_ln542_fu_8397_p2                                  |     |        | or_ln542                             | or        | auto                     | 0       |
+|   and_ln547_fu_8409_p2                                 |     |        | and_ln547                            | and       | auto                     | 0       |
+|   icmp_ln554_fu_8442_p2                                |     |        | icmp_ln554                           | setgt     | auto                     | 0       |
+|   xor_ln561_fu_8448_p2                                 |     |        | xor_ln561                            | xor       | auto                     | 0       |
+|   or_ln561_fu_8454_p2                                  |     |        | or_ln561                             | or        | auto                     | 0       |
+|   and_ln568_fu_8476_p2                                 |     |        | and_ln568                            | and       | auto                     | 0       |
+|   and_ln571_fu_8486_p2                                 |     |        | and_ln571                            | and       | auto                     | 0       |
+|   xor_ln576_fu_8492_p2                                 |     |        | xor_ln576                            | xor       | auto                     | 0       |
+|   or_ln576_fu_8498_p2                                  |     |        | or_ln576                             | or        | auto                     | 0       |
+|   or_ln576_1_fu_8504_p2                                |     |        | or_ln576_1                           | or        | auto                     | 0       |
+|   add_ln580_fu_8516_p2                                 |     |        | add_ln580                            | add       | fabric                   | 0       |
+|   icmp_ln513_fu_8579_p2                                |     |        | icmp_ln513                           | setgt     | auto                     | 0       |
+|   xor_ln519_fu_8585_p2                                 |     |        | xor_ln519                            | xor       | auto                     | 0       |
+|   or_ln519_fu_8591_p2                                  |     |        | or_ln519                             | or        | auto                     | 0       |
+|   and_ln526_fu_8613_p2                                 |     |        | and_ln526                            | and       | auto                     | 0       |
+|   and_ln529_fu_8623_p2                                 |     |        | and_ln529                            | and       | auto                     | 0       |
+|   xor_ln534_fu_8629_p2                                 |     |        | xor_ln534                            | xor       | auto                     | 0       |
+|   or_ln534_fu_8635_p2                                  |     |        | or_ln534                             | or        | auto                     | 0       |
+|   or_ln534_1_fu_8641_p2                                |     |        | or_ln534_1                           | or        | auto                     | 0       |
+|   add_ln538_fu_8653_p2                                 |     |        | add_ln538                            | add       | fabric                   | 0       |
+|   xor_ln497_fu_8695_p2                                 |     |        | xor_ln497                            | xor       | auto                     | 0       |
+|   or_ln497_fu_8701_p2                                  |     |        | or_ln497                             | or        | auto                     | 0       |
+|   xor_ln484_fu_8725_p2                                 |     |        | xor_ln484                            | xor       | auto                     | 0       |
+|   or_ln484_fu_8731_p2                                  |     |        | or_ln484                             | or        | auto                     | 0       |
+|   icmp_ln454_fu_8770_p2                                |     |        | icmp_ln454                           | setgt     | auto                     | 0       |
+|   xor_ln460_fu_8776_p2                                 |     |        | xor_ln460                            | xor       | auto                     | 0       |
+|   or_ln460_fu_8782_p2                                  |     |        | or_ln460                             | or        | auto                     | 0       |
+|   and_ln467_fu_8804_p2                                 |     |        | and_ln467                            | and       | auto                     | 0       |
+|   and_ln470_fu_8814_p2                                 |     |        | and_ln470                            | and       | auto                     | 0       |
+|   xor_ln475_fu_8820_p2                                 |     |        | xor_ln475                            | xor       | auto                     | 0       |
+|   or_ln475_fu_8826_p2                                  |     |        | or_ln475                             | or        | auto                     | 0       |
+|   or_ln475_1_fu_8832_p2                                |     |        | or_ln475_1                           | or        | auto                     | 0       |
+|   add_ln479_fu_8844_p2                                 |     |        | add_ln479                            | add       | fabric                   | 0       |
+|   xor_ln441_fu_8886_p2                                 |     |        | xor_ln441                            | xor       | auto                     | 0       |
+|   or_ln441_fu_8892_p2                                  |     |        | or_ln441                             | or        | auto                     | 0       |
+|   icmp_ln393_fu_8926_p2                                |     |        | icmp_ln393                           | setlt     | auto                     | 0       |
+|   sparsemux_9_2_32_1_1_U22                             |     |        | head_group_layer_stamp               | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_8_1_1_U23                              |     |        | head_group_phase                     | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_1_1_1_U24                              |     |        | head_group_compute_ready             | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_1_1_1_U25                              |     |        | head_group_compute_done              | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_1_1_1_U26                              |     |        | head_group_compute_start             | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_8_1_1_U27                              |     |        | head_group_compute_op                | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_1_1_1_U28                              |     |        | head_group_start_head_1              | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_1_1_1_U29                              |     |        | head_group_q_started                 | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_1_1_1_U30                              |     |        | head_group_k_started                 | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_1_1_1_U31                              |     |        | head_group_v_started                 | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_1_1_1_U32                              |     |        | head_group_att_scores_started        | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_1_1_1_U33                              |     |        | head_group_val_scale_started         | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_1_1_1_U34                              |     |        | head_group_softmax_started           | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_1_1_1_U35                              |     |        | head_group_att_value_started         | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_1_1_1_U36                              |     |        | head_group_q_compute_done            | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_1_1_1_U37                              |     |        | head_group_k_compute_done            | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_1_1_1_U38                              |     |        | head_group_v_compute_done            | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_1_1_1_U39                              |     |        | head_group_att_scores_compute_done   | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_1_1_1_U40                              |     |        | head_group_val_scale_compute_done    | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_1_1_1_U41                              |     |        | head_group_softmax_compute_done      | sparsemux | compactencoding_dontcare | 0       |
+|   sparsemux_9_2_1_1_1_U42                              |     |        | head_group_att_value_compute_done    | sparsemux | compactencoding_dontcare | 0       |
+|   head_group_att_value_compute_done_0_fu_10108_p2      |     |        | head_group_att_value_compute_done_0  | and       | auto                     | 0       |
+|   head_group_softmax_compute_done_0_fu_10116_p2        |     |        | head_group_softmax_compute_done_0    | and       | auto                     | 0       |
+|   head_group_val_scale_compute_done_0_fu_10124_p2      |     |        | head_group_val_scale_compute_done_0  | and       | auto                     | 0       |
+|   head_group_att_scores_compute_done_0_fu_10132_p2     |     |        | head_group_att_scores_compute_done_0 | and       | auto                     | 0       |
+|   head_group_v_compute_done_0_fu_10140_p2              |     |        | head_group_v_compute_done_0          | and       | auto                     | 0       |
+|   head_group_k_compute_done_0_fu_10148_p2              |     |        | head_group_k_compute_done_0          | and       | auto                     | 0       |
+|   head_group_q_compute_done_0_fu_10156_p2              |     |        | head_group_q_compute_done_0          | and       | auto                     | 0       |
+|   head_group_att_value_started_0_fu_10164_p2           |     |        | head_group_att_value_started_0       | and       | auto                     | 0       |
+|   head_group_softmax_started_0_fu_10172_p2             |     |        | head_group_softmax_started_0         | and       | auto                     | 0       |
+|   head_group_val_scale_started_0_fu_10180_p2           |     |        | head_group_val_scale_started_0       | and       | auto                     | 0       |
+|   head_group_att_scores_started_0_fu_10188_p2          |     |        | head_group_att_scores_started_0      | and       | auto                     | 0       |
+|   head_group_v_started_0_fu_10196_p2                   |     |        | head_group_v_started_0               | and       | auto                     | 0       |
+|   head_group_k_started_0_fu_10204_p2                   |     |        | head_group_k_started_0               | and       | auto                     | 0       |
+|   head_group_q_started_0_fu_10212_p2                   |     |        | head_group_q_started_0               | and       | auto                     | 0       |
+|   head_group_start_head_3_0_fu_10220_p2                |     |        | head_group_start_head_3_0            | and       | auto                     | 0       |
+|   head_group_compute_op_0_fu_10227_p3                  |     |        | head_group_compute_op_0              | select    | auto_sel                 | 0       |
+|   head_group_compute_start_0_fu_10241_p2               |     |        | head_group_compute_start_0           | and       | auto                     | 0       |
+|   head_group_compute_done_0_fu_10248_p2                |     |        | head_group_compute_done_0            | and       | auto                     | 0       |
+|   head_group_compute_ready_0_fu_10256_p2               |     |        | head_group_compute_ready_0           | and       | auto                     | 0       |
+|   head_group_phase_0_fu_10264_p3                       |     |        | head_group_phase_0                   | select    | auto_sel                 | 0       |
+|   head_group_layer_stamp_3_fu_10278_p3                 |     |        | head_group_layer_stamp_3             | select    | auto_sel                 | 0       |
+|   icmp_ln205_fu_10288_p2                               |     |        | icmp_ln205                           | seteq     | auto                     | 0       |
+|   icmp_ln206_fu_10294_p2                               |     |        | icmp_ln206                           | seteq     | auto                     | 0       |
+|   call_ret_run_single_head_fu_7748_ctx_start_head_read |     |        | head_group_start_head                | and       | auto                     | 0       |
+|   xor_ln416_fu_10617_p2                                |     |        | xor_ln416                            | xor       | auto                     | 0       |
+|   add_ln424_fu_10625_p2                                |     |        | add_ln424                            | add       | fabric                   | 0       |
+|   icmp_ln426_fu_10642_p2                               |     |        | icmp_ln426                           | setgt     | auto                     | 0       |
+|   and_ln321_fu_10770_p2                                |     |        | and_ln321                            | and       | auto                     | 0       |
+|   xor_ln623_fu_10786_p2                                |     |        | xor_ln623                            | xor       | auto                     | 0       |
+|   or_ln623_fu_10792_p2                                 |     |        | or_ln623                             | or        | auto                     | 0       |
+|   and_ln626_fu_10804_p2                                |     |        | and_ln626                            | and       | auto                     | 0       |
+|   wl_head                                              |     |        | select_ln218                         | select    | auto_sel                 | 0       |
+|  + run_single_head                                     | 0   |        |                                      |           |                          |         |
+|    icmp_ln50_fu_1580_p2                                |     |        | icmp_ln50                            | seteq     | auto                     | 0       |
+|    and_ln50_fu_1586_p2                                 |     |        | and_ln50                             | and       | auto                     | 0       |
+|    and_ln50_1_fu_1619_p2                               |     |        | and_ln50_1                           | and       | auto                     | 0       |
+|    and_ln50_2_fu_1650_p2                               |     |        | and_ln50_2                           | and       | auto                     | 0       |
+|    and_ln50_3_fu_1681_p2                               |     |        | and_ln50_3                           | and       | auto                     | 0       |
+|    and_ln50_4_fu_1712_p2                               |     |        | and_ln50_4                           | and       | auto                     | 0       |
+|    and_ln50_5_fu_1743_p2                               |     |        | and_ln50_5                           | and       | auto                     | 0       |
+|    and_ln50_6_fu_1774_p2                               |     |        | and_ln50_6                           | and       | auto                     | 0       |
+|    and_ln50_7_fu_1805_p2                               |     |        | and_ln50_7                           | and       | auto                     | 0       |
+|    and_ln50_8_fu_1836_p2                               |     |        | and_ln50_8                           | and       | auto                     | 0       |
+|    and_ln50_9_fu_1842_p2                               |     |        | and_ln50_9                           | and       | auto                     | 0       |
+|    and_ln50_10_fu_1848_p2                              |     |        | and_ln50_10                          | and       | auto                     | 0       |
+|    and_ln50_11_fu_1854_p2                              |     |        | and_ln50_11                          | and       | auto                     | 0       |
+|    and_ln50_12_fu_1860_p2                              |     |        | and_ln50_12                          | and       | auto                     | 0       |
+|    and_ln50_13_fu_1866_p2                              |     |        | and_ln50_13                          | and       | auto                     | 0       |
+|    and_ln50_14_fu_1872_p2                              |     |        | and_ln50_14                          | and       | auto                     | 0       |
+|    and_ln50_15_fu_1878_p2                              |     |        | and_ln50_15                          | and       | auto                     | 0       |
+|    select_ln50_fu_1904_p3                              |     |        | select_ln50                          | select    | auto_sel                 | 0       |
+|    or_ln56_fu_1912_p2                                  |     |        | or_ln56                              | and       | auto                     | 0       |
+|    ctx_q_compute_done_2_fu_1918_p2                     |     |        | ctx_q_compute_done_2                 | or        | auto                     | 0       |
+|    or_ln57_fu_1950_p2                                  |     |        | or_ln57                              | and       | auto                     | 0       |
+|    ctx_k_compute_done_2_fu_1956_p2                     |     |        | ctx_k_compute_done_2                 | or        | auto                     | 0       |
+|    or_ln58_fu_1988_p2                                  |     |        | or_ln58                              | and       | auto                     | 0       |
+|    ctx_v_compute_done_2_fu_1994_p2                     |     |        | ctx_v_compute_done_2                 | or        | auto                     | 0       |
+|    or_ln59_fu_2026_p2                                  |     |        | or_ln59                              | and       | auto                     | 0       |
+|    ctx_att_scores_compute_done_2_fu_2032_p2            |     |        | ctx_att_scores_compute_done_2        | or        | auto                     | 0       |
+|    or_ln60_fu_2064_p2                                  |     |        | or_ln60                              | and       | auto                     | 0       |
+|    ctx_val_scale_compute_done_2_fu_2070_p2             |     |        | ctx_val_scale_compute_done_2         | or        | auto                     | 0       |
+|    or_ln61_fu_2102_p2                                  |     |        | or_ln61                              | and       | auto                     | 0       |
+|    ctx_softmax_compute_done_2_fu_2108_p2               |     |        | ctx_softmax_compute_done_2           | or        | auto                     | 0       |
+|    or_ln62_fu_2140_p2                                  |     |        | or_ln62                              | and       | auto                     | 0       |
+|    ctx_att_value_compute_done_2_fu_2146_p2             |     |        | ctx_att_value_compute_done_2         | or        | auto                     | 0       |
+|    xor_ln168_fu_2228_p2                                |     |        | xor_ln168                            | xor       | auto                     | 0       |
+|    or_ln168_fu_2234_p2                                 |     |        | or_ln168                             | or        | auto                     | 0       |
+|    select_ln172_fu_2240_p3                             |     |        | select_ln172                         | select    | auto_sel                 | 0       |
+|    xor_ln158_fu_2249_p2                                |     |        | xor_ln158                            | xor       | auto                     | 0       |
+|    or_ln158_fu_2255_p2                                 |     |        | or_ln158                             | or        | auto                     | 0       |
+|    select_ln162_fu_2261_p3                             |     |        | select_ln162                         | select    | auto_sel                 | 0       |
+|    xor_ln148_fu_2270_p2                                |     |        | xor_ln148                            | xor       | auto                     | 0       |
+|    or_ln148_fu_2276_p2                                 |     |        | or_ln148                             | or        | auto                     | 0       |
+|    select_ln152_fu_2282_p3                             |     |        | select_ln152                         | select    | auto_sel                 | 0       |
+|    xor_ln138_fu_2291_p2                                |     |        | xor_ln138                            | xor       | auto                     | 0       |
+|    or_ln138_fu_2297_p2                                 |     |        | or_ln138                             | or        | auto                     | 0       |
+|    select_ln142_fu_2303_p3                             |     |        | select_ln142                         | select    | auto_sel                 | 0       |
+|    xor_ln118_fu_2312_p2                                |     |        | xor_ln118                            | xor       | auto                     | 0       |
+|    or_ln118_fu_2318_p2                                 |     |        | or_ln118                             | or        | auto                     | 0       |
+|    select_ln123_fu_2324_p3                             |     |        | select_ln123                         | select    | auto_sel                 | 0       |
+|    xor_ln102_fu_2333_p2                                |     |        | xor_ln102                            | xor       | auto                     | 0       |
+|    or_ln102_fu_2339_p2                                 |     |        | or_ln102                             | or        | auto                     | 0       |
+|    select_ln107_fu_2345_p3                             |     |        | select_ln107                         | select    | auto_sel                 | 0       |
+|    xor_ln91_fu_2354_p2                                 |     |        | xor_ln91                             | xor       | auto                     | 0       |
+|    or_ln91_fu_2360_p2                                  |     |        | or_ln91                              | or        | auto                     | 0       |
+|    select_ln96_fu_2366_p3                              |     |        | select_ln96                          | select    | auto_sel                 | 0       |
+|    xor_ln68_fu_2375_p2                                 |     |        | xor_ln68                             | xor       | auto                     | 0       |
+|    and_ln68_fu_2381_p2                                 |     |        | and_ln68                             | and       | auto                     | 0       |
+|    and_ln68_1_fu_2388_p2                               |     |        | and_ln68_1                           | and       | auto                     | 0       |
+|    and_ln68_2_fu_2395_p2                               |     |        | and_ln68_2                           | and       | auto                     | 0       |
+|    and_ln68_3_fu_2402_p2                               |     |        | and_ln68_3                           | and       | auto                     | 0       |
+|    and_ln68_4_fu_2409_p2                               |     |        | and_ln68_4                           | and       | auto                     | 0       |
+|    and_ln68_5_fu_2416_p2                               |     |        | and_ln68_5                           | and       | auto                     | 0       |
+|    and_ln68_6_fu_2423_p2                               |     |        | and_ln68_6                           | and       | auto                     | 0       |
+|    and_ln68_7_fu_2430_p2                               |     |        | and_ln68_7                           | and       | auto                     | 0       |
+|    and_ln68_8_fu_2437_p2                               |     |        | and_ln68_8                           | and       | auto                     | 0       |
+|    and_ln68_9_fu_2444_p2                               |     |        | and_ln68_9                           | and       | auto                     | 0       |
+|    and_ln68_10_fu_2451_p2                              |     |        | and_ln68_10                          | and       | auto                     | 0       |
+|    and_ln68_11_fu_2458_p2                              |     |        | and_ln68_11                          | and       | auto                     | 0       |
+|    and_ln68_12_fu_2465_p2                              |     |        | and_ln68_12                          | and       | auto                     | 0       |
+|    and_ln68_13_fu_2472_p2                              |     |        | and_ln68_13                          | and       | auto                     | 0       |
+|    and_ln68_14_fu_2479_p2                              |     |        | and_ln68_14                          | and       | auto                     | 0       |
+|    and_ln68_15_fu_2486_p2                              |     |        | and_ln68_15                          | and       | auto                     | 0       |
+|    and_ln186_fu_2506_p2                                |     |        | and_ln186                            | and       | auto                     | 0       |
++--------------------------------------------------------+-----+--------+--------------------------------------+-----------+--------------------------+---------+
 
 
 ================================================================
@@ -233,45 +373,53 @@
 == Pragma Report
 ================================================================
 * Valid Pragma Syntax
-+-----------------+--------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
-| Type            | Options                              | Location                                                                                                                |
-+-----------------+--------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
-| INLINE          | off                                  | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:45 in run_single_head                       |
-| ARRAY_PARTITION | variable=head_ctx_ref complete dim=1 | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:206 in drive_group_head_phase, head_ctx_ref |
-| UNROLL          |                                      | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:210 in drive_group_head_phase               |
-| RESET           | variable = st                        | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:74 in scheduler_hls                                     |
-| RESET           | variable = layer_idx                 | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:76 in scheduler_hls                                     |
-| RESET           | variable = attn_started              | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:80 in scheduler_hls                                     |
-| RESET           | variable = attn_done                 | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:82 in scheduler_hls                                     |
-| RESET           | variable = attn_compute_done         | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:84 in scheduler_hls                                     |
-| RESET           | variable = concat_compute_done       | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:86 in scheduler_hls                                     |
-| RESET           | variable = outproj_compute_done      | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:88 in scheduler_hls                                     |
-| RESET           | variable = resid0_compute_done       | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:90 in scheduler_hls                                     |
-| RESET           | variable = ln0_compute_done          | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:92 in scheduler_hls                                     |
-| RESET           | variable = ffn_w1_compute_done       | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:94 in scheduler_hls                                     |
-| RESET           | variable = ffn_act_compute_done      | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:96 in scheduler_hls                                     |
-| RESET           | variable = ffn_w2_compute_done       | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:98 in scheduler_hls                                     |
-| RESET           | variable = resid1_compute_done       | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:100 in scheduler_hls                                    |
-| RESET           | variable = ln1_compute_done          | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:102 in scheduler_hls                                    |
-| RESET           | variable = attn_group_done           | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:105 in scheduler_hls                                    |
-| RESET           | variable = concat_started            | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:108 in scheduler_hls                                    |
-| RESET           | variable = outproj_started           | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:110 in scheduler_hls                                    |
-| RESET           | variable = resid0_started            | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:112 in scheduler_hls                                    |
-| RESET           | variable = ln0_started               | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:114 in scheduler_hls                                    |
-| RESET           | variable = ffn_stage                 | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:117 in scheduler_hls                                    |
-| RESET           | variable = ffn_started               | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:119 in scheduler_hls                                    |
-| RESET           | variable = resid1_started            | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:121 in scheduler_hls                                    |
-| RESET           | variable = ln1_started               | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:123 in scheduler_hls                                    |
-| RESET           | variable = stream_started            | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:125 in scheduler_hls                                    |
-| RESET           | variable = wo_tile                   | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:127 in scheduler_hls                                    |
-| RESET           | variable = wo_dma_busy               | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:129 in scheduler_hls                                    |
-| RESET           | variable = wo_comp_busy              | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:131 in scheduler_hls                                    |
-| RESET           | variable = w1_tile                   | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:133 in scheduler_hls                                    |
-| RESET           | variable = w1_dma_busy               | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:135 in scheduler_hls                                    |
-| RESET           | variable = w1_comp_busy              | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:137 in scheduler_hls                                    |
-| RESET           | variable = w2_tile                   | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:139 in scheduler_hls                                    |
-| RESET           | variable = w2_dma_busy               | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:141 in scheduler_hls                                    |
-| RESET           | variable = w2_comp_busy              | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:143 in scheduler_hls                                    |
-+-----------------+--------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
++-----------------+------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
+| Type            | Options                                  | Location                                                                                                                |
++-----------------+------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
+| INLINE          | off                                      | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:45 in run_single_head                       |
+| ARRAY_PARTITION | variable=head_ctx_ref complete dim=1     | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:197 in drive_group_head_phase, head_ctx_ref |
+| UNROLL          |                                          | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:202 in drive_group_head_phase               |
+| ARRAY_PARTITION | variable = head_ctx_ref complete dim = 1 | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:73 in scheduler_hls                                     |
+| RESET           | variable = st                            | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:77 in scheduler_hls                                     |
+| RESET           | variable = layer_idx                     | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:79 in scheduler_hls                                     |
+| RESET           | variable = attn_started                  | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:83 in scheduler_hls                                     |
+| RESET           | variable = attn_done                     | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:85 in scheduler_hls                                     |
+| RESET           | variable = attn_compute_done             | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:87 in scheduler_hls                                     |
+| RESET           | variable = concat_compute_done           | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:89 in scheduler_hls                                     |
+| RESET           | variable = outproj_compute_done          | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:91 in scheduler_hls                                     |
+| RESET           | variable = resid0_compute_done           | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:93 in scheduler_hls                                     |
+| RESET           | variable = ln0_compute_done              | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:95 in scheduler_hls                                     |
+| RESET           | variable = ffn_w1_compute_done           | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:97 in scheduler_hls                                     |
+| RESET           | variable = ffn_act_compute_done          | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:99 in scheduler_hls                                     |
+| RESET           | variable = ffn_w2_compute_done           | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:101 in scheduler_hls                                    |
+| RESET           | variable = resid1_compute_done           | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:103 in scheduler_hls                                    |
+| RESET           | variable = ln1_compute_done              | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:105 in scheduler_hls                                    |
+| RESET           | variable = attn_group_done               | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:110 in scheduler_hls                                    |
+| RESET           | variable = group_idx                     | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:112 in scheduler_hls                                    |
+| RESET           | variable = start_head_group              | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:114 in scheduler_hls                                    |
+| RESET           | variable = concat_started                | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:120 in scheduler_hls                                    |
+| RESET           | variable = outproj_started               | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:122 in scheduler_hls                                    |
+| RESET           | variable = resid0_started                | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:124 in scheduler_hls                                    |
+| RESET           | variable = ln0_started                   | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:126 in scheduler_hls                                    |
+| RESET           | variable = ffn_stage                     | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:129 in scheduler_hls                                    |
+| RESET           | variable = ffn_started                   | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:131 in scheduler_hls                                    |
+| RESET           | variable = resid1_started                | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:133 in scheduler_hls                                    |
+| RESET           | variable = ln1_started                   | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:135 in scheduler_hls                                    |
+| RESET           | variable = stream_started                | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:137 in scheduler_hls                                    |
+| RESET           | variable = wo_tile                       | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:139 in scheduler_hls                                    |
+| RESET           | variable = wo_dma_busy                   | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:141 in scheduler_hls                                    |
+| RESET           | variable = wo_comp_busy                  | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:143 in scheduler_hls                                    |
+| RESET           | variable = w1_tile                       | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:145 in scheduler_hls                                    |
+| RESET           | variable = w1_dma_busy                   | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:147 in scheduler_hls                                    |
+| RESET           | variable = w1_comp_busy                  | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:149 in scheduler_hls                                    |
+| RESET           | variable = w2_tile                       | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:151 in scheduler_hls                                    |
+| RESET           | variable = w2_dma_busy                   | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:153 in scheduler_hls                                    |
+| RESET           | variable = w2_comp_busy                  | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:155 in scheduler_hls                                    |
+| UNROLL          |                                          | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:171 in scheduler_hls                                    |
+| UNROLL          |                                          | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:337 in scheduler_hls                                    |
+| ARRAY_PARTITION | variable = head_group complete dim = 1   | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:387 in scheduler_hls                                    |
+| UNROLL          |                                          | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:391 in scheduler_hls                                    |
+| UNROLL          |                                          | ../../../../HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp:407 in scheduler_hls                                    |
++-----------------+------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
 
 

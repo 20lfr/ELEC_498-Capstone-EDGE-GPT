@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="scheduler_hls_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="scheduler_hls_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="6.506771 us"></ZoomEndTime>
+      <Cursor1Time time="8.775000 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="219"></NameColumnWidth>
+      <ValueColumnWidth column_width="79"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="91" />
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/ap_clk">
+      <obj_property name="ElementShortName">ap_clk</obj_property>
+      <obj_property name="ObjectShortName">ap_clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/ap_rst">
+      <obj_property name="ElementShortName">ap_rst</obj_property>
+      <obj_property name="ObjectShortName">ap_rst</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/ap_start">
+      <obj_property name="ElementShortName">ap_start</obj_property>
+      <obj_property name="ObjectShortName">ap_start</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/cntrl_start">
+      <obj_property name="ElementShortName">cntrl_start[0:0]</obj_property>
+      <obj_property name="ObjectShortName">cntrl_start[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/cntrl_reset_n">
+      <obj_property name="ElementShortName">cntrl_reset_n[0:0]</obj_property>
+      <obj_property name="ObjectShortName">cntrl_reset_n[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/axis_in_valid">
+      <obj_property name="ElementShortName">axis_in_valid[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axis_in_valid[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/axis_in_last">
+      <obj_property name="ElementShortName">axis_in_last[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axis_in_last[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/wl_ready">
+      <obj_property name="ElementShortName">wl_ready[0:0]</obj_property>
+      <obj_property name="ObjectShortName">wl_ready[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/dma_done">
+      <obj_property name="ElementShortName">dma_done[0:0]</obj_property>
+      <obj_property name="ObjectShortName">dma_done[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/compute_ready">
+      <obj_property name="ElementShortName">compute_ready[0:0]</obj_property>
+      <obj_property name="ObjectShortName">compute_ready[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/compute_done">
+      <obj_property name="ElementShortName">compute_done[0:0]</obj_property>
+      <obj_property name="ObjectShortName">compute_done[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/requant_ready">
+      <obj_property name="ElementShortName">requant_ready[0:0]</obj_property>
+      <obj_property name="ObjectShortName">requant_ready[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/requant_done">
+      <obj_property name="ElementShortName">requant_done[0:0]</obj_property>
+      <obj_property name="ObjectShortName">requant_done[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/stream_ready">
+      <obj_property name="ElementShortName">stream_ready[0:0]</obj_property>
+      <obj_property name="ObjectShortName">stream_ready[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/stream_done">
+      <obj_property name="ElementShortName">stream_done[0:0]</obj_property>
+      <obj_property name="ObjectShortName">stream_done[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/ap_done">
+      <obj_property name="ElementShortName">ap_done</obj_property>
+      <obj_property name="ObjectShortName">ap_done</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/ap_idle">
+      <obj_property name="ElementShortName">ap_idle</obj_property>
+      <obj_property name="ObjectShortName">ap_idle</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/ap_ready">
+      <obj_property name="ElementShortName">ap_ready</obj_property>
+      <obj_property name="ObjectShortName">ap_ready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/cntrl_layer_idx">
+      <obj_property name="ElementShortName">cntrl_layer_idx[31:0]</obj_property>
+      <obj_property name="ObjectShortName">cntrl_layer_idx[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/cntrl_layer_idx_ap_vld">
+      <obj_property name="ElementShortName">cntrl_layer_idx_ap_vld</obj_property>
+      <obj_property name="ObjectShortName">cntrl_layer_idx_ap_vld</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/cntrl_busy">
+      <obj_property name="ElementShortName">cntrl_busy[0:0]</obj_property>
+      <obj_property name="ObjectShortName">cntrl_busy[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/cntrl_busy_ap_vld">
+      <obj_property name="ElementShortName">cntrl_busy_ap_vld</obj_property>
+      <obj_property name="ObjectShortName">cntrl_busy_ap_vld</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/cntrl_start_out">
+      <obj_property name="ElementShortName">cntrl_start_out[0:0]</obj_property>
+      <obj_property name="ObjectShortName">cntrl_start_out[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/cntrl_start_out_ap_vld">
+      <obj_property name="ElementShortName">cntrl_start_out_ap_vld</obj_property>
+      <obj_property name="ObjectShortName">cntrl_start_out_ap_vld</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/axis_in_ready">
+      <obj_property name="ElementShortName">axis_in_ready[0:0]</obj_property>
+      <obj_property name="ObjectShortName">axis_in_ready[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/axis_in_ready_ap_vld">
+      <obj_property name="ElementShortName">axis_in_ready_ap_vld</obj_property>
+      <obj_property name="ObjectShortName">axis_in_ready_ap_vld</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/wl_start">
+      <obj_property name="ElementShortName">wl_start[0:0]</obj_property>
+      <obj_property name="ObjectShortName">wl_start[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/wl_start_ap_vld">
+      <obj_property name="ElementShortName">wl_start_ap_vld</obj_property>
+      <obj_property name="ObjectShortName">wl_start_ap_vld</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/wl_addr_sel">
+      <obj_property name="ElementShortName">wl_addr_sel[31:0]</obj_property>
+      <obj_property name="ObjectShortName">wl_addr_sel[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/wl_addr_sel_ap_vld">
+      <obj_property name="ElementShortName">wl_addr_sel_ap_vld</obj_property>
+      <obj_property name="ObjectShortName">wl_addr_sel_ap_vld</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/wl_layer">
+      <obj_property name="ElementShortName">wl_layer[31:0]</obj_property>
+      <obj_property name="ObjectShortName">wl_layer[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/wl_layer_ap_vld">
+      <obj_property name="ElementShortName">wl_layer_ap_vld</obj_property>
+      <obj_property name="ObjectShortName">wl_layer_ap_vld</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/wl_head">
+      <obj_property name="ElementShortName">wl_head[31:0]</obj_property>
+      <obj_property name="ObjectShortName">wl_head[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/wl_head_ap_vld">
+      <obj_property name="ElementShortName">wl_head_ap_vld</obj_property>
+      <obj_property name="ObjectShortName">wl_head_ap_vld</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/wl_tile">
+      <obj_property name="ElementShortName">wl_tile[31:0]</obj_property>
+      <obj_property name="ObjectShortName">wl_tile[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/wl_tile_ap_vld">
+      <obj_property name="ElementShortName">wl_tile_ap_vld</obj_property>
+      <obj_property name="ObjectShortName">wl_tile_ap_vld</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/compute_start">
+      <obj_property name="ElementShortName">compute_start[0:0]</obj_property>
+      <obj_property name="ObjectShortName">compute_start[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/compute_start_ap_vld">
+      <obj_property name="ElementShortName">compute_start_ap_vld</obj_property>
+      <obj_property name="ObjectShortName">compute_start_ap_vld</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/compute_op">
+      <obj_property name="ElementShortName">compute_op[31:0]</obj_property>
+      <obj_property name="ObjectShortName">compute_op[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/compute_op_ap_vld">
+      <obj_property name="ElementShortName">compute_op_ap_vld</obj_property>
+      <obj_property name="ObjectShortName">compute_op_ap_vld</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/requant_start">
+      <obj_property name="ElementShortName">requant_start[0:0]</obj_property>
+      <obj_property name="ObjectShortName">requant_start[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/requant_start_ap_vld">
+      <obj_property name="ElementShortName">requant_start_ap_vld</obj_property>
+      <obj_property name="ObjectShortName">requant_start_ap_vld</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/requant_op">
+      <obj_property name="ElementShortName">requant_op[31:0]</obj_property>
+      <obj_property name="ObjectShortName">requant_op[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/requant_op_ap_vld">
+      <obj_property name="ElementShortName">requant_op_ap_vld</obj_property>
+      <obj_property name="ObjectShortName">requant_op_ap_vld</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/stream_start">
+      <obj_property name="ElementShortName">stream_start[0:0]</obj_property>
+      <obj_property name="ObjectShortName">stream_start[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/stream_start_ap_vld">
+      <obj_property name="ElementShortName">stream_start_ap_vld</obj_property>
+      <obj_property name="ObjectShortName">stream_start_ap_vld</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/done">
+      <obj_property name="ElementShortName">done[0:0]</obj_property>
+      <obj_property name="ObjectShortName">done[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/done_ap_vld">
+      <obj_property name="ElementShortName">done_ap_vld</obj_property>
+      <obj_property name="ObjectShortName">done_ap_vld</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/STATE">
+      <obj_property name="ElementShortName">STATE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">STATE[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/STATE_ap_vld">
+      <obj_property name="ElementShortName">STATE_ap_vld</obj_property>
+      <obj_property name="ObjectShortName">STATE_ap_vld</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/head_ctx_ref_0_i">
+      <obj_property name="ElementShortName">head_ctx_ref_0_i[65:0]</obj_property>
+      <obj_property name="ObjectShortName">head_ctx_ref_0_i[65:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/head_ctx_ref_0_o">
+      <obj_property name="ElementShortName">head_ctx_ref_0_o[65:0]</obj_property>
+      <obj_property name="ObjectShortName">head_ctx_ref_0_o[65:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/head_ctx_ref_0_o_ap_vld">
+      <obj_property name="ElementShortName">head_ctx_ref_0_o_ap_vld</obj_property>
+      <obj_property name="ObjectShortName">head_ctx_ref_0_o_ap_vld</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/head_ctx_ref_1_i">
+      <obj_property name="ElementShortName">head_ctx_ref_1_i[65:0]</obj_property>
+      <obj_property name="ObjectShortName">head_ctx_ref_1_i[65:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/head_ctx_ref_1_o">
+      <obj_property name="ElementShortName">head_ctx_ref_1_o[65:0]</obj_property>
+      <obj_property name="ObjectShortName">head_ctx_ref_1_o[65:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/head_ctx_ref_1_o_ap_vld">
+      <obj_property name="ElementShortName">head_ctx_ref_1_o_ap_vld</obj_property>
+      <obj_property name="ObjectShortName">head_ctx_ref_1_o_ap_vld</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/head_ctx_ref_2_i">
+      <obj_property name="ElementShortName">head_ctx_ref_2_i[65:0]</obj_property>
+      <obj_property name="ObjectShortName">head_ctx_ref_2_i[65:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/head_ctx_ref_2_o">
+      <obj_property name="ElementShortName">head_ctx_ref_2_o[65:0]</obj_property>
+      <obj_property name="ObjectShortName">head_ctx_ref_2_o[65:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/head_ctx_ref_2_o_ap_vld">
+      <obj_property name="ElementShortName">head_ctx_ref_2_o_ap_vld</obj_property>
+      <obj_property name="ObjectShortName">head_ctx_ref_2_o_ap_vld</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/head_ctx_ref_3_i">
+      <obj_property name="ElementShortName">head_ctx_ref_3_i[65:0]</obj_property>
+      <obj_property name="ObjectShortName">head_ctx_ref_3_i[65:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/head_ctx_ref_3_o">
+      <obj_property name="ElementShortName">head_ctx_ref_3_o[65:0]</obj_property>
+      <obj_property name="ObjectShortName">head_ctx_ref_3_o[65:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/head_ctx_ref_3_o_ap_vld">
+      <obj_property name="ElementShortName">head_ctx_ref_3_o_ap_vld</obj_property>
+      <obj_property name="ObjectShortName">head_ctx_ref_3_o_ap_vld</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/comp_busy">
+      <obj_property name="ElementShortName">comp_busy</obj_property>
+      <obj_property name="ObjectShortName">comp_busy</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/comp_timer">
+      <obj_property name="ElementShortName">comp_timer[31:0]</obj_property>
+      <obj_property name="ObjectShortName">comp_timer[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/dma_busy">
+      <obj_property name="ElementShortName">dma_busy</obj_property>
+      <obj_property name="ObjectShortName">dma_busy</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/dma_timer">
+      <obj_property name="ElementShortName">dma_timer[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dma_timer[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/stream_busy">
+      <obj_property name="ElementShortName">stream_busy</obj_property>
+      <obj_property name="ObjectShortName">stream_busy</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/start_pulsed">
+      <obj_property name="ElementShortName">start_pulsed</obj_property>
+      <obj_property name="ObjectShortName">start_pulsed</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/seen_done">
+      <obj_property name="ElementShortName">seen_done</obj_property>
+      <obj_property name="ObjectShortName">seen_done</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/post_done_cycles">
+      <obj_property name="ElementShortName">post_done_cycles[31:0]</obj_property>
+      <obj_property name="ObjectShortName">post_done_cycles[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/seen_idle_after">
+      <obj_property name="ElementShortName">seen_idle_after</obj_property>
+      <obj_property name="ObjectShortName">seen_idle_after</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/seen_attn">
+      <obj_property name="ElementShortName">seen_attn</obj_property>
+      <obj_property name="ObjectShortName">seen_attn</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/seen_concat">
+      <obj_property name="ElementShortName">seen_concat</obj_property>
+      <obj_property name="ObjectShortName">seen_concat</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/axis_sent">
+      <obj_property name="ElementShortName">axis_sent[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axis_sent[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/axis_feed_done">
+      <obj_property name="ElementShortName">axis_feed_done</obj_property>
+      <obj_property name="ObjectShortName">axis_feed_done</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/scheduler_hls_tb/axis_drive">
+      <obj_property name="ElementShortName">axis_drive</obj_property>
+      <obj_property name="ObjectShortName">axis_drive</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/head_ctx_shadow">
+      <obj_property name="ElementShortName">head_ctx_shadow[0:3]</obj_property>
+      <obj_property name="ObjectShortName">head_ctx_shadow[0:3]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/head_busy_ctr">
+      <obj_property name="ElementShortName">head_busy_ctr[0:3][3:0]</obj_property>
+      <obj_property name="ObjectShortName">head_busy_ctr[0:3][3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/head_inflight">
+      <obj_property name="ElementShortName">head_inflight[0:3]</obj_property>
+      <obj_property name="ObjectShortName">head_inflight[0:3]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/head_done_hold">
+      <obj_property name="ElementShortName">head_done_hold[0:3]</obj_property>
+      <obj_property name="ObjectShortName">head_done_hold[0:3]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/head_done_ctr">
+      <obj_property name="ElementShortName">head_done_ctr[0:3][2:0]</obj_property>
+      <obj_property name="ObjectShortName">head_done_ctr[0:3][2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/head_compute_ready">
+      <obj_property name="ElementShortName">head_compute_ready[0:3]</obj_property>
+      <obj_property name="ObjectShortName">head_compute_ready[0:3]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/head_compute_done">
+      <obj_property name="ElementShortName">head_compute_done[0:3]</obj_property>
+      <obj_property name="ObjectShortName">head_compute_done[0:3]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/CLK_PERIOD">
+      <obj_property name="ElementShortName">CLK_PERIOD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CLK_PERIOD[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/MAX_CYCLES">
+      <obj_property name="ElementShortName">MAX_CYCLES[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MAX_CYCLES[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/COMP_LAT">
+      <obj_property name="ElementShortName">COMP_LAT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">COMP_LAT[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/DMA_LAT">
+      <obj_property name="ElementShortName">DMA_LAT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DMA_LAT[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/AXIS_BEATS">
+      <obj_property name="ElementShortName">AXIS_BEATS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AXIS_BEATS[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/HEADS_TOTAL">
+      <obj_property name="ElementShortName">HEADS_TOTAL[31:0]</obj_property>
+      <obj_property name="ObjectShortName">HEADS_TOTAL[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/HEADS_PAR">
+      <obj_property name="ElementShortName">HEADS_PAR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">HEADS_PAR[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/scheduler_hls_tb/head_phase_dbg[0]">
+      <obj_property name="ElementShortName">[0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][7:0]</obj_property>
+   </wvobject>
+</wave_config>

@@ -3,18 +3,30 @@
         "name": "scheduler_hls",
         "file": "Scheduler_FSM.cpp",
         "fileloc": "10",
-        "instructions": "507",
-        "total_instructions": "507",
-        "calls": "",
-        "basicblocks": "117",
+        "instructions": "727",
+        "total_instructions": "893",
+        "calls": "1",
+        "basicblocks": "127",
         "memory_accesses": "0",
         "control_depth": "0",
-        "def_use_depth": "3",
+        "def_use_depth": "5",
         "loads": {
-            "G": "31"
+            "G": "32"
         },
         "stores": {
-            "G": "126"
+            "G": "123"
         }
+    },
+    "1": {
+        "name": "run_single_head",
+        "file": "\/home\/luka\/Scripting\/ELEC_498-Capstone-LiteLM\/HLS-Verilog\/Scheduler_FSM\/src-hls\/Head_Helpers\/head_helpers.cpp",
+        "fileloc": "40",
+        "instructions": "166",
+        "total_instructions": "166",
+        "calls": "",
+        "basicblocks": "29",
+        "memory_accesses": "0",
+        "control_depth": "0",
+        "def_use_depth": "23"
     }
 }

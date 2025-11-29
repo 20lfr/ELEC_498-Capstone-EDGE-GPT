@@ -2,12 +2,12 @@
 MainSourceFile:  /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/.autopilot/db/head_helpers.pp.0.cpp
 Diagnostics:     
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_209_1:  '
-    FileOffset:      209
+    Message:         'Added loop label VITIS_LOOP_201_1:  '
+    FileOffset:      201
     FilePath:        /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp
     Replacements:    
       - FilePath:        /home/luka/Scripting/ELEC_498-Capstone-LiteLM/vitis_simulations/Scheduler_FSM/Scheduler_FSM_total/Scheduler_FSM_Including_heads/scheduler_hls/hls/.autopilot/db/head_helpers.pp.0.cpp
-        Offset:          27866
+        Offset:          27813
         Length:          0
-        ReplacementText: 'VITIS_LOOP_209_1: '
+        ReplacementText: 'VITIS_LOOP_201_1: '
 ...

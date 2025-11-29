@@ -475,8 +475,8 @@ namespace std
 }
 # 4 "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.hpp" 2
 
-constexpr int NUM_HEADS = 8;
-constexpr int HEADS_PARALLEL = 2;
+constexpr int NUM_HEADS = 4;
+constexpr int HEADS_PARALLEL = 1;
 
 enum class HeadPhase : uint8_t {
     IDLE = 0,
@@ -559,7 +559,7 @@ bool run_single_head(
 );
 
 bool drive_group_head_phase(
-    HeadCtx (&head_ctx_ref)[NUM_HEADS],
+    HeadCtx (&head_ctx_ref)[HEADS_PARALLEL],
     int group_idx,
     int layer_idx,
     bool start
@@ -744,30 +744,18 @@ bool run_single_head(
 
 
 bool drive_group_head_phase(
-    HeadCtx (&head_ctx_ref)[NUM_HEADS],
-    int group_idx,
+    HeadCtx (&head_ctx_ref)[HEADS_PARALLEL],
+    int base_head_idx,
     int layer_idx,
     bool start
 ){
-
-
-
-
-
-
-    bool group_finished = true;
-
-
 #pragma HLS ARRAY_PARTITION variable=head_ctx_ref complete dim=1
 
- const int head_group_base = group_idx * HEADS_PARALLEL;
-    VITIS_LOOP_209_1: for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
-#pragma HLS UNROLL
- const int head_idx = head_group_base + lane;
-        if (head_idx >= NUM_HEADS)
-            continue;
+ bool group_finished = true;
 
-        HeadCtx &ctx = head_ctx_ref[head_idx];
+    VITIS_LOOP_201_1: for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
+#pragma HLS UNROLL
+ HeadCtx &ctx = head_ctx_ref[lane];
 
         if (ctx.phase != HeadPhase::DONE) {
             ctx.start_head = start && (ctx.phase == HeadPhase::IDLE);
@@ -779,10 +767,7 @@ bool drive_group_head_phase(
         }
     }
 
+    (void)base_head_idx;
 
-    if (!group_finished) return false;
     return group_finished;
-
-
-
 }

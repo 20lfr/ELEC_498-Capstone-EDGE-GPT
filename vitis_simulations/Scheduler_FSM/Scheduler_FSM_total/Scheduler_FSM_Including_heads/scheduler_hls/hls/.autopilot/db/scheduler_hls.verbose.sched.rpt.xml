@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'scheduler_hls'" level="0">
-<item name = "Date">Fri Nov 28 18:06:18 2025
+<item name = "Date">Fri Nov 28 22:41:48 2025
 </item>
 <item name = "Version">2025.1 (Build 6135595 on May 21 2025)</item>
 <item name = "Project">scheduler_hls</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 2.939 ns, 2.70 ns</column>
+<column name="ap_clk">10.00 ns, 7.052 ns, 2.70 ns</column>
 </table>
 </item>
 </section>

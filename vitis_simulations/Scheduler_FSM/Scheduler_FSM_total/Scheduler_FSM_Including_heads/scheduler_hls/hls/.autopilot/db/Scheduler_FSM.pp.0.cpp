@@ -477,8 +477,8 @@ namespace std
 
 
 
-constexpr int NUM_HEADS = 8;
-constexpr int HEADS_PARALLEL = 2;
+constexpr int NUM_HEADS = 4;
+constexpr int HEADS_PARALLEL = 1;
 
 enum class HeadPhase : uint8_t {
     IDLE = 0,
@@ -561,7 +561,7 @@ bool run_single_head(
 );
 
 bool drive_group_head_phase(
-    HeadCtx (&head_ctx_ref)[NUM_HEADS],
+    HeadCtx (&head_ctx_ref)[HEADS_PARALLEL],
     int group_idx,
     int layer_idx,
     bool start
@@ -643,6 +643,7 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
     bool compute_done,
     bool requant_ready,
     bool requant_done,
+    HeadCtx (&head_ctx_ref)[NUM_HEADS],
     bool &compute_start,
     int &compute_op,
     bool &requant_start,
@@ -700,6 +701,7 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
     bool compute_done,
     bool requant_ready,
     bool requant_done,
+    HeadCtx (&head_ctx_ref)[NUM_HEADS],
     bool &compute_start,
     int &compute_op,
 
@@ -725,11 +727,13 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
 ) {
 #line 1 "directive"
 #pragma HLSDIRECTIVE TOP name=scheduler_hls
-# 70 "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp"
+# 71 "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Scheduler_FSM.cpp"
 
 
+#pragma HLS array_partition variable = head_ctx_ref complete dim = 1
 
-  static SchedState st;
+
+ static SchedState st;
 #pragma HLS reset variable = st
  static int layer_idx;
 #pragma HLS reset variable = layer_idx
@@ -760,8 +764,17 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
  static bool ln1_compute_done;
 #pragma HLS reset variable = ln1_compute_done
 
+
+
  static bool attn_group_done;
 #pragma HLS reset variable = attn_group_done
+ static int group_idx;
+#pragma HLS reset variable = group_idx
+ static bool start_head_group;
+#pragma HLS reset variable = start_head_group
+
+
+
 
  static bool concat_started;
 #pragma HLS reset variable = concat_started
@@ -811,6 +824,15 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
     attn_done = false;
     attn_compute_done = false;
     attn_group_done = false;
+    group_idx = 0;
+
+    start_head_group = false;
+    VITIS_LOOP_170_1: for (int i = 0; i < NUM_HEADS; ++i){
+#pragma HLS UNROLL
+ init_head_ctx(head_ctx_ref[i], -1);
+    }
+
+
 
 
     concat_compute_done = false;
@@ -875,7 +897,6 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
     return;
   }
 
-
   if (compute_done) {
     if (st == S_ATTENTION_HEADS && attn_started)
       attn_compute_done = true;
@@ -911,6 +932,8 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
       attn_done = false;
       attn_compute_done = false;
       attn_group_done = false;
+      group_idx = 0;
+      start_head_group = false;
 
 
       concat_started = false;
@@ -967,6 +990,13 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
     attn_compute_done = false;
     attn_done = false;
     attn_group_done = false;
+    group_idx = 0;
+
+    start_head_group = true;
+    VITIS_LOOP_336_2: for (int i = 0; i < NUM_HEADS; ++i){
+#pragma HLS UNROLL
+ init_head_ctx(head_ctx_ref[i], layer_idx);
+    }
 
 
     concat_started = false;
@@ -1009,19 +1039,63 @@ __attribute__((sdx_kernel("scheduler_hls", 0))) void scheduler_hls(
 
     break;
 
-  case S_ATTENTION_HEADS:
+  case S_ATTENTION_HEADS: {
 
-    if (!attn_started && compute_ready) {
-      attn_compute_done = false;
-      compute_start = 1;
-      compute_op = CMP_ATT_SCORES;
-      attn_started = true;
-    } else if (attn_started && attn_compute_done) {
-      attn_started = false;
-      attn_compute_done = false;
-      st = S_HEAD_CONCAT;
+
+    const int group_base = group_idx * HEADS_PARALLEL;
+    HeadCtx head_group[HEADS_PARALLEL];
+#pragma HLS ARRAY_PARTITION variable = head_group complete dim = 1
+
+
+ VITIS_LOOP_390_3: for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
+#pragma HLS UNROLL
+ const int h = group_base + lane;
+      if (h < NUM_HEADS) {
+        head_group[lane] = head_ctx_ref[h];
+      } else {
+        init_head_ctx(head_group[lane], layer_idx);
+        head_group[lane].phase = HeadPhase::DONE;
+      }
     }
+
+
+    attn_group_done =
+        drive_group_head_phase(head_group, group_base, layer_idx, start_head_group);
+
+
+    VITIS_LOOP_406_4: for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
+#pragma HLS UNROLL
+ const int h = group_base + lane;
+        if (h < NUM_HEADS) {
+          head_ctx_ref[h] = head_group[lane];
+        }
+      }
+
+
+
+    if (!attn_started) {
+      attn_started = true;
+      start_head_group = true;
+    }
+
+
+    if (attn_started){
+      if (attn_group_done) {
+        group_idx++;
+        start_head_group = true;
+        if (group_idx >= NUM_HEAD_GROUPS) {
+          attn_started = false;
+          group_idx = 0;
+          start_head_group = false;
+          st = S_HEAD_CONCAT;
+        }
+      }else{
+        start_head_group = false;
+      }
+    }
+
     break;
+  }
 
   case S_HEAD_CONCAT:
     if (!concat_started && compute_ready) {

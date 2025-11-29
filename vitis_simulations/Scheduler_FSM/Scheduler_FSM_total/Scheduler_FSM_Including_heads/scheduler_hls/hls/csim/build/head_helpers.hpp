@@ -2,8 +2,8 @@
 #pragma once
 #include <cstdint>
 
-constexpr int NUM_HEADS      = 2;
-constexpr int HEADS_PARALLEL = 2;
+constexpr int NUM_HEADS      = 4;
+constexpr int HEADS_PARALLEL = 1;
 
 enum class HeadPhase : uint8_t {
     IDLE = 0,          // 0
@@ -86,7 +86,7 @@ bool run_single_head(
 );
 
 bool drive_group_head_phase(
-    HeadCtx     (&head_ctx_ref)[NUM_HEADS],
+    HeadCtx     (&head_ctx_ref)[HEADS_PARALLEL],
     int         group_idx,
     int         layer_idx,
     bool        start

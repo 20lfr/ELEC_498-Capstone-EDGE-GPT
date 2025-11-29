@@ -35,3 +35,13 @@ comp.run(operation="C_SIMULATION")
 
 comp.run(operation="C_SIMULATION")
 
+comp = client.get_component(name="Scheduler_FSM")
+comp.run(operation="C_SIMULATION")
+
+comp = client.get_component(name="Scheduler_FSM_Including_heads")
+comp.run(operation="C_SIMULATION")
+
+comp.run(operation="C_SIMULATION")
+
+comp.run(operation="SYNTHESIS")
+
