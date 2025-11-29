@@ -1,6 +1,4 @@
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-Verilog/scheduler_hls.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module scheduler_hls
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-Verilog/scheduler_hls_drive_group_head_phase.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module scheduler_hls_drive_group_head_phase
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-Verilog/scheduler_hls_run_single_head.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module scheduler_hls_run_single_head

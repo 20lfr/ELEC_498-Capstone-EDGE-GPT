@@ -1,43 +1,40 @@
 {
   "0": {
-    "basicblocks": 150,
-    "calls": "2 2 2 2 3 5 5 5 5 4 2 2 2 2",
+    "basicblocks": 140,
+    "calls": "2 2 2 2 4 1 1 5 2 2 2 2",
     "control_depth": 0,
     "def_use_depth": 11,
     "file": "Scheduler_FSM.cpp",
     "fileloc": 10,
-    "instructions": 1518,
+    "instructions": 1118,
     "loads": {
       "G": 44,
-      "L": 84,
-      "T": 84
+      "L": 42,
+      "T": 42
     },
     "memory_accesses": 1,
     "name": "scheduler_hls",
     "stores": {
       "G": 190,
-      "L": 88,
-      "T": 135
+      "L": 44,
+      "T": 93
     },
-    "total_instructions": 2905
+    "total_instructions": 1995
   },
   "1": {
-    "basicblocks": 70,
-    "calls": "5",
+    "basicblocks": 1,
+    "calls": "",
     "control_depth": 0,
-    "def_use_depth": 2,
+    "def_use_depth": 0,
     "file": "head_helpers.cpp",
-    "fileloc": 39,
-    "instructions": 180,
-    "loads": {
-      "L": 38
-    },
+    "fileloc": 5,
+    "instructions": 22,
     "memory_accesses": 0,
-    "name": "run_single_head",
+    "name": "init_head_ctx",
     "stores": {
-      "L": 68
+      "L": 21
     },
-    "total_instructions": 202
+    "total_instructions": 22
   },
   "2": {
     "basicblocks": 1,
@@ -55,6 +52,24 @@
     "total_instructions": 43
   },
   "3": {
+    "basicblocks": 70,
+    "calls": "1",
+    "control_depth": 0,
+    "def_use_depth": 2,
+    "file": "head_helpers.cpp",
+    "fileloc": 39,
+    "instructions": 180,
+    "loads": {
+      "L": 38
+    },
+    "memory_accesses": 0,
+    "name": "run_single_head",
+    "stores": {
+      "L": 68
+    },
+    "total_instructions": 202
+  },
+  "4": {
     "basicblocks": 1,
     "calls": "",
     "control_depth": 0,
@@ -69,37 +84,22 @@
     },
     "total_instructions": 22
   },
-  "4": {
-    "basicblocks": 9,
-    "calls": "1 1 1 1",
+  "5": {
+    "basicblocks": 5,
+    "calls": "3 3",
     "control_depth": 0,
     "def_use_depth": 3,
     "file": "head_helpers.cpp",
     "fileloc": 191,
-    "instructions": 125,
+    "instructions": 63,
     "loads": {
-      "L": 4
+      "L": 2
     },
     "memory_accesses": 0,
     "name": "drive_group_head_phase",
     "stores": {
-      "L": 4
+      "L": 2
     },
-    "total_instructions": 933
-  },
-  "5": {
-    "basicblocks": 1,
-    "calls": "",
-    "control_depth": 0,
-    "def_use_depth": 0,
-    "file": "head_helpers.cpp",
-    "fileloc": 5,
-    "instructions": 22,
-    "memory_accesses": 0,
-    "name": "init_head_ctx",
-    "stores": {
-      "L": 21
-    },
-    "total_instructions": 22
+    "total_instructions": 467
   }
 }

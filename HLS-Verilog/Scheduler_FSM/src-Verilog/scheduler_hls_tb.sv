@@ -92,7 +92,7 @@ module scheduler_hls_tb;
   logic axis_drive;
   // Head compute model
   localparam int HEADS_TOTAL = 4;
-  localparam int HEADS_PAR   = 4;
+  localparam int HEADS_PAR   = 2;
   typedef struct packed {
     logic        att_value_compute_done;   // [65]
     logic        softmax_compute_done;     // [64]

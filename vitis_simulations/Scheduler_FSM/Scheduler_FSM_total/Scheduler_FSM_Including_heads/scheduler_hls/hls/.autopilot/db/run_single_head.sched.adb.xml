@@ -272,9 +272,9 @@ entry_ifconv:16 %ctx_start_head_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="41" bw="4" op_0_bw="4" op_1_bw="4">
+<Node id="41" bw="5" op_0_bw="5" op_1_bw="5">
 <![CDATA[
-entry_ifconv:17 %ctx_compute_op_read_1 = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %ctx_compute_op_read
+entry_ifconv:17 %ctx_compute_op_read_1 = read i5 @_ssdm_op_Read.ap_auto.i5, i5 %ctx_compute_op_read
 
 ]]></Node>
 <StgValue><ssdm name="ctx_compute_op_read_1"/></StgValue>

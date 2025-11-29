@@ -478,7 +478,7 @@ namespace std
 
 
 constexpr int NUM_HEADS = 4;
-constexpr int HEADS_PARALLEL = 4;
+constexpr int HEADS_PARALLEL = 2;
 
 enum class HeadPhase : uint8_t {
     IDLE = 0,

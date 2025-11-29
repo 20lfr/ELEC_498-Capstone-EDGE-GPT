@@ -14,7 +14,6 @@ Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.scheduler_hls_run_single_head
-Compiling module xil_defaultlib.scheduler_hls_drive_group_head_p...
 Compiling module xil_defaultlib.scheduler_hls
 Compiling module xil_defaultlib.scheduler_hls_tb
 Compiling module xil_defaultlib.glbl

@@ -63,7 +63,7 @@ input  [31:0] ctx_layer_stamp_read;
 input  [3:0] ctx_phase_read;
 input  [0:0] ctx_compute_ready_read;
 input  [0:0] ctx_compute_done_read;
-input  [3:0] ctx_compute_op_read;
+input  [4:0] ctx_compute_op_read;
 input  [0:0] ctx_start_head_read;
 input  [0:0] ctx_q_started_read;
 input  [0:0] ctx_k_started_read;
@@ -105,622 +105,622 @@ output  [0:0] ap_return_20;
 output  [31:0] ap_return_21;
 input   ap_rst;
 
-reg   [0:0] ap_phi_mux_ctx_compute_start_write_assign_phi_fu_245_p56;
-wire   [3:0] select_ln50_1_fu_1926_p3;
-wire   [0:0] or_ln168_fu_2256_p2;
-wire   [0:0] ctx_att_value_compute_done_2_fu_2168_p2;
-wire   [0:0] or_ln158_fu_2277_p2;
-wire   [0:0] ctx_softmax_compute_done_2_fu_2130_p2;
-wire   [0:0] or_ln148_fu_2298_p2;
-wire   [0:0] ctx_val_scale_compute_done_2_fu_2092_p2;
-wire   [0:0] or_ln138_fu_2319_p2;
-wire   [0:0] ctx_att_scores_compute_done_2_fu_2054_p2;
-wire   [0:0] or_ln118_fu_2340_p2;
-wire   [0:0] ctx_v_compute_done_2_fu_2016_p2;
-wire   [0:0] or_ln102_fu_2361_p2;
-wire   [0:0] ctx_k_compute_done_2_fu_1978_p2;
-wire   [0:0] or_ln91_fu_2382_p2;
-wire   [0:0] ctx_q_compute_done_2_fu_1940_p2;
-reg   [2:0] ap_phi_mux_ctx_compute_op_write_assign_phi_fu_334_p56;
-wire   [0:0] and_ln50_fu_1600_p2;
-reg   [0:0] ap_phi_mux_ctx_compute_done_1_phi_fu_423_p56;
-wire   [0:0] and_ln68_fu_2403_p2;
-wire   [0:0] and_ln50_1_fu_1633_p2;
-reg   [0:0] ap_phi_mux_ctx_q_started_1_phi_fu_484_p56;
-wire   [0:0] and_ln68_1_fu_2410_p2;
-wire   [0:0] and_ln50_2_fu_1664_p2;
-reg   [0:0] ap_phi_mux_ctx_k_started_1_phi_fu_547_p56;
-wire   [0:0] and_ln68_2_fu_2417_p2;
-wire   [0:0] and_ln50_3_fu_1695_p2;
-reg   [0:0] ap_phi_mux_ctx_v_started_1_phi_fu_610_p56;
-wire   [0:0] and_ln68_3_fu_2424_p2;
-wire   [0:0] and_ln50_4_fu_1726_p2;
-reg   [0:0] ap_phi_mux_ctx_att_scores_started_1_phi_fu_673_p56;
-wire   [0:0] and_ln68_4_fu_2431_p2;
-wire   [0:0] and_ln50_5_fu_1757_p2;
-reg   [0:0] ap_phi_mux_ctx_val_scale_started_1_phi_fu_736_p56;
-wire   [0:0] and_ln68_5_fu_2438_p2;
-wire   [0:0] and_ln50_6_fu_1788_p2;
-reg   [0:0] ap_phi_mux_ctx_softmax_started_1_phi_fu_799_p56;
-wire   [0:0] and_ln68_6_fu_2445_p2;
-wire   [0:0] and_ln50_7_fu_1819_p2;
-reg   [0:0] ap_phi_mux_ctx_att_value_started_1_phi_fu_862_p56;
-wire   [0:0] and_ln68_7_fu_2452_p2;
-reg   [0:0] ap_phi_mux_ctx_q_compute_done_3_phi_fu_925_p56;
-wire   [0:0] and_ln68_8_fu_2459_p2;
-reg   [0:0] ap_phi_mux_ctx_k_compute_done_3_phi_fu_987_p56;
-wire   [0:0] and_ln68_9_fu_2466_p2;
-reg   [0:0] ap_phi_mux_ctx_v_compute_done_3_phi_fu_1049_p56;
-wire   [0:0] and_ln68_10_fu_2473_p2;
-reg   [0:0] ap_phi_mux_ctx_att_scores_compute_done_3_phi_fu_1111_p56;
-wire   [0:0] and_ln68_11_fu_2480_p2;
-reg   [0:0] ap_phi_mux_ctx_val_scale_compute_done_3_phi_fu_1173_p56;
-wire   [0:0] and_ln68_12_fu_2487_p2;
-reg   [0:0] ap_phi_mux_ctx_softmax_compute_done_3_phi_fu_1235_p56;
-wire   [0:0] and_ln68_13_fu_2494_p2;
-reg   [0:0] ap_phi_mux_ctx_att_value_compute_done_3_phi_fu_1297_p56;
-wire   [0:0] and_ln68_14_fu_2501_p2;
-wire   [0:0] and_ln50_15_fu_1900_p2;
-reg   [0:0] ap_phi_mux_ctx_compute_ready_1_phi_fu_1359_p56;
-wire   [0:0] and_ln68_15_fu_2508_p2;
-reg   [3:0] ap_phi_mux_ctx_phase_1_phi_fu_1427_p56;
-wire   [3:0] zext_ln68_fu_2515_p1;
-wire   [3:0] select_ln96_fu_2388_p3;
-wire   [3:0] select_ln107_fu_2367_p3;
-wire   [3:0] select_ln123_fu_2346_p3;
-wire   [3:0] select_ln142_fu_2325_p3;
-wire   [3:0] select_ln152_fu_2304_p3;
-wire   [3:0] select_ln162_fu_2283_p3;
-wire   [3:0] select_ln172_fu_2262_p3;
-reg   [0:0] ap_phi_mux_phi_ln186_phi_fu_1508_p56;
-wire   [0:0] icmp_ln50_fu_1594_p2;
-wire   [0:0] and_ln50_8_fu_1850_p2;
-wire   [0:0] or_ln56_fu_1934_p2;
-wire   [0:0] and_ln50_9_fu_1856_p2;
-wire   [0:0] or_ln57_fu_1972_p2;
-wire   [0:0] and_ln50_10_fu_1862_p2;
-wire   [0:0] or_ln58_fu_2010_p2;
-wire   [0:0] and_ln50_11_fu_1868_p2;
-wire   [0:0] or_ln59_fu_2048_p2;
-wire   [0:0] and_ln50_12_fu_1874_p2;
-wire   [0:0] or_ln60_fu_2086_p2;
-wire   [0:0] and_ln50_13_fu_1880_p2;
-wire   [0:0] or_ln61_fu_2124_p2;
-wire   [0:0] and_ln50_14_fu_1886_p2;
-wire   [0:0] or_ln62_fu_2162_p2;
-wire   [0:0] xor_ln168_fu_2250_p2;
-wire   [0:0] xor_ln158_fu_2271_p2;
-wire   [0:0] xor_ln148_fu_2292_p2;
-wire   [0:0] xor_ln138_fu_2313_p2;
-wire   [0:0] xor_ln118_fu_2334_p2;
-wire   [0:0] xor_ln102_fu_2355_p2;
-wire   [0:0] xor_ln91_fu_2376_p2;
-wire   [0:0] xor_ln68_fu_2397_p2;
-wire   [7:0] zext_ln40_fu_2520_p1;
-wire   [7:0] zext_ln40_1_fu_2524_p1;
-wire   [0:0] and_ln186_fu_2528_p2;
-wire   [31:0] select_ln50_fu_1892_p3;
+reg   [0:0] ap_phi_mux_ctx_compute_start_write_assign_phi_fu_247_p56;
+wire   [3:0] select_ln50_1_fu_1928_p3;
+wire   [0:0] or_ln168_fu_2258_p2;
+wire   [0:0] ctx_att_value_compute_done_2_fu_2170_p2;
+wire   [0:0] or_ln158_fu_2279_p2;
+wire   [0:0] ctx_softmax_compute_done_2_fu_2132_p2;
+wire   [0:0] or_ln148_fu_2300_p2;
+wire   [0:0] ctx_val_scale_compute_done_2_fu_2094_p2;
+wire   [0:0] or_ln138_fu_2321_p2;
+wire   [0:0] ctx_att_scores_compute_done_2_fu_2056_p2;
+wire   [0:0] or_ln118_fu_2342_p2;
+wire   [0:0] ctx_v_compute_done_2_fu_2018_p2;
+wire   [0:0] or_ln102_fu_2363_p2;
+wire   [0:0] ctx_k_compute_done_2_fu_1980_p2;
+wire   [0:0] or_ln91_fu_2384_p2;
+wire   [0:0] ctx_q_compute_done_2_fu_1942_p2;
+reg   [2:0] ap_phi_mux_ctx_compute_op_write_assign_phi_fu_336_p56;
+wire   [0:0] and_ln50_fu_1602_p2;
+reg   [0:0] ap_phi_mux_ctx_compute_done_1_phi_fu_425_p56;
+wire   [0:0] and_ln68_fu_2405_p2;
+wire   [0:0] and_ln50_1_fu_1635_p2;
+reg   [0:0] ap_phi_mux_ctx_q_started_1_phi_fu_486_p56;
+wire   [0:0] and_ln68_1_fu_2412_p2;
+wire   [0:0] and_ln50_2_fu_1666_p2;
+reg   [0:0] ap_phi_mux_ctx_k_started_1_phi_fu_549_p56;
+wire   [0:0] and_ln68_2_fu_2419_p2;
+wire   [0:0] and_ln50_3_fu_1697_p2;
+reg   [0:0] ap_phi_mux_ctx_v_started_1_phi_fu_612_p56;
+wire   [0:0] and_ln68_3_fu_2426_p2;
+wire   [0:0] and_ln50_4_fu_1728_p2;
+reg   [0:0] ap_phi_mux_ctx_att_scores_started_1_phi_fu_675_p56;
+wire   [0:0] and_ln68_4_fu_2433_p2;
+wire   [0:0] and_ln50_5_fu_1759_p2;
+reg   [0:0] ap_phi_mux_ctx_val_scale_started_1_phi_fu_738_p56;
+wire   [0:0] and_ln68_5_fu_2440_p2;
+wire   [0:0] and_ln50_6_fu_1790_p2;
+reg   [0:0] ap_phi_mux_ctx_softmax_started_1_phi_fu_801_p56;
+wire   [0:0] and_ln68_6_fu_2447_p2;
+wire   [0:0] and_ln50_7_fu_1821_p2;
+reg   [0:0] ap_phi_mux_ctx_att_value_started_1_phi_fu_864_p56;
+wire   [0:0] and_ln68_7_fu_2454_p2;
+reg   [0:0] ap_phi_mux_ctx_q_compute_done_3_phi_fu_927_p56;
+wire   [0:0] and_ln68_8_fu_2461_p2;
+reg   [0:0] ap_phi_mux_ctx_k_compute_done_3_phi_fu_989_p56;
+wire   [0:0] and_ln68_9_fu_2468_p2;
+reg   [0:0] ap_phi_mux_ctx_v_compute_done_3_phi_fu_1051_p56;
+wire   [0:0] and_ln68_10_fu_2475_p2;
+reg   [0:0] ap_phi_mux_ctx_att_scores_compute_done_3_phi_fu_1113_p56;
+wire   [0:0] and_ln68_11_fu_2482_p2;
+reg   [0:0] ap_phi_mux_ctx_val_scale_compute_done_3_phi_fu_1175_p56;
+wire   [0:0] and_ln68_12_fu_2489_p2;
+reg   [0:0] ap_phi_mux_ctx_softmax_compute_done_3_phi_fu_1237_p56;
+wire   [0:0] and_ln68_13_fu_2496_p2;
+reg   [0:0] ap_phi_mux_ctx_att_value_compute_done_3_phi_fu_1299_p56;
+wire   [0:0] and_ln68_14_fu_2503_p2;
+wire   [0:0] and_ln50_15_fu_1902_p2;
+reg   [0:0] ap_phi_mux_ctx_compute_ready_1_phi_fu_1361_p56;
+wire   [0:0] and_ln68_15_fu_2510_p2;
+reg   [3:0] ap_phi_mux_ctx_phase_1_phi_fu_1429_p56;
+wire   [3:0] zext_ln68_fu_2517_p1;
+wire   [3:0] select_ln96_fu_2390_p3;
+wire   [3:0] select_ln107_fu_2369_p3;
+wire   [3:0] select_ln123_fu_2348_p3;
+wire   [3:0] select_ln142_fu_2327_p3;
+wire   [3:0] select_ln152_fu_2306_p3;
+wire   [3:0] select_ln162_fu_2285_p3;
+wire   [3:0] select_ln172_fu_2264_p3;
+reg   [0:0] ap_phi_mux_phi_ln186_phi_fu_1510_p56;
+wire   [0:0] icmp_ln50_fu_1596_p2;
+wire   [0:0] and_ln50_8_fu_1852_p2;
+wire   [0:0] or_ln56_fu_1936_p2;
+wire   [0:0] and_ln50_9_fu_1858_p2;
+wire   [0:0] or_ln57_fu_1974_p2;
+wire   [0:0] and_ln50_10_fu_1864_p2;
+wire   [0:0] or_ln58_fu_2012_p2;
+wire   [0:0] and_ln50_11_fu_1870_p2;
+wire   [0:0] or_ln59_fu_2050_p2;
+wire   [0:0] and_ln50_12_fu_1876_p2;
+wire   [0:0] or_ln60_fu_2088_p2;
+wire   [0:0] and_ln50_13_fu_1882_p2;
+wire   [0:0] or_ln61_fu_2126_p2;
+wire   [0:0] and_ln50_14_fu_1888_p2;
+wire   [0:0] or_ln62_fu_2164_p2;
+wire   [0:0] xor_ln168_fu_2252_p2;
+wire   [0:0] xor_ln158_fu_2273_p2;
+wire   [0:0] xor_ln148_fu_2294_p2;
+wire   [0:0] xor_ln138_fu_2315_p2;
+wire   [0:0] xor_ln118_fu_2336_p2;
+wire   [0:0] xor_ln102_fu_2357_p2;
+wire   [0:0] xor_ln91_fu_2378_p2;
+wire   [0:0] xor_ln68_fu_2399_p2;
+wire   [7:0] zext_ln40_fu_2522_p1;
+wire   [7:0] zext_ln40_1_fu_2526_p1;
+wire   [0:0] and_ln186_fu_2530_p2;
+wire   [31:0] select_ln50_fu_1894_p3;
 wire    ap_ce_reg;
 
 always @ (*) begin
-    if (((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd1) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9))) begin
-        ap_phi_mux_ctx_att_scores_compute_done_3_phi_fu_1111_p56 = 1'd1;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd0) | ((select_ln50_1_fu_1926_p3 == 4'd14) | (select_ln50_1_fu_1926_p3 == 4'd15)))) begin
-        ap_phi_mux_ctx_att_scores_compute_done_3_phi_fu_1111_p56 = and_ln68_11_fu_2480_p2;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd7) | (select_ln50_1_fu_1926_p3 == 4'd8) | (select_ln50_1_fu_1926_p3 == 4'd13) | (select_ln50_1_fu_1926_p3 == 4'd3) | (select_ln50_1_fu_1926_p3 == 4'd4) | (select_ln50_1_fu_1926_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd0) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd0) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd0) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd0) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd1) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((or_ln168_fu_2256_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd1) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 
-    4'd11)) | ((or_ln158_fu_2277_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd1) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((or_ln148_fu_2298_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((or_ln138_fu_2319_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd1) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (or_ln91_fu_2382_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd0) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd1) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (or_ln102_fu_2361_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd0) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd1) 
-    & (or_ln118_fu_2340_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (or_ln118_fu_2340_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd0) & (or_ln118_fu_2340_p2 == 1'd1)))) begin
-        ap_phi_mux_ctx_att_scores_compute_done_3_phi_fu_1111_p56 = ctx_att_scores_compute_done_2_fu_2054_p2;
+    if (((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd1) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9))) begin
+        ap_phi_mux_ctx_att_scores_compute_done_3_phi_fu_1113_p56 = 1'd1;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd0) | ((select_ln50_1_fu_1928_p3 == 4'd14) | (select_ln50_1_fu_1928_p3 == 4'd15)))) begin
+        ap_phi_mux_ctx_att_scores_compute_done_3_phi_fu_1113_p56 = and_ln68_11_fu_2482_p2;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd7) | (select_ln50_1_fu_1928_p3 == 4'd8) | (select_ln50_1_fu_1928_p3 == 4'd13) | (select_ln50_1_fu_1928_p3 == 4'd3) | (select_ln50_1_fu_1928_p3 == 4'd4) | (select_ln50_1_fu_1928_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd0) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd0) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd0) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd0) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd1) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((or_ln168_fu_2258_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd1) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 
+    4'd11)) | ((or_ln158_fu_2279_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd1) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((or_ln148_fu_2300_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((or_ln138_fu_2321_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd1) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (or_ln91_fu_2384_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd0) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd1) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (or_ln102_fu_2363_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd0) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd1) 
+    & (or_ln118_fu_2342_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (or_ln118_fu_2342_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd0) & (or_ln118_fu_2342_p2 == 1'd1)))) begin
+        ap_phi_mux_ctx_att_scores_compute_done_3_phi_fu_1113_p56 = ctx_att_scores_compute_done_2_fu_2056_p2;
     end else begin
-        ap_phi_mux_ctx_att_scores_compute_done_3_phi_fu_1111_p56 = 'bx;
+        ap_phi_mux_ctx_att_scores_compute_done_3_phi_fu_1113_p56 = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd1) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9))) begin
-        ap_phi_mux_ctx_att_scores_started_1_phi_fu_673_p56 = 1'd0;
-    end else if (((or_ln138_fu_2319_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd9))) begin
-        ap_phi_mux_ctx_att_scores_started_1_phi_fu_673_p56 = 1'd1;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd0) | ((select_ln50_1_fu_1926_p3 == 4'd14) | (select_ln50_1_fu_1926_p3 == 4'd15)))) begin
-        ap_phi_mux_ctx_att_scores_started_1_phi_fu_673_p56 = and_ln68_4_fu_2431_p2;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd7) | (select_ln50_1_fu_1926_p3 == 4'd8) | (select_ln50_1_fu_1926_p3 == 4'd13) | (select_ln50_1_fu_1926_p3 == 4'd3) | (select_ln50_1_fu_1926_p3 == 4'd4) | (select_ln50_1_fu_1926_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd0) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd0) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd0) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd0) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd1) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((or_ln168_fu_2256_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd1) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 
-    4'd11)) | ((or_ln158_fu_2277_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd1) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((or_ln148_fu_2298_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd1) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (or_ln91_fu_2382_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd0) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd1) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (or_ln102_fu_2361_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd0) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd1) & (or_ln118_fu_2340_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) 
-    & (or_ln118_fu_2340_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd0) & (or_ln118_fu_2340_p2 == 1'd1)))) begin
-        ap_phi_mux_ctx_att_scores_started_1_phi_fu_673_p56 = and_ln50_4_fu_1726_p2;
+    if (((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd1) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9))) begin
+        ap_phi_mux_ctx_att_scores_started_1_phi_fu_675_p56 = 1'd0;
+    end else if (((or_ln138_fu_2321_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd9))) begin
+        ap_phi_mux_ctx_att_scores_started_1_phi_fu_675_p56 = 1'd1;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd0) | ((select_ln50_1_fu_1928_p3 == 4'd14) | (select_ln50_1_fu_1928_p3 == 4'd15)))) begin
+        ap_phi_mux_ctx_att_scores_started_1_phi_fu_675_p56 = and_ln68_4_fu_2433_p2;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd7) | (select_ln50_1_fu_1928_p3 == 4'd8) | (select_ln50_1_fu_1928_p3 == 4'd13) | (select_ln50_1_fu_1928_p3 == 4'd3) | (select_ln50_1_fu_1928_p3 == 4'd4) | (select_ln50_1_fu_1928_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd0) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd0) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd0) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd0) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd1) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((or_ln168_fu_2258_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd1) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 
+    4'd11)) | ((or_ln158_fu_2279_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd1) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((or_ln148_fu_2300_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd1) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (or_ln91_fu_2384_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd0) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd1) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (or_ln102_fu_2363_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd0) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd1) & (or_ln118_fu_2342_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) 
+    & (or_ln118_fu_2342_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd0) & (or_ln118_fu_2342_p2 == 1'd1)))) begin
+        ap_phi_mux_ctx_att_scores_started_1_phi_fu_675_p56 = and_ln50_4_fu_1728_p2;
     end else begin
-        ap_phi_mux_ctx_att_scores_started_1_phi_fu_673_p56 = 'bx;
+        ap_phi_mux_ctx_att_scores_started_1_phi_fu_675_p56 = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd1) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12))) begin
-        ap_phi_mux_ctx_att_value_compute_done_3_phi_fu_1297_p56 = 1'd1;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd0) | ((select_ln50_1_fu_1926_p3 == 4'd14) | (select_ln50_1_fu_1926_p3 == 4'd15)))) begin
-        ap_phi_mux_ctx_att_value_compute_done_3_phi_fu_1297_p56 = and_ln68_14_fu_2501_p2;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd7) | (select_ln50_1_fu_1926_p3 == 4'd8) | (select_ln50_1_fu_1926_p3 == 4'd13) | (select_ln50_1_fu_1926_p3 == 4'd3) | (select_ln50_1_fu_1926_p3 == 4'd4) | (select_ln50_1_fu_1926_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd0) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd0) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd0) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd0) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((or_ln168_fu_2256_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd1) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((or_ln158_fu_2277_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 
-    == 1'd1) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((or_ln148_fu_2298_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd1) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((or_ln138_fu_2319_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd1) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (or_ln91_fu_2382_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd0) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd1) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (or_ln102_fu_2361_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd0) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd1) 
-    & (or_ln118_fu_2340_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (or_ln118_fu_2340_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd0) & (or_ln118_fu_2340_p2 == 1'd1)))) begin
-        ap_phi_mux_ctx_att_value_compute_done_3_phi_fu_1297_p56 = ctx_att_value_compute_done_2_fu_2168_p2;
+    if (((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd1) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12))) begin
+        ap_phi_mux_ctx_att_value_compute_done_3_phi_fu_1299_p56 = 1'd1;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd0) | ((select_ln50_1_fu_1928_p3 == 4'd14) | (select_ln50_1_fu_1928_p3 == 4'd15)))) begin
+        ap_phi_mux_ctx_att_value_compute_done_3_phi_fu_1299_p56 = and_ln68_14_fu_2503_p2;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd7) | (select_ln50_1_fu_1928_p3 == 4'd8) | (select_ln50_1_fu_1928_p3 == 4'd13) | (select_ln50_1_fu_1928_p3 == 4'd3) | (select_ln50_1_fu_1928_p3 == 4'd4) | (select_ln50_1_fu_1928_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd0) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd0) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd0) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd0) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((or_ln168_fu_2258_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd1) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((or_ln158_fu_2279_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 
+    == 1'd1) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((or_ln148_fu_2300_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd1) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((or_ln138_fu_2321_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd1) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (or_ln91_fu_2384_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd0) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd1) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (or_ln102_fu_2363_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd0) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd1) 
+    & (or_ln118_fu_2342_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (or_ln118_fu_2342_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd0) & (or_ln118_fu_2342_p2 == 1'd1)))) begin
+        ap_phi_mux_ctx_att_value_compute_done_3_phi_fu_1299_p56 = ctx_att_value_compute_done_2_fu_2170_p2;
     end else begin
-        ap_phi_mux_ctx_att_value_compute_done_3_phi_fu_1297_p56 = 'bx;
+        ap_phi_mux_ctx_att_value_compute_done_3_phi_fu_1299_p56 = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd1) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12))) begin
-        ap_phi_mux_ctx_att_value_started_1_phi_fu_862_p56 = 1'd0;
-    end else if (((or_ln168_fu_2256_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd12))) begin
-        ap_phi_mux_ctx_att_value_started_1_phi_fu_862_p56 = 1'd1;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd0) | ((select_ln50_1_fu_1926_p3 == 4'd14) | (select_ln50_1_fu_1926_p3 == 4'd15)))) begin
-        ap_phi_mux_ctx_att_value_started_1_phi_fu_862_p56 = and_ln68_7_fu_2452_p2;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd7) | (select_ln50_1_fu_1926_p3 == 4'd8) | (select_ln50_1_fu_1926_p3 == 4'd13) | (select_ln50_1_fu_1926_p3 == 4'd3) | (select_ln50_1_fu_1926_p3 == 4'd4) | (select_ln50_1_fu_1926_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd0) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd0) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd0) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd0) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd1) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((or_ln158_fu_2277_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd1) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 
-    4'd10)) | ((or_ln148_fu_2298_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd1) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((or_ln138_fu_2319_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd1) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (or_ln91_fu_2382_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd0) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd1) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (or_ln102_fu_2361_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd0) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd1) & (or_ln118_fu_2340_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) 
-    & (or_ln118_fu_2340_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd0) & (or_ln118_fu_2340_p2 == 1'd1)))) begin
-        ap_phi_mux_ctx_att_value_started_1_phi_fu_862_p56 = and_ln50_7_fu_1819_p2;
+    if (((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd1) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12))) begin
+        ap_phi_mux_ctx_att_value_started_1_phi_fu_864_p56 = 1'd0;
+    end else if (((or_ln168_fu_2258_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd12))) begin
+        ap_phi_mux_ctx_att_value_started_1_phi_fu_864_p56 = 1'd1;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd0) | ((select_ln50_1_fu_1928_p3 == 4'd14) | (select_ln50_1_fu_1928_p3 == 4'd15)))) begin
+        ap_phi_mux_ctx_att_value_started_1_phi_fu_864_p56 = and_ln68_7_fu_2454_p2;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd7) | (select_ln50_1_fu_1928_p3 == 4'd8) | (select_ln50_1_fu_1928_p3 == 4'd13) | (select_ln50_1_fu_1928_p3 == 4'd3) | (select_ln50_1_fu_1928_p3 == 4'd4) | (select_ln50_1_fu_1928_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd0) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd0) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd0) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd0) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd1) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((or_ln158_fu_2279_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd1) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 
+    4'd10)) | ((or_ln148_fu_2300_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd1) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((or_ln138_fu_2321_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd1) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (or_ln91_fu_2384_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd0) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd1) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (or_ln102_fu_2363_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd0) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd1) & (or_ln118_fu_2342_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) 
+    & (or_ln118_fu_2342_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd0) & (or_ln118_fu_2342_p2 == 1'd1)))) begin
+        ap_phi_mux_ctx_att_value_started_1_phi_fu_864_p56 = and_ln50_7_fu_1821_p2;
     end else begin
-        ap_phi_mux_ctx_att_value_started_1_phi_fu_862_p56 = 'bx;
+        ap_phi_mux_ctx_att_value_started_1_phi_fu_864_p56 = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((select_ln50_1_fu_1926_p3 == 4'd0) | ((select_ln50_1_fu_1926_p3 == 4'd14) | (select_ln50_1_fu_1926_p3 == 4'd15)))) begin
-        ap_phi_mux_ctx_compute_done_1_phi_fu_423_p56 = and_ln68_fu_2403_p2;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd7) | (select_ln50_1_fu_1926_p3 == 4'd8) | (select_ln50_1_fu_1926_p3 == 4'd13) | (select_ln50_1_fu_1926_p3 == 4'd3) | (select_ln50_1_fu_1926_p3 == 4'd4) | (select_ln50_1_fu_1926_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd0) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd0) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd0) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd0) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd1) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((or_ln168_fu_2256_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd1) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 
-    4'd11)) | ((or_ln158_fu_2277_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd1) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((or_ln148_fu_2298_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd1) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((or_ln138_fu_2319_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd1) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (or_ln91_fu_2382_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd0) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd1) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (or_ln102_fu_2361_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 
-    == 1'd0) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd1) & (or_ln118_fu_2340_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (or_ln118_fu_2340_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd0) & (or_ln118_fu_2340_p2 == 1'd1)))) begin
-        ap_phi_mux_ctx_compute_done_1_phi_fu_423_p56 = and_ln50_fu_1600_p2;
+    if (((select_ln50_1_fu_1928_p3 == 4'd0) | ((select_ln50_1_fu_1928_p3 == 4'd14) | (select_ln50_1_fu_1928_p3 == 4'd15)))) begin
+        ap_phi_mux_ctx_compute_done_1_phi_fu_425_p56 = and_ln68_fu_2405_p2;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd7) | (select_ln50_1_fu_1928_p3 == 4'd8) | (select_ln50_1_fu_1928_p3 == 4'd13) | (select_ln50_1_fu_1928_p3 == 4'd3) | (select_ln50_1_fu_1928_p3 == 4'd4) | (select_ln50_1_fu_1928_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd0) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd0) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd0) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd0) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd1) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((or_ln168_fu_2258_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd1) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 
+    4'd11)) | ((or_ln158_fu_2279_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd1) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((or_ln148_fu_2300_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd1) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((or_ln138_fu_2321_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd1) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (or_ln91_fu_2384_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd0) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd1) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (or_ln102_fu_2363_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 
+    == 1'd0) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd1) & (or_ln118_fu_2342_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (or_ln118_fu_2342_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd0) & (or_ln118_fu_2342_p2 == 1'd1)))) begin
+        ap_phi_mux_ctx_compute_done_1_phi_fu_425_p56 = and_ln50_fu_1602_p2;
     end else begin
-        ap_phi_mux_ctx_compute_done_1_phi_fu_423_p56 = 'bx;
+        ap_phi_mux_ctx_compute_done_1_phi_fu_425_p56 = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((or_ln168_fu_2256_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd12))) begin
-        ap_phi_mux_ctx_compute_op_write_assign_phi_fu_334_p56 = 3'd7;
-    end else if (((or_ln158_fu_2277_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd11))) begin
-        ap_phi_mux_ctx_compute_op_write_assign_phi_fu_334_p56 = 3'd6;
-    end else if (((or_ln148_fu_2298_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd10))) begin
-        ap_phi_mux_ctx_compute_op_write_assign_phi_fu_334_p56 = 3'd5;
-    end else if (((or_ln138_fu_2319_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd9))) begin
-        ap_phi_mux_ctx_compute_op_write_assign_phi_fu_334_p56 = 3'd4;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd5) & (or_ln118_fu_2340_p2 == 1'd0))) begin
-        ap_phi_mux_ctx_compute_op_write_assign_phi_fu_334_p56 = 3'd3;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd2) & (or_ln102_fu_2361_p2 == 1'd0))) begin
-        ap_phi_mux_ctx_compute_op_write_assign_phi_fu_334_p56 = 3'd2;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd1) & (or_ln91_fu_2382_p2 == 1'd0))) begin
-        ap_phi_mux_ctx_compute_op_write_assign_phi_fu_334_p56 = 3'd1;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd7) | (select_ln50_1_fu_1926_p3 == 4'd8) | (select_ln50_1_fu_1926_p3 == 4'd13) | (select_ln50_1_fu_1926_p3 == 4'd3) | (select_ln50_1_fu_1926_p3 == 4'd0) | (select_ln50_1_fu_1926_p3 == 4'd14) | (select_ln50_1_fu_1926_p3 == 4'd15) | (select_ln50_1_fu_1926_p3 == 4'd4) | (select_ln50_1_fu_1926_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd0) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd0) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd0) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd0) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd1) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd1) & (or_ln158_fu_2277_p2 
-    == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd1) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd1) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd1) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd0) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd1) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd0) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd1) & (or_ln118_fu_2340_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd0) & (or_ln118_fu_2340_p2 == 1'd1)))) begin
-        ap_phi_mux_ctx_compute_op_write_assign_phi_fu_334_p56 = 3'd0;
+    if (((or_ln168_fu_2258_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd12))) begin
+        ap_phi_mux_ctx_compute_op_write_assign_phi_fu_336_p56 = 3'd7;
+    end else if (((or_ln158_fu_2279_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd11))) begin
+        ap_phi_mux_ctx_compute_op_write_assign_phi_fu_336_p56 = 3'd6;
+    end else if (((or_ln148_fu_2300_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd10))) begin
+        ap_phi_mux_ctx_compute_op_write_assign_phi_fu_336_p56 = 3'd5;
+    end else if (((or_ln138_fu_2321_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd9))) begin
+        ap_phi_mux_ctx_compute_op_write_assign_phi_fu_336_p56 = 3'd4;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd5) & (or_ln118_fu_2342_p2 == 1'd0))) begin
+        ap_phi_mux_ctx_compute_op_write_assign_phi_fu_336_p56 = 3'd3;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd2) & (or_ln102_fu_2363_p2 == 1'd0))) begin
+        ap_phi_mux_ctx_compute_op_write_assign_phi_fu_336_p56 = 3'd2;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd1) & (or_ln91_fu_2384_p2 == 1'd0))) begin
+        ap_phi_mux_ctx_compute_op_write_assign_phi_fu_336_p56 = 3'd1;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd7) | (select_ln50_1_fu_1928_p3 == 4'd8) | (select_ln50_1_fu_1928_p3 == 4'd13) | (select_ln50_1_fu_1928_p3 == 4'd3) | (select_ln50_1_fu_1928_p3 == 4'd0) | (select_ln50_1_fu_1928_p3 == 4'd14) | (select_ln50_1_fu_1928_p3 == 4'd15) | (select_ln50_1_fu_1928_p3 == 4'd4) | (select_ln50_1_fu_1928_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd0) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd0) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd0) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd0) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd1) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd1) & (or_ln158_fu_2279_p2 
+    == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd1) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd1) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd1) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd0) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd1) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd0) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd1) & (or_ln118_fu_2342_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd0) & (or_ln118_fu_2342_p2 == 1'd1)))) begin
+        ap_phi_mux_ctx_compute_op_write_assign_phi_fu_336_p56 = 3'd0;
     end else begin
-        ap_phi_mux_ctx_compute_op_write_assign_phi_fu_334_p56 = 'bx;
+        ap_phi_mux_ctx_compute_op_write_assign_phi_fu_336_p56 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((((or_ln168_fu_2256_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((or_ln158_fu_2277_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((or_ln148_fu_2298_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((or_ln138_fu_2319_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (or_ln91_fu_2382_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (or_ln102_fu_2361_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (or_ln118_fu_2340_p2 == 1'd0)))) begin
-        ap_phi_mux_ctx_compute_ready_1_phi_fu_1359_p56 = 1'd1;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd0) | ((select_ln50_1_fu_1926_p3 == 4'd14) | (select_ln50_1_fu_1926_p3 == 4'd15)))) begin
-        ap_phi_mux_ctx_compute_ready_1_phi_fu_1359_p56 = and_ln68_15_fu_2508_p2;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd7) | (select_ln50_1_fu_1926_p3 == 4'd8) | (select_ln50_1_fu_1926_p3 == 4'd13) | (select_ln50_1_fu_1926_p3 == 4'd3) | (select_ln50_1_fu_1926_p3 == 4'd4) | (select_ln50_1_fu_1926_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd0) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd0) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd0) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd0) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd1) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd1) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd1) & (or_ln148_fu_2298_p2 
-    == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd1) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd1) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd0) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd1) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd0) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd1) & (or_ln118_fu_2340_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd0) & (or_ln118_fu_2340_p2 == 1'd1)))) begin
-        ap_phi_mux_ctx_compute_ready_1_phi_fu_1359_p56 = and_ln50_15_fu_1900_p2;
+    if ((((or_ln168_fu_2258_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((or_ln158_fu_2279_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((or_ln148_fu_2300_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((or_ln138_fu_2321_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (or_ln91_fu_2384_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (or_ln102_fu_2363_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (or_ln118_fu_2342_p2 == 1'd0)))) begin
+        ap_phi_mux_ctx_compute_ready_1_phi_fu_1361_p56 = 1'd1;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd0) | ((select_ln50_1_fu_1928_p3 == 4'd14) | (select_ln50_1_fu_1928_p3 == 4'd15)))) begin
+        ap_phi_mux_ctx_compute_ready_1_phi_fu_1361_p56 = and_ln68_15_fu_2510_p2;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd7) | (select_ln50_1_fu_1928_p3 == 4'd8) | (select_ln50_1_fu_1928_p3 == 4'd13) | (select_ln50_1_fu_1928_p3 == 4'd3) | (select_ln50_1_fu_1928_p3 == 4'd4) | (select_ln50_1_fu_1928_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd0) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd0) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd0) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd0) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd1) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd1) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd1) & (or_ln148_fu_2300_p2 
+    == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd1) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd1) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd0) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd1) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd0) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd1) & (or_ln118_fu_2342_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd0) & (or_ln118_fu_2342_p2 == 1'd1)))) begin
+        ap_phi_mux_ctx_compute_ready_1_phi_fu_1361_p56 = and_ln50_15_fu_1902_p2;
     end else begin
-        ap_phi_mux_ctx_compute_ready_1_phi_fu_1359_p56 = 'bx;
+        ap_phi_mux_ctx_compute_ready_1_phi_fu_1361_p56 = 'bx;
     end
 end
 
 always @ (*) begin
-    if ((((or_ln168_fu_2256_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((or_ln158_fu_2277_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((or_ln148_fu_2298_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((or_ln138_fu_2319_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (or_ln91_fu_2382_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (or_ln102_fu_2361_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (or_ln118_fu_2340_p2 == 1'd0)))) begin
-        ap_phi_mux_ctx_compute_start_write_assign_phi_fu_245_p56 = 1'd1;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd7) | (select_ln50_1_fu_1926_p3 == 4'd8) | (select_ln50_1_fu_1926_p3 == 4'd13) | (select_ln50_1_fu_1926_p3 == 4'd3) | (select_ln50_1_fu_1926_p3 == 4'd0) | (select_ln50_1_fu_1926_p3 == 4'd14) | (select_ln50_1_fu_1926_p3 == 4'd15) | (select_ln50_1_fu_1926_p3 == 4'd4) | (select_ln50_1_fu_1926_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd0) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd0) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd0) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd0) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd1) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd1) & (or_ln158_fu_2277_p2 
-    == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd1) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd1) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd1) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd0) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd1) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd0) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd1) & (or_ln118_fu_2340_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd0) & (or_ln118_fu_2340_p2 == 1'd1)))) begin
-        ap_phi_mux_ctx_compute_start_write_assign_phi_fu_245_p56 = 1'd0;
+    if ((((or_ln168_fu_2258_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((or_ln158_fu_2279_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((or_ln148_fu_2300_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((or_ln138_fu_2321_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (or_ln91_fu_2384_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (or_ln102_fu_2363_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (or_ln118_fu_2342_p2 == 1'd0)))) begin
+        ap_phi_mux_ctx_compute_start_write_assign_phi_fu_247_p56 = 1'd1;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd7) | (select_ln50_1_fu_1928_p3 == 4'd8) | (select_ln50_1_fu_1928_p3 == 4'd13) | (select_ln50_1_fu_1928_p3 == 4'd3) | (select_ln50_1_fu_1928_p3 == 4'd0) | (select_ln50_1_fu_1928_p3 == 4'd14) | (select_ln50_1_fu_1928_p3 == 4'd15) | (select_ln50_1_fu_1928_p3 == 4'd4) | (select_ln50_1_fu_1928_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd0) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd0) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd0) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd0) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd1) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd1) & (or_ln158_fu_2279_p2 
+    == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd1) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd1) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd1) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd0) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd1) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd0) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd1) & (or_ln118_fu_2342_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd0) & (or_ln118_fu_2342_p2 == 1'd1)))) begin
+        ap_phi_mux_ctx_compute_start_write_assign_phi_fu_247_p56 = 1'd0;
     end else begin
-        ap_phi_mux_ctx_compute_start_write_assign_phi_fu_245_p56 = 'bx;
+        ap_phi_mux_ctx_compute_start_write_assign_phi_fu_247_p56 = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd1) & (or_ln102_fu_2361_p2 == 1'd1))) begin
-        ap_phi_mux_ctx_k_compute_done_3_phi_fu_987_p56 = 1'd1;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd0) | ((select_ln50_1_fu_1926_p3 == 4'd14) | (select_ln50_1_fu_1926_p3 == 4'd15)))) begin
-        ap_phi_mux_ctx_k_compute_done_3_phi_fu_987_p56 = and_ln68_9_fu_2466_p2;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd7) | (select_ln50_1_fu_1926_p3 == 4'd8) | (select_ln50_1_fu_1926_p3 == 4'd13) | (select_ln50_1_fu_1926_p3 == 4'd3) | (select_ln50_1_fu_1926_p3 == 4'd4) | (select_ln50_1_fu_1926_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd0) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd0) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd0) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd0) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd1) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((or_ln168_fu_2256_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd1) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 
-    4'd11)) | ((or_ln158_fu_2277_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd1) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((or_ln148_fu_2298_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd1) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((or_ln138_fu_2319_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd1) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (or_ln91_fu_2382_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd0) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (or_ln102_fu_2361_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd0) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 
-    == 1'd1) & (or_ln118_fu_2340_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (or_ln118_fu_2340_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd0) & (or_ln118_fu_2340_p2 == 1'd1)))) begin
-        ap_phi_mux_ctx_k_compute_done_3_phi_fu_987_p56 = ctx_k_compute_done_2_fu_1978_p2;
+    if (((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd1) & (or_ln102_fu_2363_p2 == 1'd1))) begin
+        ap_phi_mux_ctx_k_compute_done_3_phi_fu_989_p56 = 1'd1;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd0) | ((select_ln50_1_fu_1928_p3 == 4'd14) | (select_ln50_1_fu_1928_p3 == 4'd15)))) begin
+        ap_phi_mux_ctx_k_compute_done_3_phi_fu_989_p56 = and_ln68_9_fu_2468_p2;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd7) | (select_ln50_1_fu_1928_p3 == 4'd8) | (select_ln50_1_fu_1928_p3 == 4'd13) | (select_ln50_1_fu_1928_p3 == 4'd3) | (select_ln50_1_fu_1928_p3 == 4'd4) | (select_ln50_1_fu_1928_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd0) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd0) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd0) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd0) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd1) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((or_ln168_fu_2258_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd1) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 
+    4'd11)) | ((or_ln158_fu_2279_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd1) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((or_ln148_fu_2300_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd1) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((or_ln138_fu_2321_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd1) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (or_ln91_fu_2384_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd0) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (or_ln102_fu_2363_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd0) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 
+    == 1'd1) & (or_ln118_fu_2342_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (or_ln118_fu_2342_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd0) & (or_ln118_fu_2342_p2 == 1'd1)))) begin
+        ap_phi_mux_ctx_k_compute_done_3_phi_fu_989_p56 = ctx_k_compute_done_2_fu_1980_p2;
     end else begin
-        ap_phi_mux_ctx_k_compute_done_3_phi_fu_987_p56 = 'bx;
+        ap_phi_mux_ctx_k_compute_done_3_phi_fu_989_p56 = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd1) & (or_ln102_fu_2361_p2 == 1'd1))) begin
-        ap_phi_mux_ctx_k_started_1_phi_fu_547_p56 = 1'd0;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd2) & (or_ln102_fu_2361_p2 == 1'd0))) begin
-        ap_phi_mux_ctx_k_started_1_phi_fu_547_p56 = 1'd1;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd0) | ((select_ln50_1_fu_1926_p3 == 4'd14) | (select_ln50_1_fu_1926_p3 == 4'd15)))) begin
-        ap_phi_mux_ctx_k_started_1_phi_fu_547_p56 = and_ln68_2_fu_2417_p2;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd7) | (select_ln50_1_fu_1926_p3 == 4'd8) | (select_ln50_1_fu_1926_p3 == 4'd13) | (select_ln50_1_fu_1926_p3 == 4'd3) | (select_ln50_1_fu_1926_p3 == 4'd4) | (select_ln50_1_fu_1926_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd0) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd0) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd0) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd0) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd1) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((or_ln168_fu_2256_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd1) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 
-    4'd11)) | ((or_ln158_fu_2277_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd1) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((or_ln148_fu_2298_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd1) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((or_ln138_fu_2319_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd1) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (or_ln91_fu_2382_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd0) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd0) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd1) & (or_ln118_fu_2340_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 
-    == 4'd5) & (or_ln118_fu_2340_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd0) & (or_ln118_fu_2340_p2 == 1'd1)))) begin
-        ap_phi_mux_ctx_k_started_1_phi_fu_547_p56 = and_ln50_2_fu_1664_p2;
+    if (((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd1) & (or_ln102_fu_2363_p2 == 1'd1))) begin
+        ap_phi_mux_ctx_k_started_1_phi_fu_549_p56 = 1'd0;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd2) & (or_ln102_fu_2363_p2 == 1'd0))) begin
+        ap_phi_mux_ctx_k_started_1_phi_fu_549_p56 = 1'd1;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd0) | ((select_ln50_1_fu_1928_p3 == 4'd14) | (select_ln50_1_fu_1928_p3 == 4'd15)))) begin
+        ap_phi_mux_ctx_k_started_1_phi_fu_549_p56 = and_ln68_2_fu_2419_p2;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd7) | (select_ln50_1_fu_1928_p3 == 4'd8) | (select_ln50_1_fu_1928_p3 == 4'd13) | (select_ln50_1_fu_1928_p3 == 4'd3) | (select_ln50_1_fu_1928_p3 == 4'd4) | (select_ln50_1_fu_1928_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd0) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd0) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd0) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd0) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd1) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((or_ln168_fu_2258_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd1) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 
+    4'd11)) | ((or_ln158_fu_2279_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd1) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((or_ln148_fu_2300_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd1) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((or_ln138_fu_2321_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd1) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (or_ln91_fu_2384_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd0) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd0) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd1) & (or_ln118_fu_2342_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 
+    == 4'd5) & (or_ln118_fu_2342_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd0) & (or_ln118_fu_2342_p2 == 1'd1)))) begin
+        ap_phi_mux_ctx_k_started_1_phi_fu_549_p56 = and_ln50_2_fu_1666_p2;
     end else begin
-        ap_phi_mux_ctx_k_started_1_phi_fu_547_p56 = 'bx;
+        ap_phi_mux_ctx_k_started_1_phi_fu_549_p56 = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd1) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12))) begin
-        ap_phi_mux_ctx_phase_1_phi_fu_1427_p56 = select_ln172_fu_2262_p3;
-    end else if (((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd1) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11))) begin
-        ap_phi_mux_ctx_phase_1_phi_fu_1427_p56 = select_ln162_fu_2283_p3;
-    end else if (((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd1) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10))) begin
-        ap_phi_mux_ctx_phase_1_phi_fu_1427_p56 = select_ln152_fu_2304_p3;
-    end else if (((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd1) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9))) begin
-        ap_phi_mux_ctx_phase_1_phi_fu_1427_p56 = select_ln142_fu_2325_p3;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd1) & (or_ln118_fu_2340_p2 == 1'd1))) begin
-        ap_phi_mux_ctx_phase_1_phi_fu_1427_p56 = select_ln123_fu_2346_p3;
-    end else if ((select_ln50_1_fu_1926_p3 == 4'd3)) begin
-        ap_phi_mux_ctx_phase_1_phi_fu_1427_p56 = 4'd4;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd1) & (or_ln102_fu_2361_p2 == 1'd1))) begin
-        ap_phi_mux_ctx_phase_1_phi_fu_1427_p56 = select_ln107_fu_2367_p3;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd1) & (or_ln91_fu_2382_p2 == 1'd1))) begin
-        ap_phi_mux_ctx_phase_1_phi_fu_1427_p56 = select_ln96_fu_2388_p3;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd0) | ((select_ln50_1_fu_1926_p3 == 4'd14) | (select_ln50_1_fu_1926_p3 == 4'd15)))) begin
-        ap_phi_mux_ctx_phase_1_phi_fu_1427_p56 = zext_ln68_fu_2515_p1;
-    end else if ((((select_ln50_1_fu_1926_p3 == 4'd1) & (or_ln91_fu_2382_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd0) & (or_ln91_fu_2382_p2 == 1'd1)))) begin
-        ap_phi_mux_ctx_phase_1_phi_fu_1427_p56 = 4'd1;
-    end else if ((((select_ln50_1_fu_1926_p3 == 4'd2) & (or_ln102_fu_2361_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd0) & (or_ln102_fu_2361_p2 == 1'd1)))) begin
-        ap_phi_mux_ctx_phase_1_phi_fu_1427_p56 = 4'd2;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd4) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (or_ln118_fu_2340_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd0) & (or_ln118_fu_2340_p2 == 1'd1)))) begin
-        ap_phi_mux_ctx_phase_1_phi_fu_1427_p56 = 4'd5;
-    end else if ((select_ln50_1_fu_1926_p3 == 4'd6)) begin
-        ap_phi_mux_ctx_phase_1_phi_fu_1427_p56 = 4'd7;
-    end else if ((select_ln50_1_fu_1926_p3 == 4'd7)) begin
-        ap_phi_mux_ctx_phase_1_phi_fu_1427_p56 = 4'd8;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd8) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd0) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((or_ln138_fu_2319_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd9)))) begin
-        ap_phi_mux_ctx_phase_1_phi_fu_1427_p56 = 4'd9;
-    end else if ((((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd0) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((or_ln148_fu_2298_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd10)))) begin
-        ap_phi_mux_ctx_phase_1_phi_fu_1427_p56 = 4'd10;
-    end else if ((((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd0) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((or_ln158_fu_2277_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd11)))) begin
-        ap_phi_mux_ctx_phase_1_phi_fu_1427_p56 = 4'd11;
-    end else if ((((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd0) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((or_ln168_fu_2256_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd12)))) begin
-        ap_phi_mux_ctx_phase_1_phi_fu_1427_p56 = 4'd12;
-    end else if ((select_ln50_1_fu_1926_p3 == 4'd13)) begin
-        ap_phi_mux_ctx_phase_1_phi_fu_1427_p56 = 4'd14;
+    if (((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd1) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12))) begin
+        ap_phi_mux_ctx_phase_1_phi_fu_1429_p56 = select_ln172_fu_2264_p3;
+    end else if (((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd1) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11))) begin
+        ap_phi_mux_ctx_phase_1_phi_fu_1429_p56 = select_ln162_fu_2285_p3;
+    end else if (((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd1) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10))) begin
+        ap_phi_mux_ctx_phase_1_phi_fu_1429_p56 = select_ln152_fu_2306_p3;
+    end else if (((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd1) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9))) begin
+        ap_phi_mux_ctx_phase_1_phi_fu_1429_p56 = select_ln142_fu_2327_p3;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd1) & (or_ln118_fu_2342_p2 == 1'd1))) begin
+        ap_phi_mux_ctx_phase_1_phi_fu_1429_p56 = select_ln123_fu_2348_p3;
+    end else if ((select_ln50_1_fu_1928_p3 == 4'd3)) begin
+        ap_phi_mux_ctx_phase_1_phi_fu_1429_p56 = 4'd4;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd1) & (or_ln102_fu_2363_p2 == 1'd1))) begin
+        ap_phi_mux_ctx_phase_1_phi_fu_1429_p56 = select_ln107_fu_2369_p3;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd1) & (or_ln91_fu_2384_p2 == 1'd1))) begin
+        ap_phi_mux_ctx_phase_1_phi_fu_1429_p56 = select_ln96_fu_2390_p3;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd0) | ((select_ln50_1_fu_1928_p3 == 4'd14) | (select_ln50_1_fu_1928_p3 == 4'd15)))) begin
+        ap_phi_mux_ctx_phase_1_phi_fu_1429_p56 = zext_ln68_fu_2517_p1;
+    end else if ((((select_ln50_1_fu_1928_p3 == 4'd1) & (or_ln91_fu_2384_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd0) & (or_ln91_fu_2384_p2 == 1'd1)))) begin
+        ap_phi_mux_ctx_phase_1_phi_fu_1429_p56 = 4'd1;
+    end else if ((((select_ln50_1_fu_1928_p3 == 4'd2) & (or_ln102_fu_2363_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd0) & (or_ln102_fu_2363_p2 == 1'd1)))) begin
+        ap_phi_mux_ctx_phase_1_phi_fu_1429_p56 = 4'd2;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd4) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (or_ln118_fu_2342_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd0) & (or_ln118_fu_2342_p2 == 1'd1)))) begin
+        ap_phi_mux_ctx_phase_1_phi_fu_1429_p56 = 4'd5;
+    end else if ((select_ln50_1_fu_1928_p3 == 4'd6)) begin
+        ap_phi_mux_ctx_phase_1_phi_fu_1429_p56 = 4'd7;
+    end else if ((select_ln50_1_fu_1928_p3 == 4'd7)) begin
+        ap_phi_mux_ctx_phase_1_phi_fu_1429_p56 = 4'd8;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd8) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd0) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((or_ln138_fu_2321_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd9)))) begin
+        ap_phi_mux_ctx_phase_1_phi_fu_1429_p56 = 4'd9;
+    end else if ((((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd0) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((or_ln148_fu_2300_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd10)))) begin
+        ap_phi_mux_ctx_phase_1_phi_fu_1429_p56 = 4'd10;
+    end else if ((((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd0) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((or_ln158_fu_2279_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd11)))) begin
+        ap_phi_mux_ctx_phase_1_phi_fu_1429_p56 = 4'd11;
+    end else if ((((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd0) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((or_ln168_fu_2258_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd12)))) begin
+        ap_phi_mux_ctx_phase_1_phi_fu_1429_p56 = 4'd12;
+    end else if ((select_ln50_1_fu_1928_p3 == 4'd13)) begin
+        ap_phi_mux_ctx_phase_1_phi_fu_1429_p56 = 4'd14;
     end else begin
-        ap_phi_mux_ctx_phase_1_phi_fu_1427_p56 = 'bx;
+        ap_phi_mux_ctx_phase_1_phi_fu_1429_p56 = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd1) & (or_ln91_fu_2382_p2 == 1'd1))) begin
-        ap_phi_mux_ctx_q_compute_done_3_phi_fu_925_p56 = 1'd1;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd0) | ((select_ln50_1_fu_1926_p3 == 4'd14) | (select_ln50_1_fu_1926_p3 == 4'd15)))) begin
-        ap_phi_mux_ctx_q_compute_done_3_phi_fu_925_p56 = and_ln68_8_fu_2459_p2;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd7) | (select_ln50_1_fu_1926_p3 == 4'd8) | (select_ln50_1_fu_1926_p3 == 4'd13) | (select_ln50_1_fu_1926_p3 == 4'd3) | (select_ln50_1_fu_1926_p3 == 4'd4) | (select_ln50_1_fu_1926_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd0) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd0) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd0) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd0) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd1) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((or_ln168_fu_2256_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd1) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 
-    4'd11)) | ((or_ln158_fu_2277_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd1) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((or_ln148_fu_2298_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd1) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((or_ln138_fu_2319_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (or_ln91_fu_2382_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd0) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd1) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (or_ln102_fu_2361_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd0) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 
-    == 1'd1) & (or_ln118_fu_2340_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (or_ln118_fu_2340_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd0) & (or_ln118_fu_2340_p2 == 1'd1)))) begin
-        ap_phi_mux_ctx_q_compute_done_3_phi_fu_925_p56 = ctx_q_compute_done_2_fu_1940_p2;
+    if (((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd1) & (or_ln91_fu_2384_p2 == 1'd1))) begin
+        ap_phi_mux_ctx_q_compute_done_3_phi_fu_927_p56 = 1'd1;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd0) | ((select_ln50_1_fu_1928_p3 == 4'd14) | (select_ln50_1_fu_1928_p3 == 4'd15)))) begin
+        ap_phi_mux_ctx_q_compute_done_3_phi_fu_927_p56 = and_ln68_8_fu_2461_p2;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd7) | (select_ln50_1_fu_1928_p3 == 4'd8) | (select_ln50_1_fu_1928_p3 == 4'd13) | (select_ln50_1_fu_1928_p3 == 4'd3) | (select_ln50_1_fu_1928_p3 == 4'd4) | (select_ln50_1_fu_1928_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd0) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd0) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd0) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd0) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd1) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((or_ln168_fu_2258_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd1) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 
+    4'd11)) | ((or_ln158_fu_2279_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd1) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((or_ln148_fu_2300_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd1) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((or_ln138_fu_2321_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (or_ln91_fu_2384_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd0) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd1) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (or_ln102_fu_2363_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd0) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 
+    == 1'd1) & (or_ln118_fu_2342_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (or_ln118_fu_2342_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd0) & (or_ln118_fu_2342_p2 == 1'd1)))) begin
+        ap_phi_mux_ctx_q_compute_done_3_phi_fu_927_p56 = ctx_q_compute_done_2_fu_1942_p2;
     end else begin
-        ap_phi_mux_ctx_q_compute_done_3_phi_fu_925_p56 = 'bx;
+        ap_phi_mux_ctx_q_compute_done_3_phi_fu_927_p56 = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd1) & (or_ln91_fu_2382_p2 == 1'd1))) begin
-        ap_phi_mux_ctx_q_started_1_phi_fu_484_p56 = 1'd0;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd1) & (or_ln91_fu_2382_p2 == 1'd0))) begin
-        ap_phi_mux_ctx_q_started_1_phi_fu_484_p56 = 1'd1;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd0) | ((select_ln50_1_fu_1926_p3 == 4'd14) | (select_ln50_1_fu_1926_p3 == 4'd15)))) begin
-        ap_phi_mux_ctx_q_started_1_phi_fu_484_p56 = and_ln68_1_fu_2410_p2;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd7) | (select_ln50_1_fu_1926_p3 == 4'd8) | (select_ln50_1_fu_1926_p3 == 4'd13) | (select_ln50_1_fu_1926_p3 == 4'd3) | (select_ln50_1_fu_1926_p3 == 4'd4) | (select_ln50_1_fu_1926_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd0) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd0) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd0) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd0) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd1) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((or_ln168_fu_2256_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd1) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 
-    4'd11)) | ((or_ln158_fu_2277_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd1) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((or_ln148_fu_2298_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd1) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((or_ln138_fu_2319_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd0) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd1) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (or_ln102_fu_2361_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd0) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd1) & (or_ln118_fu_2340_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 
-    == 4'd5) & (or_ln118_fu_2340_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd0) & (or_ln118_fu_2340_p2 == 1'd1)))) begin
-        ap_phi_mux_ctx_q_started_1_phi_fu_484_p56 = and_ln50_1_fu_1633_p2;
+    if (((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd1) & (or_ln91_fu_2384_p2 == 1'd1))) begin
+        ap_phi_mux_ctx_q_started_1_phi_fu_486_p56 = 1'd0;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd1) & (or_ln91_fu_2384_p2 == 1'd0))) begin
+        ap_phi_mux_ctx_q_started_1_phi_fu_486_p56 = 1'd1;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd0) | ((select_ln50_1_fu_1928_p3 == 4'd14) | (select_ln50_1_fu_1928_p3 == 4'd15)))) begin
+        ap_phi_mux_ctx_q_started_1_phi_fu_486_p56 = and_ln68_1_fu_2412_p2;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd7) | (select_ln50_1_fu_1928_p3 == 4'd8) | (select_ln50_1_fu_1928_p3 == 4'd13) | (select_ln50_1_fu_1928_p3 == 4'd3) | (select_ln50_1_fu_1928_p3 == 4'd4) | (select_ln50_1_fu_1928_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd0) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd0) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd0) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd0) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd1) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((or_ln168_fu_2258_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd1) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 
+    4'd11)) | ((or_ln158_fu_2279_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd1) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((or_ln148_fu_2300_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd1) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((or_ln138_fu_2321_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd0) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd1) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (or_ln102_fu_2363_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd0) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd1) & (or_ln118_fu_2342_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 
+    == 4'd5) & (or_ln118_fu_2342_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd0) & (or_ln118_fu_2342_p2 == 1'd1)))) begin
+        ap_phi_mux_ctx_q_started_1_phi_fu_486_p56 = and_ln50_1_fu_1635_p2;
     end else begin
-        ap_phi_mux_ctx_q_started_1_phi_fu_484_p56 = 'bx;
+        ap_phi_mux_ctx_q_started_1_phi_fu_486_p56 = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd1) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11))) begin
-        ap_phi_mux_ctx_softmax_compute_done_3_phi_fu_1235_p56 = 1'd1;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd0) | ((select_ln50_1_fu_1926_p3 == 4'd14) | (select_ln50_1_fu_1926_p3 == 4'd15)))) begin
-        ap_phi_mux_ctx_softmax_compute_done_3_phi_fu_1235_p56 = and_ln68_13_fu_2494_p2;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd7) | (select_ln50_1_fu_1926_p3 == 4'd8) | (select_ln50_1_fu_1926_p3 == 4'd13) | (select_ln50_1_fu_1926_p3 == 4'd3) | (select_ln50_1_fu_1926_p3 == 4'd4) | (select_ln50_1_fu_1926_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd0) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd0) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd0) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd0) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd1) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((or_ln168_fu_2256_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((or_ln158_fu_2277_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 
-    == 1'd1) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((or_ln148_fu_2298_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd1) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((or_ln138_fu_2319_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd1) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (or_ln91_fu_2382_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd0) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd1) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (or_ln102_fu_2361_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd0) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd1) 
-    & (or_ln118_fu_2340_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (or_ln118_fu_2340_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd0) & (or_ln118_fu_2340_p2 == 1'd1)))) begin
-        ap_phi_mux_ctx_softmax_compute_done_3_phi_fu_1235_p56 = ctx_softmax_compute_done_2_fu_2130_p2;
+    if (((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd1) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11))) begin
+        ap_phi_mux_ctx_softmax_compute_done_3_phi_fu_1237_p56 = 1'd1;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd0) | ((select_ln50_1_fu_1928_p3 == 4'd14) | (select_ln50_1_fu_1928_p3 == 4'd15)))) begin
+        ap_phi_mux_ctx_softmax_compute_done_3_phi_fu_1237_p56 = and_ln68_13_fu_2496_p2;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd7) | (select_ln50_1_fu_1928_p3 == 4'd8) | (select_ln50_1_fu_1928_p3 == 4'd13) | (select_ln50_1_fu_1928_p3 == 4'd3) | (select_ln50_1_fu_1928_p3 == 4'd4) | (select_ln50_1_fu_1928_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd0) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd0) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd0) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd0) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd1) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((or_ln168_fu_2258_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((or_ln158_fu_2279_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 
+    == 1'd1) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((or_ln148_fu_2300_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd1) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((or_ln138_fu_2321_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd1) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (or_ln91_fu_2384_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd0) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd1) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (or_ln102_fu_2363_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd0) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd1) 
+    & (or_ln118_fu_2342_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (or_ln118_fu_2342_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd0) & (or_ln118_fu_2342_p2 == 1'd1)))) begin
+        ap_phi_mux_ctx_softmax_compute_done_3_phi_fu_1237_p56 = ctx_softmax_compute_done_2_fu_2132_p2;
     end else begin
-        ap_phi_mux_ctx_softmax_compute_done_3_phi_fu_1235_p56 = 'bx;
+        ap_phi_mux_ctx_softmax_compute_done_3_phi_fu_1237_p56 = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd1) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11))) begin
-        ap_phi_mux_ctx_softmax_started_1_phi_fu_799_p56 = 1'd0;
-    end else if (((or_ln158_fu_2277_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd11))) begin
-        ap_phi_mux_ctx_softmax_started_1_phi_fu_799_p56 = 1'd1;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd0) | ((select_ln50_1_fu_1926_p3 == 4'd14) | (select_ln50_1_fu_1926_p3 == 4'd15)))) begin
-        ap_phi_mux_ctx_softmax_started_1_phi_fu_799_p56 = and_ln68_6_fu_2445_p2;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd7) | (select_ln50_1_fu_1926_p3 == 4'd8) | (select_ln50_1_fu_1926_p3 == 4'd13) | (select_ln50_1_fu_1926_p3 == 4'd3) | (select_ln50_1_fu_1926_p3 == 4'd4) | (select_ln50_1_fu_1926_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd0) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd0) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd0) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd0) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd1) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((or_ln168_fu_2256_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd1) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 
-    == 4'd10)) | ((or_ln148_fu_2298_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd1) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((or_ln138_fu_2319_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd1) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (or_ln91_fu_2382_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd0) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd1) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (or_ln102_fu_2361_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd0) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd1) & (or_ln118_fu_2340_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) 
-    & (or_ln118_fu_2340_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd0) & (or_ln118_fu_2340_p2 == 1'd1)))) begin
-        ap_phi_mux_ctx_softmax_started_1_phi_fu_799_p56 = and_ln50_6_fu_1788_p2;
+    if (((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd1) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11))) begin
+        ap_phi_mux_ctx_softmax_started_1_phi_fu_801_p56 = 1'd0;
+    end else if (((or_ln158_fu_2279_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd11))) begin
+        ap_phi_mux_ctx_softmax_started_1_phi_fu_801_p56 = 1'd1;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd0) | ((select_ln50_1_fu_1928_p3 == 4'd14) | (select_ln50_1_fu_1928_p3 == 4'd15)))) begin
+        ap_phi_mux_ctx_softmax_started_1_phi_fu_801_p56 = and_ln68_6_fu_2447_p2;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd7) | (select_ln50_1_fu_1928_p3 == 4'd8) | (select_ln50_1_fu_1928_p3 == 4'd13) | (select_ln50_1_fu_1928_p3 == 4'd3) | (select_ln50_1_fu_1928_p3 == 4'd4) | (select_ln50_1_fu_1928_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd0) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd0) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd0) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd0) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd1) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((or_ln168_fu_2258_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd1) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 
+    == 4'd10)) | ((or_ln148_fu_2300_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd1) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((or_ln138_fu_2321_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd1) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (or_ln91_fu_2384_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd0) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd1) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (or_ln102_fu_2363_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd0) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd1) & (or_ln118_fu_2342_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) 
+    & (or_ln118_fu_2342_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd0) & (or_ln118_fu_2342_p2 == 1'd1)))) begin
+        ap_phi_mux_ctx_softmax_started_1_phi_fu_801_p56 = and_ln50_6_fu_1790_p2;
     end else begin
-        ap_phi_mux_ctx_softmax_started_1_phi_fu_799_p56 = 'bx;
+        ap_phi_mux_ctx_softmax_started_1_phi_fu_801_p56 = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd1) & (or_ln118_fu_2340_p2 == 1'd1))) begin
-        ap_phi_mux_ctx_v_compute_done_3_phi_fu_1049_p56 = 1'd1;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd0) | ((select_ln50_1_fu_1926_p3 == 4'd14) | (select_ln50_1_fu_1926_p3 == 4'd15)))) begin
-        ap_phi_mux_ctx_v_compute_done_3_phi_fu_1049_p56 = and_ln68_10_fu_2473_p2;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd7) | (select_ln50_1_fu_1926_p3 == 4'd8) | (select_ln50_1_fu_1926_p3 == 4'd13) | (select_ln50_1_fu_1926_p3 == 4'd3) | (select_ln50_1_fu_1926_p3 == 4'd4) | (select_ln50_1_fu_1926_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd0) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd0) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd0) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd0) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd1) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((or_ln168_fu_2256_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd1) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 
-    4'd11)) | ((or_ln158_fu_2277_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd1) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((or_ln148_fu_2298_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd1) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((or_ln138_fu_2319_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd1) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (or_ln91_fu_2382_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd0) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd1) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (or_ln102_fu_2361_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 
-    == 1'd0) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (or_ln118_fu_2340_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd0) & (or_ln118_fu_2340_p2 == 1'd1)))) begin
-        ap_phi_mux_ctx_v_compute_done_3_phi_fu_1049_p56 = ctx_v_compute_done_2_fu_2016_p2;
+    if (((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd1) & (or_ln118_fu_2342_p2 == 1'd1))) begin
+        ap_phi_mux_ctx_v_compute_done_3_phi_fu_1051_p56 = 1'd1;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd0) | ((select_ln50_1_fu_1928_p3 == 4'd14) | (select_ln50_1_fu_1928_p3 == 4'd15)))) begin
+        ap_phi_mux_ctx_v_compute_done_3_phi_fu_1051_p56 = and_ln68_10_fu_2475_p2;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd7) | (select_ln50_1_fu_1928_p3 == 4'd8) | (select_ln50_1_fu_1928_p3 == 4'd13) | (select_ln50_1_fu_1928_p3 == 4'd3) | (select_ln50_1_fu_1928_p3 == 4'd4) | (select_ln50_1_fu_1928_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd0) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd0) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd0) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd0) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd1) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((or_ln168_fu_2258_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd1) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 
+    4'd11)) | ((or_ln158_fu_2279_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd1) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((or_ln148_fu_2300_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd1) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((or_ln138_fu_2321_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd1) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (or_ln91_fu_2384_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd0) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd1) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (or_ln102_fu_2363_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 
+    == 1'd0) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (or_ln118_fu_2342_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd0) & (or_ln118_fu_2342_p2 == 1'd1)))) begin
+        ap_phi_mux_ctx_v_compute_done_3_phi_fu_1051_p56 = ctx_v_compute_done_2_fu_2018_p2;
     end else begin
-        ap_phi_mux_ctx_v_compute_done_3_phi_fu_1049_p56 = 'bx;
+        ap_phi_mux_ctx_v_compute_done_3_phi_fu_1051_p56 = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd1) & (or_ln118_fu_2340_p2 == 1'd1))) begin
-        ap_phi_mux_ctx_v_started_1_phi_fu_610_p56 = 1'd0;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd5) & (or_ln118_fu_2340_p2 == 1'd0))) begin
-        ap_phi_mux_ctx_v_started_1_phi_fu_610_p56 = 1'd1;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd0) | ((select_ln50_1_fu_1926_p3 == 4'd14) | (select_ln50_1_fu_1926_p3 == 4'd15)))) begin
-        ap_phi_mux_ctx_v_started_1_phi_fu_610_p56 = and_ln68_3_fu_2424_p2;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd7) | (select_ln50_1_fu_1926_p3 == 4'd8) | (select_ln50_1_fu_1926_p3 == 4'd13) | (select_ln50_1_fu_1926_p3 == 4'd3) | (select_ln50_1_fu_1926_p3 == 4'd4) | (select_ln50_1_fu_1926_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd0) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd0) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd0) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd0) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd1) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((or_ln168_fu_2256_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd1) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 
-    4'd11)) | ((or_ln158_fu_2277_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd1) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((or_ln148_fu_2298_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd1) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((or_ln138_fu_2319_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd1) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (or_ln91_fu_2382_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd0) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd1) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (or_ln102_fu_2361_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 
-    == 1'd0) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd0) & (or_ln118_fu_2340_p2 == 1'd1)))) begin
-        ap_phi_mux_ctx_v_started_1_phi_fu_610_p56 = and_ln50_3_fu_1695_p2;
+    if (((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd1) & (or_ln118_fu_2342_p2 == 1'd1))) begin
+        ap_phi_mux_ctx_v_started_1_phi_fu_612_p56 = 1'd0;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd5) & (or_ln118_fu_2342_p2 == 1'd0))) begin
+        ap_phi_mux_ctx_v_started_1_phi_fu_612_p56 = 1'd1;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd0) | ((select_ln50_1_fu_1928_p3 == 4'd14) | (select_ln50_1_fu_1928_p3 == 4'd15)))) begin
+        ap_phi_mux_ctx_v_started_1_phi_fu_612_p56 = and_ln68_3_fu_2426_p2;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd7) | (select_ln50_1_fu_1928_p3 == 4'd8) | (select_ln50_1_fu_1928_p3 == 4'd13) | (select_ln50_1_fu_1928_p3 == 4'd3) | (select_ln50_1_fu_1928_p3 == 4'd4) | (select_ln50_1_fu_1928_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd0) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd0) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd0) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd0) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd1) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((or_ln168_fu_2258_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd1) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 
+    4'd11)) | ((or_ln158_fu_2279_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd1) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((or_ln148_fu_2300_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd1) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((or_ln138_fu_2321_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd1) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (or_ln91_fu_2384_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd0) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd1) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (or_ln102_fu_2363_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 
+    == 1'd0) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd0) & (or_ln118_fu_2342_p2 == 1'd1)))) begin
+        ap_phi_mux_ctx_v_started_1_phi_fu_612_p56 = and_ln50_3_fu_1697_p2;
     end else begin
-        ap_phi_mux_ctx_v_started_1_phi_fu_610_p56 = 'bx;
+        ap_phi_mux_ctx_v_started_1_phi_fu_612_p56 = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd1) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10))) begin
-        ap_phi_mux_ctx_val_scale_compute_done_3_phi_fu_1173_p56 = 1'd1;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd0) | ((select_ln50_1_fu_1926_p3 == 4'd14) | (select_ln50_1_fu_1926_p3 == 4'd15)))) begin
-        ap_phi_mux_ctx_val_scale_compute_done_3_phi_fu_1173_p56 = and_ln68_12_fu_2487_p2;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd7) | (select_ln50_1_fu_1926_p3 == 4'd8) | (select_ln50_1_fu_1926_p3 == 4'd13) | (select_ln50_1_fu_1926_p3 == 4'd3) | (select_ln50_1_fu_1926_p3 == 4'd4) | (select_ln50_1_fu_1926_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd0) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd0) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd0) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd0) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd1) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((or_ln168_fu_2256_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd1) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 
-    4'd11)) | ((or_ln158_fu_2277_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((or_ln148_fu_2298_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd1) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((or_ln138_fu_2319_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd1) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (or_ln91_fu_2382_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd0) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd1) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (or_ln102_fu_2361_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd0) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd1) 
-    & (or_ln118_fu_2340_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (or_ln118_fu_2340_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd0) & (or_ln118_fu_2340_p2 == 1'd1)))) begin
-        ap_phi_mux_ctx_val_scale_compute_done_3_phi_fu_1173_p56 = ctx_val_scale_compute_done_2_fu_2092_p2;
+    if (((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd1) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10))) begin
+        ap_phi_mux_ctx_val_scale_compute_done_3_phi_fu_1175_p56 = 1'd1;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd0) | ((select_ln50_1_fu_1928_p3 == 4'd14) | (select_ln50_1_fu_1928_p3 == 4'd15)))) begin
+        ap_phi_mux_ctx_val_scale_compute_done_3_phi_fu_1175_p56 = and_ln68_12_fu_2489_p2;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd7) | (select_ln50_1_fu_1928_p3 == 4'd8) | (select_ln50_1_fu_1928_p3 == 4'd13) | (select_ln50_1_fu_1928_p3 == 4'd3) | (select_ln50_1_fu_1928_p3 == 4'd4) | (select_ln50_1_fu_1928_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd0) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd0) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd0) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd0) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd1) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((or_ln168_fu_2258_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd1) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 
+    4'd11)) | ((or_ln158_fu_2279_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((or_ln148_fu_2300_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd1) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((or_ln138_fu_2321_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd1) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (or_ln91_fu_2384_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd0) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd1) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (or_ln102_fu_2363_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd0) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd1) 
+    & (or_ln118_fu_2342_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (or_ln118_fu_2342_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd0) & (or_ln118_fu_2342_p2 == 1'd1)))) begin
+        ap_phi_mux_ctx_val_scale_compute_done_3_phi_fu_1175_p56 = ctx_val_scale_compute_done_2_fu_2094_p2;
     end else begin
-        ap_phi_mux_ctx_val_scale_compute_done_3_phi_fu_1173_p56 = 'bx;
+        ap_phi_mux_ctx_val_scale_compute_done_3_phi_fu_1175_p56 = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd1) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10))) begin
-        ap_phi_mux_ctx_val_scale_started_1_phi_fu_736_p56 = 1'd0;
-    end else if (((or_ln148_fu_2298_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd10))) begin
-        ap_phi_mux_ctx_val_scale_started_1_phi_fu_736_p56 = 1'd1;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd0) | ((select_ln50_1_fu_1926_p3 == 4'd14) | (select_ln50_1_fu_1926_p3 == 4'd15)))) begin
-        ap_phi_mux_ctx_val_scale_started_1_phi_fu_736_p56 = and_ln68_5_fu_2438_p2;
-    end else if (((select_ln50_1_fu_1926_p3 == 4'd7) | (select_ln50_1_fu_1926_p3 == 4'd8) | (select_ln50_1_fu_1926_p3 == 4'd13) | (select_ln50_1_fu_1926_p3 == 4'd3) | (select_ln50_1_fu_1926_p3 == 4'd4) | (select_ln50_1_fu_1926_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd0) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd0) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd0) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd0) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd1) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((or_ln168_fu_2256_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd1) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 
-    4'd11)) | ((or_ln158_fu_2277_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd1) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((or_ln138_fu_2319_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd1) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (or_ln91_fu_2382_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd0) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd1) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (or_ln102_fu_2361_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd0) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd1) & (or_ln118_fu_2340_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) 
-    & (or_ln118_fu_2340_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd0) & (or_ln118_fu_2340_p2 == 1'd1)))) begin
-        ap_phi_mux_ctx_val_scale_started_1_phi_fu_736_p56 = and_ln50_5_fu_1757_p2;
+    if (((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd1) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10))) begin
+        ap_phi_mux_ctx_val_scale_started_1_phi_fu_738_p56 = 1'd0;
+    end else if (((or_ln148_fu_2300_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd10))) begin
+        ap_phi_mux_ctx_val_scale_started_1_phi_fu_738_p56 = 1'd1;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd0) | ((select_ln50_1_fu_1928_p3 == 4'd14) | (select_ln50_1_fu_1928_p3 == 4'd15)))) begin
+        ap_phi_mux_ctx_val_scale_started_1_phi_fu_738_p56 = and_ln68_5_fu_2440_p2;
+    end else if (((select_ln50_1_fu_1928_p3 == 4'd7) | (select_ln50_1_fu_1928_p3 == 4'd8) | (select_ln50_1_fu_1928_p3 == 4'd13) | (select_ln50_1_fu_1928_p3 == 4'd3) | (select_ln50_1_fu_1928_p3 == 4'd4) | (select_ln50_1_fu_1928_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd0) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd0) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd0) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd0) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd1) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((or_ln168_fu_2258_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd1) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 
+    4'd11)) | ((or_ln158_fu_2279_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd1) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((or_ln138_fu_2321_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd1) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (or_ln91_fu_2384_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd0) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd1) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (or_ln102_fu_2363_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd0) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd1) & (or_ln118_fu_2342_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) 
+    & (or_ln118_fu_2342_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd0) & (or_ln118_fu_2342_p2 == 1'd1)))) begin
+        ap_phi_mux_ctx_val_scale_started_1_phi_fu_738_p56 = and_ln50_5_fu_1759_p2;
     end else begin
-        ap_phi_mux_ctx_val_scale_started_1_phi_fu_736_p56 = 'bx;
+        ap_phi_mux_ctx_val_scale_started_1_phi_fu_738_p56 = 'bx;
     end
 end
 
 always @ (*) begin
-    if (((select_ln50_1_fu_1926_p3 == 4'd7) | (select_ln50_1_fu_1926_p3 == 4'd8) | (select_ln50_1_fu_1926_p3 == 4'd3) | (select_ln50_1_fu_1926_p3 == 4'd0) | (select_ln50_1_fu_1926_p3 == 4'd14) | (select_ln50_1_fu_1926_p3 == 4'd15) | (select_ln50_1_fu_1926_p3 == 4'd4) | (select_ln50_1_fu_1926_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd0) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd0) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2130_p2 == 1'd0) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd0) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2168_p2 == 1'd1) & (or_ln168_fu_2256_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((or_ln168_fu_2256_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2130_p2 
-    == 1'd1) & (or_ln158_fu_2277_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((or_ln158_fu_2277_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2092_p2 == 1'd1) & (or_ln148_fu_2298_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((or_ln148_fu_2298_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2054_p2 == 1'd1) & (or_ln138_fu_2319_p2 == 1'd1) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((or_ln138_fu_2319_p2 == 1'd0) & (select_ln50_1_fu_1926_p3 == 4'd9)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd1) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (or_ln91_fu_2382_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1940_p2 == 1'd0) & (or_ln91_fu_2382_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd1) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd2) & (or_ln102_fu_2361_p2 == 1'd0)) 
-    | ((select_ln50_1_fu_1926_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1978_p2 == 1'd0) & (or_ln102_fu_2361_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd1) & (or_ln118_fu_2340_p2 == 1'd1)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (or_ln118_fu_2340_p2 == 1'd0)) | ((select_ln50_1_fu_1926_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2016_p2 == 1'd0) & (or_ln118_fu_2340_p2 == 1'd1)))) begin
-        ap_phi_mux_phi_ln186_phi_fu_1508_p56 = 1'd0;
-    end else if ((select_ln50_1_fu_1926_p3 == 4'd13)) begin
-        ap_phi_mux_phi_ln186_phi_fu_1508_p56 = 1'd1;
+    if (((select_ln50_1_fu_1928_p3 == 4'd7) | (select_ln50_1_fu_1928_p3 == 4'd8) | (select_ln50_1_fu_1928_p3 == 4'd3) | (select_ln50_1_fu_1928_p3 == 4'd0) | (select_ln50_1_fu_1928_p3 == 4'd14) | (select_ln50_1_fu_1928_p3 == 4'd15) | (select_ln50_1_fu_1928_p3 == 4'd4) | (select_ln50_1_fu_1928_p3 == 4'd6) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd0) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd0) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_softmax_compute_done_2_fu_2132_p2 == 1'd0) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd0) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_att_value_compute_done_2_fu_2170_p2 == 1'd1) & (or_ln168_fu_2258_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((or_ln168_fu_2258_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd12)) | ((ctx_softmax_compute_done_2_fu_2132_p2 
+    == 1'd1) & (or_ln158_fu_2279_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((or_ln158_fu_2279_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd11)) | ((ctx_val_scale_compute_done_2_fu_2094_p2 == 1'd1) & (or_ln148_fu_2300_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((or_ln148_fu_2300_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd10)) | ((ctx_att_scores_compute_done_2_fu_2056_p2 == 1'd1) & (or_ln138_fu_2321_p2 == 1'd1) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((or_ln138_fu_2321_p2 == 1'd0) & (select_ln50_1_fu_1928_p3 == 4'd9)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd1) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (or_ln91_fu_2384_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd1) & (ctx_q_compute_done_2_fu_1942_p2 == 1'd0) & (or_ln91_fu_2384_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd1) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd2) & (or_ln102_fu_2363_p2 == 1'd0)) 
+    | ((select_ln50_1_fu_1928_p3 == 4'd2) & (ctx_k_compute_done_2_fu_1980_p2 == 1'd0) & (or_ln102_fu_2363_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd1) & (or_ln118_fu_2342_p2 == 1'd1)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (or_ln118_fu_2342_p2 == 1'd0)) | ((select_ln50_1_fu_1928_p3 == 4'd5) & (ctx_v_compute_done_2_fu_2018_p2 == 1'd0) & (or_ln118_fu_2342_p2 == 1'd1)))) begin
+        ap_phi_mux_phi_ln186_phi_fu_1510_p56 = 1'd0;
+    end else if ((select_ln50_1_fu_1928_p3 == 4'd13)) begin
+        ap_phi_mux_phi_ln186_phi_fu_1510_p56 = 1'd1;
     end else begin
-        ap_phi_mux_phi_ln186_phi_fu_1508_p56 = 'bx;
+        ap_phi_mux_phi_ln186_phi_fu_1510_p56 = 'bx;
     end
 end
 
-assign and_ln186_fu_2528_p2 = (icmp_ln50_fu_1594_p2 & ctx_start_head_read);
+assign and_ln186_fu_2530_p2 = (icmp_ln50_fu_1596_p2 & ctx_start_head_read);
 
-assign and_ln50_10_fu_1862_p2 = (icmp_ln50_fu_1594_p2 & ctx_v_compute_done_read);
+assign and_ln50_10_fu_1864_p2 = (icmp_ln50_fu_1596_p2 & ctx_v_compute_done_read);
 
-assign and_ln50_11_fu_1868_p2 = (icmp_ln50_fu_1594_p2 & ctx_att_scores_compute_done_read);
+assign and_ln50_11_fu_1870_p2 = (icmp_ln50_fu_1596_p2 & ctx_att_scores_compute_done_read);
 
-assign and_ln50_12_fu_1874_p2 = (icmp_ln50_fu_1594_p2 & ctx_val_scale_compute_done_read);
+assign and_ln50_12_fu_1876_p2 = (icmp_ln50_fu_1596_p2 & ctx_val_scale_compute_done_read);
 
-assign and_ln50_13_fu_1880_p2 = (icmp_ln50_fu_1594_p2 & ctx_softmax_compute_done_read);
+assign and_ln50_13_fu_1882_p2 = (icmp_ln50_fu_1596_p2 & ctx_softmax_compute_done_read);
 
-assign and_ln50_14_fu_1886_p2 = (icmp_ln50_fu_1594_p2 & ctx_att_value_compute_done_read);
+assign and_ln50_14_fu_1888_p2 = (icmp_ln50_fu_1596_p2 & ctx_att_value_compute_done_read);
 
-assign and_ln50_15_fu_1900_p2 = (icmp_ln50_fu_1594_p2 & ctx_compute_ready_read);
+assign and_ln50_15_fu_1902_p2 = (icmp_ln50_fu_1596_p2 & ctx_compute_ready_read);
 
-assign and_ln50_1_fu_1633_p2 = (icmp_ln50_fu_1594_p2 & ctx_q_started_read);
+assign and_ln50_1_fu_1635_p2 = (icmp_ln50_fu_1596_p2 & ctx_q_started_read);
 
-assign and_ln50_2_fu_1664_p2 = (icmp_ln50_fu_1594_p2 & ctx_k_started_read);
+assign and_ln50_2_fu_1666_p2 = (icmp_ln50_fu_1596_p2 & ctx_k_started_read);
 
-assign and_ln50_3_fu_1695_p2 = (icmp_ln50_fu_1594_p2 & ctx_v_started_read);
+assign and_ln50_3_fu_1697_p2 = (icmp_ln50_fu_1596_p2 & ctx_v_started_read);
 
-assign and_ln50_4_fu_1726_p2 = (icmp_ln50_fu_1594_p2 & ctx_att_scores_started_read);
+assign and_ln50_4_fu_1728_p2 = (icmp_ln50_fu_1596_p2 & ctx_att_scores_started_read);
 
-assign and_ln50_5_fu_1757_p2 = (icmp_ln50_fu_1594_p2 & ctx_val_scale_started_read);
+assign and_ln50_5_fu_1759_p2 = (icmp_ln50_fu_1596_p2 & ctx_val_scale_started_read);
 
-assign and_ln50_6_fu_1788_p2 = (icmp_ln50_fu_1594_p2 & ctx_softmax_started_read);
+assign and_ln50_6_fu_1790_p2 = (icmp_ln50_fu_1596_p2 & ctx_softmax_started_read);
 
-assign and_ln50_7_fu_1819_p2 = (icmp_ln50_fu_1594_p2 & ctx_att_value_started_read);
+assign and_ln50_7_fu_1821_p2 = (icmp_ln50_fu_1596_p2 & ctx_att_value_started_read);
 
-assign and_ln50_8_fu_1850_p2 = (icmp_ln50_fu_1594_p2 & ctx_q_compute_done_read);
+assign and_ln50_8_fu_1852_p2 = (icmp_ln50_fu_1596_p2 & ctx_q_compute_done_read);
 
-assign and_ln50_9_fu_1856_p2 = (icmp_ln50_fu_1594_p2 & ctx_k_compute_done_read);
+assign and_ln50_9_fu_1858_p2 = (icmp_ln50_fu_1596_p2 & ctx_k_compute_done_read);
 
-assign and_ln50_fu_1600_p2 = (icmp_ln50_fu_1594_p2 & ctx_compute_done_read);
+assign and_ln50_fu_1602_p2 = (icmp_ln50_fu_1596_p2 & ctx_compute_done_read);
 
-assign and_ln68_10_fu_2473_p2 = (xor_ln68_fu_2397_p2 & ctx_v_compute_done_2_fu_2016_p2);
+assign and_ln68_10_fu_2475_p2 = (xor_ln68_fu_2399_p2 & ctx_v_compute_done_2_fu_2018_p2);
 
-assign and_ln68_11_fu_2480_p2 = (xor_ln68_fu_2397_p2 & ctx_att_scores_compute_done_2_fu_2054_p2);
+assign and_ln68_11_fu_2482_p2 = (xor_ln68_fu_2399_p2 & ctx_att_scores_compute_done_2_fu_2056_p2);
 
-assign and_ln68_12_fu_2487_p2 = (xor_ln68_fu_2397_p2 & ctx_val_scale_compute_done_2_fu_2092_p2);
+assign and_ln68_12_fu_2489_p2 = (xor_ln68_fu_2399_p2 & ctx_val_scale_compute_done_2_fu_2094_p2);
 
-assign and_ln68_13_fu_2494_p2 = (xor_ln68_fu_2397_p2 & ctx_softmax_compute_done_2_fu_2130_p2);
+assign and_ln68_13_fu_2496_p2 = (xor_ln68_fu_2399_p2 & ctx_softmax_compute_done_2_fu_2132_p2);
 
-assign and_ln68_14_fu_2501_p2 = (xor_ln68_fu_2397_p2 & ctx_att_value_compute_done_2_fu_2168_p2);
+assign and_ln68_14_fu_2503_p2 = (xor_ln68_fu_2399_p2 & ctx_att_value_compute_done_2_fu_2170_p2);
 
-assign and_ln68_15_fu_2508_p2 = (xor_ln68_fu_2397_p2 & and_ln50_15_fu_1900_p2);
+assign and_ln68_15_fu_2510_p2 = (xor_ln68_fu_2399_p2 & and_ln50_15_fu_1902_p2);
 
-assign and_ln68_1_fu_2410_p2 = (xor_ln68_fu_2397_p2 & and_ln50_1_fu_1633_p2);
+assign and_ln68_1_fu_2412_p2 = (xor_ln68_fu_2399_p2 & and_ln50_1_fu_1635_p2);
 
-assign and_ln68_2_fu_2417_p2 = (xor_ln68_fu_2397_p2 & and_ln50_2_fu_1664_p2);
+assign and_ln68_2_fu_2419_p2 = (xor_ln68_fu_2399_p2 & and_ln50_2_fu_1666_p2);
 
-assign and_ln68_3_fu_2424_p2 = (xor_ln68_fu_2397_p2 & and_ln50_3_fu_1695_p2);
+assign and_ln68_3_fu_2426_p2 = (xor_ln68_fu_2399_p2 & and_ln50_3_fu_1697_p2);
 
-assign and_ln68_4_fu_2431_p2 = (xor_ln68_fu_2397_p2 & and_ln50_4_fu_1726_p2);
+assign and_ln68_4_fu_2433_p2 = (xor_ln68_fu_2399_p2 & and_ln50_4_fu_1728_p2);
 
-assign and_ln68_5_fu_2438_p2 = (xor_ln68_fu_2397_p2 & and_ln50_5_fu_1757_p2);
+assign and_ln68_5_fu_2440_p2 = (xor_ln68_fu_2399_p2 & and_ln50_5_fu_1759_p2);
 
-assign and_ln68_6_fu_2445_p2 = (xor_ln68_fu_2397_p2 & and_ln50_6_fu_1788_p2);
+assign and_ln68_6_fu_2447_p2 = (xor_ln68_fu_2399_p2 & and_ln50_6_fu_1790_p2);
 
-assign and_ln68_7_fu_2452_p2 = (xor_ln68_fu_2397_p2 & and_ln50_7_fu_1819_p2);
+assign and_ln68_7_fu_2454_p2 = (xor_ln68_fu_2399_p2 & and_ln50_7_fu_1821_p2);
 
-assign and_ln68_8_fu_2459_p2 = (xor_ln68_fu_2397_p2 & ctx_q_compute_done_2_fu_1940_p2);
+assign and_ln68_8_fu_2461_p2 = (xor_ln68_fu_2399_p2 & ctx_q_compute_done_2_fu_1942_p2);
 
-assign and_ln68_9_fu_2466_p2 = (xor_ln68_fu_2397_p2 & ctx_k_compute_done_2_fu_1978_p2);
+assign and_ln68_9_fu_2468_p2 = (xor_ln68_fu_2399_p2 & ctx_k_compute_done_2_fu_1980_p2);
 
-assign and_ln68_fu_2403_p2 = (xor_ln68_fu_2397_p2 & and_ln50_fu_1600_p2);
+assign and_ln68_fu_2405_p2 = (xor_ln68_fu_2399_p2 & and_ln50_fu_1602_p2);
 
 assign ap_ready = 1'b1;
 
-assign ctx_att_scores_compute_done_2_fu_2054_p2 = (or_ln59_fu_2048_p2 | and_ln50_11_fu_1868_p2);
+assign ctx_att_scores_compute_done_2_fu_2056_p2 = (or_ln59_fu_2050_p2 | and_ln50_11_fu_1870_p2);
 
-assign ctx_att_value_compute_done_2_fu_2168_p2 = (or_ln62_fu_2162_p2 | and_ln50_14_fu_1886_p2);
+assign ctx_att_value_compute_done_2_fu_2170_p2 = (or_ln62_fu_2164_p2 | and_ln50_14_fu_1888_p2);
 
-assign ctx_k_compute_done_2_fu_1978_p2 = (or_ln57_fu_1972_p2 | and_ln50_9_fu_1856_p2);
+assign ctx_k_compute_done_2_fu_1980_p2 = (or_ln57_fu_1974_p2 | and_ln50_9_fu_1858_p2);
 
-assign ctx_q_compute_done_2_fu_1940_p2 = (or_ln56_fu_1934_p2 | and_ln50_8_fu_1850_p2);
+assign ctx_q_compute_done_2_fu_1942_p2 = (or_ln56_fu_1936_p2 | and_ln50_8_fu_1852_p2);
 
-assign ctx_softmax_compute_done_2_fu_2130_p2 = (or_ln61_fu_2124_p2 | and_ln50_13_fu_1880_p2);
+assign ctx_softmax_compute_done_2_fu_2132_p2 = (or_ln61_fu_2126_p2 | and_ln50_13_fu_1882_p2);
 
-assign ctx_v_compute_done_2_fu_2016_p2 = (or_ln58_fu_2010_p2 | and_ln50_10_fu_1862_p2);
+assign ctx_v_compute_done_2_fu_2018_p2 = (or_ln58_fu_2012_p2 | and_ln50_10_fu_1864_p2);
 
-assign ctx_val_scale_compute_done_2_fu_2092_p2 = (or_ln60_fu_2086_p2 | and_ln50_12_fu_1874_p2);
+assign ctx_val_scale_compute_done_2_fu_2094_p2 = (or_ln60_fu_2088_p2 | and_ln50_12_fu_1876_p2);
 
-assign or_ln102_fu_2361_p2 = (xor_ln102_fu_2355_p2 | and_ln50_2_fu_1664_p2);
+assign or_ln102_fu_2363_p2 = (xor_ln102_fu_2357_p2 | and_ln50_2_fu_1666_p2);
 
-assign or_ln118_fu_2340_p2 = (xor_ln118_fu_2334_p2 | and_ln50_3_fu_1695_p2);
+assign or_ln118_fu_2342_p2 = (xor_ln118_fu_2336_p2 | and_ln50_3_fu_1697_p2);
 
-assign or_ln138_fu_2319_p2 = (xor_ln138_fu_2313_p2 | and_ln50_4_fu_1726_p2);
+assign or_ln138_fu_2321_p2 = (xor_ln138_fu_2315_p2 | and_ln50_4_fu_1728_p2);
 
-assign or_ln148_fu_2298_p2 = (xor_ln148_fu_2292_p2 | and_ln50_5_fu_1757_p2);
+assign or_ln148_fu_2300_p2 = (xor_ln148_fu_2294_p2 | and_ln50_5_fu_1759_p2);
 
-assign or_ln158_fu_2277_p2 = (xor_ln158_fu_2271_p2 | and_ln50_6_fu_1788_p2);
+assign or_ln158_fu_2279_p2 = (xor_ln158_fu_2273_p2 | and_ln50_6_fu_1790_p2);
 
-assign or_ln168_fu_2256_p2 = (xor_ln168_fu_2250_p2 | and_ln50_7_fu_1819_p2);
+assign or_ln168_fu_2258_p2 = (xor_ln168_fu_2252_p2 | and_ln50_7_fu_1821_p2);
 
-assign or_ln56_fu_1934_p2 = (ctx_q_started_read & and_ln50_fu_1600_p2);
+assign or_ln56_fu_1936_p2 = (ctx_q_started_read & and_ln50_fu_1602_p2);
 
-assign or_ln57_fu_1972_p2 = (ctx_k_started_read & and_ln50_fu_1600_p2);
+assign or_ln57_fu_1974_p2 = (ctx_k_started_read & and_ln50_fu_1602_p2);
 
-assign or_ln58_fu_2010_p2 = (ctx_v_started_read & and_ln50_fu_1600_p2);
+assign or_ln58_fu_2012_p2 = (ctx_v_started_read & and_ln50_fu_1602_p2);
 
-assign or_ln59_fu_2048_p2 = (ctx_att_scores_started_read & and_ln50_fu_1600_p2);
+assign or_ln59_fu_2050_p2 = (ctx_att_scores_started_read & and_ln50_fu_1602_p2);
 
-assign or_ln60_fu_2086_p2 = (ctx_val_scale_started_read & and_ln50_fu_1600_p2);
+assign or_ln60_fu_2088_p2 = (ctx_val_scale_started_read & and_ln50_fu_1602_p2);
 
-assign or_ln61_fu_2124_p2 = (ctx_softmax_started_read & and_ln50_fu_1600_p2);
+assign or_ln61_fu_2126_p2 = (ctx_softmax_started_read & and_ln50_fu_1602_p2);
 
-assign or_ln62_fu_2162_p2 = (ctx_att_value_started_read & and_ln50_fu_1600_p2);
+assign or_ln62_fu_2164_p2 = (ctx_att_value_started_read & and_ln50_fu_1602_p2);
 
-assign or_ln91_fu_2382_p2 = (xor_ln91_fu_2376_p2 | and_ln50_1_fu_1633_p2);
+assign or_ln91_fu_2384_p2 = (xor_ln91_fu_2378_p2 | and_ln50_1_fu_1635_p2);
 
-assign select_ln107_fu_2367_p3 = ((and_ln50_2_fu_1664_p2[0:0] == 1'b1) ? 4'd3 : 4'd2);
+assign select_ln107_fu_2369_p3 = ((and_ln50_2_fu_1666_p2[0:0] == 1'b1) ? 4'd3 : 4'd2);
 
-assign select_ln123_fu_2346_p3 = ((and_ln50_3_fu_1695_p2[0:0] == 1'b1) ? 4'd6 : 4'd5);
+assign select_ln123_fu_2348_p3 = ((and_ln50_3_fu_1697_p2[0:0] == 1'b1) ? 4'd6 : 4'd5);
 
-assign select_ln142_fu_2325_p3 = ((and_ln50_4_fu_1726_p2[0:0] == 1'b1) ? 4'd10 : 4'd9);
+assign select_ln142_fu_2327_p3 = ((and_ln50_4_fu_1728_p2[0:0] == 1'b1) ? 4'd10 : 4'd9);
 
-assign select_ln152_fu_2304_p3 = ((and_ln50_5_fu_1757_p2[0:0] == 1'b1) ? 4'd11 : 4'd10);
+assign select_ln152_fu_2306_p3 = ((and_ln50_5_fu_1759_p2[0:0] == 1'b1) ? 4'd11 : 4'd10);
 
-assign select_ln162_fu_2283_p3 = ((and_ln50_6_fu_1788_p2[0:0] == 1'b1) ? 4'd12 : 4'd11);
+assign select_ln162_fu_2285_p3 = ((and_ln50_6_fu_1790_p2[0:0] == 1'b1) ? 4'd12 : 4'd11);
 
-assign select_ln172_fu_2262_p3 = ((and_ln50_7_fu_1819_p2[0:0] == 1'b1) ? 4'd13 : 4'd12);
+assign select_ln172_fu_2264_p3 = ((and_ln50_7_fu_1821_p2[0:0] == 1'b1) ? 4'd13 : 4'd12);
 
-assign select_ln50_1_fu_1926_p3 = ((icmp_ln50_fu_1594_p2[0:0] == 1'b1) ? ctx_phase_read : 4'd0);
+assign select_ln50_1_fu_1928_p3 = ((icmp_ln50_fu_1596_p2[0:0] == 1'b1) ? ctx_phase_read : 4'd0);
 
-assign select_ln50_fu_1892_p3 = ((icmp_ln50_fu_1594_p2[0:0] == 1'b1) ? ctx_layer_stamp_read_5 : layer_idx);
+assign select_ln50_fu_1894_p3 = ((icmp_ln50_fu_1596_p2[0:0] == 1'b1) ? ctx_layer_stamp_read_5 : layer_idx);
 
-assign select_ln96_fu_2388_p3 = ((and_ln50_1_fu_1633_p2[0:0] == 1'b1) ? 4'd2 : 4'd1);
+assign select_ln96_fu_2390_p3 = ((and_ln50_1_fu_1635_p2[0:0] == 1'b1) ? 4'd2 : 4'd1);
 
-assign xor_ln102_fu_2355_p2 = (1'd1 ^ and_ln50_15_fu_1900_p2);
+assign xor_ln102_fu_2357_p2 = (1'd1 ^ and_ln50_15_fu_1902_p2);
 
-assign xor_ln118_fu_2334_p2 = (1'd1 ^ and_ln50_15_fu_1900_p2);
+assign xor_ln118_fu_2336_p2 = (1'd1 ^ and_ln50_15_fu_1902_p2);
 
-assign xor_ln138_fu_2313_p2 = (1'd1 ^ and_ln50_15_fu_1900_p2);
+assign xor_ln138_fu_2315_p2 = (1'd1 ^ and_ln50_15_fu_1902_p2);
 
-assign xor_ln148_fu_2292_p2 = (1'd1 ^ and_ln50_15_fu_1900_p2);
+assign xor_ln148_fu_2294_p2 = (1'd1 ^ and_ln50_15_fu_1902_p2);
 
-assign xor_ln158_fu_2271_p2 = (1'd1 ^ and_ln50_15_fu_1900_p2);
+assign xor_ln158_fu_2273_p2 = (1'd1 ^ and_ln50_15_fu_1902_p2);
 
-assign xor_ln168_fu_2250_p2 = (1'd1 ^ and_ln50_15_fu_1900_p2);
+assign xor_ln168_fu_2252_p2 = (1'd1 ^ and_ln50_15_fu_1902_p2);
 
-assign xor_ln68_fu_2397_p2 = (start_r ^ 1'd1);
+assign xor_ln68_fu_2399_p2 = (start_r ^ 1'd1);
 
-assign xor_ln91_fu_2376_p2 = (1'd1 ^ and_ln50_15_fu_1900_p2);
+assign xor_ln91_fu_2378_p2 = (1'd1 ^ and_ln50_15_fu_1902_p2);
 
-assign zext_ln40_1_fu_2524_p1 = ap_phi_mux_ctx_compute_op_write_assign_phi_fu_334_p56;
+assign zext_ln40_1_fu_2526_p1 = ap_phi_mux_ctx_compute_op_write_assign_phi_fu_336_p56;
 
-assign zext_ln40_fu_2520_p1 = ap_phi_mux_ctx_phase_1_phi_fu_1427_p56;
+assign zext_ln40_fu_2522_p1 = ap_phi_mux_ctx_phase_1_phi_fu_1429_p56;
 
-assign zext_ln68_fu_2515_p1 = start_r;
+assign zext_ln68_fu_2517_p1 = start_r;
 
-assign ap_return_0 = ap_phi_mux_phi_ln186_phi_fu_1508_p56;
+assign ap_return_0 = ap_phi_mux_phi_ln186_phi_fu_1510_p56;
 
-assign ap_return_1 = zext_ln40_fu_2520_p1;
+assign ap_return_1 = zext_ln40_fu_2522_p1;
 
-assign ap_return_10 = ap_phi_mux_ctx_att_scores_started_1_phi_fu_673_p56;
+assign ap_return_10 = ap_phi_mux_ctx_att_scores_started_1_phi_fu_675_p56;
 
-assign ap_return_11 = ap_phi_mux_ctx_val_scale_started_1_phi_fu_736_p56;
+assign ap_return_11 = ap_phi_mux_ctx_val_scale_started_1_phi_fu_738_p56;
 
-assign ap_return_12 = ap_phi_mux_ctx_softmax_started_1_phi_fu_799_p56;
+assign ap_return_12 = ap_phi_mux_ctx_softmax_started_1_phi_fu_801_p56;
 
-assign ap_return_13 = ap_phi_mux_ctx_att_value_started_1_phi_fu_862_p56;
+assign ap_return_13 = ap_phi_mux_ctx_att_value_started_1_phi_fu_864_p56;
 
-assign ap_return_14 = ap_phi_mux_ctx_q_compute_done_3_phi_fu_925_p56;
+assign ap_return_14 = ap_phi_mux_ctx_q_compute_done_3_phi_fu_927_p56;
 
-assign ap_return_15 = ap_phi_mux_ctx_k_compute_done_3_phi_fu_987_p56;
+assign ap_return_15 = ap_phi_mux_ctx_k_compute_done_3_phi_fu_989_p56;
 
-assign ap_return_16 = ap_phi_mux_ctx_v_compute_done_3_phi_fu_1049_p56;
+assign ap_return_16 = ap_phi_mux_ctx_v_compute_done_3_phi_fu_1051_p56;
 
-assign ap_return_17 = ap_phi_mux_ctx_att_scores_compute_done_3_phi_fu_1111_p56;
+assign ap_return_17 = ap_phi_mux_ctx_att_scores_compute_done_3_phi_fu_1113_p56;
 
-assign ap_return_18 = ap_phi_mux_ctx_val_scale_compute_done_3_phi_fu_1173_p56;
+assign ap_return_18 = ap_phi_mux_ctx_val_scale_compute_done_3_phi_fu_1175_p56;
 
-assign ap_return_19 = ap_phi_mux_ctx_softmax_compute_done_3_phi_fu_1235_p56;
+assign ap_return_19 = ap_phi_mux_ctx_softmax_compute_done_3_phi_fu_1237_p56;
 
-assign ap_return_2 = ap_phi_mux_ctx_compute_ready_1_phi_fu_1359_p56;
+assign ap_return_2 = ap_phi_mux_ctx_compute_ready_1_phi_fu_1361_p56;
 
-assign ap_return_20 = ap_phi_mux_ctx_att_value_compute_done_3_phi_fu_1297_p56;
+assign ap_return_20 = ap_phi_mux_ctx_att_value_compute_done_3_phi_fu_1299_p56;
 
-assign ap_return_21 = select_ln50_fu_1892_p3;
+assign ap_return_21 = select_ln50_fu_1894_p3;
 
-assign ap_return_3 = ap_phi_mux_ctx_compute_done_1_phi_fu_423_p56;
+assign ap_return_3 = ap_phi_mux_ctx_compute_done_1_phi_fu_425_p56;
 
-assign ap_return_4 = ap_phi_mux_ctx_compute_start_write_assign_phi_fu_245_p56;
+assign ap_return_4 = ap_phi_mux_ctx_compute_start_write_assign_phi_fu_247_p56;
 
-assign ap_return_5 = zext_ln40_1_fu_2524_p1;
+assign ap_return_5 = zext_ln40_1_fu_2526_p1;
 
-assign ap_return_6 = and_ln186_fu_2528_p2;
+assign ap_return_6 = and_ln186_fu_2530_p2;
 
-assign ap_return_7 = ap_phi_mux_ctx_q_started_1_phi_fu_484_p56;
+assign ap_return_7 = ap_phi_mux_ctx_q_started_1_phi_fu_486_p56;
 
-assign ap_return_8 = ap_phi_mux_ctx_k_started_1_phi_fu_547_p56;
+assign ap_return_8 = ap_phi_mux_ctx_k_started_1_phi_fu_549_p56;
 
-assign ap_return_9 = ap_phi_mux_ctx_v_started_1_phi_fu_610_p56;
+assign ap_return_9 = ap_phi_mux_ctx_v_started_1_phi_fu_612_p56;
 
-assign icmp_ln50_fu_1594_p2 = ((ctx_layer_stamp_read == layer_idx) ? 1'b1 : 1'b0);
+assign icmp_ln50_fu_1596_p2 = ((ctx_layer_stamp_read == layer_idx) ? 1'b1 : 1'b0);
 
 endmodule //scheduler_hls_run_single_head

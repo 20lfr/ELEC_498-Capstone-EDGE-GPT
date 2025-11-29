@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'run_single_head'
 ================================================================
-* Date:           Sat Nov 29 03:04:53 2025
+* Date:           Sat Nov 29 03:18:52 2025
 
 * Version:        2025.1 (Build 6135595 on May 21 2025)
 * Project:        scheduler_hls
@@ -92,7 +92,7 @@ ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%ctx_v_started_read_1 = read i1 @_s
 ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%ctx_k_started_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_k_started_read" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:45]   --->   Operation 16 'read' 'ctx_k_started_read_1' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%ctx_q_started_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_q_started_read" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:45]   --->   Operation 17 'read' 'ctx_q_started_read_1' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%ctx_start_head_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_start_head_read" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:45]   --->   Operation 18 'read' 'ctx_start_head_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%ctx_compute_op_read_1 = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %ctx_compute_op_read" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:45]   --->   Operation 19 'read' 'ctx_compute_op_read_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%ctx_compute_op_read_1 = read i5 @_ssdm_op_Read.ap_auto.i5, i5 %ctx_compute_op_read" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:45]   --->   Operation 19 'read' 'ctx_compute_op_read_1' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%ctx_compute_done_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_compute_done_read" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:45]   --->   Operation 20 'read' 'ctx_compute_done_read_1' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%ctx_compute_ready_read_1 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %ctx_compute_ready_read" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:45]   --->   Operation 21 'read' 'ctx_compute_ready_read_1' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%ctx_phase_read_1 = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %ctx_phase_read" [/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/Scheduler_FSM/src-hls/Head_Helpers/head_helpers.cpp:45]   --->   Operation 22 'read' 'ctx_phase_read_1' <Predicate = true> <Delay = 0.00>

@@ -220,7 +220,7 @@ ret:                                              ; preds = %copy.split, %entry
 }
 
 ; Function Attrs: argmemonly noinline norecurse willreturn
-define void @arraycpy_hls.p0a4struct.HeadCtx.11.12(i66* "orig.arg.no"="0" "unpacked"="0.0" %dst_0, i66* "orig.arg.no"="0" "unpacked"="0.1" %dst_1, i66* "orig.arg.no"="0" "unpacked"="0.2" %dst_2, i66* "orig.arg.no"="0" "unpacked"="0.3" %dst_3, [4 x %struct.HeadCtx]* readonly "orig.arg.no"="1" %src, i64 "orig.arg.no"="2" %num) #2 {
+define void @arraycpy_hls.p0a4struct.HeadCtx.9.10(i66* "orig.arg.no"="0" "unpacked"="0.0" %dst_0, i66* "orig.arg.no"="0" "unpacked"="0.1" %dst_1, i66* "orig.arg.no"="0" "unpacked"="0.2" %dst_2, i66* "orig.arg.no"="0" "unpacked"="0.3" %dst_3, [4 x %struct.HeadCtx]* readonly "orig.arg.no"="1" %src, i64 "orig.arg.no"="2" %num) #2 {
 entry:
   %0 = icmp eq [4 x %struct.HeadCtx]* %src, null
   %1 = icmp eq i66* %dst_0, null
@@ -1414,7 +1414,7 @@ ret:                                              ; preds = %copy.split, %entry
 }
 
 ; Function Attrs: argmemonly noinline norecurse willreturn
-define internal void @onebyonecpy_hls.p0a4struct.HeadCtx.10.13(i66* noalias align 512 "orig.arg.no"="0" "unpacked"="0.0" %dst_0, i66* noalias align 512 "orig.arg.no"="0" "unpacked"="0.1" %dst_1, i66* noalias align 512 "orig.arg.no"="0" "unpacked"="0.2" %dst_2, i66* noalias align 512 "orig.arg.no"="0" "unpacked"="0.3" %dst_3, [4 x %struct.HeadCtx]* noalias readonly "orig.arg.no"="1" %src) #1 {
+define internal void @onebyonecpy_hls.p0a4struct.HeadCtx.8.11(i66* noalias align 512 "orig.arg.no"="0" "unpacked"="0.0" %dst_0, i66* noalias align 512 "orig.arg.no"="0" "unpacked"="0.1" %dst_1, i66* noalias align 512 "orig.arg.no"="0" "unpacked"="0.2" %dst_2, i66* noalias align 512 "orig.arg.no"="0" "unpacked"="0.3" %dst_3, [4 x %struct.HeadCtx]* noalias readonly "orig.arg.no"="1" %src) #1 {
 entry:
   %0 = icmp eq i66* %dst_0, null
   %1 = icmp eq [4 x %struct.HeadCtx]* %src, null
@@ -1422,7 +1422,7 @@ entry:
   br i1 %2, label %ret, label %copy
 
 copy:                                             ; preds = %entry
-  call void @arraycpy_hls.p0a4struct.HeadCtx.11.12(i66* nonnull %dst_0, i66* %dst_1, i66* %dst_2, i66* %dst_3, [4 x %struct.HeadCtx]* nonnull %src, i64 4)
+  call void @arraycpy_hls.p0a4struct.HeadCtx.9.10(i66* nonnull %dst_0, i66* %dst_1, i66* %dst_2, i66* %dst_3, [4 x %struct.HeadCtx]* nonnull %src, i64 4)
   br label %ret
 
 ret:                                              ; preds = %copy, %entry
@@ -1441,7 +1441,7 @@ entry:
   call fastcc void @onebyonecpy_hls.p0i32(i32* align 512 %13, i32* %12)
   call fastcc void @onebyonecpy_hls.p0i32(i32* align 512 %15, i32* %14)
   call fastcc void @onebyonecpy_hls.p0i32(i32* align 512 %17, i32* %16)
-  call void @onebyonecpy_hls.p0a4struct.HeadCtx.10.13(i66* align 512 %_0, i66* align 512 %_1, i66* align 512 %_2, i66* align 512 %_3, [4 x %struct.HeadCtx]* %18)
+  call void @onebyonecpy_hls.p0a4struct.HeadCtx.8.11(i66* align 512 %_0, i66* align 512 %_1, i66* align 512 %_2, i66* align 512 %_3, [4 x %struct.HeadCtx]* %18)
   call fastcc void @onebyonecpy_hls.p0i1(i1* align 512 %20, i1* %19)
   call fastcc void @onebyonecpy_hls.p0i32(i32* align 512 %22, i32* %21)
   call fastcc void @onebyonecpy_hls.p0i1(i1* align 512 %24, i1* %23)
@@ -1454,7 +1454,7 @@ entry:
 }
 
 ; Function Attrs: argmemonly noinline norecurse willreturn
-define void @arraycpy_hls.p0a4struct.HeadCtx.19.20([4 x %struct.HeadCtx]* "orig.arg.no"="0" %dst, i66* readonly "orig.arg.no"="1" "unpacked"="1.0" %src_0, i66* readonly "orig.arg.no"="1" "unpacked"="1.1" %src_1, i66* readonly "orig.arg.no"="1" "unpacked"="1.2" %src_2, i66* readonly "orig.arg.no"="1" "unpacked"="1.3" %src_3, i64 "orig.arg.no"="2" %num) #2 {
+define void @arraycpy_hls.p0a4struct.HeadCtx.17.18([4 x %struct.HeadCtx]* "orig.arg.no"="0" %dst, i66* readonly "orig.arg.no"="1" "unpacked"="1.0" %src_0, i66* readonly "orig.arg.no"="1" "unpacked"="1.1" %src_1, i66* readonly "orig.arg.no"="1" "unpacked"="1.2" %src_2, i66* readonly "orig.arg.no"="1" "unpacked"="1.3" %src_3, i64 "orig.arg.no"="2" %num) #2 {
 entry:
   %0 = icmp eq i66* %src_0, null
   %1 = icmp eq [4 x %struct.HeadCtx]* %dst, null
@@ -2381,7 +2381,7 @@ ret:                                              ; preds = %copy.split, %entry
 }
 
 ; Function Attrs: argmemonly noinline norecurse willreturn
-define internal void @onebyonecpy_hls.p0a4struct.HeadCtx.18.21([4 x %struct.HeadCtx]* noalias "orig.arg.no"="0" %dst, i66* noalias readonly align 512 "orig.arg.no"="1" "unpacked"="1.0" %src_0, i66* noalias readonly align 512 "orig.arg.no"="1" "unpacked"="1.1" %src_1, i66* noalias readonly align 512 "orig.arg.no"="1" "unpacked"="1.2" %src_2, i66* noalias readonly align 512 "orig.arg.no"="1" "unpacked"="1.3" %src_3) #1 {
+define internal void @onebyonecpy_hls.p0a4struct.HeadCtx.16.19([4 x %struct.HeadCtx]* noalias "orig.arg.no"="0" %dst, i66* noalias readonly align 512 "orig.arg.no"="1" "unpacked"="1.0" %src_0, i66* noalias readonly align 512 "orig.arg.no"="1" "unpacked"="1.1" %src_1, i66* noalias readonly align 512 "orig.arg.no"="1" "unpacked"="1.2" %src_2, i66* noalias readonly align 512 "orig.arg.no"="1" "unpacked"="1.3" %src_3) #1 {
 entry:
   %0 = icmp eq [4 x %struct.HeadCtx]* %dst, null
   %1 = icmp eq i66* %src_0, null
@@ -2389,7 +2389,7 @@ entry:
   br i1 %2, label %ret, label %copy
 
 copy:                                             ; preds = %entry
-  call void @arraycpy_hls.p0a4struct.HeadCtx.19.20([4 x %struct.HeadCtx]* nonnull %dst, i66* nonnull %src_0, i66* %src_1, i66* %src_2, i66* %src_3, i64 4)
+  call void @arraycpy_hls.p0a4struct.HeadCtx.17.18([4 x %struct.HeadCtx]* nonnull %dst, i66* nonnull %src_0, i66* %src_1, i66* %src_2, i66* %src_3, i64 4)
   br label %ret
 
 ret:                                              ; preds = %copy, %entry
@@ -2408,7 +2408,7 @@ entry:
   call fastcc void @onebyonecpy_hls.p0i32(i32* %12, i32* align 512 %13)
   call fastcc void @onebyonecpy_hls.p0i32(i32* %14, i32* align 512 %15)
   call fastcc void @onebyonecpy_hls.p0i32(i32* %16, i32* align 512 %17)
-  call void @onebyonecpy_hls.p0a4struct.HeadCtx.18.21([4 x %struct.HeadCtx]* %18, i66* align 512 %_0, i66* align 512 %_1, i66* align 512 %_2, i66* align 512 %_3)
+  call void @onebyonecpy_hls.p0a4struct.HeadCtx.16.19([4 x %struct.HeadCtx]* %18, i66* align 512 %_0, i66* align 512 %_1, i66* align 512 %_2, i66* align 512 %_3)
   call fastcc void @onebyonecpy_hls.p0i1(i1* %19, i1* align 512 %20)
   call fastcc void @onebyonecpy_hls.p0i32(i32* %21, i32* align 512 %22)
   call fastcc void @onebyonecpy_hls.p0i1(i1* %23, i1* align 512 %24)
@@ -2438,7 +2438,7 @@ entry:
   call fastcc void @onebyonecpy_hls.p0i32(i32* %12, i32* align 512 %13)
   call fastcc void @onebyonecpy_hls.p0i32(i32* %14, i32* align 512 %15)
   call fastcc void @onebyonecpy_hls.p0i32(i32* %16, i32* align 512 %17)
-  call void @onebyonecpy_hls.p0a4struct.HeadCtx.18.21([4 x %struct.HeadCtx]* %18, i66* align 512 %_0, i66* align 512 %_1, i66* align 512 %_2, i66* align 512 %_3)
+  call void @onebyonecpy_hls.p0a4struct.HeadCtx.16.19([4 x %struct.HeadCtx]* %18, i66* align 512 %_0, i66* align 512 %_1, i66* align 512 %_2, i66* align 512 %_3)
   call fastcc void @onebyonecpy_hls.p0i1(i1* %19, i1* align 512 %20)
   call fastcc void @onebyonecpy_hls.p0i32(i32* %21, i32* align 512 %22)
   call fastcc void @onebyonecpy_hls.p0i1(i1* %23, i1* align 512 %24)

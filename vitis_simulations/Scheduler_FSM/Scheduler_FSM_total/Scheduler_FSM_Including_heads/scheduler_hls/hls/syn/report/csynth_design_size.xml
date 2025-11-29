@@ -5,41 +5,42 @@
             <column name="Compile/Link">, 1274, After all functions are compiled and linked into a single design</column>
             <column name="">, , </column>
             <column name="Unroll/Inline">, , After user unroll and inline pragmas are applied</column>
-            <column name="">(1) unroll, 3123, user unroll pragmas are applied</column>
-            <column name="">(2) simplification, 2905, simplification of applied user unroll pragmas</column>
-            <column name="">(3) inline, 2872, user inline pragmas are applied</column>
-            <column name="">(4) simplification, 2704, simplification of applied user inline pragmas</column>
+            <column name="">(1) unroll, 2157, user unroll pragmas are applied</column>
+            <column name="">(2) simplification, 1995, simplification of applied user unroll pragmas</column>
+            <column name="">(3) inline, 1968, user inline pragmas are applied</column>
+            <column name="">(4) simplification, 1844, simplification of applied user inline pragmas</column>
             <column name="">, , </column>
             <column name="Array/Struct">, , After user array partition and struct aggregate/disaggregate pragmas are applied</column>
-            <column name="">(1) array partition, 3883, user array partition pragmas are applied</column>
-            <column name="">(2) simplification, 2864, simplification of applied user array partition &amp; struct aggregate/disaggregate pragmas</column>
-            <column name="">(3) aggregate/disaggregate , 4628, user struct aggregate/disaggregate pragmas are applied</column>
-            <column name="">(4) array reshape, 3344, apply array reshape pragmas</column>
-            <column name="">(5) access patterns, 3680, array access pattern optmizations</column>
+            <column name="">(1) array partition, 2523, user array partition pragmas are applied</column>
+            <column name="">(2) simplification, 2107, simplification of applied user array partition &amp; struct aggregate/disaggregate pragmas</column>
+            <column name="">(3) aggregate/disaggregate , 3871, user struct aggregate/disaggregate pragmas are applied</column>
+            <column name="">(4) array reshape, 2719, apply array reshape pragmas</column>
+            <column name="">(5) access patterns, 2887, array access pattern optmizations</column>
             <column name="">, , </column>
             <column name="Performance">, , After transformations are applied to meet performance pragma targets</column>
-            <column name="">(1) loop simplification, 2623, loop and instruction simplification</column>
-            <column name="">(2) parallelization, 2619, loops are unrolled or pipelined to meet performance targets</column>
-            <column name="">(3) array partition, 2619, arrays are partitioned to meet performance targets</column>
-            <column name="">(4) simplification, 2619, simplification of design after performance transformations</column>
+            <column name="">(1) loop simplification, 1997, loop and instruction simplification</column>
+            <column name="">(2) parallelization, 1997, loops are unrolled or pipelined to meet performance targets</column>
+            <column name="">(3) array partition, 1997, arrays are partitioned to meet performance targets</column>
+            <column name="">(4) simplification, 1853, simplification of design after performance transformations</column>
             <column name="">, , </column>
             <column name="HW Transforms">, , After hardware transfomations</column>
-            <column name="">(1) lowering, 2683, initial conversion to HW specific instructions</column>
-            <column name="">(2) optimizations, 2445, high level synthesis optimizations</column>
+            <column name="">(1) lowering, 1871, initial conversion to HW specific instructions</column>
+            <column name="">(2) optimizations, 1754, high level synthesis optimizations</column>
         </table>
     </item>
     <item name="Instructions per Function for each Compilation Phase">
         <hiertable>
             <header size="7" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Array/Struct" col5="Performance" col6="HW Transforms"/>
             <rows>
-                <row id="0" col0="scheduler_hls" col1="Scheduler_FSM.cpp:10" col2="1274" col3="2704" col4="3680" col5="2619" col6="2445">
-                    <row id="4" col0="init_head_ctx" col1="head_helpers.cpp:5" col2="129" col2_disp=" 129 (3 calls)" col3="344" col3_disp=" 344 (8 calls)" col4="408" col4_disp=" 408 (8 calls)" col5="24" col5_disp="  24 (8 calls)" col6="24" col6_disp="  24 (8 calls)"/>
-                    <row id="1" col0="HeadCtx" col1="head_helpers.hpp:50" col2="43" col3="" col4="" col5="" col6=""/>
-                    <row id="2" col0="drive_group_head_phase" col1="head_helpers.cpp:191" col2="381" col3="925" col4="841" col5="841" col6="845">
-                        <row id="3" col0="run_single_head" col1="head_helpers.cpp:39" col2="347" col3="800" col3_disp=" 800 (4 calls)" col4="800" col4_disp=" 800 (4 calls)" col5="800" col5_disp=" 800 (4 calls)" col6="804" col6_disp=" 804 (4 calls)">
-                            <row id="4" col0="init_head_ctx" col1="head_helpers.cpp:5" col2="43" col3="" col4="" col5="" col6=""/>
+                <row id="0" col0="scheduler_hls" col1="Scheduler_FSM.cpp:10" col2="1274" col3="1844" col4="2887" col5="1853" col6="1754">
+                    <row id="1" col0="init_head_ctx" col1="head_helpers.cpp:5" col2="129" col2_disp=" 129 (3 calls)" col3="344" col3_disp=" 344 (8 calls)" col4="408" col4_disp=" 408 (8 calls)" col5="24" col5_disp="  24 (8 calls)" col6="24" col6_disp="  24 (8 calls)"/>
+                    <row id="4" col0="HeadCtx" col1="head_helpers.hpp:50" col2="43" col3="" col4="" col5="" col6=""/>
+                    <row id="3" col0="drive_group_head_phase" col1="head_helpers.cpp:191" col2="381" col3="" col4="" col5="" col6="">
+                        <row id="2" col0="run_single_head" col1="head_helpers.cpp:39" col2="347" col3="" col4="" col5="" col6="">
+                            <row id="1" col0="init_head_ctx" col1="head_helpers.cpp:5" col2="43" col3="" col4="" col5="" col6=""/>
                         </row>
                     </row>
+                    <row id="2" col0="run_single_head" col1="head_helpers.cpp:39" col2="" col3="400" col3_disp=" 400 (2 calls)" col4="400" col4_disp=" 400 (2 calls)" col5="400" col5_disp=" 400 (2 calls)" col6="402" col6_disp=" 402 (2 calls)"/>
                 </row>
             </rows>
             <notes/>
