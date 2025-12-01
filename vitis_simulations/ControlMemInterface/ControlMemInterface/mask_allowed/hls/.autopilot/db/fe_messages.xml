@@ -1,0 +1,18 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="directive:1:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="ControlMemInterface" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=ControlMemInterface" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp:129:0" msg_body="Inlining function 'init_mem_space(ControlMemSpace&amp;)' into 'ControlMemInterface(ControlMemSpace&amp;, ControlReg, unsigned int, unsigned int&amp;, bool, bool, bool, bool)'">
+        <args Callee="init_mem_space(ControlMemSpace&amp;)" Callee-DebugLoc="File /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp Line 81 Column 0" Caller="ControlMemInterface(ControlMemSpace&amp;, ControlReg, unsigned int, unsigned int&amp;, bool, bool, bool, bool)" Caller-DebugLoc="File /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp Line 129 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp:129:0" msg_body="Inlining function 'ctrl_read(ControlMemSpace const&amp;, ControlReg)' into 'ControlMemInterface(ControlMemSpace&amp;, ControlReg, unsigned int, unsigned int&amp;, bool, bool, bool, bool)'">
+        <args Callee="ctrl_read(ControlMemSpace const&amp;, ControlReg)" Callee-DebugLoc="File /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp Line 4 Column 0" Caller="ControlMemInterface(ControlMemSpace&amp;, ControlReg, unsigned int, unsigned int&amp;, bool, bool, bool, bool)" Caller-DebugLoc="File /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp Line 129 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp:129:0" msg_body="Inlining function 'ctrl_write(ControlMemSpace&amp;, ControlReg, unsigned int)' into 'ControlMemInterface(ControlMemSpace&amp;, ControlReg, unsigned int, unsigned int&amp;, bool, bool, bool, bool)'">
+        <args Callee="ctrl_write(ControlMemSpace&amp;, ControlReg, unsigned int)" Callee-DebugLoc="File /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp Line 43 Column 0" Caller="ControlMemInterface(ControlMemSpace&amp;, ControlReg, unsigned int, unsigned int&amp;, bool, bool, bool, bool)" Caller-DebugLoc="File /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp Line 129 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="/home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp:129:0" msg_body="Aggregating scalar variable 'mem' with compact=bit mode in 864-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="864" HwTyName="scalar" Name="mem"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

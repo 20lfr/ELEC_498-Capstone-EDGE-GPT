@@ -1,0 +1,14 @@
+{
+    "0": {
+        "name": "ControlMemInterface",
+        "file": "ControlMemInterface.cpp",
+        "fileloc": "117",
+        "instructions": "202",
+        "total_instructions": "202",
+        "calls": "",
+        "basicblocks": "64",
+        "memory_accesses": "0",
+        "control_depth": "0",
+        "def_use_depth": "1"
+    }
+}

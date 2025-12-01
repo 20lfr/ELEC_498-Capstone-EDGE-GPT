@@ -1,0 +1,176 @@
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                   Line: 132, Column: 19 }
+Function:        _Z19ControlMemInterfaceR15ControlMemSpace10ControlRegjRjbbbb
+Args:            
+  - Callee:          'init_mem_space(ControlMemSpace&)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                       Line: 81, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'ControlMemInterface(ControlMemSpace&, ControlReg, unsigned int, unsigned int&, bool, bool, bool, bool)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                       Line: 129, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                   Line: 138, Column: 20 }
+Function:        _Z19ControlMemInterfaceR15ControlMemSpace10ControlRegjRjbbbb
+Args:            
+  - Callee:          'ctrl_read(ControlMemSpace const&, ControlReg)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                       Line: 4, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'ControlMemInterface(ControlMemSpace&, ControlReg, unsigned int, unsigned int&, bool, bool, bool, bool)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                       Line: 129, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                   Line: 141, Column: 9 }
+Function:        _Z19ControlMemInterfaceR15ControlMemSpace10ControlRegjRjbbbb
+Args:            
+  - Callee:          'ctrl_write(ControlMemSpace&, ControlReg, unsigned int)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                       Line: 43, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'ControlMemInterface(ControlMemSpace&, ControlReg, unsigned int, unsigned int&, bool, bool, bool, bool)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                       Line: 129, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                   Line: 132, Column: 19 }
+Function:        _Z19ControlMemInterfaceR15ControlMemSpace10ControlRegjRjbbbb
+Args:            
+  - Callee:          'init_mem_space(ControlMemSpace&)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                       Line: 81, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'ControlMemInterface(ControlMemSpace&, ControlReg, unsigned int, unsigned int&, bool, bool, bool, bool)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                       Line: 129, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                   Line: 138, Column: 20 }
+Function:        _Z19ControlMemInterfaceR15ControlMemSpace10ControlRegjRjbbbb
+Args:            
+  - Callee:          'ctrl_read(ControlMemSpace const&, ControlReg)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                       Line: 4, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'ControlMemInterface(ControlMemSpace&, ControlReg, unsigned int, unsigned int&, bool, bool, bool, bool)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                       Line: 129, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                   Line: 141, Column: 9 }
+Function:        _Z19ControlMemInterfaceR15ControlMemSpace10ControlRegjRjbbbb
+Args:            
+  - Callee:          'ctrl_write(ControlMemSpace&, ControlReg, unsigned int)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                       Line: 43, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          'ControlMemInterface(ControlMemSpace&, ControlReg, unsigned int, unsigned int&, bool, bool, bool, bool)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                       Line: 129, Column: 0 }
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Missed
+Pass:            inline
+Name:            NeverInline
+Function:        apatb_ControlMemInterface_ir
+Args:            
+  - Callee:          'ControlMemInterface(ControlMemSpace&, ControlReg, unsigned int, unsigned int&, bool, bool, bool, bool)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                       Line: 129, Column: 0 }
+  - String:          ' not inlined into '
+  - Caller:          apatb_ControlMemInterface_ir
+  - String:          ' because it should never be inlined (cost=never)'
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                   Line: 129, Column: 0 }
+Function:        _Z19ControlMemInterfaceR15ControlMemSpace10ControlRegjRjbbbb
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'init_mem_space(ControlMemSpace&)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                       Line: 81, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'ControlMemInterface(ControlMemSpace&, ControlReg, unsigned int, unsigned int&, bool, bool, bool, bool)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                       Line: 129, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                   Line: 129, Column: 0 }
+Function:        _Z19ControlMemInterfaceR15ControlMemSpace10ControlRegjRjbbbb
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ctrl_read(ControlMemSpace const&, ControlReg)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                       Line: 4, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'ControlMemInterface(ControlMemSpace&, ControlReg, unsigned int, unsigned int&, bool, bool, bool, bool)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                       Line: 129, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                   Line: 129, Column: 0 }
+Function:        _Z19ControlMemInterfaceR15ControlMemSpace10ControlRegjRjbbbb
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'ctrl_write(ControlMemSpace&, ControlReg, unsigned int)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                       Line: 43, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'ControlMemInterface(ControlMemSpace&, ControlReg, unsigned int, unsigned int&, bool, bool, bool, bool)'
+    DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                       Line: 129, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: /home/luka/Scripting/ELEC_498-Capstone-LiteLM/HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp, 
+                   Line: 129, Column: 0 }
+Function:        _Z19ControlMemInterfaceR15ControlMemSpace10ControlRegjRjbbbb
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        scalar
+  - String:          ' variable '''
+  - Name:            mem
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '864'
+  - String:          '-bits'
+...

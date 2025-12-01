@@ -1,0 +1,109 @@
+
+
+================================================================
+== Synthesis Summary Report of 'ControlMemInterface'
+================================================================
++ General Information: 
+    * Date:           Mon Dec  1 17:47:32 2025
+    * Version:        2025.1 (Build 6135595 on May 21 2025)
+    * Project:        mask_allowed
+    * Solution:       hls (Vivado IP Flow Target)
+    * Product family: zynquplus
+    * Target device:  xck26-sfvc784-2LV-c
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +-----------------------+------+------+---------+-------+----------+---------+------+----------+------+----+---+-----------+-----+
+    |        Modules        | Issue|      |     Latency     | Iteration|         | Trip |          |      |    |   |           |     |
+    |        & Loops        | Type | Slack| (cycles)|  (ns) |  Latency | Interval| Count| Pipelined| BRAM | DSP| FF|    LUT    | URAM|
+    +-----------------------+------+------+---------+-------+----------+---------+------+----------+------+----+---+-----------+-----+
+    |+ ControlMemInterface  |     -|  5.32|        0|  0.000|         -|        1|     -|        no|     -|   -|  -|  1189 (1%)|    -|
+    +-----------------------+------+------+---------+-------+----------+---------+------+----------+------+----+---+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* Other Ports
++---------------+---------+-----------+----------+
+| Port          | Mode    | Direction | Bitwidth |
++---------------+---------+-----------+----------+
+| address       | ap_none | in        | 32       |
+| chip_enable   | ap_none | in        | 1        |
+| data_in       | ap_none | in        | 32       |
+| data_out      | ap_vld  | out       | 32       |
+| mem_i         | ap_ovld | in        | 864      |
+| mem_o         | ap_ovld | out       | 864      |
+| read_control  | ap_none | in        | 1        |
+| reset_n       | ap_none | in        | 1        |
+| write_control | ap_none | in        | 1        |
++---------------+---------+-----------+----------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------------------------------+
+| Interface | Type       | Ports                             |
++-----------+------------+-----------------------------------+
+| ap_rst    | reset      | ap_rst                            |
+| ap_ctrl   | ap_ctrl_hs | ap_done ap_idle ap_ready ap_start |
++-----------+------------+-----------------------------------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++---------------+-----------+------------------+
+| Argument      | Direction | Datatype         |
++---------------+-----------+------------------+
+| mem           | inout     | ControlMemSpace& |
+| address       | in        | ControlReg       |
+| data_in       | in        | unsigned int     |
+| data_out      | out       | unsigned int&    |
+| read_control  | in        | bool             |
+| write_control | in        | bool             |
+| chip_enable   | in        | bool             |
+| reset_n       | in        | bool             |
++---------------+-----------+------------------+
+
+* SW-to-HW Mapping
++---------------+-----------------+---------+
+| Argument      | HW Interface    | HW Type |
++---------------+-----------------+---------+
+| mem           | mem_i           | port    |
+| mem           | mem_o           | port    |
+| mem           | mem_o_ap_vld    | port    |
+| address       | address         | port    |
+| data_in       | data_in         | port    |
+| data_out      | data_out        | port    |
+| data_out      | data_out_ap_vld | port    |
+| read_control  | read_control    | port    |
+| write_control | write_control   | port    |
+| chip_enable   | chip_enable     | port    |
+| reset_n       | reset_n         | port    |
++---------------+-----------------+---------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++---------------------------+-----+--------+--------------+--------+----------+---------+
+| Name                      | DSP | Pragma | Variable     | Op     | Impl     | Latency |
++---------------------------+-----+--------+--------------+--------+----------+---------+
+| + ControlMemInterface     | 0   |        |              |        |          |         |
+|   xor_ln132_fu_1071_p2    |     |        | xor_ln132    | xor    | auto     | 0       |
+|   select_ln132_fu_1108_p3 |     |        | select_ln132 | select | auto_sel | 0       |
++---------------------------+-----+--------+--------------+--------+----------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
+  No bind storage info in design
+
+================================================================
+== Pragma Report
+================================================================
+  No pragmas found
+

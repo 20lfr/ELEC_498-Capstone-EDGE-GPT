@@ -1,0 +1,123 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'ControlMemInterface'" level="0">
+<item name = "Date">Mon Dec  1 17:47:32 2025
+</item>
+<item name = "Version">2025.1 (Build 6135595 on May 21 2025)</item>
+<item name = "Project">mask_allowed</item>
+<item name = "Solution">hls (Vivado IP Flow Target)</item>
+<item name = "Product family">zynquplus</item>
+<item name = "Target device">xck26-sfvc784-2LV-c</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00 ns, 1.977 ns, 2.70 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">0, 0, 0 ns, 0 ns, 1, 1, no</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, 0, 862, -</column>
+<column name="FIFO">-, -, -, -, -</column>
+<column name="Instance">-, -, -, -, -</column>
+<column name="Memory">-, -, -, -, -</column>
+<column name="Multiplexer">-, -, 0, 327, -</column>
+<column name="Register">-, -, -, -, -</column>
+<specialColumn name="Available">288, 1248, 234240, 117120, 64</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, 0, 1, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
+</table>
+</item>
+<item name = "DSP"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="select_ln132_fu_1108_p3">select, 0, 0, 860, 1, 864</column>
+<column name="xor_ln132_fu_1071_p2">xor, 0, 0, 2, 1, 2</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_phi_mux_data_out_flag_0_phi_fu_666_p116">14, 3, 1, 3</column>
+<column name="ap_phi_mux_data_out_new_0_phi_fu_845_p116">145, 29, 32, 928</column>
+<column name="ap_phi_mux_mem_flag_3_phi_fu_365_p116">14, 3, 1, 3</column>
+<column name="ap_phi_mux_mem_new_3_phi_fu_513_p116">145, 29, 864, 25056</column>
+<column name="mem_o">9, 2, 864, 1728</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_start">in, 1, ap_ctrl_hs, ControlMemInterface, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, ControlMemInterface, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, ControlMemInterface, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, ControlMemInterface, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, ControlMemInterface, return value</column>
+<column name="mem_i">in, 864, ap_ovld, mem, pointer</column>
+<column name="mem_o">out, 864, ap_ovld, mem, pointer</column>
+<column name="mem_o_ap_vld">out, 1, ap_ovld, mem, pointer</column>
+<column name="address">in, 32, ap_none, address, scalar</column>
+<column name="data_in">in, 32, ap_none, data_in, scalar</column>
+<column name="data_out">out, 32, ap_vld, data_out, pointer</column>
+<column name="data_out_ap_vld">out, 1, ap_vld, data_out, pointer</column>
+<column name="read_control">in, 1, ap_none, read_control, scalar</column>
+<column name="write_control">in, 1, ap_none, write_control, scalar</column>
+<column name="chip_enable">in, 1, ap_none, chip_enable, scalar</column>
+<column name="reset_n">in, 1, ap_none, reset_n, scalar</column>
+</table>
+</item>
+</section>
+</profile>

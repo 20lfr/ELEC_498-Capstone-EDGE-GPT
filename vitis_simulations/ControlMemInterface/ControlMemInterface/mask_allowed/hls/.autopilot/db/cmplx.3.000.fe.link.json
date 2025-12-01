@@ -1,0 +1,62 @@
+{
+  "0": {
+    "basicblocks": 10,
+    "calls": "3 2 1",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "ControlMemInterface.cpp",
+    "fileloc": 117,
+    "instructions": 15,
+    "memory_accesses": 0,
+    "name": "ControlMemInterface",
+    "stores": {
+      "T": 2
+    },
+    "total_instructions": 238
+  },
+  "1": {
+    "basicblocks": 30,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "ControlMemInterface.cpp",
+    "fileloc": 4,
+    "instructions": 85,
+    "loads": {
+      "L": 27
+    },
+    "memory_accesses": 0,
+    "name": "ctrl_read",
+    "total_instructions": 85
+  },
+  "2": {
+    "basicblocks": 29,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "ControlMemInterface.cpp",
+    "fileloc": 43,
+    "instructions": 83,
+    "memory_accesses": 0,
+    "name": "ctrl_write",
+    "stores": {
+      "L": 27
+    },
+    "total_instructions": 83
+  },
+  "3": {
+    "basicblocks": 1,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "ControlMemInterface.cpp",
+    "fileloc": 81,
+    "instructions": 55,
+    "memory_accesses": 0,
+    "name": "init_mem_space",
+    "stores": {
+      "L": 27
+    },
+    "total_instructions": 55
+  }
+}

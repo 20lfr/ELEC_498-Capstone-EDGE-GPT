@@ -1,0 +1,8 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch CLANG as the compiler.
+   Compiling ../../../../../../../HLS-Verilog/ControlMemInterface/ControlMemInterface_tb.cpp in debug mode
+   Compiling ../../../../../../../HLS-Verilog/ControlMemInterface/ControlMemInterface.cpp in debug mode
+   Generating csim.exe
+ControlMemInterface_tb: all tests passed
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************
