@@ -29,3 +29,5 @@ comp.run(operation="C_SIMULATION")
 
 comp.run(operation="SYNTHESIS")
 
+vitis.dispose()
+
