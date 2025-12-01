@@ -174,7 +174,7 @@ void scheduler_hls(
     start_head_group = false;
     for (int i = 0; i < NUM_HEADS; ++i){
 #pragma HLS UNROLL
-        init_head_ctx(head_ctx_ref[i], -1);
+        init_head_ctx(head_ctx_ref[i], -1, i);
     }
     
 
@@ -281,17 +281,80 @@ void scheduler_hls(
                        (ln1_compute_done      ? (1u << 9)  : 0);  // bit9: layer norm 1
 
   switch (st) {
-  case S_IDLE:
-    if (cntrl_start) {
-      st = S_STREAM_IN;
+    case S_IDLE:
+      if (cntrl_start) {
+        st = S_STREAM_IN;
 
+        // Attention
+        attn_started = false;
+        attn_done = false;
+        attn_compute_done = false;
+        attn_group_done = false;
+        group_idx = 0;
+        start_head_group = false;
+
+        // Head concat
+        concat_started = false;
+        concat_compute_done = false;
+
+        // Output projection
+        outproj_started = false;
+        outproj_compute_done = false;
+
+        // Residual + LN (1st)
+        resid0_started = false;
+        resid0_compute_done = false;
+        ln0_started = false;
+        ln0_compute_done = false;
+
+        // FFN
+        ffn_started = false;
+        ffn_w1_compute_done = false;
+        ffn_act_compute_done = false;
+        ffn_w2_compute_done = false;
+
+        // Residual + LN (2nd)
+        resid1_started = false;
+        resid1_compute_done = false;
+        ln1_started = false;
+        ln1_compute_done = false;
+
+        // Global progress/tiles
+        stream_started = false;
+        wo_tile = 0;
+        wo_dma_busy = false;
+        wo_comp_busy = false;
+        w1_tile = 0;
+        w1_dma_busy = false;
+        w1_comp_busy = false;
+        w2_tile = 0;
+        w2_dma_busy = false;
+        w2_comp_busy = false;
+      }
+      break;
+
+    case S_STREAM_IN:
+      axis_in_ready = 1;
+      // Wait for ingress token with tlast before starting layer processing
+      if (axis_in_valid && axis_in_last) {
+        st = S_LAYER_COUNT;
+      }
+      break;
+
+    case S_LAYER_COUNT:
+      // Reset per-layer guards
       // Attention
       attn_started = false;
-      attn_done = false;
       attn_compute_done = false;
+      attn_done = false;
       attn_group_done = false;
       group_idx = 0;
-      start_head_group = false;
+
+      start_head_group = true;
+      for (int i = 0; i < NUM_HEADS; ++i){
+  #pragma HLS UNROLL
+          init_head_ctx(head_ctx_ref[i], layer_idx, i);
+      }
 
       // Head concat
       concat_started = false;
@@ -308,6 +371,7 @@ void scheduler_hls(
       ln0_compute_done = false;
 
       // FFN
+      ffn_stage = FfnStage::W1;
       ffn_started = false;
       ffn_w1_compute_done = false;
       ffn_act_compute_done = false;
@@ -320,7 +384,6 @@ void scheduler_hls(
       ln1_compute_done = false;
 
       // Global progress/tiles
-      stream_started = false;
       wo_tile = 0;
       wo_dma_busy = false;
       wo_comp_busy = false;
@@ -330,324 +393,261 @@ void scheduler_hls(
       w2_tile = 0;
       w2_dma_busy = false;
       w2_comp_busy = false;
-    }
-    break;
+      st = S_ATTENTION_HEADS;
 
-  case S_STREAM_IN:
-    axis_in_ready = 1;
-    // Wait for ingress token with tlast before starting layer processing
-    if (axis_in_valid && axis_in_last) {
-      st = S_LAYER_COUNT;
-    }
-    break;
+      break;
 
-  case S_LAYER_COUNT:
-    // Reset per-layer guards
-    // Attention
-    attn_started = false;
-    attn_compute_done = false;
-    attn_done = false;
-    attn_group_done = false;
-    group_idx = 0;
+    case S_ATTENTION_HEADS: {
+      // Multiple, parallel attention
 
-    start_head_group = true;
-    for (int i = 0; i < NUM_HEADS; ++i){
-#pragma HLS UNROLL
-        init_head_ctx(head_ctx_ref[i], layer_idx);
-    }
+      const int group_base = group_idx * HEADS_PARALLEL;
+      HeadCtx head_group[HEADS_PARALLEL];
+  #pragma HLS ARRAY_PARTITION variable = head_group complete dim = 1
 
-    // Head concat
-    concat_started = false;
-    concat_compute_done = false;
-
-    // Output projection
-    outproj_started = false;
-    outproj_compute_done = false;
-
-    // Residual + LN (1st)
-    resid0_started = false;
-    resid0_compute_done = false;
-    ln0_started = false;
-    ln0_compute_done = false;
-
-    // FFN
-    ffn_stage = FfnStage::W1;
-    ffn_started = false;
-    ffn_w1_compute_done = false;
-    ffn_act_compute_done = false;
-    ffn_w2_compute_done = false;
-
-    // Residual + LN (2nd)
-    resid1_started = false;
-    resid1_compute_done = false;
-    ln1_started = false;
-    ln1_compute_done = false;
-
-    // Global progress/tiles
-    wo_tile = 0;
-    wo_dma_busy = false;
-    wo_comp_busy = false;
-    w1_tile = 0;
-    w1_dma_busy = false;
-    w1_comp_busy = false;
-    w2_tile = 0;
-    w2_dma_busy = false;
-    w2_comp_busy = false;
-    st = S_ATTENTION_HEADS;
-
-    break;
-
-  case S_ATTENTION_HEADS: {
-    // Multiple, parallel attention
-
-    const int group_base = group_idx * HEADS_PARALLEL;
-    HeadCtx head_group[HEADS_PARALLEL];
-#pragma HLS ARRAY_PARTITION variable = head_group complete dim = 1
-
-    // Slice the active group from the full context
-    for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
-#pragma HLS UNROLL
-      const int h = group_base + lane;
-      if (h < NUM_HEADS) {
-        head_group[lane] = head_ctx_ref[h];
-      } else {
-        init_head_ctx(head_group[lane], layer_idx);
-        head_group[lane].phase = HeadPhase::DONE;
-      }
-    }
-
-    // Drive current head group; compute handshake handled externally
-    attn_group_done =
-        drive_group_head_phase(head_group, group_base, layer_idx, start_head_group);
-
-    // Copy results back into the full context
-    for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
-#pragma HLS UNROLL
+      // Slice the active group from the full context
+      for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
+  #pragma HLS UNROLL
         const int h = group_base + lane;
         if (h < NUM_HEADS) {
-          head_ctx_ref[h] = head_group[lane];
+          head_group[lane] = head_ctx_ref[h];
+        } else {
+          init_head_ctx(head_group[lane], layer_idx, h);
+          head_group[lane].phase = HeadPhase::DONE;
+        }
+      }
+
+      // Drive current head group; compute handshake handled externally
+      attn_group_done =
+          drive_group_head_phase(head_group, group_base, layer_idx, start_head_group);
+
+      // Copy results back into the full context
+      for (int lane = 0; lane < HEADS_PARALLEL; ++lane) {
+  #pragma HLS UNROLL
+          const int h = group_base + lane;
+          if (h < NUM_HEADS) {
+            head_ctx_ref[h] = head_group[lane];
+          }
+        }
+        
+
+      // Kick off the first group as soon as we enter this state
+      if (!attn_started) {
+        attn_started = true;
+        start_head_group = true;
+      }
+
+      // When a group finishes, advance to the next
+      if (attn_started){
+        if (attn_group_done) {
+          group_idx++;
+          start_head_group = true;
+          if (group_idx >= NUM_HEAD_GROUPS) {
+            attn_started = false;
+            group_idx = 0;
+            start_head_group = false;
+            st = S_HEAD_CONCAT;
+          }
+        }else{
+          start_head_group = false;
         }
       }
       
-
-    // Kick off the first group as soon as we enter this state
-    if (!attn_started) {
-      attn_started = true;
-      start_head_group = true;
+      break;
     }
 
-    // When a group finishes, advance to the next
-    if (attn_started){
-      if (attn_group_done) {
-        group_idx++;
-        start_head_group = true;
-        if (group_idx >= NUM_HEAD_GROUPS) {
-          attn_started = false;
-          group_idx = 0;
-          start_head_group = false;
-          st = S_HEAD_CONCAT;
+    case S_HEAD_CONCAT:
+      if (!concat_started && compute_ready) {
+        concat_compute_done = false;
+        compute_start = 1;
+        compute_op = CMP_CONCAT;
+        concat_started = true;
+      } else if (concat_started && concat_compute_done) {
+        concat_started = false;
+        concat_compute_done = false;
+        st = S_OUT_PROJECTION;
+      }
+      break;
+
+    case S_OUT_PROJECTION:
+      if (wo_tile >= NUM_WO_TILES) {
+        resid0_started = false;
+        st = S_RES_ADD_1;
+        break;
+      }
+
+      if (!outproj_started && wl_ready) {
+        wl_start = 1;
+        wl_addr_sel = DMASEL_WO;
+        wl_head = -1;
+        wl_tile = wo_tile;
+        wo_dma_busy = true;
+        outproj_started = true;
+      } else if (outproj_started && wo_dma_busy && dma_done) {
+        wo_dma_busy = false;
+        wo_comp_busy = true;
+      } else if (outproj_started && wo_comp_busy && compute_ready) {
+        outproj_compute_done = false;
+        compute_start = 1;
+        compute_op = CMP_OUT_PROJ;
+        wo_comp_busy = false;
+      } else if (outproj_started && !wo_dma_busy && !wo_comp_busy &&
+                outproj_compute_done) {
+        outproj_started = false;
+        outproj_compute_done = false;
+        wo_tile++;
+      }
+      break;
+
+    case S_RES_ADD_1:
+      if (!resid0_started && compute_ready) {
+        resid0_compute_done = false;
+        compute_start = 1;
+        compute_op = CMP_RESID0;
+        resid0_started = true;
+      } else if (resid0_started && resid0_compute_done) {
+        resid0_started = false;
+        resid0_compute_done = false;
+        st = S_LAYER_NORM_1;
+      }
+      break;
+
+    case S_LAYER_NORM_1:
+      if (!ln0_started && compute_ready) {
+        ln0_compute_done = false;
+        compute_start = 1;
+        compute_op = CMP_LN0;
+        ln0_started = true;
+      } else if (ln0_started && ln0_compute_done) {
+        ln0_started = false;
+        ln0_compute_done = false;
+        st = S_FFN;
+      }
+      break;
+
+    case S_FFN:
+      // Serialize W1 -> ACT -> W2
+      switch (ffn_stage) {
+      case FfnStage::W1:
+        if (w1_tile >= NUM_W1_TILES) {
+          ffn_started = false;
+          ffn_stage = FfnStage::ACT;
+          break;
         }
-      }else{
-        start_head_group = false;
-      }
-    }
-    
-    break;
-  }
 
-  case S_HEAD_CONCAT:
-    if (!concat_started && compute_ready) {
-      concat_compute_done = false;
-      compute_start = 1;
-      compute_op = CMP_CONCAT;
-      concat_started = true;
-    } else if (concat_started && concat_compute_done) {
-      concat_started = false;
-      concat_compute_done = false;
-      st = S_OUT_PROJECTION;
-    }
-    break;
+        if (!ffn_started && wl_ready) {
+          wl_start = 1;
+          wl_addr_sel = DMASEL_W1;
+          wl_head = -1;
+          wl_tile = w1_tile;
+          w1_dma_busy = true;
+          ffn_started = true;
+        } else if (ffn_started && w1_dma_busy && dma_done) {
+          w1_dma_busy = false;
+          w1_comp_busy = true;
+        } else if (ffn_started && w1_comp_busy && compute_ready) {
+          ffn_w1_compute_done = false;
+          compute_start = 1;
+          compute_op = CMP_FFN_W1;
+          w1_comp_busy = false;
+        } else if (ffn_started && !w1_dma_busy && !w1_comp_busy &&
+                  ffn_w1_compute_done) {
+          ffn_started = false;
+          ffn_w1_compute_done = false;
+          w1_tile++;
+        }
+        break;
+      case FfnStage::ACT:
+        if (!ffn_started && compute_ready) {
+          ffn_act_compute_done = false;
+          compute_start = 1;
+          compute_op = CMP_FFN_ACT;
+          ffn_started = true;
+        } else if (ffn_started && ffn_act_compute_done) {
+          ffn_started = false;
+          ffn_act_compute_done = false;
+          ffn_stage = FfnStage::W2;
+        }
+        break;
+      case FfnStage::W2:
+        if (w2_tile >= NUM_W2_TILES) {
+          ffn_started = false;
+          ffn_stage = FfnStage::W1;
+          st = S_RES_ADD_2;
+          break;
+        }
 
-  case S_OUT_PROJECTION:
-    if (wo_tile >= NUM_WO_TILES) {
-      resid0_started = false;
-      st = S_RES_ADD_1;
-      break;
-    }
-
-    if (!outproj_started && wl_ready) {
-      wl_start = 1;
-      wl_addr_sel = DMASEL_WO;
-      wl_head = -1;
-      wl_tile = wo_tile;
-      wo_dma_busy = true;
-      outproj_started = true;
-    } else if (outproj_started && wo_dma_busy && dma_done) {
-      wo_dma_busy = false;
-      wo_comp_busy = true;
-    } else if (outproj_started && wo_comp_busy && compute_ready) {
-      outproj_compute_done = false;
-      compute_start = 1;
-      compute_op = CMP_OUT_PROJ;
-      wo_comp_busy = false;
-    } else if (outproj_started && !wo_dma_busy && !wo_comp_busy &&
-               outproj_compute_done) {
-      outproj_started = false;
-      outproj_compute_done = false;
-      wo_tile++;
-    }
-    break;
-
-  case S_RES_ADD_1:
-    if (!resid0_started && compute_ready) {
-      resid0_compute_done = false;
-      compute_start = 1;
-      compute_op = CMP_RESID0;
-      resid0_started = true;
-    } else if (resid0_started && resid0_compute_done) {
-      resid0_started = false;
-      resid0_compute_done = false;
-      st = S_LAYER_NORM_1;
-    }
-    break;
-
-  case S_LAYER_NORM_1:
-    if (!ln0_started && compute_ready) {
-      ln0_compute_done = false;
-      compute_start = 1;
-      compute_op = CMP_LN0;
-      ln0_started = true;
-    } else if (ln0_started && ln0_compute_done) {
-      ln0_started = false;
-      ln0_compute_done = false;
-      st = S_FFN;
-    }
-    break;
-
-  case S_FFN:
-    // Serialize W1 -> ACT -> W2
-    switch (ffn_stage) {
-    case FfnStage::W1:
-      if (w1_tile >= NUM_W1_TILES) {
-        ffn_started = false;
-        ffn_stage = FfnStage::ACT;
+        if (!ffn_started && wl_ready) {
+          wl_start = 1;
+          wl_addr_sel = DMASEL_W2;
+          wl_head = -1;
+          wl_tile = w2_tile;
+          w2_dma_busy = true;
+          ffn_started = true;
+        } else if (ffn_started && w2_dma_busy && dma_done) {
+          w2_dma_busy = false;
+          w2_comp_busy = true;
+        } else if (ffn_started && w2_comp_busy && compute_ready) {
+          ffn_w2_compute_done = false;
+          compute_start = 1;
+          compute_op = CMP_FFN_W2;
+          w2_comp_busy = false;
+        } else if (ffn_started && !w2_dma_busy && !w2_comp_busy &&
+                  ffn_w2_compute_done) {
+          ffn_started = false;
+          ffn_w2_compute_done = false;
+          w2_tile++;
+        }
         break;
       }
+      break;
 
-      if (!ffn_started && wl_ready) {
-        wl_start = 1;
-        wl_addr_sel = DMASEL_W1;
-        wl_head = -1;
-        wl_tile = w1_tile;
-        w1_dma_busy = true;
-        ffn_started = true;
-      } else if (ffn_started && w1_dma_busy && dma_done) {
-        w1_dma_busy = false;
-        w1_comp_busy = true;
-      } else if (ffn_started && w1_comp_busy && compute_ready) {
-        ffn_w1_compute_done = false;
+    case S_RES_ADD_2:
+      if (!resid1_started && compute_ready) {
+        resid1_compute_done = false;
         compute_start = 1;
-        compute_op = CMP_FFN_W1;
-        w1_comp_busy = false;
-      } else if (ffn_started && !w1_dma_busy && !w1_comp_busy &&
-                 ffn_w1_compute_done) {
-        ffn_started = false;
-        ffn_w1_compute_done = false;
-        w1_tile++;
+        compute_op = CMP_RESID1;
+        resid1_started = true;
+      } else if (resid1_started && resid1_compute_done) {
+        resid1_started = false;
+        resid1_compute_done = false;
+        st = S_LAYER_NORM_2;
       }
       break;
-    case FfnStage::ACT:
-      if (!ffn_started && compute_ready) {
-        ffn_act_compute_done = false;
+
+    case S_LAYER_NORM_2:
+      if (!ln1_started && compute_ready) {
+        ln1_compute_done = false;
         compute_start = 1;
-        compute_op = CMP_FFN_ACT;
-        ffn_started = true;
-      } else if (ffn_started && ffn_act_compute_done) {
-        ffn_started = false;
-        ffn_act_compute_done = false;
-        ffn_stage = FfnStage::W2;
+        compute_op = CMP_LN1;
+        ln1_started = true;
+      } else if (ln1_started && ln1_compute_done) {
+        ln1_started = false;
+        ln1_compute_done = false;
+        st = S_LOOP_CHECK;
       }
       break;
-    case FfnStage::W2:
-      if (w2_tile >= NUM_W2_TILES) {
-        ffn_started = false;
-        ffn_stage = FfnStage::W1;
-        st = S_RES_ADD_2;
-        break;
-      }
 
-      if (!ffn_started && wl_ready) {
-        wl_start = 1;
-        wl_addr_sel = DMASEL_W2;
-        wl_head = -1;
-        wl_tile = w2_tile;
-        w2_dma_busy = true;
-        ffn_started = true;
-      } else if (ffn_started && w2_dma_busy && dma_done) {
-        w2_dma_busy = false;
-        w2_comp_busy = true;
-      } else if (ffn_started && w2_comp_busy && compute_ready) {
-        ffn_w2_compute_done = false;
-        compute_start = 1;
-        compute_op = CMP_FFN_W2;
-        w2_comp_busy = false;
-      } else if (ffn_started && !w2_dma_busy && !w2_comp_busy &&
-                 ffn_w2_compute_done) {
-        ffn_started = false;
-        ffn_w2_compute_done = false;
-        w2_tile++;
+    case S_LOOP_CHECK:
+      if (layer_idx + 1 < NUM_LAYERS) {
+        layer_idx++;
+        st = S_LAYER_COUNT;
+      } else {
+        st = S_STREAM_OUT;
+        stream_started = false;
+      }
+      break;
+
+    case S_STREAM_OUT:
+      if (!stream_started && stream_ready) {
+        stream_start = 1;
+        stream_started = true;
+      } else if (stream_started && stream_done) {
+        stream_started = false;
+        done = 1;
+        st = S_IDLE;
       }
       break;
     }
-    break;
 
-  case S_RES_ADD_2:
-    if (!resid1_started && compute_ready) {
-      resid1_compute_done = false;
-      compute_start = 1;
-      compute_op = CMP_RESID1;
-      resid1_started = true;
-    } else if (resid1_started && resid1_compute_done) {
-      resid1_started = false;
-      resid1_compute_done = false;
-      st = S_LAYER_NORM_2;
-    }
-    break;
-
-  case S_LAYER_NORM_2:
-    if (!ln1_started && compute_ready) {
-      ln1_compute_done = false;
-      compute_start = 1;
-      compute_op = CMP_LN1;
-      ln1_started = true;
-    } else if (ln1_started && ln1_compute_done) {
-      ln1_started = false;
-      ln1_compute_done = false;
-      st = S_LOOP_CHECK;
-    }
-    break;
-
-  case S_LOOP_CHECK:
-    if (layer_idx + 1 < NUM_LAYERS) {
-      layer_idx++;
-      st = S_LAYER_COUNT;
-    } else {
-      st = S_STREAM_OUT;
-      stream_started = false;
-    }
-    break;
-
-  case S_STREAM_OUT:
-    if (!stream_started && stream_ready) {
-      stream_start = 1;
-      stream_started = true;
-    } else if (stream_started && stream_done) {
-      stream_started = false;
-      done = 1;
-      st = S_IDLE;
-    }
-    break;
-  }
-
-  STATE = st;
+    STATE = st;
 }

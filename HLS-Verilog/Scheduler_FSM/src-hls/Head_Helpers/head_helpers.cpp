@@ -2,8 +2,9 @@
 // Each head has its own "resource" (no shared arbitration).
 #include "head_helpers.hpp"
 
-void init_head_ctx(HeadCtx &ctx, int layer_idx) {
+void init_head_ctx(HeadCtx &ctx, int layer_idx, int head_idx) {
     ctx.layer_stamp   = layer_idx;
+    ctx.head_idx      = head_idx;
     ctx.phase         = HeadPhase::IDLE;
     ctx.compute_ready = false;
     ctx.compute_done  = false;
@@ -48,7 +49,7 @@ bool run_single_head(
     ctx.compute_op    = ComputeOp::CMP_NONE;
     // Initialize context if layer changes
     if (ctx.layer_stamp != layer_idx) {
-        init_head_ctx(ctx, layer_idx);
+        init_head_ctx(ctx, layer_idx, ctx.head_idx);
     }
 
     // Sticky capture of compute_done per phase so single-cycle pulses are retained
@@ -88,6 +89,7 @@ bool run_single_head(
             }
             break;
         case HeadPhase::Q: // Q
+            
             if (ctx.compute_ready && !ctx.q_started) {
                 ctx.compute_start = true;
                 ctx.compute_op    = ComputeOp::CMP_Q;

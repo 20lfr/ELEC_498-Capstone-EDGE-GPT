@@ -47,13 +47,31 @@ enum ComputeOp : uint8_t {
     CMP_LOGITS              // 19
 };
 
+enum DmaSel : uint8_t {
+    DMASEL_NONE = 0,    // 0
+    DMASEL_WQ,          // 1
+    DMASEL_WK,          // 2
+    DMASEL_WV,          // 3
+    DMASEL_CTX_K,       // 4
+    DMASEL_CTX_V,       // 5
+    DMASEL_K_WRITE,     // 6
+    DMASEL_V_WRITE,     // 7
+    DMASEL_WO,          // 8
+    DMASEL_W1,          // 9
+    DMASEL_W2,          // 10
+    DMASEL_WLOGIT       // 11
+};
+
 struct HeadCtx {
     int  layer_stamp   = -1;
+    int  head_idx      = -1;
     HeadPhase  phase   = HeadPhase::IDLE; // start idle, then Q/K/V/DONE
     bool compute_ready = false;
     bool compute_done  = false;
     bool compute_start = false;
     ComputeOp  compute_op    = ComputeOp::CMP_NONE;
+
+
 
     bool start_head = false;
 
@@ -75,7 +93,7 @@ struct HeadCtx {
     bool att_value_compute_done  = false;
 };
 
-void init_head_ctx(HeadCtx &ctx, int layer_idx);
+void init_head_ctx(HeadCtx &ctx, int layer_idx, int head_idx);
 
 // Single-head driver: issues compute_start when ready, advances on compute_done.
 // Returns true when the head reaches DONE and is not waiting on compute.
