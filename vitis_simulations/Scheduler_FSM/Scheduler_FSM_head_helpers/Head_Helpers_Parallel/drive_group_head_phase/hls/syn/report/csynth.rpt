@@ -1,0 +1,130 @@
+
+
+================================================================
+== Synthesis Summary Report of 'drive_group_head_phase'
+================================================================
++ General Information: 
+    * Date:           Fri Nov 28 21:53:09 2025
+    * Version:        2025.1 (Build 6135595 on May 21 2025)
+    * Project:        drive_group_head_phase
+    * Solution:       hls (Vivado IP Flow Target)
+    * Product family: zynquplus
+    * Target device:  xck26-sfvc784-2LV-c
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +--------------------------+------+------+---------+--------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+    |          Modules         | Issue|      |      Latency     | Iteration|         | Trip |          |      |    |           |           |     |
+    |          & Loops         | Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined| BRAM | DSP|     FF    |    LUT    | URAM|
+    +--------------------------+------+------+---------+--------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+    |+ drive_group_head_phase  |     -|  0.26|        2|  20.000|         -|        3|     -|        no|     -|   -|  104 (~0%)|  882 (~0%)|    -|
+    | + run_single_head        |     -|  0.26|        0|   0.000|         -|        0|     -|        no|     -|   -|          -|  803 (~0%)|    -|
+    +--------------------------+------+------+---------+--------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* Other Ports
++----------------+---------+-----------+----------+
+| Port           | Mode    | Direction | Bitwidth |
++----------------+---------+-----------+----------+
+| ap_return      |         | out       | 1        |
+| base_head_idx  | ap_none | in        | 32       |
+| head_ctx_ref_i | ap_ovld | in        | 66       |
+| head_ctx_ref_o | ap_ovld | out       | 66       |
+| layer_idx      | ap_none | in        | 32       |
+| start_r        | ap_none | in        | 1        |
++----------------+---------+-----------+----------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------------------------------+
+| Interface | Type       | Ports                             |
++-----------+------------+-----------------------------------+
+| ap_clk    | clock      | ap_clk                            |
+| ap_rst    | reset      | ap_rst                            |
+| ap_ctrl   | ap_ctrl_hs | ap_done ap_idle ap_ready ap_start |
++-----------+------------+-----------------------------------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++---------------+-----------+----------+
+| Argument      | Direction | Datatype |
++---------------+-----------+----------+
+| head_ctx_ref  | inout     | HeadCtx& |
+| base_head_idx | in        | int      |
+| layer_idx     | in        | int      |
+| start         | in        | bool     |
+| return        | out       | bool     |
++---------------+-----------+----------+
+
+* SW-to-HW Mapping
++---------------+-----------------------+---------+
+| Argument      | HW Interface          | HW Type |
++---------------+-----------------------+---------+
+| head_ctx_ref  | head_ctx_ref_i        | port    |
+| head_ctx_ref  | head_ctx_ref_o        | port    |
+| head_ctx_ref  | head_ctx_ref_o_ap_vld | port    |
+| base_head_idx | base_head_idx         | port    |
+| layer_idx     | layer_idx             | port    |
+| start         | start_r               | port    |
+| return        | ap_return             | port    |
++---------------+-----------------------+---------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++-----------------------------+-----+--------+----------------+-----------+------------------------+---------+
+| Name                        | DSP | Pragma | Variable       | Op        | Impl                   | Latency |
++-----------------------------+-----+--------+----------------+-----------+------------------------+---------+
+| + drive_group_head_phase    | 0   |        |                |           |                        |         |
+|   icmp_ln205_fu_109_p2      |     |        | icmp_ln205     | seteq     | auto                   | 0       |
+|   icmp_ln206_fu_115_p2      |     |        | icmp_ln206     | seteq     | auto                   | 0       |
+|   and_ln206_fu_121_p2       |     |        | and_ln206      | and       | auto                   | 0       |
+|  + run_single_head          | 0   |        |                |           |                        |         |
+|    icmp_ln50_fu_523_p2      |     |        | icmp_ln50      | setne     | auto                   | 0       |
+|    select_ln50_fu_533_p3    |     |        | select_ln50    | select    | auto_sel               | 0       |
+|    select_ln56_fu_581_p3    |     |        | select_ln56    | select    | auto_sel               | 0       |
+|    select_ln57_fu_621_p3    |     |        | select_ln57    | select    | auto_sel               | 0       |
+|    select_ln58_fu_661_p3    |     |        | select_ln58    | select    | auto_sel               | 0       |
+|    select_ln59_fu_701_p3    |     |        | select_ln59    | select    | auto_sel               | 0       |
+|    select_ln60_fu_741_p3    |     |        | select_ln60    | select    | auto_sel               | 0       |
+|    select_ln61_fu_779_p3    |     |        | select_ln61    | select    | auto_sel               | 0       |
+|    or_ln62_fu_787_p2        |     |        | or_ln62        | or        | auto                   | 0       |
+|    or_ln62_1_fu_793_p2      |     |        | or_ln62_1      | or        | auto                   | 0       |
+|    or_ln62_2_fu_799_p2      |     |        | or_ln62_2      | or        | auto                   | 0       |
+|    or_ln62_3_fu_805_p2      |     |        | or_ln62_3      | or        | auto                   | 0       |
+|    or_ln62_5_fu_811_p2      |     |        | or_ln62_5      | or        | auto                   | 0       |
+|    head_ctx_ref_1_fu_865_p6 |     |        | select_ln62    | select    | auto_sel               | 0       |
+|    and_ln62_fu_845_p2       |     |        | and_ln62       | and       | auto                   | 0       |
+|    xor_ln55_fu_851_p2       |     |        | xor_ln55       | xor       | auto                   | 0       |
+|    sparsemux_7_2_66_1_1_U1  |     |        | head_ctx_ref_1 | sparsemux | onehotencoding_realdef | 0       |
+|    sparsemux_7_2_66_1_1_U2  |     |        | tmp            | sparsemux | onehotencoding_realdef | 0       |
+|    icmp_ln186_fu_1666_p2    |     |        | icmp_ln186     | seteq     | auto                   | 0       |
++-----------------------------+-----+--------+----------------+-----------+------------------------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
+  No bind storage info in design
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------------+--------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+| Type            | Options                              | Location                                                                                                                                  |
++-----------------+--------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+| INLINE          | off                                  | ../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:45 in run_single_head                       |
+| ARRAY_PARTITION | variable=head_ctx_ref complete dim=1 | ../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:197 in drive_group_head_phase, head_ctx_ref |
+| UNROLL          |                                      | ../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/simple_head_helpers.cpp:202 in drive_group_head_phase               |
++-----------------+--------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+
+

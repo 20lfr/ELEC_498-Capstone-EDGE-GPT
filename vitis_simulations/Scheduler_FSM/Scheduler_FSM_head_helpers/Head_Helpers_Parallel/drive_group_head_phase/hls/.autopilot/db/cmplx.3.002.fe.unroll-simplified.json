@@ -1,0 +1,53 @@
+{
+  "0": {
+    "basicblocks": 3,
+    "calls": "1",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "simple_head_helpers.cpp",
+    "fileloc": 191,
+    "instructions": 14,
+    "loads": {
+      "T": 1
+    },
+    "memory_accesses": 0,
+    "name": "drive_group_head_phase",
+    "stores": {
+      "T": 1
+    },
+    "total_instructions": 299
+  },
+  "1": {
+    "basicblocks": 70,
+    "calls": "2",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "simple_head_helpers.cpp",
+    "fileloc": 39,
+    "instructions": 242,
+    "loads": {
+      "L": 38
+    },
+    "memory_accesses": 0,
+    "name": "run_single_head",
+    "stores": {
+      "L": 68
+    },
+    "total_instructions": 285
+  },
+  "2": {
+    "basicblocks": 1,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "simple_head_helpers.cpp",
+    "fileloc": 5,
+    "instructions": 43,
+    "memory_accesses": 0,
+    "name": "init_head_ctx",
+    "stores": {
+      "L": 21
+    },
+    "total_instructions": 43
+  }
+}

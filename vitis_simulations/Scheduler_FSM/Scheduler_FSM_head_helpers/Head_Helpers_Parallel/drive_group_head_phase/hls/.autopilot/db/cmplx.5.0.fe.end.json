@@ -1,0 +1,26 @@
+{
+    "0": {
+        "name": "drive_group_head_phase",
+        "file": "simple_head_helpers.cpp",
+        "fileloc": "191",
+        "instructions": "28",
+        "total_instructions": "247",
+        "calls": "1",
+        "basicblocks": "3",
+        "memory_accesses": "0",
+        "control_depth": "0",
+        "def_use_depth": "5"
+    },
+    "1": {
+        "name": "run_single_head",
+        "file": "\/home\/luka\/Scripting\/ELEC_498-Capstone-LiteLM\/HLS-Verilog\/Scheduler_FSM\/Experiments\/simple_head_helpers\/simple_head_helpers.cpp",
+        "fileloc": "41",
+        "instructions": "219",
+        "total_instructions": "219",
+        "calls": "",
+        "basicblocks": "52",
+        "memory_accesses": "0",
+        "control_depth": "0",
+        "def_use_depth": "27"
+    }
+}

@@ -59,7 +59,7 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="kv260_som"/>
-    <Option Name="WTXSimLaunchSim" Val="80"/>
+    <Option Name="WTXSimLaunchSim" Val="108"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -90,14 +90,21 @@
   <FileSets Version="1" Minor="32">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
       <Filter Type="Srcs"/>
-      <File Path="$PPRDIR/../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_run_single_head.v">
+      <File Path="$PPRDIR/../../../../HLS-Verilog/_Golden-runs/Scheduler_FSM/simple_head_helpers/Single-HEADED/Verilog/drive_group_head_phase_run_single_head.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase.v">
+      <File Path="$PPRDIR/../../../../HLS-Verilog/_Golden-runs/Scheduler_FSM/simple_head_helpers/Single-HEADED/Verilog/drive_group_head_phase_sparsemux_7_2_66_1_1.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../../../HLS-Verilog/_Golden-runs/Scheduler_FSM/simple_head_helpers/Single-HEADED/Verilog/drive_group_head_phase.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -124,10 +131,15 @@
     </FileSet>
     <FileSet Name="sim_parallel" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_parallel" RelGenDir="$PGENDIR/sim_parallel">
       <Filter Type="Srcs"/>
-      <File Path="$PPRDIR/../../../../HLS-Verilog/Scheduler_FSM/Experiments/simple_head_helpers/Verilog/drive_group_head_phase_tb.sv">
+      <File Path="$PPRDIR/../../../../HLS-Verilog/_Golden-runs/Scheduler_FSM/simple_head_helpers/Single-HEADED/Verilog/drive_group_head_phase_tb.sv">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/drive_group_head_phase_tb_behav.wcfg">
+        <FileInfo>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
@@ -144,6 +156,7 @@
         <Option Name="PamSignalDriverFile" Val="xil_bypass_driver"/>
         <Option Name="PamPseudoTop" Val="pseudo_tb"/>
         <Option Name="SrcSet" Val="sources_1"/>
+        <Option Name="XSimWcfgFile" Val="$PPRDIR/drive_group_head_phase_tb_behav.wcfg"/>
         <Option Name="CosimPdi" Val=""/>
         <Option Name="CosimPlatform" Val=""/>
         <Option Name="CosimElf" Val=""/>

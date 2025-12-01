@@ -1,0 +1,105 @@
+{
+  "0": {
+    "basicblocks": 216,
+    "calls": "2 2 2 2 4 1 1 5 2 2 2 2",
+    "control_depth": 0,
+    "def_use_depth": 11,
+    "file": "Scheduler_FSM.cpp",
+    "fileloc": 10,
+    "instructions": 1227,
+    "loads": {
+      "G": 105,
+      "L": 42,
+      "T": 42
+    },
+    "memory_accesses": 1,
+    "name": "scheduler_hls",
+    "stores": {
+      "G": 190,
+      "L": 44,
+      "T": 93
+    },
+    "total_instructions": 2157
+  },
+  "1": {
+    "basicblocks": 1,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 0,
+    "file": "head_helpers.cpp",
+    "fileloc": 5,
+    "instructions": 22,
+    "memory_accesses": 0,
+    "name": "init_head_ctx",
+    "stores": {
+      "L": 21
+    },
+    "total_instructions": 22
+  },
+  "2": {
+    "basicblocks": 1,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 1,
+    "file": "head_helpers.cpp",
+    "fileloc": 5,
+    "instructions": 43,
+    "memory_accesses": 0,
+    "name": "init_head_ctx",
+    "stores": {
+      "L": 21
+    },
+    "total_instructions": 43
+  },
+  "3": {
+    "basicblocks": 87,
+    "calls": "1",
+    "control_depth": 0,
+    "def_use_depth": 2,
+    "file": "head_helpers.cpp",
+    "fileloc": 39,
+    "instructions": 197,
+    "loads": {
+      "L": 39
+    },
+    "memory_accesses": 0,
+    "name": "run_single_head",
+    "stores": {
+      "L": 68
+    },
+    "total_instructions": 219
+  },
+  "4": {
+    "basicblocks": 1,
+    "calls": "",
+    "control_depth": 0,
+    "def_use_depth": 0,
+    "file": "head_helpers.hpp",
+    "fileloc": 50,
+    "instructions": 22,
+    "memory_accesses": 0,
+    "name": "HeadCtx",
+    "stores": {
+      "L": 21
+    },
+    "total_instructions": 22
+  },
+  "5": {
+    "basicblocks": 16,
+    "calls": "3 3",
+    "control_depth": 0,
+    "def_use_depth": 3,
+    "file": "head_helpers.cpp",
+    "fileloc": 191,
+    "instructions": 82,
+    "loads": {
+      "L": 4
+    },
+    "memory_accesses": 0,
+    "name": "drive_group_head_phase",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 520
+  }
+}
